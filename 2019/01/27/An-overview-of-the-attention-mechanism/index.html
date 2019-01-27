@@ -207,9 +207,9 @@
 
     <div class="post-content">
       
-        <p>With the development of recurrent networks like <strong>LSTM</strong> or <strong>GRU</strong>, more and more researchers have tried employee them onto Neural Machine Translation(<strong>NMT</strong>). However, the very first few people used an <strong>Encoder-Decoder</strong> like architecture, which can embeded the sequence inputs {x1, .., xn} to a fixed vector <strong>c</strong>, and use <strong>c</strong> and the given prerequisite <strong>y0</strong> to get the following outputs {y1, …, yt} in an autoregressive way.</p>
+        <p>With the development of recurrent networks like <strong>LSTM</strong> or <strong>GRU</strong>, more and more researchers have tried employee these architecture onto Neural Machine Translation(<strong>NMT</strong>). However, the very first few people used an <strong>Encoder-Decoder</strong> liked moel, which can embed sequence inputs {x1, .., xn} to a fixed vector <strong>c</strong>, and using <strong>c</strong> and the given prerequisite <strong>y0</strong> to predict the following outputs {y1, …, yt} in an autoregressive way.</p>
 <a id="more"></a>
-<p>This can cause trouble for the </p>
+<p>This can cause trouble for two reasons. First, we know that for the recurrent inputs, usually the more closer between the inputs vector and the outputs, the higher weights they can influence the fixed vector <strong>c</strong>, this apparently not reasonable. Another reason is occured by the shortcoming of recurrent networks, which can only “memorize” limited length inputs from behind, so this can incur disaster for long sentences translation. So Attention apppears.</p>
 
       
     </div>

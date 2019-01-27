@@ -29,7 +29,7 @@
 
 
 
-  <link rel="alternate" href="/default" title="Hexo">
+  <link rel="alternate" href="/default" title="Cry, Cry">
 
 
 
@@ -38,7 +38,7 @@
 
 
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="https://mazzzystar.github.io/">
 
 
 
@@ -57,16 +57,6 @@
 
   
 
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-98699464-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-98699464-1');
-</script>
 
 
   <script id="baidu_push">
@@ -96,12 +86,12 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
 </script>
 
-    <title> Hexo </title>
+    <title> Cry, Cry </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/." class="logo">Hexo</a>
+    <a href="/." class="logo">Cry, Cry</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -122,12 +112,30 @@
         </li>
       </a>
     
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
   </ul>
 </nav>
 
     <div class="container" id="mobile-panel">
       <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">Hexo</a>
+  <a href="/." class="logo">Cry, Cry</a>
 </div>
 
 <nav class="site-navbar">
@@ -139,6 +147,24 @@
             
             
               Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
             
           </a>
         </li>
@@ -156,6 +182,51 @@
   
   <section id="posts" class="posts">
     
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2019/01/27/An-overview-of-the-attention-mechanism/">An Overview of the Attention Mechanism</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-01-27
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>With the development of recurrent networks like <strong>LSTM</strong> or <strong>GRU</strong>, more and more researchers have tried employee them onto Neural Machine Translation(<strong>NMT</strong>). However, the very first few people used an <strong>Encoder-Decoder</strong> like architecture, which can embeded the sequence inputs {x1, .., xn} to a fixed vector <strong>c</strong>, and use <strong>c</strong> and the given prerequisite <strong>y0</strong> to get the following outputs {y1, …, yt} in an autoregressive way.</p>
+          <div class="read-more">
+            <a href="/2019/01/27/An-overview-of-the-attention-mechanism/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
       
         
   <article class="post">
@@ -183,18 +254,14 @@
       
         
         
+          
+        
 
         
           <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+          <div class="read-more">
+            <a href="/2018/12/06/hello-world/" class="read-more-link">Read more..</a>
+          </div>
         
       
     </div>
@@ -259,6 +326,10 @@
       
     
       
+        
+          <a href="https://www.instagram.com/tensorplayer/" class="iconfont icon-instagram" title="instagram"></a>
+        
+      
     
 
     
@@ -282,15 +353,13 @@
   <span class="copyright-year">
     
     &copy; 
-     
-      2015 - 
     
-    2018
+    2019
 
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
-    <span class="author">John Doe</span>
+    <span class="author">Ke Fang</span>
   </span>
 </div>
 

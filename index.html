@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>随波逐流</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   
@@ -22,7 +22,7 @@
   <nav id="main-nav" class="outer">
     <a id="main-nav-toggle" class="nav-icon"></a>
     
-      <a class="main-nav-link" href="/">Home</a>
+      <a class="main-nav-link" href="index.html">Home</a>
     
       <a class="main-nav-link" href="/archives">Archives</a>
     
@@ -32,7 +32,7 @@
 </div>
 <div id="header-title">
   <h1 id="logo-wrap">
-    <a href="/" id="logo">Hexo</a>
+    <a href="index.html" id="logo">随波逐流</a>
   </h1>
   
 </div>
@@ -40,46 +40,202 @@
       <div id="content" class="outer">
         <section id="main">
   
-    <article id="post-generative-art-article-translation" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-how-ai-art-works-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/08/06/generative-art-article-translation/" class="article-date">
-  <time class="dt-published" datetime="2022-08-06T06:03:09.115Z" itemprop="datePublished">2022-08-06</time>
+    <a href="2022/05/04/how-ai-art-works-1/" class="article-date">
+  <time class="dt-published" datetime="2022-05-04T07:05:30.000Z" itemprop="datePublished">2022-05-04</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2022/05/04/how-ai-art-works-1/">AI绘画很酷，可是..原理是什么？</a>
+    </h1>
+  
+
+      </header>
+    
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="生成艺术：对话Manolo-Gamboa-Naon-译"><a href="#生成艺术：对话Manolo-Gamboa-Naon-译" class="headerlink" title="生成艺术：对话Manolo Gamboa Naon(译)"></a>生成艺术<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>对话Manolo Gamboa Naon(译)</h1><p>本文主体内容是<a target="_blank" rel="noopener" href="https://www.artnome.com/news/2018/8/8/generative-art-finds-its-prodigy">Artnome网站2018年对Manolo Gamboa Naon访谈文章</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我进行了翻译<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>增加了部分背景信息和注释<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>原文标题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://www.artnome.com/news/2018/8/8/generative-art-finds-its-prodigy">Generative Art Finds Its Prodigy</a>.</p>
-<h1 id="生成艺术-Generative-Arts"><a href="#生成艺术-Generative-Arts" class="headerlink" title="生成艺术(Generative Arts)"></a>生成艺术(Generative Arts)</h1><blockquote>
+        <p>写此文的初衷是总结一下这几天玩的东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我比较熟悉对抗生成网络(Generative Adversial Networks<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>GANs)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但对扩散模型(Diffusion Model)则比较陌生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>读了其相关的一些论文后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>打算总结记录一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时也试图站在一个完全不懂AI的读者视角解答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<blockquote>
+<p>AI文字绘画到底怎么做到的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+</blockquote>
+<p>因为不是论文阅读笔记<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以会尽可能以<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>How it works?<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的逻辑出发<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>着重在原理和实际怎么做的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其中可能存在不严谨<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>不合理之处<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请谅解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>目录<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>图片是如何被AI生成的</li>
+<li>图片生成的几种方式</li>
+<li>AI怎么用文字绘画<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></li>
+</ul>
+<h2 id="一图片是如何被ai生成的">一.图片是如何被AI生成的</h2>
+<p>假设我们有十万张图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>包含各种肤色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>姿态和表情的真实人脸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>如何用AI生成一张不存在的人脸呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+<p><img src="https://imgs.zhubai.love/d5a355dd74a743bcb2516854a8854f63.png" alt=""></p>
+<p>一个想法是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ol>
+<li>把一张512x512尺寸人脸图像X送入模型(Encoder)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得到一个1x256维的浮点数向量z<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>另一个模型(Decoder)负责将该向量z再还原成512x512的人脸图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>记做X‘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>模型训练的目的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是不断调整Encoder和Decoder各自的参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以降低(X<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>X’)之间的偏差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ol>
+<p>找了张VAE结构图作为近似说明<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><img src="https://imgs.zhubai.love/537b0bf8cb99491b867fe67d9ab0e7a4.png" alt=""></p>
+<p>如果模型训练完毕<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>此时我们得到了所有输入图片X={x1, x2, …, xn}通过Encoder的向量z<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将其可视化一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>结果大概是下图这样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><img src="https://imgs.zhubai.love/d928caa991b84d11897d52ee27da7f22.png" alt=""></p>
+<p>图中的每个点都是一张真实人脸图片经过Encoder编码后的结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为肤色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>姿态或者性别被聚成不同颜色的簇<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果我们从上图的可视化空间中随机采样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或者在几个点之间插值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就得到了一个新的z<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用这个z再经过Decoder<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就可以生成一张现实中不存在的人脸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这种方法推广到非人脸生成也是类似的原理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如我们有一个包含车<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>森林<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>船等各式各样图片的大杂烩数据集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用此方法得到的z可视化结果大概长这样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><img src="https://imgs.zhubai.love/9393cba46c3744a99b047265128c7d5d.png" alt=""></p>
+<h2 id="二图片生成的几种方式">二.图片生成的几种方式</h2>
+<p>除了上文中提到的VAE<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>图像生成还有其他几种方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这里只介绍GAN和diffusion model<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="gan">GAN</h2>
+<p>生成对抗网络(Generative adversarial networks, GANs)是近几年来最热门<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>最有趣的一种生成模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它的思路朴素又巧妙<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在讲述之前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>容我先虚构一个故事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<blockquote>
+<p>假设你是永生者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即被砍头之后又可以带着之前的记忆复活<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<blockquote>
+<p>此刻你在1980年的中国<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>穷困潦倒<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>你动了心思<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>想凭借自己画画的手艺伪造假币财富自由<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>于是从村口买了几张白纸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>把100元面值的形状和图案牢记于心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>画完一百张<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你成了万元户<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>拿着它们去找村口商店老头<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>菜市场的小贩买东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他们都没法辨认真假<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<blockquote>
+<p>有一天小贩去银行存钱<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>被验钞机发现了破绽<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你被捕了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>game over<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<blockquote>
+<p>你重生了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>吸取了上次的教训<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从黑市买了台跟县银行一模一样的验钞机<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每天捣鼓它鉴伪的原理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>改进工艺<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>终于有一天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>假钞放进去不滴滴了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你大喜过望<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>假币再次在县城泛滥<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<blockquote>
+<p>你的产业越做越大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>终于引起了当地警方的注意<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>起因是有职员发现流通货币统计结果存在异常<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>有关部门意识到现有的验钞技术实在落伍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用你的假币作为测试样本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>很快更换了更先进的验钞机<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>全国推广<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你再次因伪造假钞被击毙<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<blockquote>
+<p>…</p>
+</blockquote>
+<blockquote>
+<p>无数的攻防战中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你经历数次生命轮回<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>造的假钞越来越难以用肉眼辨伪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>除了最新的第99代以外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其他旧版验钞机在这些假钞面前溃不成军<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们成了某种无限接近真实的虚假<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p>这便是GAN的核心思想<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果从理论的角度阐述<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大概是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ol>
+<li>给定一个真实世界的数据集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>图片尺寸均为512x512<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以及一个生成器(Generator<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以下简称G)和一个判别器(Discriminator<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以下简称D)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>生成器G负责生成假的图片(伪造假钞)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>判别器D负责鉴别一张图片是否为真<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并输出0/1二分类结果(验钞机)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>随机初始化一个1x128维度的向量z<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>G以z作为输入生成一张512x512的图片X’<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从真实数据集中随机一张图片X<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将(X, X’)这两张图送进D<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由它来判断哪张图是真的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>哪张是假的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>并把判断依据反馈给G<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>G的目的是不断生成更像真实数据集里的图片以企图骗过D<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而D学习如何判断送过来的两张图片哪张是真的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>哪张是假的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ol>
+<p>在不断的攻防战中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Generator生成的图像就会无限逼近真实数据集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="https://imgs.zhubai.love/68a3423f07f048fdba814e777da59cd6.png" alt=""></p>
+<p>这里其实有个很有趣的前提<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就是D在早期其实也不知道如何辨别真假<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它也在根据G的伪造结果一步步学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>正因为它有可能鉴别错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才给G提供了可以钻空子的余地<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>倘若一开始D就像第99代验钞机那么先进<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>G可能永远摸不着门道如何造假<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直接放弃了(模型崩溃)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="diffusion-model">Diffusion Model</h2>
+<p>和GAN基于对抗的思路不同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Diffusion Model想法是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<blockquote>
+<p>给一张真实的图像不断增加高斯噪声<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到它最终的分布就是高斯分布<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后逆序从高斯分布重建这张图<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p>假设x0是一张真实图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么不断叠加高斯噪声T次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得到的图像序列(x1, x2, …, xt-1, xt)会越来越模糊<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到xT完全符合高斯分布<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型学习如何从xt-&gt;xt-1的<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>降噪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如下图所示<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><img src="https://imgs.zhubai.love/f0a399b36aea47faab70c911b3731a07.png" alt=""></p>
+<h2 id="三ai怎么用文字绘画<span-class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>">三.AI怎么用文字绘画<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></h2>
+<p>截止到目前位置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>无论是GAN或是Diffusion Model<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>都只是一个单纯的图像生成工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>和文字没有任何关系<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>想打造一个根据某段描述文字绘画的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还缺了点东西将二者联接起来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>在当前节点它是CLIP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="clip">CLIP</h2>
+<p><a target="_blank" rel="noopener" href="https://openai.com/blog/clip/">CLIP</a>(Contrastive Language–Image Pre-training) 是OpenAI在2021年提出的一个模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它给自己的定位是连接文本与图片(Connecting Text and Images)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通俗一点的解释是把图片和与其内容相符的文字描述关联起来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>一张图片和一句文本描述越贴切<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其CLIP下的相似度越高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="https://imgs.zhubai.love/e2671f2f86e64c43ad42f18b824fa854.png" alt=""></p>
+<p>CLIP模型使用分类器来提取图像的标签<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如上图中图片里包含了狗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果文字里出现了&quot;dog&quot;<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>二者的embedding在某个维度相似度就很高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>尽管其他维度可能差异较大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种训练方式减少了对大量{图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>文字描述}配对数据的依赖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="终于可以开始画了">终于可以开始画了</h2>
+<p>既然可以计算一张任意图片和一句任意文本间的CLIP表征相似度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就可以开始用GAN/diffusion 模型来实现AI绘画了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>做法如下:</p>
+<ol>
+<li>给定一句文本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过CLIP模型得到其表征embT<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>使用GAN/diffusion模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>随机生成一张图像(比如噪声)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并通过CLIP得到其表征embI<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>计算(embT, embI)二者的相似度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并不断迭代修改这张图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使(embT, embI)更接近<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ol>
+<p>整个过程不需要训练任何模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>CLIP和GAN/diffusion模型的参数均是固定的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>唯一要做的是不断进行类似下图的迭代过程以生成更符合文字描述的图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="https://imgs.zhubai.love/45b7c224c68e4e6ea0dcb132deee9fc5.jpg" alt=""></p>
+<h2 id="结尾">结尾</h2>
+<p>附上一些<a target="_blank" rel="noopener" href="https://github.com/mazzzystar/disco-diffusion-wrapper">我改装</a>的<a target="_blank" rel="noopener" href="https://github.com/alembics/disco-diffusion">disco diffusion</a>(模型是guided diffusion + CLIP)生成不错的效果图<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<blockquote>
+<p>躺在废墟中的玻璃鲸鱼</p>
+</blockquote>
+<p><img src="https://imgs.zhubai.love/c37edb4d17854148b503f656bb153ce2.png" alt=""></p>
+<blockquote>
+<p>山随平野尽<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>江入大荒流</p>
+</blockquote>
+<p><img src="https://imgs.zhubai.love/b7dcb855ad8f4bbaa1fbc920b451e5a8.png" alt=""></p>
+<blockquote>
+<p>五颜六色的立方体冰块漂浮在火山的湖泊中</p>
+</blockquote>
+<p><img src="https://imgs.zhubai.love/b564007f6de540658e974f2bc8abdd2e.png" alt=""></p>
+<blockquote>
+<p>奇异森林<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>铅笔画风格</p>
+</blockquote>
+<p><img src="https://imgs.zhubai.love/65ff666422864654b07cb94b9c254950.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-generative-art-article-translation" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2022/04/05/generative-art-article-translation/" class="article-date">
+  <time class="dt-published" datetime="2022-04-05T07:05:30.000Z" itemprop="datePublished">2022-04-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2022/04/05/generative-art-article-translation/">生成艺术：对话Manolo Gamboa Naon(译)</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>本文主体内容是<a target="_blank" rel="noopener" href="https://www.artnome.com/news/2018/8/8/generative-art-finds-its-prodigy">Artnome网站2018年对Manolo Gamboa Naon访谈文章</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我进行了翻译<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>增加了部分背景信息和注释<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>原文标题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://www.artnome.com/news/2018/8/8/generative-art-finds-its-prodigy">Generative Art Finds Its Prodigy</a>.</p>
+<h1 id="生成艺术(generative-arts)">生成艺术(Generative Arts)</h1>
+<blockquote>
 <p>生成艺术是一种由算法生成新想法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>形式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>形状<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>颜色和模式的过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>首先<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你创造规则约束一些边界<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后程序执行规则来产生新的作品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 </blockquote>
 <p>与传统艺术家花费几天甚至数月探索想法相比<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>代码生成艺术家可以在毫秒内生成数千种想法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>你可以使用工具<a target="_blank" rel="noopener" href="https://processing.org/">Processing</a>来产生进行生成艺术创作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>相关资源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
 <ul>
-<li><p><a target="_blank" rel="noopener" href="https://wp.nyu.edu/shanghai-ima-aiarts/">在线课程</a> by New York University.</p>
+<li>
+<p><a target="_blank" rel="noopener" href="https://wp.nyu.edu/shanghai-ima-aiarts/">在线课程</a> by New York University.</p>
 </li>
-<li><p>Daniel Shiffman书籍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<li>
+<p>Daniel Shiffman书籍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://amzn.to/3fvF537">The Nature of Code</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.amazon.com/Learning-Processing-Beginners-Programming-Interaction/dp/0123736021">Learning Processing: A Beginner’s Guide to Programming Images, Animation, and Interaction</a></li>
 </ul>
 </li>
-<li><p>Manolo Gamboa Naon的生成艺术代码<a target="_blank" rel="noopener" href="https://github.com/manoloide/AllSketchs">Github地址</a></p>
+<li>
+<p>Manolo Gamboa Naon的生成艺术代码<a target="_blank" rel="noopener" href="https://github.com/manoloide/AllSketchs">Github地址</a></p>
 </li>
 </ul>
 <p>以下作品均为Manolo Gamboa Naon由程序生成的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<p><img src="https://imgs.zhubai.love/4389de90930e415b9c2651607653a33f.png"></p>
-<p><img src="https://imgs.zhubai.love/2192b6d8ec7645bc8768602a9c0a82c8.png"></p>
-<p><img src="https://imgs.zhubai.love/fbf08b30002d4bd7b1ee6a0b93f266a8.png"></p>
+<p><img src="https://imgs.zhubai.love/4389de90930e415b9c2651607653a33f.png" alt=""></p>
+<p><img src="https://imgs.zhubai.love/2192b6d8ec7645bc8768602a9c0a82c8.png" alt=""></p>
+<p><img src="https://imgs.zhubai.love/fbf08b30002d4bd7b1ee6a0b93f266a8.png" alt=""></p>
 <p>这张被惘闻新专辑<span class="bd-box"><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>十万个为什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char></span>用作封面</p>
-<p><img src="https://imgs.zhubai.love/608b31327e674728b3fa9245b5d806e4.png"></p>
-<p><img src="https://imgs.zhubai.love/3476fa8e6e8341e0913448130340e0f9.png"></p>
-<p><img src="https://imgs.zhubai.love/a5a0a17dfd334828a82cdd258ad3f0fb.png"></p>
-<h1 id="访谈"><a href="#访谈" class="headerlink" title="访谈"></a>访谈</h1><p>以下是<a target="_blank" rel="noopener" href="https://www.artnome.com/news/2018/8/8/generative-art-finds-its-prodigy">对Manolo Gamboa Naon的访谈</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><img src="https://imgs.zhubai.love/608b31327e674728b3fa9245b5d806e4.png" alt=""></p>
+<p><img src="https://imgs.zhubai.love/3476fa8e6e8341e0913448130340e0f9.png" alt=""></p>
+<p><img src="https://imgs.zhubai.love/a5a0a17dfd334828a82cdd258ad3f0fb.png" alt=""></p>
+<h1 id="访谈">访谈</h1>
+<p>以下是<a target="_blank" rel="noopener" href="https://www.artnome.com/news/2018/8/8/generative-art-finds-its-prodigy">对Manolo Gamboa Naon的访谈</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
 <p>Jason Bailey(JB): 许多生成艺术家要么首先是艺术家<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要么是程序员<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再反过来学习对方的技能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以讲讲说你的背景吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
 <p>Manolo Gamboa Naon(M): 我当时很小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才13岁<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>最开始制作图案但也不知道自己在做什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>没有意识到有其他艺术家在和我做一样的事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到很多年后我接触了其他艺术家<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才感叹<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>原来有那么多人用Flash做出我很喜欢的东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那时开始转向Processing(一款制作工具)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>JB: 你使用Processing多久了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
@@ -88,19 +244,19 @@
 <p>M<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>跟<a target="_blank" rel="noopener" href="https://www.amazon.com/Learning-Processing-Beginners-Programming-Interaction/dp/0123736021">Schiffman写的橙书</a>学<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也因为工作开始学习设计<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一年都要用到Processing<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>学习如何编程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但那时我更感兴趣创造交互式的东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>JB<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>我常常惊讶于人们对生成艺术的误读<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>认识的一个教授对我说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>生成艺术永远是有限的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为程序不存在<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>意外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他认为意外是发现的源泉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我不同意<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当我制作生成艺术时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>程序运行结果经常令我感到意外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后我会基于这些意外来调整代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我对你在代码中创造性的处理很好奇<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你也会像传统创作艺术一样在尝试<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>意外中逐渐产生发现吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还是在开始前有一套完整的构思<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或者都不是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
 <p>M<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>通常是有idea<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>创作了对于这个idea的初始手稿<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后开始纠错<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>每次创作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>作品最美妙的部分都来自于错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在某个时间点之后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我开始相信自己的风格逐渐成熟来自不断产生小错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>观察它然后产生新的想法以便让错误保留<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我学会了如何运用错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>错误正是生成艺术的核心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当然规则也是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果不是肉眼看见到它你很难自己去想象<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>创作的开始就是错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>错误和错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终变成美丽的错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><img src="https://imgs.zhubai.love/7f33957aad2d41ac9c4e36ad86cab7f7.png"></p>
-<p><img src="https://imgs.zhubai.love/5348744b08314175979462765ba1b421.png"></p>
+<p><img src="https://imgs.zhubai.love/7f33957aad2d41ac9c4e36ad86cab7f7.png" alt=""></p>
+<p><img src="https://imgs.zhubai.love/5348744b08314175979462765ba1b421.png" alt=""></p>
 <p>JB<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>对我来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你对颜色(color)和模式(pattern)敏锐的感知独树一帜<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我能感觉到你对色调的选择非常聪明<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>个人风格强烈<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如下面这组作品引发了我对80年代浓浓的怀旧感<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这些颜色和形状在当时很流行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>色调这一块你从哪里获得灵感呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
-<p><img src="https://imgs.zhubai.love/90caae7ad8b0415d91655a5b2b1ece84.png"></p>
+<p><img src="https://imgs.zhubai.love/90caae7ad8b0415d91655a5b2b1ece84.png" alt=""></p>
 <p>M<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>颜色是我生命中的麻烦<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>老实说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当我开始创作生成艺术时就意识到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>程序员——我不是刻板印象<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他们对颜色基本都不重视<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>没有意识<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但过去5-6年<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我尝试着更自如地使用颜色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为色彩真的很重要<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>现在<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我有时会花费更多时间在构造色调而非编码上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我的灵感来自随时随地观察周围<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我从设计中看了很多东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Twitter<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Instagram<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>搜索引擎<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>电影或者旧报纸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>灵感来自各种地方<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在我的工作中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我尝试唤起某种时刻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或者某种质感<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>JB<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>你在最近十年发现Processing和生成艺术最大的变化是什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
 <p>M<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>在Flash那个年代<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>人们喜欢生产引入注目的视觉艺术<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>之后就开始变化了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不确定这种变化是否是逐渐的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我想学英语以便开始认识世界<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我是说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Twitter上有大量的人对生成艺术感兴趣<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有时候在论坛上我不知道人们在讨论什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但我懂其中的代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><img src="https://imgs.zhubai.love/e7ea53efbe3e4eca8f2e3271fde11e1f.png"></p>
+<p><img src="https://imgs.zhubai.love/e7ea53efbe3e4eca8f2e3271fde11e1f.png" alt=""></p>
 <p>JB<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>新趋势是什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>你怎么看像AI<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>机器学习以及深度学习对未来生成艺术的影响<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
 <p>M<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>我认为现在有大量的艺术家正在使用深度学习和机器学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这里面有很多进展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我个人更喜欢对几何形状进行创作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这其实并不需要AI或者机器学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此我对它们兴趣不大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>也许某天我会开始学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但从我的视角<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>二者是两种不同的路线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>也许我已经老了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>AI生成艺术令我感到很震撼<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但不知道这些是不是我应该追求的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>JB<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>我知道很多生成艺术家<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>特别是Processing论坛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>会把他们的代码开源以供其他人学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这种事你会做吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>为什么做&#x2F;不做<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>JB<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>我知道很多生成艺术家<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>特别是Processing论坛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>会把他们的代码开源以供其他人学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这种事你会做吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>为什么做/不做<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>M<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>几周前我发布了自己从2007年以来全部的<a target="_blank" rel="noopener" href="https://github.com/manoloide/AllSketchs">创作代码</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当然其中有些程序已经不能跑了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所有我用Processing创造的东西都已经被放到了线上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>对我来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其他人的代码是一个很好的学习工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以把自己创造的也分享出去是个好主意<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>很多人都私下问我要代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以干脆一次性对所有人发布出去<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>尽管我说西班牙语<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但代码的好处是无论讲哪门语言都能读<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>代码跨越语言<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这对我来说实在太美妙了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><img src="https://imgs.zhubai.love/8a2f2cb4e34944f5818fbfc165d25e39.png"></p>
+<p><img src="https://imgs.zhubai.love/8a2f2cb4e34944f5818fbfc165d25e39.png" alt=""></p>
 <p>JB<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>你过去如何展示自己的作品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>因为是数字的所以只在线上展出吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>还是也在画廊出展过<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>M<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>主要是在线上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我喜欢人们在线上分享的感觉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我的作品从未被打印过<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>真的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我更喜欢分享数字版本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为我从网络上消费艺术<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以更愿意它也留在网络<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>作品在网络上被观看对我来说很重要<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>应该允许作品自己活着<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>尽管在布宜诺斯艾利斯有艺术家把自己的作品打印出来了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但我不愿意这么做<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我更倾向于保持我的作品只有数字版本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>JB<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>你从哪里获得灵感<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
@@ -132,139 +288,6 @@
 
 
   
-    <article id="post-how-ai-art-works-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/04/05/how-ai-art-works-1/" class="article-date">
-  <time class="dt-published" datetime="2022-04-05T07:05:30.000Z" itemprop="datePublished">2022-04-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/04/05/how-ai-art-works-1/">AI绘画很酷，可是..原理是什么？</a>
-    </h1>
-  
-
-      </header>
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>写此文的初衷是总结一下这几天玩的东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我比较熟悉对抗生成网络(Generative Adversial Networks<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>GANs)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但对扩散模型(Diffusion Model)则比较陌生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>读了其相关的一些论文后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>打算总结记录一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时也试图站在一个完全不懂AI的读者视角解答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<blockquote>
-<p>AI文字绘画到底怎么做到的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
-</blockquote>
-<p>因为不是论文阅读笔记<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以会尽可能以<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>How it works?<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的逻辑出发<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>着重在原理和实际怎么做的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其中可能存在不严谨<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>不合理之处<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请谅解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>目录<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<ul>
-<li>图片是如何被AI生成的</li>
-<li>图片生成的几种方式</li>
-<li>AI怎么用文字绘画<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></li>
-</ul>
-<h1 id="一-图片是如何被AI生成的"><a href="#一-图片是如何被AI生成的" class="headerlink" title="一.图片是如何被AI生成的"></a>一.图片是如何被AI生成的</h1><p>假设我们有十万张图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>包含各种肤色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>姿态和表情的真实人脸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>如何用AI生成一张不存在的人脸呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
-<p><img src="https://imgs.zhubai.love/d5a355dd74a743bcb2516854a8854f63.png"></p>
-<p>一个想法是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<ol>
-<li>把一张512x512尺寸人脸图像X送入模型(Encoder)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得到一个1x256维的浮点数向量z<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li>另一个模型(Decoder)负责将该向量z再还原成512x512的人脸图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>记做X‘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li>模型训练的目的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是不断调整Encoder和Decoder各自的参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以降低(X<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>X’)之间的偏差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ol>
-<p>找了张VAE结构图作为近似说明<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<p><img src="https://imgs.zhubai.love/537b0bf8cb99491b867fe67d9ab0e7a4.png"></p>
-<p>如果模型训练完毕<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>此时我们得到了所有输入图片X&#x3D;{x1, x2, …, xn}通过Encoder的向量z<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将其可视化一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>结果大概是下图这样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<p><img src="https://imgs.zhubai.love/d928caa991b84d11897d52ee27da7f22.png"></p>
-<p>图中的每个点都是一张真实人脸图片经过Encoder编码后的结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为肤色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>姿态或者性别被聚成不同颜色的簇<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果我们从上图的可视化空间中随机采样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或者在几个点之间插值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就得到了一个新的z<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用这个z再经过Decoder<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就可以生成一张现实中不存在的人脸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>这种方法推广到非人脸生成也是类似的原理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如我们有一个包含车<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>森林<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>船等各式各样图片的大杂烩数据集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用此方法得到的z可视化结果大概长这样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<p><img src="https://imgs.zhubai.love/9393cba46c3744a99b047265128c7d5d.png"></p>
-<h1 id="二-图片生成的几种方式"><a href="#二-图片生成的几种方式" class="headerlink" title="二.图片生成的几种方式"></a>二.图片生成的几种方式</h1><p>除了上文中提到的VAE<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>图像生成还有其他几种方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这里只介绍GAN和diffusion model<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h2 id="GAN"><a href="#GAN" class="headerlink" title="GAN"></a>GAN</h2><p>生成对抗网络(Generative adversarial networks, GANs)是近几年来最热门<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>最有趣的一种生成模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它的思路朴素又巧妙<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在讲述之前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>容我先虚构一个故事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<blockquote>
-<p>假设你是永生者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即被砍头之后又可以带着之前的记忆复活<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-</blockquote>
-<blockquote>
-<p>此刻你在1980年的中国<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>穷困潦倒<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>你动了心思<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>想凭借自己画画的手艺伪造假币财富自由<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>于是从村口买了几张白纸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>把100元面值的形状和图案牢记于心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>画完一百张<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你成了万元户<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>拿着它们去找村口商店老头<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>菜市场的小贩买东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他们都没法辨认真假<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-</blockquote>
-<blockquote>
-<p>有一天小贩去银行存钱<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>被验钞机发现了破绽<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你被捕了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>game over<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-</blockquote>
-<blockquote>
-<p>你重生了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>吸取了上次的教训<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从黑市买了台跟县银行一模一样的验钞机<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每天捣鼓它鉴伪的原理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>改进工艺<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>终于有一天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>假钞放进去不滴滴了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你大喜过望<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>假币再次在县城泛滥<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-</blockquote>
-<blockquote>
-<p>你的产业越做越大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>终于引起了当地警方的注意<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>起因是有职员发现流通货币统计结果存在异常<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>有关部门意识到现有的验钞技术实在落伍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用你的假币作为测试样本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>很快更换了更先进的验钞机<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>全国推广<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你再次因伪造假钞被击毙<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-</blockquote>
-<blockquote>
-<p>…</p>
-</blockquote>
-<blockquote>
-<p>无数的攻防战中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你经历数次生命轮回<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>造的假钞越来越难以用肉眼辨伪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>除了最新的第99代以外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其他旧版验钞机在这些假钞面前溃不成军<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们成了某种无限接近真实的虚假<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-</blockquote>
-<p>这便是GAN的核心思想<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果从理论的角度阐述<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大概是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<ol>
-<li>给定一个真实世界的数据集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>图片尺寸均为512x512<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以及一个生成器(Generator<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以下简称G)和一个判别器(Discriminator<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以下简称D)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>生成器G负责生成假的图片(伪造假钞)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>判别器D负责鉴别一张图片是否为真<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并输出0&#x2F;1二分类结果(验钞机)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li>随机初始化一个1x128维度的向量z<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>G以z作为输入生成一张512x512的图片X’<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从真实数据集中随机一张图片X<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将(X, X’)这两张图送进D<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由它来判断哪张图是真的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>哪张是假的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>并把判断依据反馈给G<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li>G的目的是不断生成更像真实数据集里的图片以企图骗过D<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而D学习如何判断送过来的两张图片哪张是真的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>哪张是假的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ol>
-<p>在不断的攻防战中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Generator生成的图像就会无限逼近真实数据集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><img src="https://imgs.zhubai.love/68a3423f07f048fdba814e777da59cd6.png"></p>
-<p>这里其实有个很有趣的前提<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就是D在早期其实也不知道如何辨别真假<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它也在根据G的伪造结果一步步学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>正因为它有可能鉴别错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才给G提供了可以钻空子的余地<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>倘若一开始D就像第99代验钞机那么先进<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>G可能永远摸不着门道如何造假<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直接放弃了(模型崩溃)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h2 id="Diffusion-Model"><a href="#Diffusion-Model" class="headerlink" title="Diffusion Model"></a>Diffusion Model</h2><p>和GAN基于对抗的思路不同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Diffusion Model想法是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<blockquote>
-<p>给一张真实的图像不断增加高斯噪声<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到它最终的分布就是高斯分布<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后逆序从高斯分布重建这张图<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-</blockquote>
-<p>假设x0是一张真实图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么不断叠加高斯噪声T次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得到的图像序列(x1, x2, .., xt-1, xt)会越来越模糊<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到xT完全符合高斯分布<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型学习如何从xt-&gt;xt-1的<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>降噪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如下图所示<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<p><img src="https://imgs.zhubai.love/f0a399b36aea47faab70c911b3731a07.png"></p>
-<h1 id="三-AI怎么用文字绘画？"><a href="#三-AI怎么用文字绘画？" class="headerlink" title="三.AI怎么用文字绘画？"></a>三.AI怎么用文字绘画<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></h1><p>截止到目前位置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>无论是GAN或是Diffusion Model<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>都只是一个单纯的图像生成工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>和文字没有任何关系<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>想打造一个根据某段描述文字绘画的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还缺了点东西将二者联接起来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>在当前节点它是CLIP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h2 id="CLIP"><a href="#CLIP" class="headerlink" title="CLIP"></a>CLIP</h2><p><a target="_blank" rel="noopener" href="https://openai.com/blog/clip/">CLIP</a>(Contrastive Language–Image Pre-training) 是OpenAI在2021年提出的一个模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它给自己的定位是连接文本与图片(Connecting Text and Images)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通俗一点的解释是把图片和与其内容相符的文字描述关联起来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>一张图片和一句文本描述越贴切<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其CLIP下的相似度越高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><img src="https://imgs.zhubai.love/e2671f2f86e64c43ad42f18b824fa854.png"></p>
-<p>CLIP模型使用分类器来提取图像的标签<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如上图中图片里包含了狗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果文字里出现了”dog”<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>二者的embedding在某个维度相似度就很高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>尽管其他维度可能差异较大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种训练方式减少了对大量{图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>文字描述}配对数据的依赖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h2 id="终于可以开始画了"><a href="#终于可以开始画了" class="headerlink" title="终于可以开始画了"></a>终于可以开始画了</h2><p>既然可以计算一张任意图片和一句任意文本间的CLIP表征相似度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就可以开始用GAN&#x2F;diffusion 模型来实现AI绘画了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>做法如下:</p>
-<ol>
-<li>给定一句文本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过CLIP模型得到其表征embT<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li>使用GAN&#x2F;diffusion模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>随机生成一张图像(比如噪声)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并通过CLIP得到其表征embI<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li>计算(embT, embI)二者的相似度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并不断迭代修改这张图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使(embT, embI)更接近<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ol>
-<p>整个过程不需要训练任何模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>CLIP和GAN&#x2F;diffusion模型的参数均是固定的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>唯一要做的是不断进行类似下图的迭代过程以生成更符合文字描述的图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><img src="https://imgs.zhubai.love/45b7c224c68e4e6ea0dcb132deee9fc5.jpg"></p>
-<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>附上一些<a target="_blank" rel="noopener" href="https://github.com/mazzzystar/disco-diffusion-wrapper">我改装</a>的<a target="_blank" rel="noopener" href="https://github.com/alembics/disco-diffusion">disco diffusion</a>(模型是guided diffusion + CLIP)生成不错的效果图<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<blockquote>
-<p>躺在废墟中的玻璃鲸鱼</p>
-</blockquote>
-<p><img src="https://imgs.zhubai.love/c37edb4d17854148b503f656bb153ce2.png"></p>
-<blockquote>
-<p>山随平野尽<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>江入大荒流</p>
-</blockquote>
-<p><img src="https://imgs.zhubai.love/b7dcb855ad8f4bbaa1fbc920b451e5a8.png"></p>
-<blockquote>
-<p>五颜六色的立方体冰块漂浮在火山的湖泊中</p>
-</blockquote>
-<p><img src="https://imgs.zhubai.love/b564007f6de540658e974f2bc8abdd2e.png"></p>
-<blockquote>
-<p>奇异森林<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>铅笔画风格</p>
-</blockquote>
-<p><img src="https://imgs.zhubai.love/65ff666422864654b07cb94b9c254950.png"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 </section>
@@ -275,7 +298,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2022 John Doe<br>
+      &copy; 2022 碎瓜<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br>
       
     </div>
@@ -285,20 +308,20 @@
     </div>
     <nav id="mobile-nav">
   
-    <a href="/" class="mobile-nav-link">Home</a>
+    <a href="index.html" class="mobile-nav-link">Home</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
   
 </nav>
     
 
-<script src="/js/clipboard.min.js"></script>
-<script src="/js/jquery-1.4.3.min.js"></script>
+<script src="js/clipboard.min.js"></script>
+<script src="js/jquery-1.4.3.min.js"></script>
 
-<script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<script src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
+<script src="js/script.js"></script>
 
 
 
@@ -325,7 +348,7 @@
   });
   </script> -->
 <script type="text/javascript" id="MathJax-script" async
-  src="/mathjax/tex-chtml.js">
+  src="mathjax/tex-chtml.js">
 </script>
 <!-- <script type="text/javascript"
    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">

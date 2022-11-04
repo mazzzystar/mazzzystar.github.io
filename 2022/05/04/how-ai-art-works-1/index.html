@@ -7,7 +7,7 @@
   <title>AI绘画很酷，可是..原理是什么？ | TL;DR</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <meta name="description" content="写此文的初衷是总结一下这几天玩的东西，我比较熟悉对抗生成网络(Generative Adversial Networks，GANs)，但对扩散模型(Diffusion Model)则比较陌生，读了其相关的一些论文后，打算总结记录一下，同时也试图站在一个完全不懂AI的读者视角解答： AI文字绘画到底怎么做到的？">
+  <meta name="description" content="普及知识同时平衡专业性是件困难的事，本文试图从普通人也能(勉强)看得懂的视角，讲讲AI绘画的原理。此文章写的比较早，因此文中的AI绘画特指Disco Diffusion。">
   
   
   
@@ -67,8 +67,9 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>写此文的初衷是总结一下这几天玩的东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我比较熟悉对抗生成网络(Generative Adversial Networks<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>GANs)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但对扩散模型(Diffusion Model)则比较陌生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>读了其相关的一些论文后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>打算总结记录一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时也试图站在一个完全不懂AI的读者视角解答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span> AI文字绘画到底怎么做到的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+        <p>普及知识同时平衡专业性是件困难的事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>本文试图从普通人也能(勉强)看得懂的视角<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>讲讲AI绘画的原理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>此文章写的比较早<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此文中的AI绘画特指Disco Diffusion<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <span id="more"></span>
+<p>写此文的初衷是总结一下这几天玩的东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我比较熟悉对抗生成网络(Generative Adversial Networks<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>GANs)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但对扩散模型(Diffusion Model)则比较陌生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>读了其相关的一些论文后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>打算总结记录一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时也试图站在一个完全不懂AI的读者视角解答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span> AI文字绘画到底怎么做到的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
 <p>因为不是论文阅读笔记<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以会尽可能以<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>How it works?<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的逻辑出发<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>着重在原理和实际怎么做的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其中可能存在不严谨<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>不合理之处<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请谅解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>目录<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
 <ul>

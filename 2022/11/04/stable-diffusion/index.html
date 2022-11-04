@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>为什么Stable Diffusion比Disco Diffusion快几个数量级？ | TL;DR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="Stable Diffusion的开源让普通人也能描绘梦境，很大因素来自于它几十倍于Disco Diffusion的推理速度，机器成本被极大降低。本文就在试图(浅显地)解释：为什么Stable Diffusion这么快？">
+  
+  
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+  
+    <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../../../../index.html">Home</a>
+    
+      <a class="main-nav-link" href="../../../../archives">Archives</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../index.html" id="logo">TL;DR</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-stable-diffusion" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2022-11-04T07:36:50.000Z" itemprop="datePublished">2022-11-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      为什么Stable Diffusion比Disco Diffusion快几个数量级？
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Stable Diffusion的开源让普通人也能描绘梦境<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>很大因素来自于它几十倍于Disco Diffusion的推理速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>机器成本被极大降低<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>本文就在试图(浅显地)解释<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>为什么Stable Diffusion这么快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+<span id="more"></span>
+<p>上一篇写<a target="_blank" rel="noopener" href="https://mazzzystar.github.io/2022/05/04/how-ai-art-works-1/">AI绘画AI绘画很酷<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可是…原理是什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></a>时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Stable Diffusion尚未发布<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>文末的原理介绍其实是关于Disco Diffusion<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>本文想从这两个模型背后的原理层面来比较二者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时回答(也是回答自己)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>为什么Stable Diffusion可以这么快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></strong></p>
+<p><em>Disco Diffusion单张耗时在5-10min<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Stable Diffusion则只需要10-15s<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+<h1 id="一原理复习">一.原理复习</h1>
+<p>Diffusion模型的作用是将图像&quot;降噪&quot;<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是说它只是实现将一张带有噪点的图像变清晰这个功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>AI能够绘画<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>依托于模型将用户的输入文本变成能与图像比较的向量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如CLIP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
+<img src="/images/2022-11-04/img.png" alt="img.png"><br>
+<img src="/images/2022-11-04/img_1.png" alt="img_1.png"></p>
+<p>Disco Diffusion就是通过不断将用户的文本(Text)输入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>与Diffusion生成的图像计算CLIP损失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一步步实现AI绘画的功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是这个迭代过程实在是太太太太慢了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>原因在于<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<blockquote>
+<p>对于用户指定尺寸的一张分辨率为1920x1080图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型每次都要迭代这张图上一共3x1920x1080个像素点的值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且将这个过程循环240次(steps)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p>有没有更好的办法呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>今年年初<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>几位科学家提出的<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2112.10752">Latent Diffusion</a>模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就试图尝试将Diffusion过程放在隐空间(latent)上做<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我<a target="_blank" rel="noopener" href="https://mazzzystar.github.io/2022/05/04/how-ai-art-works-1/">上一篇文章</a>也有关于隐空间的介绍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h1 id="二在隐空间上做diffusion">二.在隐空间上做Diffusion</h1>
+<p>首先<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一张图片的隐空间(latent)怎么得到呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>最简单的方法就是训练一个Encoder-Decoder网络<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比如下面这个模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>它的输入是一张512x512的图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型的Encoder将这张图像变成一个64x64的latent<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>经过Decoder将其还原成原始的512x512图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
+<img src="/images/2022-11-04/img_2.png" alt="img_2.png"></p>
+<p>听起来这个模型很蠢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>好像什么事也没干<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但假如我们保存这个latent(即64x64尺寸的向量)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么哪天原图丢失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型也可以用latent+Decoder还原这张512x512的图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>而这个latent所花费的存储开支是原图的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<blockquote>
+<p>64x64  /  512x512 =  1/64<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p>简化起见这里不考虑通道数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即认为图像的RGB通道等同于网络的channel数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>下同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>因此可以这么理解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><em>隐空间(latent)包含了一张图像最重要的信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>算是某种意义上的极限压缩<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+<p>Latent Diffusion的思路是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>把降噪(diffusion)过程在latent层面上做</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>换句话说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>diffusion模型的每次迭代并不是在原始图像上进行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是每次试图将模糊的latent变得更清晰<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>仿照介绍disco diffusion原理时胡乱画的手稿<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这次用PPT做了个latent diffusion思路的流程图<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如下所示<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>用户的输入(如&quot;一只狗在微笑&quot;)会经过文本编码(Text Embedding)模型变成向量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这里使用的是CLIP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这个向量会与随机产生的噪声noise一起作为最初的隐变量latent0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>diffusion模型仍然做降噪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但这次只对latent做而不是真实图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>假设latent尺寸是64x64<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>经过两次(steps=2)降噪(diffuse)后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得到最终的隐变量(latent2)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将其通过上文提到的Decoder<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就得到了最终512x512的图像输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
+<img src="/images/2022-11-04/img_3.png" alt="img_3.png"></li>
+</ul>
+<h1 id="三为何stable-diffusion这么快">三.为何Stable Diffusion这么快</h1>
+<p>Stable Diffusion是基于latent diffusion这篇论文<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在大规模数据上训练得到的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此可以假定它的模型速度与latent diffusion接近<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>至少在一个数量级<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>因为diffusion是在latent层面做<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型需要处理的数据与disco diffusion完全不在一个量级<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以一张512x512的图像为例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p>对于Disco Diffusion模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>图像上所有的像素点均由模型生成并迭代<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要处理的像素数量512 x 512 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而对于Stable Diffusion而言<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它要处理的latent尺寸是64x64<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>即便两个模型处理速度一样快</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们分别迭代完各自的结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>前者所花费的时间大约是后者的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<blockquote>
+<p>512x512 / 64x64  = 64 倍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p>这解释了为何Disco Diffusion普遍需要几分钟<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而Stable Diffusion仅需10秒<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><em>更新: 朋友也提了一点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>正如上图所示<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Stable Diffusion没有反向回传loss的过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这也是它更快的一个重要原因<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+<p>要说这么快有什么坏处<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那可能是64x64尺寸的latent所包含的信息量太过于有限<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此生成内容很难做到精细<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>常常只有轮廓而缺失细节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>许多使用者发现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Stable Diffusion有点缺乏想象力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>生成的东西太过于正常<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不如Disco Diffusion天马行空<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>当然<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这也许不是一件坏事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://stability.ai/">stability.ai</a>选择将代码开源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且几乎不保留地放出模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>值得敬佩<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>也许这个行动能真正让AI绘画给普通人带来帮助<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><em>文中人脸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>狗均为我用6pen.art的Stable Diffusion模型生成<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E7%8E%A9/" rel="tag">玩</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../../../07/09/A-Murder/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          一次杀人
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 碎瓜<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="../../../../js/clipboard.min.js"></script>
+<script src="../../../../js/jquery-1.4.3.min.js"></script>
+
+<script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script type="text/javascript" id="MathJax-script" async
+  src="../../../../mathjax/tex-chtml.js">
+</script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+
+
+
+  </div>
+</body>
+</html>

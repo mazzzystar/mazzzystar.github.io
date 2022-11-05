@@ -472,6 +472,26 @@ button::-moz-focus-inner {
 }
 @font-face {
   font-family: biaodian;
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/biaodian.ttf");
+}
+@font-face {
+  font-family: biaodian;
+  font-style: italic;
+  font-weight: normal;
+  src: url("fonts/biaodian.ttf");
+}
+@font-face {
+  font-family: biaodian;
+  font-style: normal;
+  font-weight: bold;
+  src: url("fonts/biaodian.ttf");
+}
+@font-face {
+  font-family: biaodian;
+  font-style: italic;
+  font-weight: bold;
   src: url("fonts/biaodian.ttf");
 }
 html {

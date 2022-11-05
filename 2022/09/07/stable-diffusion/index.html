@@ -77,8 +77,8 @@
 <p><em>Disco Diffusion单张耗时在5-10min<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Stable Diffusion则只需要5-10s<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
 <h1 id="一原理复习">一.原理复习</h1>
 <p>Diffusion模型的作用是将图像&quot;降噪&quot;<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是说它只是实现将一张带有噪点的图像变清晰这个功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>AI能够绘画<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>依托于模型将用户的输入文本变成能与图像比较的向量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如CLIP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
-<img src="/images/2022-09-07/img.png" alt="Stable Diffusion原理图"><br>
-<img src="/images/2022-09-07/img_1.png" alt="我画的AI绘画原理图"></p>
+<img src="/images/2022-09-07/img.jpg" alt="Stable Diffusion原理图"><br>
+<img src="/images/2022-09-07/img_1.jpg" alt="我画的AI绘画原理图"></p>
 <p>Disco Diffusion就是通过不断将用户的文本(Text)输入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>与Diffusion生成的图像计算CLIP损失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一步步实现AI绘画的功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是这个迭代过程实在是太太太太慢了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>原因在于<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
 <blockquote>
@@ -87,7 +87,7 @@
 <p>有没有更好的办法呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>今年年初<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>几位科学家提出的<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2112.10752">Latent Diffusion</a>模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就试图尝试将Diffusion过程放在隐空间(latent)上做<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我<a target="_blank" rel="noopener" href="https://mazzzystar.github.io/2022/05/04/how-ai-art-works-1/">上一篇文章</a>也有关于隐空间的介绍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <h1 id="二在隐空间上做diffusion">二.在隐空间上做Diffusion</h1>
 <p>首先<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一张图片的隐空间(latent)怎么得到呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>最简单的方法就是训练一个Encoder-Decoder网络<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比如下面这个模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>它的输入是一张512x512的图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型的Encoder将这张图像变成一个64x64的latent<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>经过Decoder将其还原成原始的512x512图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
-<img src="/images/2022-09-07/img_2.png" alt="提取隐变量(latent)"></p>
+<img src="/images/2022-09-07/img_2.jpg" alt="提取隐变量(latent)"></p>
 <p>听起来这个模型很蠢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>好像什么事也没干<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但假如我们保存这个latent(即64x64尺寸的向量)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么哪天原图丢失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型也可以用latent+Decoder还原这张512x512的图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>而这个latent所花费的存储开支是原图的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
 <blockquote>
 <p>64x64  /  512x512 =  1/64<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
@@ -100,7 +100,7 @@
 <ul>
 <li>用户的输入(如&quot;一只狗在微笑&quot;)会经过文本编码(Text Embedding)模型变成向量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这里使用的是CLIP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这个向量会与随机产生的噪声noise一起作为最初的隐变量latent0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
 <li>diffusion模型仍然做降噪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但这次只对latent做而不是真实图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>假设latent尺寸是64x64<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>经过两次(steps=2)降噪(diffuse)后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得到最终的隐变量(latent2)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将其通过上文提到的Decoder<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就得到了最终512x512的图像输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
-<img src="/images/2022-09-07/img_3.png" alt="Stable Diffusion在latent空间做diffuse"></li>
+<img src="/images/2022-09-07/img_3.jpg" alt="Stable Diffusion在latent空间做diffuse"></li>
 </ul>
 <h1 id="三为何stable-diffusion这么快">三.为何Stable Diffusion这么快</h1>
 <p>Stable Diffusion是基于latent diffusion这篇论文<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在大规模数据上训练得到的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此可以假定它的模型速度与latent diffusion接近<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>至少在一个数量级<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>

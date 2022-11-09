@@ -450,13 +450,13 @@ button::-moz-focus-inner {
   font-family: Chinese;
   font-style: normal;
   font-weight: normal;
-  src: url("fonts/HYShuSongErS.ttf");
+  src: url("Chinese-normal-normal-path");
 }
 @font-face {
   font-family: Chinese;
   font-style: normal;
   font-weight: bold;
-  src: url("fonts/FZHTJW.ttf");
+  src: url("Chinese-normal-bold-path");
 }
 @font-face {
   font-family: Chinese;

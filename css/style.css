@@ -450,13 +450,13 @@ button::-moz-focus-inner {
   font-family: Chinese;
   font-style: normal;
   font-weight: normal;
-  src: url("fonts/HYFangSongJ.ttf");
+  src: url("fonts/HYShuSongErS.ttf");
 }
 @font-face {
   font-family: Chinese;
   font-style: normal;
   font-weight: bold;
-  src: url("fonts/HYFangSongJ.ttf");
+  src: url("fonts/HYShuSongErS.ttf");
 }
 @font-face {
   font-family: Chinese;
@@ -468,7 +468,7 @@ button::-moz-focus-inner {
   font-family: ChineseMono;
   font-style: normal;
   font-weight: normal;
-  src: url("fonts/HYFangSongJ.ttf");
+  src: url("fonts/HYShuSongErS.ttf");
 }
 @font-face {
   font-family: biaodian;

@@ -448,18 +448,6 @@ button::-moz-focus-inner {
 }
 @font-face {
   font-family: Chinese;
-  font-style: normal;
-  font-weight: normal;
-  src: url("Chinese-normal-normal-path");
-}
-@font-face {
-  font-family: Chinese;
-  font-style: normal;
-  font-weight: bold;
-  src: url("Chinese-normal-bold-path");
-}
-@font-face {
-  font-family: Chinese;
   font-style: italic;
   font-weight: normal;
   src: url("fonts/FZKTJW.ttf");

@@ -110,7 +110,7 @@ model, <span class="hljs-attr">preprocess</span> = clip.load(<span class="hljs-s
 <p>But, compared to the search function of the iPhone <code>Photos</code>, how much does the CLIP-based album search capability improve? The answer is: <strong>overwhelmingly better</strong>. With CLIP, you can search for a scene in your mind, a tone, an object, or even an emotion conveyed by the image.</p>
 <p><img src="/images/2022-12-28/Queryable-search-result.jpg" alt="Search for a scene, an object, a tone or the meaning related to the photo with Queryable"></p>
 <p>To use Queryable, you need to first <strong>build the index</strong>, which will traverse your album, calculate all the image vectors and store. This takes place only ONCE, the total time required for building the index depends on the number of your Photos, the speed is of <strong>~2000</strong> photos per minute on iPhone 12 mini. When you have new photos, you can manually update the index, which is very fast.</p>
-<p>The <strong>time cost for a search</strong> also depends on the number of your Photos, For &lt;10,000 photos it takes <strong>less than 1s</strong>. For me, an iPhone 12 mini user with 35,000 photos, each search takes about <strong>2.8s</strong>.</p>
+<p>The <strong>time cost for a search</strong> also depends on your Photos number, For &lt;10,000 photos it takes <strong>less than 1s</strong>. For me, an iPhone 12 mini user with 35,000 photos, each search takes about <strong>2.8s</strong>.</p>
 <p>I made a video to demonstrate the search capabilities of Queryable:</p>
  
 <video src='/videos/QueryableFinal.mp4' type='video/mp4' controls='controls'  width='40%' height='40%'>

@@ -7,7 +7,7 @@
   <title>Run CLIP on iPhone to Search Photos | TL;DR</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <meta name="description" content="I built an app called Queryable, which integrates the CLIP model on iOS devices to search the Photos album OFFLINE. It is available on App Store today">
+  <meta name="description" content="I built an app called Queryable], which integrates the CLIP model on iOS to search the Photos album OFFLINE. It is available on App Store today and I ">
   
   
   
@@ -69,12 +69,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>I built an app called <a href="">Queryable</a>, which integrates the CLIP model on iOS devices to search the <code>Photos</code> album OFFLINE. It is available on App Store today and I thought it might be helpful to others who are as frustrated with the search function of <code>Photos</code> as I was, so I wrote this article to introduce it.</p>
+        <p>I built an app called Queryable], which integrates the CLIP model on iOS to search the <code>Photos</code> album OFFLINE. It is <a target="_blank" rel="noopener" href="https://apps.apple.com/us/app/queryable/id1661598353?platform=iphone">available on App Store</a> today and I thought it might be helpful to others who are as frustrated with the search function of <code>Photos</code> as I was, so I wrote this article to introduce it.</p>
 <p><a target="_blank" rel="noopener" href="https://apps.apple.com/us/app/queryable/id1661598353?platform=iphone"><img src="/images/2022-12-28/Queryable-logo.png" alt="Queryable on App Store" title="Queryable"></a></p>
 <h2 id="clip">CLIP</h2>
 <p><a target="_blank" rel="noopener" href="https://openai.com/blog/clip/">CLIP</a>(Contrastive Language-Image Pre-Training) is a model proposed by OpenAI in 2021. CLIP can encode images and text into representations that can be compared in the same space. CLIP is the basis for many text-to-image models (e.g. Stable Diffusion) to calculate the distance between the generated image and the prompt during training.<br>
 <img src="https://imgs.zhubai.love/e2671f2f86e64c43ad42f18b824fa854.png" alt=""></p>
-<p>To run on iOS devices in real time, I made a compromise between the performance and the model size, and finally chose the <a target="_blank" rel="noopener" href="https://github.com/openai/CLIP"><strong>ViT-B-32</strong> </a> CLIP model, separated the <code>Text Encoder</code> and <code>Image Encoder</code>.</p>
+<p>To run on iOS devices in real time, I made a compromise between the performance and the model size, and finally chose the <a target="_blank" rel="noopener" href="https://github.com/openai/CLIP"><strong>ViT-B-32</strong> </a> model, separated the <code>Text Encoder</code> and <code>Image Encoder</code>.</p>
 <p>In <strong>ViT-B-32</strong>:</p>
 <blockquote>
 <ul>
@@ -109,8 +109,8 @@ model, <span class="hljs-attr">preprocess</span> = clip.load(<span class="hljs-s
 <h2 id="performance">Performance</h2>
 <p>But, compared to the search function of the iPhone <code>Photos</code>, how much does the CLIP-based album search capability improve? The answer is: <strong>overwhelmingly better</strong>. With CLIP, you can search for a scene in your mind, a tone, an object, or even an emotion conveyed by the image.</p>
 <p><img src="/images/2022-12-28/Queryable-search-result.jpg" alt="Search for a scene, an object, a tone or the meaning related to the photo with Queryable"></p>
-<p>To use Queryable, you need to first <strong>build the index</strong>, which will traverse your album, calculate all the image vectors, and then store them. This takes place only ONCE, the total time required for building the index depends on the number of your Photos, the speed is of <strong>~2000</strong> photos per minute on the iPhone 12 mini. When you have new photos, you can manually update the index, which is very fast.</p>
-<p>The <strong>time cost for a search</strong> also depends on the number of your Photos, A search of &lt;10,000 photos takes <strong>less than 1s</strong>. For me, an iPhone 12 mini user with 35,000 photos, each search takes about <strong>2.8s</strong>.</p>
+<p>To use Queryable, you need to first <strong>build the index</strong>, which will traverse your album, calculate all the image vectors and store. This takes place only ONCE, the total time required for building the index depends on the number of your Photos, the speed is of <strong>~2000</strong> photos per minute on iPhone 12 mini. When you have new photos, you can manually update the index, which is very fast.</p>
+<p>The <strong>time cost for a search</strong> also depends on the number of your Photos, For &lt;10,000 photos it takes <strong>less than 1s</strong>. For me, an iPhone 12 mini user with 35,000 photos, each search takes about <strong>2.8s</strong>.</p>
 <p>I made a video to demonstrate the search capabilities of Queryable:</p>
  
 <video src='/videos/QueryableFinal.mp4' type='video/mp4' controls='controls'  width='40%' height='40%'>
@@ -119,7 +119,7 @@ model, <span class="hljs-attr">preprocess</span> = clip.load(<span class="hljs-s
 <br/>
 <h2 id="qa">QA</h2>
 <h4 id="1on-privacy and security issues.">1.On Privacy and security issues.</h4>
-<p>Based on privacy considerations, Queryable is designed to be an OFFLINE app that does <strong>not require a network connection</strong> and will <strong>Never</strong> request network access, thereby avoiding privacy issues.</p>
+<p>Queryable is designed as an OFFLINE app that does <strong>not require a network connection</strong> and will <strong>Never</strong> request network access, thereby avoiding privacy issues.</p>
 <h4 id="2what-if my pictures are stored in icloud?">2.What if my pictures are stored in iCloud?</h4>
 <p>Due to the inability to connect to a network, Queryable can only use the cache of the low-definition version of your local Photos album. However, the CLIP model itself resizes the input image to a very small size (e.g. ViT-B-32 is 224x224), so if your image is stored in iCloud, it actually <strong>does not affect search accuracy</strong> except that <strong>you cannot view its original image</strong> in search result.</p>
 <h4 id="3have-some suggestions or product experience issues?">3.Have some suggestions or product experience issues?</h4>

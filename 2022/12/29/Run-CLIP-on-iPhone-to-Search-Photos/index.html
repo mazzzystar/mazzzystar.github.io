@@ -122,6 +122,7 @@ model, <span class="hljs-attr">preprocess</span> = clip.load(<span class="hljs-s
 <p>Queryable is designed as an OFFLINE app that does <strong>not require a network connection</strong> and will <strong>NEVER</strong> request network access, thereby avoiding privacy issues.</p>
 <h4 id="2what-if my pictures are stored in icloud?">2.What if my pictures are stored in iCloud?</h4>
 <p>Due to the inability to connect to a network, Queryable can only use the cache of the low-definition version of your local Photos album. However, the CLIP model itself resizes the input image to a very small size (e.g. ViT-B-32 is 224x224), so if your image is stored in iCloud, it actually <strong>does not affect search accuracy</strong> except that <strong>you cannot view its original image</strong> in search result.</p>
+<p>- <strong>Update</strong>: In the latest version, you have the option to grant the app access to the network in order to download photos stored in iCloud. This will <strong>only</strong> occur when the photo is included in your search results, the original version is stored in iCloud, and you have navigated to the details page and clicked the download icon. Once you grant the permissions, you can close the app, reopen it, and the photos will be automatically downloaded from iCloud.</p>
 <h4 id="3-any requirements for the device?">3. Any requirements for the device?</h4>
 <ul>
 <li>iOS 16.0 or above</li>

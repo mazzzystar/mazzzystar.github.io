@@ -18,7 +18,8 @@
   <title>Run CLIP on iPhone to Search Photos | TL;DR</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <meta name="description" content="I built an app called Queryable, which integrates the CLIP model on iOS to search the Photos album OFFLINE. It is available on App Store today and I t">
+  <meta name="description" content="
+Update: I have made Queryable free &amp;amp; open-source. This might help you learn how to export Core ML models, as well as how to calculate, store, sea">
   
   
   
@@ -80,7 +81,10 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>I built an app called Queryable, which integrates the CLIP model on iOS to search the <code>Photos</code> album OFFLINE. It is <a target="_blank" rel="noopener" href="https://apps.apple.com/us/app/queryable/id1661598353?platform=iphone">available on App Store</a> today and I thought it might be helpful to others who are as frustrated with the search function of <code>Photos</code> as I was, so I wrote this article to introduce it.</p>
+        <blockquote>
+<p>Update: I have made Queryable free &amp; <a target="_blank" rel="noopener" href="https://github.com/mazzzystar/Queryable">open-source</a>. This might help you learn how to <a target="_blank" rel="noopener" href="https://github.com/mazzzystar/Queryable#core-ml-export">export Core ML</a> models, as well as how to calculate, store, search, and accelerate queries.</p>
+</blockquote>
+<p>I built an app called Queryable, which integrates the CLIP model on iOS to search the <code>Photos</code> album OFFLINE. It is <a target="_blank" rel="noopener" href="https://apps.apple.com/us/app/queryable/id1661598353?platform=iphone">available on App Store</a> today and I thought it might be helpful to others who are as frustrated with the search function of <code>Photos</code> as I was, so I wrote this article to introduce it.</p>
 <p><a target="_blank" rel="noopener" href="https://apps.apple.com/us/app/queryable/id1661598353?platform=iphone"><img src="/images/2022-12-28/Queryable-logo.png" alt="Queryable on App Store" title="Queryable"></a></p>
 <h2 id="clip">CLIP</h2>
 <p><a target="_blank" rel="noopener" href="https://openai.com/blog/clip/">CLIP</a>(Contrastive Language-Image Pre-Training) is a model proposed by OpenAI in 2021. CLIP can encode images and text into representations that can be compared in the same space. CLIP is the basis for many text-to-image models (e.g. Stable Diffusion) to calculate the distance between the generated image and the prompt during training.<br>

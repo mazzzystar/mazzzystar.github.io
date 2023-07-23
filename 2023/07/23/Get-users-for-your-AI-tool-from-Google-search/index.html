@@ -90,7 +90,7 @@ Disclaimer: This is some experience I have discovered in a short time as an engi
 <p>Even if what you are developing is an App or desktop software, I still suggest you create a website for your product, which has two advantages: 1) Showcasing your product is functionalities in a more rich way through diagrams, animations, videos, etc. 2) Enabling potential users to discover your product via Google search, which is a crucial source for user acquisition.</p>
 <p>And once you have decided to make a website, there comes the question: how to increase the chances that your target users will click into your website when searching <code>chat ai</code>, which is where SEO (Search Engine Optimization) comes in.</p>
 <p><img src="/images/2023-07-23/chat_ai_search_result.jpg" alt="Google search result for &quot;chat ai&quot;"></p>
-<h2 id="pagerank-algorithm">PageRank Algorithm</h2>
+<h2 id="pagerank">PageRank</h2>
 <p>The ultimate goal of SEO is to rank your product higher in Google search. Thus, it is necessary to understand some of Google’s ranking algorithms.</p>
 <p>Although Google no longer uses PageRank as its only algorithm, it is still an important ranking factor: PageRank assumes that “<strong>more important pages are often cited by other pages more often</strong>”<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>. Similar to the impact factor of scientific journals, Google assigns a score (domain rating, <strong>DR</strong>) to each website: Google will rank the websites with higher DRs higher if they hit the same keyword, which makes sense.</p>
 <p>So, how is the score calculated? A straightforward idea is to <strong>calculate the average score of the websites that link to your website</strong>, a behavior called <strong>backlink</strong>. In this way, the PageRank algorithm looks like a graph with weights: suppose your website is backlinked by three other websites, and the DRs of these websites are 100, 10, 1, respectively, then your website score would be <span class="markdown-them-math-inline">$(100 * 1 + 10 * 1 + 1 * 1) * coefficient$</span>. It is clear that the more backlinks are not necessarily the better, the quality of the websites providing you with backlinks is more important, and some algorithms only count the top 100 domains with the highest scores that link to your website, thus the method of continuously registering domains to hoard the number of backlinks is no longer effective.</p>
@@ -99,7 +99,7 @@ Disclaimer: This is some experience I have discovered in a short time as an engi
 <blockquote>
 <p>You should try to get backlinks from high DR websites, as they have greater “weight” .<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
 </blockquote>
-<h2 id="increasing-domain rating">Increasing Domain Rating</h2>
+<h2 id="domain-rating">Domain Rating</h2>
 <p>Therefore, a critical task for SEO is to increase the Domain Rating of your website. The next tasks are: 1) How to increase the number of backlinks. 2) How to get high-rating websites to backlink to me.</p>
 <p>For the first task: you can buy domains and do nothing but backlink the new domain to your domain. Note that while it is a new domain, it can also be a website that has expired: these expired websites have accumulated a certain number of backlinks over the past many years, so their ratings are likely higher than the new domain (0), bringing more DR weight to your website.</p>
 <p>I noticed an approach from a <a target="_blank" rel="noopener" href="https://twitter.com/ImSh4yy/status/1682431065598599173">Twitter user</a>:</p>
@@ -112,13 +112,13 @@ Disclaimer: This is some experience I have discovered in a short time as an engi
 <p>For the second task: directly approach high DR websites to add backlinks to your website. As this article is mainly for AI tools, it only discusses how to add backlinks to AI tools.</p>
 <p>There is actually a two-sided market here: many new AI tools need exposure, while many AI tool list websites need new content, so they are willing to set up AI tool submission portals. Some websites are free, while some websites with a lot of users charge 10-20 dollars. You can decide whether it’s worth paying to submit based on your own judgment.<br>
 <img src="/images/2023-07-23/aitoolsweb.jpg" alt="Screenshot of aitools.fyi"></p>
-<h2 id="choosing-ai tool list websites">Choosing AI Tool List Websites</h2>
+<h2 id="choosing-ai list websites">Choosing AI List Websites</h2>
 <p>Just to share my approach: first, visit <a target="_blank" rel="noopener" href="https://www.similarweb.com/">Similarweb</a>, search for a tool list website, such as aitools.fyi, where you can see its traffic in the past few months, where visitors come from, gender and more.</p>
 <p><img src="/images/2023-07-23/similarweb.jpg" alt="Data of aitools.fyi on Similarweb" title="similarweb"></p>
 <p>Secondly, use <a target="_blank" rel="noopener" href="https://ahrefs.com/backlink-checker">Ahrefs Backlink Checker</a> to check the DR of this website, to estimate the DR increase it will bring to your website once it includes you. An interesting thing is: you can actually enter your own tool website to check which websites are backlinking it, so you can have an intuitive understanding of “which websites have a high DR”. Note, The algorithm of DR scoring from Ahref is not the same with Google, but the trend is similar.<br>
 <img src="/images/2023-07-23/backlink_for_dolores.jpg" alt="It's funny that my blog with a DR of 10 backlinks my website"></p>
 <p>From the <a target="_blank" rel="noopener" href="https://www.similarweb.com/">Similarweb</a> screenshot above, you can see it provides a <code>similar websites</code> feature, so you can quickly find websites similar to aitools.fyi. In this way, repeat the above two steps, and in the end, you can make a judgment of “whether to pay to submit the tool to this website”.</p>
-<h2 id="guidelines-from google search console [^3]">Guidelines from Google Search Console <sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></h2>
+<h2 id="guidelines-from google [^3]">Guidelines from Google <sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></h2>
 <p>Google only wants you to improve your web page’s load speed and compatibility. The faster and the better the compatibility, the higher the impression score. Here are some tips I have tried:</p>
 <h3 id="preconnect">Preconnect</h3>
 <p>That is, add a line of <code>preconnect</code> code before accessing resources. For example, add a line before:</p>
@@ -129,7 +129,7 @@ Disclaimer: This is some experience I have discovered in a short time as an engi
 <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css&quot;</span>&gt;</span>
 </code></pre></div>
 <p>This could speed up the resource acquisition speed, thereby speeding up the webpage loading.</p>
-<h3 id="multiple-resolutions for media resources">Multiple resolutions for media resources</h3>
+<h3 id="media-resolutions">Media Resolutions</h3>
 <p>If you use images/videos on your webpage, try to add small/middle/large three resolutions:</p>
 <div class="highlight"><pre class="code"><code><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">&quot;small.jpg 600w, 
              medium.jpg 1200w, 
@@ -140,7 +140,7 @@ Disclaimer: This is some experience I have discovered in a short time as an engi
      <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;large.jpg&quot;</span> 
      <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;Your image description&quot;</span>&gt;</span>
 </code></pre></div>
-<h3 id="compatibility-for mobile devices">Compatibility for mobile devices</h3>
+<h3 id="mobile-friendly">Mobile-friendly</h3>
 <p>Use responsive design frameworks (such as Tailwind CSS), and test on both desktop and mobile devices, make sure your webpage fits these two screen sizes, so that Google can score your webpage higher.</p>
 <p>I used the above set of combination optimization methods on my website, and the average page load time decreased by 25% after one week.<br>
 <img src="/images/2023-07-23/pageload.jpg" alt="The average page load time decreased by 25% in the past week."></p>

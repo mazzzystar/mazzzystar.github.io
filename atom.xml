@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>TL;DR</title>
+  <icon>http://example.com/icon.png</icon>
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2023-07-23T09:09:11.541Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>碎瓜</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Get users for your AI tool from Google search</title>
+    <link href="http://example.com/2023/07/23/Get-users-for-your-AI-tool-from-Google-search/"/>
+    <id>http://example.com/2023/07/23/Get-users-for-your-AI-tool-from-Google-search/</id>
+    <published>2023-07-23T06:45:20.000Z</published>
+    <updated>2023-07-23T09:09:11.541Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;Disclaimer: This is some experience I have discovered in a short time as an engineer without any SEO basis, so there might</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>让你的AI工具从Google搜索中获得用户</title>
+    <link href="http://example.com/2023/07/23/Get-users-for-your-AI-tool-from-Google-search-zh/"/>
+    <id>http://example.com/2023/07/23/Get-users-for-your-AI-tool-from-Google-search-zh/</id>
+    <published>2023-07-23T06:42:23.000Z</published>
+    <updated>2023-07-23T09:05:23.801Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;声明&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;：&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;这是我(一个完全没有任何SEO基础的工程师)在短期内发现的一些经验&lt;span</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>The Leverage of LLMs for Individuals</title>
+    <link href="http://example.com/2023/05/10/LLM-for-individual/"/>
+    <id>http://example.com/2023/05/10/LLM-for-individual/</id>
+    <published>2023-05-10T10:28:48.000Z</published>
+    <updated>2023-05-15T01:02:03.030Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: This article is not meant to provoke anxiety or exaggerate the power of GPT. It is merely my</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>大语言模型对个人的杠杆</title>
+    <link href="http://example.com/2023/05/10/LLM-for-person-zh/"/>
+    <id>http://example.com/2023/05/10/LLM-for-person-zh/</id>
+    <published>2023-05-10T08:50:15.000Z</published>
+    <updated>2023-05-15T01:02:06.241Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;声明&lt;/strong&gt;&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;：&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;不贩卖焦虑&lt;span</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Teach, Show, then Consult: Make GPT a Music Composition Guide</title>
+    <link href="http://example.com/2023/03/03/teach-show-consult-gpt/"/>
+    <id>http://example.com/2023/03/03/teach-show-consult-gpt/</id>
+    <published>2023-03-03T11:26:02.000Z</published>
+    <updated>2023-03-03T12:44:56.997Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;I tried an odd idea: have ChatGPT learn a music programming language (Alda), give it some great code examples, and then ask it for</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Run CLIP on iPhone to Search Photos</title>
+    <link href="http://example.com/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/"/>
+    <id>http://example.com/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/</id>
+    <published>2022-12-29T03:51:57.000Z</published>
+    <updated>2023-07-18T03:56:00.140Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;Update: I have made Queryable free &amp;amp; &lt;a href=&quot;https://github.com/mazzzystar/Queryable&quot;&gt;open-source&lt;/a&gt;. This might help</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>系统外的三个月</title>
+    <link href="http://example.com/2022/11/19/three-months-away-from-work/"/>
+    <id>http://example.com/2022/11/19/three-months-away-from-work/</id>
+    <published>2022-11-19T12:23:04.000Z</published>
+    <updated>2022-11-19T12:37:25.248Z</updated>
+    
+    
+    <summary type="html">最近三个月的流水账。</summary>
+    
+    
+    
+    <category term="流水账" scheme="http://example.com/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>新手上架人生第一个iOS App</title>
+    <link href="http://example.com/2022/11/12/my-first-iOS-app/"/>
+    <id>http://example.com/2022/11/12/my-first-iOS-app/</id>
+    <published>2022-11-12T11:54:39.000Z</published>
+    <updated>2022-11-12T12:14:48.325Z</updated>
+    
+    
+    <summary type="html">二次确认你的蓝牙是否连接成功，让你在图书馆也能安心刷视频。</summary>
+    
+    
+    
+    <category term="小说" scheme="http://example.com/categories/%E5%B0%8F%E8%AF%B4/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>为什么Stable Diffusion比Disco Diffusion快几个数量级？</title>
+    <link href="http://example.com/2022/09/07/stable-diffusion/"/>
+    <id>http://example.com/2022/09/07/stable-diffusion/</id>
+    <published>2022-09-07T07:36:50.000Z</published>
+    <updated>2022-11-05T15:21:01.184Z</updated>
+    
+    
+    <summary type="html">Stable Diffusion的开源让普通人也能描绘梦境，很大因素来自于它几十倍于Disco Diffusion的推理速度，机器成本被极大降低。本文就在试图(浅显地)解释：为什么Stable Diffusion这么快？</summary>
+    
+    
+    
+    <category term="玩" scheme="http://example.com/categories/%E7%8E%A9/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>一次杀人</title>
+    <link href="http://example.com/2022/07/09/A-Murder/"/>
+    <id>http://example.com/2022/07/09/A-Murder/</id>
+    <published>2022-07-09T07:05:30.000Z</published>
+    <updated>2022-11-04T08:45:43.472Z</updated>
+    
+    
+    <summary type="html">小说，荒诞时代的一则黑色日记。</summary>
+    
+    
+    
+    <category term="小说" scheme="http://example.com/categories/%E5%B0%8F%E8%AF%B4/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>克隆人、虚拟人和AI复活人</title>
+    <link href="http://example.com/2022/05/09/clone-virtual-ai/"/>
+    <id>http://example.com/2022/05/09/clone-virtual-ai/</id>
+    <published>2022-05-09T07:05:30.000Z</published>
+    <updated>2022-11-04T08:44:43.404Z</updated>
+    
+    
+    <summary type="html">小说，动笔的初衷来自一篇报道，有个算法工程师试图用AI复活死去的爷爷，文章里对主人公大肆赞扬，而我只从这种赛博辱尸行为中感到了阵阵恶心。</summary>
+    
+    
+    
+    <category term="小说" scheme="http://example.com/categories/%E5%B0%8F%E8%AF%B4/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>AI绘画很酷，可是..原理是什么？</title>
+    <link href="http://example.com/2022/05/04/how-ai-art-works-1/"/>
+    <id>http://example.com/2022/05/04/how-ai-art-works-1/</id>
+    <published>2022-05-04T07:05:30.000Z</published>
+    <updated>2022-11-05T06:03:42.008Z</updated>
+    
+    
+    <summary type="html">普及知识同时平衡专业性是件困难的事，本文试图从普通人也能(勉强)看得懂的视角，讲讲AI绘画的原理。此文章写的比较早，因此文中的AI绘画特指Disco Diffusion。</summary>
+    
+    
+    
+    <category term="玩" scheme="http://example.com/categories/%E7%8E%A9/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>生成艺术：对话Manolo Gamboa Naon(译)</title>
+    <link href="http://example.com/2022/04/05/generative-art-article-translation/"/>
+    <id>http://example.com/2022/04/05/generative-art-article-translation/</id>
+    <published>2022-04-05T07:05:30.000Z</published>
+    <updated>2022-11-05T06:56:09.358Z</updated>
+    
+    
+    <summary type="html">(翻译)对生成艺术大师Manolo Gamboa Naon的访谈文字版。</summary>
+    
+    
+    
+    <category term="玩" scheme="http://example.com/categories/%E7%8E%A9/"/>
+    
+    
+  </entry>
+  
+</feed>

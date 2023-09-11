@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-08-03T03:10:09.481Z</updated>
+  <updated>2023-09-11T09:52:19.552Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>梦/Dream</title>
+    <link href="http://example.com/2023/09/11/dream/"/>
+    <id>http://example.com/2023/09/11/dream/</id>
+    <published>2023-09-11T08:54:18.000Z</published>
+    <updated>2023-09-11T09:52:19.552Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在许多夜晚&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;我的梦里都存在两个我&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd</summary>
+        
+      
+    
+    
+    
+    <category term="小说" scheme="http://example.com/categories/%E5%B0%8F%E8%AF%B4/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Get users for your AI tool from Google search</title>

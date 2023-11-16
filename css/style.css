@@ -470,10 +470,6 @@ button::-moz-focus-inner {
   font-weight: normal;
   src: url("fonts/HYFangSongJ.ttf");
 }
-@font-face {
-  font-family: biaodian;
-  src: url("fonts/biaodian.ttf");
-}
 html {
   scroll-padding-top: 80px;
 }

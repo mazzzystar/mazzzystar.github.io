@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-11-22T13:53:21.506Z</updated>
+  <updated>2023-12-03T01:58:55.368Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>一个失败的AI女友产品</title>
+    <link href="http://example.com/2023/11/17/ai-girlfriend-cn-zh/"/>
+    <id>http://example.com/2023/11/17/ai-girlfriend-cn-zh/</id>
+    <published>2023-11-17T04:08:48.000Z</published>
+    <updated>2023-12-03T01:58:55.368Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;今年 4 月 7 日&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;斯坦福大学AI西部小镇&lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>A Failed AI Girlfriend Product, and My Lessons</title>
     <link href="http://example.com/2023/11/16/ai-girlfriend-product/"/>
     <id>http://example.com/2023/11/16/ai-girlfriend-product/</id>
     <published>2023-11-16T06:08:48.000Z</published>
-    <updated>2023-11-22T13:53:21.506Z</updated>
+    <updated>2023-12-03T01:54:27.259Z</updated>
     
     
       

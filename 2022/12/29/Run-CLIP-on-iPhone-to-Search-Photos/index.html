@@ -107,7 +107,7 @@ model, <span class="hljs-attr">preprocess</span> = clip.load(<span class="hljs-s
 
 <span class="hljs-comment"># Calculate image vector &amp; text vector</span>
 <span class="hljs-attr">image_feature</span> = model.encode_image(<span class="hljs-string">&quot;photo-of-a-dog.png&quot;</span>)
-<span class="hljs-attr">text_feature</span> = model.encode_text(<span class="hljs-string">&quot;rainly night&quot;</span>)
+<span class="hljs-attr">text_feature</span> = model.encode_text(<span class="hljs-string">&quot;rainy night&quot;</span>)
 
 <span class="hljs-comment"># cosine similarity</span>
 <span class="hljs-attr">sim</span> = cosin_similarity(image_feature, text_feature)

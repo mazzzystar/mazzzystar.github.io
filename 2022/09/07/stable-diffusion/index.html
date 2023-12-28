@@ -28,13 +28,13 @@
       <meta name="twitter:site" content="@yourtwitterhandle"> <!-- Replace with your Twitter handle -->
       <meta name="twitter:title" content="为什么Stable Diffusion比Disco Diffusion快几个数量级？ | TL;DR">
       <meta name="twitter:description" content="Stable Diffusion的开源让普通人也能描绘梦境，很大因素来自于它几十倍于Disco Diffusion的推理速度，机器成本被极大降低。本文就在试图(浅显地)解释：为什么Stable Diffusion这么快？">
-      <meta name="twitter:image" content="favicon.jpg">
+      <meta name="twitter:image" content="https://mazzzystar.github.io/favicon.jpg">
 
       <!-- Open Graph meta tags -->
       <meta property="og:title" content="为什么Stable Diffusion比Disco Diffusion快几个数量级？ | TL;DR">
       <meta property="og:description" content="Stable Diffusion的开源让普通人也能描绘梦境，很大因素来自于它几十倍于Disco Diffusion的推理速度，机器成本被极大降低。本文就在试图(浅显地)解释：为什么Stable Diffusion这么快？">
-      <meta property="og:image" content="favicon.jpg">
-      <meta property="og:url" content="http://example.com/2022/09/07/stable-diffusion/">
+      <meta property="og:image" content="https://mazzzystar.github.io/favicon.jpg">
+      <meta property="og:url" content="https://mazzzystar.github.io/2022/09/07/stable-diffusion/">
       <meta property="og:type" content="article">
 
       
@@ -103,7 +103,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>上一篇写<a target="_blank" rel="noopener" href="https://mazzzystar.github.io/2022/05/04/how-ai-art-works-1/">AI绘画AI绘画很酷<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可是…原理是什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></a>时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Stable Diffusion尚未发布<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>文末的原理介绍其实是关于Disco Diffusion<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>本文想从这两个模型背后的原理层面来比较二者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时回答(也是回答自己)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>为什么Stable Diffusion可以这么快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></strong></p>
+        <p>上一篇写<a href="https://mazzzystar.github.io/2022/05/04/how-ai-art-works-1/">AI绘画AI绘画很酷<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可是…原理是什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></a>时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Stable Diffusion尚未发布<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>文末的原理介绍其实是关于Disco Diffusion<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>本文想从这两个模型背后的原理层面来比较二者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时回答(也是回答自己)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>为什么Stable Diffusion可以这么快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></strong></p>
 <p><em>Disco Diffusion单张耗时在5-10min<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Stable Diffusion则只需要5-10s<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
 <h1 id="一原理复习">一.原理复习</h1>
 <p>Diffusion模型的作用是将图像&quot;降噪&quot;<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是说它只是实现将一张带有噪点的图像变清晰这个功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>AI能够绘画<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>依托于模型将用户的输入文本变成能与图像比较的向量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如CLIP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
@@ -114,7 +114,7 @@
 <blockquote>
 <p>对于用户指定尺寸的一张分辨率为1920x1080图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型每次都要迭代这张图上一共3x1920x1080个像素点的值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且将这个过程循环240次(steps)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 </blockquote>
-<p>有没有更好的办法呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>今年年初<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>几位科学家提出的<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2112.10752">Latent Diffusion</a>模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就试图尝试将Diffusion过程放在隐空间(latent)上做<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我<a target="_blank" rel="noopener" href="https://mazzzystar.github.io/2022/05/04/how-ai-art-works-1/">上一篇文章</a>也有关于隐空间的介绍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>有没有更好的办法呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>今年年初<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>几位科学家提出的<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2112.10752">Latent Diffusion</a>模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就试图尝试将Diffusion过程放在隐空间(latent)上做<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我<a href="https://mazzzystar.github.io/2022/05/04/how-ai-art-works-1/">上一篇文章</a>也有关于隐空间的介绍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <h1 id="二在隐空间上做diffusion">二.在隐空间上做Diffusion</h1>
 <p>首先<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一张图片的隐空间(latent)怎么得到呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>最简单的方法就是训练一个Encoder-Decoder网络<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比如下面这个模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>它的输入是一张512x512的图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型的Encoder将这张图像变成一个64x64的latent<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>经过Decoder将其还原成原始的512x512图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
 <img src="/images/2022-09-07/img_2.jpg" alt="提取隐变量(latent)"></p>

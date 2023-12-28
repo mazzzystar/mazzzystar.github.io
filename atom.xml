@@ -3,11 +3,11 @@
   <title>TL;DR</title>
   
   
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://mazzzystar.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://mazzzystar.github.io/"/>
   <updated>2023-12-27T16:48:24.794Z</updated>
-  <id>http://example.com/</id>
+  <id>https://mazzzystar.github.io/</id>
   
   <author>
     <name>Ke Fang</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>消费折叠</title>
-    <link href="http://example.com/2023/12/27/folding-consumption-zh/"/>
-    <id>http://example.com/2023/12/27/folding-consumption-zh/</id>
+    <link href="https://mazzzystar.github.io/2023/12/27/folding-consumption-zh/"/>
+    <id>https://mazzzystar.github.io/2023/12/27/folding-consumption-zh/</id>
     <published>2023-12-27T08:42:12.000Z</published>
     <updated>2023-12-27T16:48:24.794Z</updated>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>Folding Consumption</title>
-    <link href="http://example.com/2023/12/27/folding-consumption/"/>
-    <id>http://example.com/2023/12/27/folding-consumption/</id>
+    <link href="https://mazzzystar.github.io/2023/12/27/folding-consumption/"/>
+    <id>https://mazzzystar.github.io/2023/12/27/folding-consumption/</id>
     <published>2023-12-27T06:21:32.000Z</published>
     <updated>2023-12-27T10:00:42.178Z</updated>
     
@@ -62,8 +62,8 @@
   
   <entry>
     <title>在2023年底做一个古典的信息共享工具</title>
-    <link href="http://example.com/2023/12/07/sublink-zh/"/>
-    <id>http://example.com/2023/12/07/sublink-zh/</id>
+    <link href="https://mazzzystar.github.io/2023/12/07/sublink-zh/"/>
+    <id>https://mazzzystar.github.io/2023/12/07/sublink-zh/</id>
     <published>2023-12-07T10:03:21.000Z</published>
     <updated>2023-12-09T02:52:43.333Z</updated>
     
@@ -83,8 +83,8 @@
   
   <entry>
     <title>I Made a Link-Sharing Website at the End of 2023</title>
-    <link href="http://example.com/2023/12/07/sublink/"/>
-    <id>http://example.com/2023/12/07/sublink/</id>
+    <link href="https://mazzzystar.github.io/2023/12/07/sublink/"/>
+    <id>https://mazzzystar.github.io/2023/12/07/sublink/</id>
     <published>2023-12-07T07:49:25.000Z</published>
     <updated>2023-12-08T09:56:47.051Z</updated>
     
@@ -104,8 +104,8 @@
   
   <entry>
     <title>一个失败的AI女友产品</title>
-    <link href="http://example.com/2023/11/17/ai-girlfriend-cn-zh/"/>
-    <id>http://example.com/2023/11/17/ai-girlfriend-cn-zh/</id>
+    <link href="https://mazzzystar.github.io/2023/11/17/ai-girlfriend-cn-zh/"/>
+    <id>https://mazzzystar.github.io/2023/11/17/ai-girlfriend-cn-zh/</id>
     <published>2023-11-17T04:08:48.000Z</published>
     <updated>2023-12-24T16:43:48.768Z</updated>
     
@@ -124,8 +124,8 @@
   
   <entry>
     <title>A Failed AI Girlfriend Product, and My Lessons</title>
-    <link href="http://example.com/2023/11/16/ai-girlfriend-product/"/>
-    <id>http://example.com/2023/11/16/ai-girlfriend-product/</id>
+    <link href="https://mazzzystar.github.io/2023/11/16/ai-girlfriend-product/"/>
+    <id>https://mazzzystar.github.io/2023/11/16/ai-girlfriend-product/</id>
     <published>2023-11-16T06:08:48.000Z</published>
     <updated>2023-12-03T01:54:27.259Z</updated>
     
@@ -144,8 +144,8 @@
   
   <entry>
     <title>梦/Dream</title>
-    <link href="http://example.com/2023/09/11/dream/"/>
-    <id>http://example.com/2023/09/11/dream/</id>
+    <link href="https://mazzzystar.github.io/2023/09/11/dream/"/>
+    <id>https://mazzzystar.github.io/2023/09/11/dream/</id>
     <published>2023-09-11T08:54:18.000Z</published>
     <updated>2023-10-05T08:25:40.854Z</updated>
     
@@ -159,15 +159,15 @@
     
     
     
-    <category term="小说" scheme="http://example.com/categories/%E5%B0%8F%E8%AF%B4/"/>
+    <category term="小说" scheme="https://mazzzystar.github.io/categories/%E5%B0%8F%E8%AF%B4/"/>
     
     
   </entry>
   
   <entry>
     <title>Get users for your AI tool from Google search</title>
-    <link href="http://example.com/2023/07/23/Get-users-for-your-AI-tool-from-Google-search/"/>
-    <id>http://example.com/2023/07/23/Get-users-for-your-AI-tool-from-Google-search/</id>
+    <link href="https://mazzzystar.github.io/2023/07/23/Get-users-for-your-AI-tool-from-Google-search/"/>
+    <id>https://mazzzystar.github.io/2023/07/23/Get-users-for-your-AI-tool-from-Google-search/</id>
     <published>2023-07-23T06:45:20.000Z</published>
     <updated>2023-08-03T03:10:09.481Z</updated>
     
@@ -187,8 +187,8 @@
   
   <entry>
     <title>让你的AI工具从Google搜索中获得用户</title>
-    <link href="http://example.com/2023/07/23/Get-users-for-your-AI-tool-from-Google-search-zh/"/>
-    <id>http://example.com/2023/07/23/Get-users-for-your-AI-tool-from-Google-search-zh/</id>
+    <link href="https://mazzzystar.github.io/2023/07/23/Get-users-for-your-AI-tool-from-Google-search-zh/"/>
+    <id>https://mazzzystar.github.io/2023/07/23/Get-users-for-your-AI-tool-from-Google-search-zh/</id>
     <published>2023-07-23T06:42:23.000Z</published>
     <updated>2023-08-03T03:09:39.848Z</updated>
     
@@ -208,8 +208,8 @@
   
   <entry>
     <title>The Leverage of LLMs for Individuals</title>
-    <link href="http://example.com/2023/05/10/LLM-for-individual/"/>
-    <id>http://example.com/2023/05/10/LLM-for-individual/</id>
+    <link href="https://mazzzystar.github.io/2023/05/10/LLM-for-individual/"/>
+    <id>https://mazzzystar.github.io/2023/05/10/LLM-for-individual/</id>
     <published>2023-05-10T10:28:48.000Z</published>
     <updated>2023-05-15T01:02:03.030Z</updated>
     
@@ -229,8 +229,8 @@
   
   <entry>
     <title>大语言模型对个人的杠杆</title>
-    <link href="http://example.com/2023/05/10/LLM-for-person-zh/"/>
-    <id>http://example.com/2023/05/10/LLM-for-person-zh/</id>
+    <link href="https://mazzzystar.github.io/2023/05/10/LLM-for-person-zh/"/>
+    <id>https://mazzzystar.github.io/2023/05/10/LLM-for-person-zh/</id>
     <published>2023-05-10T08:50:15.000Z</published>
     <updated>2023-08-04T16:09:51.910Z</updated>
     
@@ -250,8 +250,8 @@
   
   <entry>
     <title>Teach, Show, then Consult: Make GPT a Music Composition Guide</title>
-    <link href="http://example.com/2023/03/03/teach-show-consult-gpt/"/>
-    <id>http://example.com/2023/03/03/teach-show-consult-gpt/</id>
+    <link href="https://mazzzystar.github.io/2023/03/03/teach-show-consult-gpt/"/>
+    <id>https://mazzzystar.github.io/2023/03/03/teach-show-consult-gpt/</id>
     <published>2023-03-03T11:26:02.000Z</published>
     <updated>2023-03-03T12:44:56.997Z</updated>
     
@@ -270,8 +270,8 @@
   
   <entry>
     <title>Run CLIP on iPhone to Search Photos</title>
-    <link href="http://example.com/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/"/>
-    <id>http://example.com/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/</id>
+    <link href="https://mazzzystar.github.io/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/"/>
+    <id>https://mazzzystar.github.io/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/</id>
     <published>2022-12-29T03:51:57.000Z</published>
     <updated>2023-12-08T09:47:31.247Z</updated>
     
@@ -291,8 +291,8 @@
   
   <entry>
     <title>系统外的三个月</title>
-    <link href="http://example.com/2022/11/19/three-months-away-from-work/"/>
-    <id>http://example.com/2022/11/19/three-months-away-from-work/</id>
+    <link href="https://mazzzystar.github.io/2022/11/19/three-months-away-from-work/"/>
+    <id>https://mazzzystar.github.io/2022/11/19/three-months-away-from-work/</id>
     <published>2022-11-19T12:23:04.000Z</published>
     <updated>2022-11-19T12:37:25.248Z</updated>
     
@@ -303,15 +303,15 @@
     
     
     
-    <category term="流水账" scheme="http://example.com/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6/"/>
+    <category term="流水账" scheme="https://mazzzystar.github.io/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6/"/>
     
     
   </entry>
   
   <entry>
     <title>新手上架人生第一个iOS App</title>
-    <link href="http://example.com/2022/11/12/my-first-iOS-app/"/>
-    <id>http://example.com/2022/11/12/my-first-iOS-app/</id>
+    <link href="https://mazzzystar.github.io/2022/11/12/my-first-iOS-app/"/>
+    <id>https://mazzzystar.github.io/2022/11/12/my-first-iOS-app/</id>
     <published>2022-11-12T11:54:39.000Z</published>
     <updated>2023-07-27T12:40:02.531Z</updated>
     
@@ -327,8 +327,8 @@
   
   <entry>
     <title>为什么Stable Diffusion比Disco Diffusion快几个数量级？</title>
-    <link href="http://example.com/2022/09/07/stable-diffusion/"/>
-    <id>http://example.com/2022/09/07/stable-diffusion/</id>
+    <link href="https://mazzzystar.github.io/2022/09/07/stable-diffusion/"/>
+    <id>https://mazzzystar.github.io/2022/09/07/stable-diffusion/</id>
     <published>2022-09-07T07:36:50.000Z</published>
     <updated>2022-11-05T15:21:01.184Z</updated>
     
@@ -339,15 +339,15 @@
     
     
     
-    <category term="玩" scheme="http://example.com/categories/%E7%8E%A9/"/>
+    <category term="玩" scheme="https://mazzzystar.github.io/categories/%E7%8E%A9/"/>
     
     
   </entry>
   
   <entry>
     <title>一次杀人</title>
-    <link href="http://example.com/2022/07/09/A-Murder/"/>
-    <id>http://example.com/2022/07/09/A-Murder/</id>
+    <link href="https://mazzzystar.github.io/2022/07/09/A-Murder/"/>
+    <id>https://mazzzystar.github.io/2022/07/09/A-Murder/</id>
     <published>2022-07-09T07:05:30.000Z</published>
     <updated>2022-11-04T08:45:43.472Z</updated>
     
@@ -358,15 +358,15 @@
     
     
     
-    <category term="小说" scheme="http://example.com/categories/%E5%B0%8F%E8%AF%B4/"/>
+    <category term="小说" scheme="https://mazzzystar.github.io/categories/%E5%B0%8F%E8%AF%B4/"/>
     
     
   </entry>
   
   <entry>
     <title>克隆人、虚拟人和AI复活人</title>
-    <link href="http://example.com/2022/05/09/clone-virtual-ai/"/>
-    <id>http://example.com/2022/05/09/clone-virtual-ai/</id>
+    <link href="https://mazzzystar.github.io/2022/05/09/clone-virtual-ai/"/>
+    <id>https://mazzzystar.github.io/2022/05/09/clone-virtual-ai/</id>
     <published>2022-05-09T07:05:30.000Z</published>
     <updated>2023-11-27T16:05:20.360Z</updated>
     
@@ -377,15 +377,15 @@
     
     
     
-    <category term="小说" scheme="http://example.com/categories/%E5%B0%8F%E8%AF%B4/"/>
+    <category term="小说" scheme="https://mazzzystar.github.io/categories/%E5%B0%8F%E8%AF%B4/"/>
     
     
   </entry>
   
   <entry>
     <title>AI绘画很酷，可是..原理是什么？</title>
-    <link href="http://example.com/2022/05/04/how-ai-art-works-1/"/>
-    <id>http://example.com/2022/05/04/how-ai-art-works-1/</id>
+    <link href="https://mazzzystar.github.io/2022/05/04/how-ai-art-works-1/"/>
+    <id>https://mazzzystar.github.io/2022/05/04/how-ai-art-works-1/</id>
     <published>2022-05-04T07:05:30.000Z</published>
     <updated>2022-11-05T06:03:42.008Z</updated>
     
@@ -396,15 +396,15 @@
     
     
     
-    <category term="玩" scheme="http://example.com/categories/%E7%8E%A9/"/>
+    <category term="玩" scheme="https://mazzzystar.github.io/categories/%E7%8E%A9/"/>
     
     
   </entry>
   
   <entry>
     <title>生成艺术：对话Manolo Gamboa Naon(译)</title>
-    <link href="http://example.com/2022/04/05/generative-art-article-translation/"/>
-    <id>http://example.com/2022/04/05/generative-art-article-translation/</id>
+    <link href="https://mazzzystar.github.io/2022/04/05/generative-art-article-translation/"/>
+    <id>https://mazzzystar.github.io/2022/04/05/generative-art-article-translation/</id>
     <published>2022-04-05T07:05:30.000Z</published>
     <updated>2022-11-05T06:56:09.358Z</updated>
     
@@ -415,7 +415,7 @@
     
     
     
-    <category term="玩" scheme="http://example.com/categories/%E7%8E%A9/"/>
+    <category term="玩" scheme="https://mazzzystar.github.io/categories/%E7%8E%A9/"/>
     
     
   </entry>

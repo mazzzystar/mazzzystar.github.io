@@ -1326,7 +1326,7 @@ a.article-title:hover {
 }
 .archive-article-title {
   text-decoration: none;
-  font-weight: bold;
+  font-weight: normal;
   color: #555;
   line-height: 1.6em;
 }

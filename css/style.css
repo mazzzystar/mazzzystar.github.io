@@ -404,6 +404,12 @@ button::-moz-focus-inner {
   padding: 0;
 }
 @font-face {
+  font-family: 'Gowun Dodum';
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/GowunDodum-Regular.ttf") format("truetype");
+}
+@font-face {
   font-family: FontAwesome;
   font-style: normal;
   font-weight: normal;
@@ -484,7 +490,7 @@ body,
 }
 body {
   background: #fff;
-  font: 16px "biaodian", "LM-Roman-10", "Chinese", serif, sans-serif;
+  font: 16px 'Gowun Dodum', Chinese, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 #content {

@@ -1276,6 +1276,7 @@ a.article-title:hover {
   clear: both;
 }
 .archive-year-wrap {
+  margin-top: 1em;
   margin-bottom: 1em;
   font-size: 1.5em;
 }

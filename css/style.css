@@ -410,6 +410,12 @@ button::-moz-focus-inner {
   src: url("fonts/GowunDodum-Regular.ttf") format("truetype");
 }
 @font-face {
+  font-family: 'Gowun Dodum';
+  font-style: normal;
+  font-weight: bold;
+  src: url("fonts/GowunDodum-Regular.ttf") format("truetype");
+}
+@font-face {
   font-family: FontAwesome;
   font-style: normal;
   font-weight: normal;
@@ -1326,7 +1332,7 @@ a.article-title:hover {
 }
 .archive-article-title {
   text-decoration: none;
-  font-weight: normal;
+  font-weight: bold;
   color: #555;
   line-height: 1.6em;
 }

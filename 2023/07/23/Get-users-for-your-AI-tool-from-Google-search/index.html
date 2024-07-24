@@ -28,7 +28,7 @@ Disclaimer: This is some experience I have discovered in a short time as an engi
       <meta property="og:title" content="Get users for your AI tool from Google search | TL;DR">
       <meta property="og:type" content="article">
       <meta property="og:url" content="https://mazzzystar.github.io">
-      <meta property="og:image" content="https://mazzzystar.github.io/favicon.jpg">
+      <meta property="og:image" content="https://mazzzystar.github.io/images/2023-07-23/chat_ai_search_result.jpg">
       <meta property="og:description" content="
 Disclaimer: This is some experience I have discovered in a short time as an engineer without any SEO basis, so there might be some fundamental errors">
       <meta property="og:site_name" content="TL;DR">
@@ -39,7 +39,7 @@ Disclaimer: This is some experience I have discovered in a short time as an engi
       <meta name="twitter:title" content="Get users for your AI tool from Google search | TL;DR">
       <meta name="twitter:description" content="
 Disclaimer: This is some experience I have discovered in a short time as an engineer without any SEO basis, so there might be some fundamental errors">
-      <meta name="twitter:image" content="https://mazzzystar.github.io/favicon.jpg">
+      <meta name="twitter:image" content="https://mazzzystar.github.io/images/2023-07-23/chat_ai_search_result.jpg">
 
       
         <link rel="alternate" href="../../../../atom.xml" title="TL;DR" type="application/atom+xml">
@@ -143,24 +143,31 @@ Disclaimer: This is some experience I have discovered in a short time as an engi
 <p>Google only wants you to improve the loading speed and compatibility of your webpage. The faster and more compatible your website is, the better impression it will make on Google. Here are some techniques I have tried:</p>
 <h3 id="preconnect">Preconnect</h3>
 <p>This is about adding a line of <code>preconnect</code> code before your HTML page accesses a resource. For example, change:</p>
-<div class="highlight"><pre class="code"><code><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css&quot;</span>&gt;</span>
+<div class="highlight"><pre class="code"><code><span class="hljs-tag">&lt;<span class="hljs-name">link</span>
+  <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span>
+  <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css&quot;</span>
+/&gt;</span>
 </code></pre></div>
 <p>It becomes:</p>
-<div class="highlight"><pre class="code"><code><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;preconnect&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://cdnjs.cloudflare.com&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css&quot;</span>&gt;</span>
+<div class="highlight"><pre class="code"><code><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;preconnect&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://cdnjs.cloudflare.com&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span>
+  <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span>
+  <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css&quot;</span>
+/&gt;</span>
 </code></pre></div>
 <p>This could speed up the resource acquisition speed, thereby speeding up the webpage loading.</p>
 <h3 id="media-resolutions">Media Resolutions</h3>
 <p>If you use images/videos on your webpage, try to add small/middle/large three resolutions:</p>
-<div class="highlight"><pre class="code"><code><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">&quot;small.jpg 600w, 
-             medium.jpg 1200w, 
-             large.jpg 1800w&quot;</span> 
-     <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;1242&quot;</span> <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;2688&quot;</span>
-     <span class="hljs-attr">sizes</span>=<span class="hljs-string">&quot;(max-width: 600px) 600px,
+<div class="highlight"><pre class="code"><code><span class="hljs-tag">&lt;<span class="hljs-name">img</span>
+  <span class="hljs-attr">srcset</span>=<span class="hljs-string">&quot;small.jpg 600w, medium.jpg 1200w, large.jpg 1800w&quot;</span>
+  <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;1242&quot;</span>
+  <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;2688&quot;</span>
+  <span class="hljs-attr">sizes</span>=<span class="hljs-string">&quot;(max-width: 600px) 600px,
             (max-width: 1200px) 1200px,
             1800px&quot;</span>
-     <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;large.jpg&quot;</span> 
-     <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;Your image description&quot;</span>&gt;</span>
+  <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;large.jpg&quot;</span>
+  <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;Your image description&quot;</span>
+/&gt;</span>
 </code></pre></div>
 <p>Remember to include the actual <code>width</code> and <code>height</code> specifications at the end; this helps prevent pixel shift when the site is loading.</p>
 <h3 id="replace-all png/jpeg with webp">Replace All PNG/JPEG with WebP</h3>
@@ -173,7 +180,7 @@ npx tailwindcss init
 </code></pre></div>
 <p>Create a <code>tailwind.config.js</code> file with the content:</p>
 <div class="highlight"><pre class="code"><code><span class="hljs-built_in">module</span>.exports = &#123;
-  <span class="hljs-attr">purge</span>: [<span class="hljs-string">&#x27;./src/**/*.&#123;html,js,jsx,ts,tsx&#125;&#x27;</span>, <span class="hljs-string">&#x27;./public/index.html&#x27;</span>],
+  <span class="hljs-attr">purge</span>: [<span class="hljs-string">&quot;./src/**/*.&#123;html,js,jsx,ts,tsx&#125;&quot;</span>, <span class="hljs-string">&quot;./public/index.html&quot;</span>],
   <span class="hljs-attr">darkMode</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// or &#x27;media&#x27; or &#x27;class&#x27;</span>
   <span class="hljs-attr">theme</span>: &#123;
     <span class="hljs-attr">extend</span>: &#123;&#125;,
@@ -182,7 +189,7 @@ npx tailwindcss init
     <span class="hljs-attr">extend</span>: &#123;&#125;,
   &#125;,
   <span class="hljs-attr">plugins</span>: [],
-&#125;
+&#125;;
 </code></pre></div>
 <p>Open the <code>package.json</code> file and write:</p>
 <div class="highlight"><pre class="code"><code>&#123;

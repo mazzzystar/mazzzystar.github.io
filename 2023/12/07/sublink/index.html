@@ -23,21 +23,21 @@
           TL;DR
       </title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="TL;DR: This piece delves into my personal journey through an information access crisis and my reflections on developing Sublink, a platform dedicated to link-sharing. At my previous job, we had a com...">
+      <meta name="description" content="TL;DR: This piece delves into my personal experience with an information access crisis and my reflections on developing Sublink, a platform dedicated to link-sharing. At my previous job, we had a com...">
 
       <!-- Open Graph meta tags -->
       <meta property="og:title" content="I Made a Link-Sharing Website at the End of 2023 | TL;DR">
       <meta property="og:type" content="article">
       <meta property="og:url" content="https://mazzzystar.github.io">
       <meta property="og:image" content="https://mazzzystar.github.io/images/2023-12-07/sublink-screenshot.jpg">
-      <meta property="og:description" content="TL;DR: This piece delves into my personal journey through an information access crisis and my reflections on developing Sublink, a platform dedicated to link-sharing. At my previous job, we had a com...">
+      <meta property="og:description" content="TL;DR: This piece delves into my personal experience with an information access crisis and my reflections on developing Sublink, a platform dedicated to link-sharing. At my previous job, we had a com...">
       <meta property="og:site_name" content="TL;DR">
 
       <!-- Twitter Card meta tags -->
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:site" content="@immazzystar">
       <meta name="twitter:title" content="I Made a Link-Sharing Website at the End of 2023 | TL;DR">
-      <meta name="twitter:description" content="TL;DR: This piece delves into my personal journey through an information access crisis and my reflections on developing Sublink, a platform dedicated to link-sharing. At my previous job, we had a com...">
+      <meta name="twitter:description" content="TL;DR: This piece delves into my personal experience with an information access crisis and my reflections on developing Sublink, a platform dedicated to link-sharing. At my previous job, we had a com...">
       <meta name="twitter:image" content="https://mazzzystar.github.io/images/2023-12-07/sublink-screenshot.jpg">
 
       
@@ -107,49 +107,47 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>TL;DR: This piece delves into my personal journey through an information access crisis and my reflections on developing Sublink, a platform dedicated to link-sharing.</p>
+<p>TL;DR: This piece delves into my personal experience with an information access crisis and my reflections on developing Sublink, a platform dedicated to link-sharing.</p>
 </blockquote>
-<p>At my previous job, we had a company forum that allowed for the creation of discussion groups. I initiated a group called “Knew” with this introduction:</p>
-<p><em>“Knew” is a platform designed for ‘brain-sharing’: every week, you can share the latest events and developments in your areas of interest. This facilitates knowledge sharing among all of us. You don’t need deep expertise in the topics you share; simply making others aware of their existence is significantly valuable.</em></p>
-<p>I even selected an appropriate icon for it.</p>
+<p>At my previous job, we had a company forum where you could create discussion groups and post within them. Interested people could join these groups and contribute. I created a group called “Knew” with this introduction:</p>
+<p><em>This is a project aimed at ‘brain-sharing’: every week, you can share the latest events and developments in your areas of interest with everyone. This way, we can all share our brains with each other. You don’t need to have “even the slightest” professional background in what you’re sharing; simply making others aware of its existence is already meaningful enough.</em></p>
 <p><img src="/images/2023-12-07/imessage1.png" alt="Quite appropriate, right?"></p>
-<p>Weekly, I’d share intriguing finds like DALLE-2, Azuki, and vaccine efficacy data. My group quickly became one of the forum’s top three most popular, attracting many followers and likes.</p>
-<p>However, the group quickly became a one-way street with only me sharing and others consuming, as no one else contributed. After several editions, I gave up, realizing the project didn’t align with my original intent of fostering mutual brain-sharing.</p>
-<p>This experience led me to ponder how to facilitate easier, low-pressure information sharing among people. In September, I came up with the idea of <a target="_blank" rel="noopener" href="https://sublink.app/">Sublink</a>:</p>
+<p>Each week, I’d share new discoveries in the group. I shared about DALLE-2, Azuki, vaccine efficacy data, and more. After just two posts, my group’s popularity had already reached the forum’s top three, with many subscribers and likes.</p>
+<p>However, no one else was sharing; they were merely consumers. After the third or fourth edition, I gave up. “Creating a channel and getting many people to cheer for me” wasn’t my original intention; I couldn’t access other people’s brains.</p>
+<p>I began to ponder if there was a way to make information sharing between people easier and less pressured. In September this year, I came up with the idea of “link collections”:</p>
 <blockquote>
-<p>a platform where you could curate a collection of anything you like and share it with friends. Any new addition to your collection would be instantly visible to them.</p>
+<p>You could create a collection for anything you like and share it with friends. When you make a new discovery, you add the link to this collection, and your friends can see it.</p>
 </blockquote>
-<p>I shared this concept with two web developer friends in late August — They found the idea intriguing, but their busy schedules meant little progress was made until November.</p>
-<p>Consequently, I took matters into my own hands, embarking on a self-taught journey in modern full-stack development using Next.js, Typescript, Prisma, and Supabase. With YouTube’s assistance, I mastered the basics of React State and Next.js App Router by the end of November.</p>
-<p>Yesterday, after two weeks of development, I launched the site. It serves as a versatile platform for organizing, sharing, and subscribing to links, much like a shareable, collaborative bookmark. Ideal for curating collections of works, or simply sharing lists of movies, music, or articles, it also supports RSS for notifying subscribers about new additions.</p>
-<p><img src="/images/2023-12-07/sublink-screenshot.jpg" alt="Subink (Former) Homepage"></p>
-<p>But the question remains, what’s its practical use?</p>
+<p>In late August, I shared this idea with two frontend developer friends: one from France, whom I met through the <a target="_blank" rel="noopener" href="https://github.com/mazzzystar/Queryable">Queryable</a> project, and another from ByteDance. They both showed great interest, but they were extremely busy. Until early November, progress on this product was almost at a standstill.</p>
+<p>Left with no choice, I had to learn from scratch: In 2023, Next.js + Typescript + Prisma + Supabase seemed to me the best path for learning full-stack development from zero. I spent the entire month of November learning React State and Next.js App Router with the help of YouTube, and by late November, I had nearly grasped the basics.</p>
+<p>Then came two weeks of development. Yesterday, I finally launched the website: In simple terms, you can use it to organize interesting movies, articles, and videos you come across daily, then share them with your friends. Oh, and it also supports RSS: when you add new links, people who subscribe to your Collection using any RSS client will receive notifications.</p>
+<p><img src="/images/2023-12-07/sublink-screenshot.jpg" alt="Sublink (Former) Homepage"></p>
+<p>But the question remains: What’s it good for?</p>
 <h2 id="the-small website discoverability crisis">The Small Website Discoverability Crisis</h2>
-<p>I’m a fan of <a target="_blank" rel="noopener" href="http://radio.garden/">Radio Garden</a>, where I can even listen to live radio from <a target="_blank" rel="noopener" href="http://radio.garden/visit/pyongyang/2uWowTBd">Pyongyang</a>; it’s really a strange experience. I also love playing Neal’s <a target="_blank" rel="noopener" href="https://neal.fun/password-game/">password games</a>. The internet hosts a myriad of shiny, intriguing, and one-of-a-kind sites, yet there’s no dedicated hub for preserving and displaying these gems. Whenever I come across a great blog, I tend to share it with friends and discuss it, but then it often slips my mind. Recently, a trending article on Hacker News, <a target="_blank" rel="noopener" href="https://www.marginalia.nu/log/19-website-discoverability-crisis/">The Small Website Discoverability Crisis</a>, resonated with me. It discusses how small websites struggle to get noticed by search engines.</p>
-<p>The search engines driven by the Page Rank algorithm have led to the rise of content and link farms. Content farms produce vast amounts of irrelevant material using AI or scripts to improve their ranking in Google’s keyword searches. Link farms are about creating or purchasing backlinks across multiple websites to enhance a site’s Page Rank, resulting in a distorted online presence.</p>
-<p>As a result, truly valuable websites become overshadowed in search engine results, rendering them virtually invisible.</p>
+<p>I’m a fan of <a target="_blank" rel="noopener" href="http://radio.garden/">Radio Garden</a>, where I can even listen to live radio from <a target="_blank" rel="noopener" href="http://radio.garden/visit/pyongyang/2uWowTBd">Pyongyang</a>. I also love Neal’s password games. The internet hosts a myriad of shiny, intriguing, and unique sites, yet there’s no dedicated place to store and showcase them. Whenever I read a good blog, I share the link with multiple friends, discuss it with them, and then forget about it. Last week, I saw a trending article on Hacker News: <a target="_blank" rel="noopener" href="https://www.marginalia.nu/log/19-website-discoverability-crisis/">The Small Website Discoverability Crisis</a> which coined this term.</p>
+<p>Search engines based on the Page Rank algorithm have led to the rise of content farms and link farms. Content farms are websites that generate large amounts of irrelevant content using AI or scripts to improve their keyword rankings in Google searches. Link farms involve mutual backlinking between website owners or purchasing backlinks to boost a site’s PR ranking.</p>
+<p>All of this results in truly valuable websites becoming dead zones in search engines.</p>
 <h2 id="information-cocoon rooms">Information Cocoon Rooms</h2>
-<p>We’re enveloped by recommendation algorithms. Yes, we can turn to GPT for fresh insights, but “you can’t ask about what you don’t know exists.” Therefore, even with the most knowledgeable teacher at our disposal, if we fail to pose questions that challenge our existing knowledge, gaining perspective-altering answers is challenging. Take, for instance, the <strong>Aronson Effect</strong>—are you familiar with it?</p>
-<p>That’s why, in the age of Large Language Models (LLMs), there’s a heightened need for human-curated content feeds. These feeds bring us information in unexpected, raw, and sometimes unsettling ways, bypassing neural network filtering. While most people might not seek this, a select few, like me, find it indispensable.</p>
-<h2 id="what's-possible with llm?">What’s Possible with LLM?</h2>
-<p>Imagine this website fifteen years ago - it would have been just the same. But now, at the close of 2023, why not integrate the trending LLM into websites? I’ve envisioned two potential cases:</p>
+<p>We’re surrounded by recommendation algorithms. Sure, we can ask GPT for new knowledge, but “you can’t ask about something you don’t know exists.” So even with the world’s most knowledgeable teacher, if we can’t generate new questions that break through our own cognition, it’s hard to get answers that open our horizons. For instance, do you know about the <strong>Aronson Effect</strong>?</p>
+<p>That’s why, in the age of LLMs, there’s a greater need for human-curated subscription content, allowing information not filtered by neural networks to enter my brain in unfamiliar, raw, and uncomfortable ways. This certainly isn’t something most people need, but I guess I’m not the only one who does.</p>
+<h2 id="adding-llm?">Adding LLM?</h2>
+<p>If this product were made 15 years ago, it wouldn’t be any different. So, at the end of 2023, is it possible to incorporate the currently trending LLM into the website? I thought of two points:</p>
 <h4 id="1-automated summaries">1. Automated Summaries</h4>
-<p>Originally, I planned to use LLM to extract webpage descriptions as brief summaries for each link. But I eventually decided against it: LLM charges based on usage, making it hard to control monthly expenses. For a website that clearly can’t turn a profit, the cost incurred from a surge in user-added links could be financially devastating.</p>
-<p>The key to sustainability is keeping unpredictable expenses low.</p>
+<p>Initially, I wanted to use LLM to extract webpage descriptions as brief introductions for each Link, but I eventually gave up: LLM charges based on usage, meaning I couldn’t control the monthly costs. When users add a large number of Links, the expense for article summarization could become exorbitant, which is terrifying for a website that clearly can’t turn a profit.</p>
+<p>To keep the website running longer, it’s best to minimize uncontrollable expenses as much as possible.</p>
 <h4 id="2-language delivery network (ldn)">2. Language Delivery Network (LDN)</h4>
-<p>I once came up with an idea, let’s call it a Language CDN (LDN): When I write a blog, my goal is for people worldwide, regardless of their country or language, to read it in their local language. Using browser-based translations or plugins is a common workaround, but this often results in repeated translations and poor control over the quality.</p>
-<p>That’s where LDN comes in: Authors write a blog or create a website and use LDN to manage its multilingual versions. If a new language user visits and LDN doesn’t have a cached translation, it translates once and then saves this version for future visitors in the same language. This allows authors to maintain and fine-tune the translations, ensuring both quality and consistency.</p>
-<p>Although this idea wasn’t embraced when I <a target="_blank" rel="noopener" href="https://bear.nolt.io/148">suggested</a> it for the bearblog open-source project, I’m considering implementing it on Sublink, assuming there’s a demand for creating original content there.</p>
+<p>I once envisioned something, let’s call it a Language CDN: When I write a blog, I want people from different countries and languages worldwide to see a version in their local language. A simple method is to let users use built-in browser translation or install translation plugins, but this might result in the same article being translated many times, not only wasting GPU inference costs but also making it impossible for authors to control translation quality.</p>
+<p>This led to the idea of LDN: An author writes a blog or creates a website and can use an LDN platform to host their multilingual versions. Whenever a new language user visits the network, but LDN doesn’t have a cache for that language, it translates once. After that, other users of the same language can use the previously translated cache. Moreover, authors can locally manage the original translation data for multiple languages, thus controlling and adjusting the wording of translations.</p>
+<p>I once submitted this as <a target="_blank" rel="noopener" href="https://bear.nolt.io/148">Feedback</a> for the open-source blog system bearblog, but didn’t receive a positive response. Maybe later I’ll try adding this feature to Sublink, but only if people are willing to create original articles on Sublink.</p>
 <p><img src="/images/2023-12-07/bearblog-suggestion.png" alt="Bearblog Feedback #148"></p>
 <h2 id="pricing-model">Pricing Model</h2>
-<p>I have modest expectations regarding this website’s profitability, but my goal is to sustain it long enough to significantly expand its collection of Links and Collections. Thus, finding a viable revenue source is crucial.</p>
-<p>I’m faced with a dilemma: What truly defines Sublink? Is it about “subscribing to premier Collections” or “serving as a tool for organizing personal link compilations”? This discrepancy leads to two distinct models: the former would showcase other people’s Collections on the homepage, while the latter would feature a search box. Initially, the former is challenged by the scarcity of high-quality content.</p>
-<p>This difference leads to distinct approaches in monetization. While it’s not impossible to charge for access to Collections, practically it’s almost unfeasible. If we adopt the latter model, similar to Notion’s approach, there’s a greater likelihood of successful monetization. However, this would likely divert us from my core mission of making exceptional links more visible to a wider audience.</p>
-<p>This predicament has led to the current lack of a payment model. I am hopeful that future user engagement and feedback will provide greater insight and direction.</p>
+<p>I have no hope that this website will make money, but I want it to live long enough to accumulate as many Links and Collections as possible. So I need to generate some revenue from it.</p>
+<p>I’m actually a bit confused: Is the core of Sublink about “subscribing to quality collections” or “a personal link collection organization tool”? This divergence leads to two different logics. The former would have other people’s Collections on the homepage, while the latter would have an input box. The former relies on high-quality content, which is difficult in the early stages.</p>
+<p>This divergence leads to differences in the payment model: Charging for collection subscriptions isn’t impossible, but it’s almost impractical. If we follow the tool logic, it’s more like Notion’s approach, with a higher possibility of monetization, but then the value of “letting more people see excellent links” would no longer exist.</p>
+<p>I’m stuck here now, which is why I haven’t implemented any payment system at all. Perhaps later I can gain more insights from user behavior and feedback.</p>
 <p><img src="/images/2023-12-07/two-approaches.jpg" alt="Two Philosophies of Product Design"></p>
-<p>This sums up my reflections on Sublink. As both a user and the creator of Sublink, I’ve curated a <a target="_blank" rel="noopener" href="https://www.sublink.app/collections/5cd5a2cc-8bf5-4108-8ce1-e2ed0e2e61b2">list</a> of articles I’ve enjoyed and found insightful. You can follow this list using any RSS reader; This way, whenever I bookmark new content, it’ll pop up for you.</p>
-<p>Feel free to compile your own collections of cherished videos, movies, books, websites, or anything with a link, and share them with friends or keep them as a personal archive.</p>
-<p>Perhaps, this is my small yet meaningful act of resistance in a world on the brink of being overwhelmed by content generated by LLM.</p>
+<p>That’s all my thoughts on creating Sublink. I’m also a Sublink user myself (that’s why I created it). I’ll put a <a target="_blank" rel="noopener" href="https://www.sublink.app/collections/381d6912-f5fa-48a6-96ec-7a664596577c">list of articles</a> I’ve read and found good here. You can log in and subscribe, or use any RSS client to subscribe to this list. When I add new links, you’ll see them. You can also turn your favorite videos, movies, books, webpages, or anything with a link into collections and share them with friends.</p>
+<p>Perhaps this is my small, insignificant act of resistance against a world about to be engulfed by GPT-generated content.</p>
 
       
     </div>

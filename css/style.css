@@ -496,9 +496,13 @@ body,
   height: 100%;
 }
 body {
-  background: #fff;
   font: 16px 'Gowun Dodum', Helvetica, Chinese, biaodian, sans-serif;
   -webkit-text-size-adjust: 100%;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none), screen and (min-width: 0 0) {
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+  }
 }
 #content {
   margin: 0 auto;

@@ -83,12 +83,13 @@
 </div>
 
       <div id="content" class="outer">
-        <section id="main"><article id="post-stable-diffusion" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-stable-diffusion" class="h-entry article article-type-post"
+  itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="" class="article-date">
   <time class="dt-published" datetime="2022-09-07T07:36:50.000Z" itemprop="datePublished">2022-09-07</time>
 </a>
-    
+      
   <div class="article-category">
     <a class="article-category-link" href="../../../../categories/%E7%8E%A9/">玩</a>
   </div>
@@ -96,9 +97,9 @@
   </div>
   <div class="article-inner">
     
-    
-      <header class="article-header">
-        
+      
+        <header class="article-header">
+          
   
       
           <h2 class="p-name article-title" itemprop="headline name">
@@ -107,12 +108,12 @@
           
             
               
-      </header>
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>上一篇写<a href="https://mazzzystar.github.io/2022/05/04/how-ai-art-works-1/">AI 绘画 AI 绘画很酷<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可是…原理是什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></a>时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Stable Diffusion 尚未发布<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>文末的原理介绍其实是关于 Disco Diffusion<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>本文想从这两个模型背后的原理层面来比较二者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时回答(也是回答自己)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>为什么 Stable Diffusion 可以这么快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></strong></p>
+        </header>
+        
+          
+            <div class="e-content article-entry" itemprop="articleBody">
+                
+                          <p>上一篇写<a href="https://mazzzystar.github.io/2022/05/04/how-ai-art-works-1/">AI 绘画 AI 绘画很酷<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可是…原理是什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></a>时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Stable Diffusion 尚未发布<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>文末的原理介绍其实是关于 Disco Diffusion<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>本文想从这两个模型背后的原理层面来比较二者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时回答(也是回答自己)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>为什么 Stable Diffusion 可以这么快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></strong></p>
 <p><em>Disco Diffusion 单张耗时在 5-10min<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Stable Diffusion 则只需要 5-10s<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
 <h1 id="一原理复习">一.原理复习</h1>
 <p>Diffusion 模型的作用是将图像&quot;降噪&quot;<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是说它只是实现将一张带有噪点的图像变清晰这个功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>AI 能够绘画<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>依托于模型将用户的输入文本变成能与图像比较的向量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如 CLIP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
@@ -155,13 +156,13 @@
 <p>当然<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这也许不是一件坏事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://stability.ai/">stability.ai</a>选择将代码开源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且几乎不保留地放出模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>值得敬佩<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>也许这个行动能真正让 AI 绘画给普通人带来帮助<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p><em>文中人脸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>狗均为我用 6pen.art 的 Stable Diffusion 模型生成<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
 
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-    </footer>
+                            
+            </div>
+            <footer class="article-footer">
+              
+                  
+                      
+            </footer>
   </div>
   
     
@@ -188,11 +189,27 @@
   
 </nav>
 
-  
+      
+
+        <script>
+          (function () {
+            function isWindows() {
+              return navigator.platform.indexOf('Win') > -1;
+            }
+
+            function isAndroid() {
+              return /Android/i.test(navigator.userAgent);
+            }
+
+            if (isWindows() || isAndroid()) {
+              document.body.style.fontFamily = "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Microsoft YaHei', sans-serif";
+            }
+          })();
+        </script>
 </article>
 
 
-</section>
+    </section>
         
       </div>
       <footer id="footer">

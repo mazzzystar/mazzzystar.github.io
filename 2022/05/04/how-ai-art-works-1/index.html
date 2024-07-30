@@ -83,12 +83,13 @@
 </div>
 
       <div id="content" class="outer">
-        <section id="main"><article id="post-how-ai-art-works-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-how-ai-art-works-1" class="h-entry article article-type-post"
+  itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="" class="article-date">
   <time class="dt-published" datetime="2022-05-04T07:05:30.000Z" itemprop="datePublished">2022-05-04</time>
 </a>
-    
+      
   <div class="article-category">
     <a class="article-category-link" href="../../../../categories/%E7%8E%A9/">玩</a>
   </div>
@@ -96,9 +97,9 @@
   </div>
   <div class="article-inner">
     
-    
-      <header class="article-header">
-        
+      
+        <header class="article-header">
+          
   
       
           <h2 class="p-name article-title" itemprop="headline name">
@@ -107,12 +108,12 @@
           
             
               
-      </header>
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>写此文的初衷是总结一下这几天玩的东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我比较熟悉对抗生成网络(Generative Adversial Networks<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>GANs)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但对扩散模型(Diffusion Model)则比较陌生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>读了其相关的一些论文后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>打算总结记录一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时也试图站在一个完全不懂 AI 的读者视角解答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span> AI 文字绘画到底怎么做到的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+        </header>
+        
+          
+            <div class="e-content article-entry" itemprop="articleBody">
+                
+                          <p>写此文的初衷是总结一下这几天玩的东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我比较熟悉对抗生成网络(Generative Adversial Networks<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>GANs)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但对扩散模型(Diffusion Model)则比较陌生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>读了其相关的一些论文后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>打算总结记录一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时也试图站在一个完全不懂 AI 的读者视角解答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span> AI 文字绘画到底怎么做到的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
 <p>因为不是论文阅读笔记<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以会尽可能以<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>How it works?<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的逻辑出发<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>着重在原理和实际怎么做的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其中可能存在不严谨<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>不合理之处<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请谅解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>目录<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
 <ul>
@@ -190,13 +191,13 @@
 <p><em>奇异森林<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>铅笔画风格</em></p>
 <p><img src="https://imgs.zhubai.love/65ff666422864654b07cb94b9c254950.png" alt=""></p>
 
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-    </footer>
+                            
+            </div>
+            <footer class="article-footer">
+              
+                  
+                      
+            </footer>
   </div>
   
     
@@ -223,11 +224,27 @@
   
 </nav>
 
-  
+      
+
+        <script>
+          (function () {
+            function isWindows() {
+              return navigator.platform.indexOf('Win') > -1;
+            }
+
+            function isAndroid() {
+              return /Android/i.test(navigator.userAgent);
+            }
+
+            if (isWindows() || isAndroid()) {
+              document.body.style.fontFamily = "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Microsoft YaHei', sans-serif";
+            }
+          })();
+        </script>
 </article>
 
 
-</section>
+    </section>
         
       </div>
       <footer id="footer">

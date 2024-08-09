@@ -152,7 +152,7 @@
 <p>这个策略妙处在于<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><em>只有真正用上了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>喜欢这个产品的人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才需要付费</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>那些来尝鲜的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>或者试了下发现和预期不一样的人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不需要也不会掏钱<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因而避免了用户花冤枉钱怒打差评<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>但很快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在调试代码时我发现一个合理但又搞笑的事实<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><em>App 内购买需要联网</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这简直是晴天霹雳<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为我从一开始就下决心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>决不允许App在任何情形下弹出联网请求</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>为什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>因为这是一个相册搜索应用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它会扫描你的整个相册<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>没有人知道联网后你会不会将用户的照片上传到地球某处的服务器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我知道可以在产品里解释<code>为什么会弹窗请求联网权限</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但我不想陷入尴尬的自证境地<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>我只好将它变成付费产品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>用户必须购买<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>之后从打开 App<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>构建索引到完成搜索的过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只弹出一次<code>相册权限请求</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我知道这么做很蠢——后续的教训也验证了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>付费下载会带来大量差评<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>因为模型太吃算力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>许多内存小的机型上构建索引会崩溃<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>卡顿<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在 iPhone X 系列算子支持异常导致搜索结果全黑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这些都会被骂 Ripoff(诈骗)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>并且<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用户根本不会在意<em>不弹出联网请求</em>这件事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一旦出现以上异常<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他们就会删 App<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>打差评<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>质问我把他的相册偷偷上传到哪去了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>总之<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终我将其定价为 2.99 美元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一次购买<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>终身使用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>总之<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终我将其定价为 3.99 美元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一次购买<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>终身使用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <h2 id="推向市场">推向市场</h2>
 <p>我给产品取了名字<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>Queryable</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>意为<em>可查询的</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并发了条很中二的动态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><em>我觉得这个 app 可能会改变世界</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我对此信心满满<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚至给 Tim Cook 写了一封邮件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>希望苹果能收购这个产品(笑)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>那时候我已经开始用 ChatGPT 了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可能因为太激动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我忘了替换掉自己的名字<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>点击发送之后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才看到邮件开头是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>＂Dear Mr. Cook, My name is [Your Name]&quot;</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>当然最终也没有收到回信<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
@@ -240,12 +240,21 @@
     
 <nav id="article-nav">
   
-  
-    <a href="../Two-Years-of-an-AI-Photo-Album-Search-App/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+    <a href="../Two-Years-of-an-AI-Photo-Album-Search-App/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
           Two Years of an AI Photo Album Search App
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../../2023/12/27/folding-consumption-zh/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          消费折叠
         
       </div>
     </a>

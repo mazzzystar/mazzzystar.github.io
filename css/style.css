@@ -496,7 +496,7 @@ body,
   height: 100%;
 }
 body {
-  font: 16px 'Gowun Dodum', Helvetica, Chinese, biaodian, sans-serif;
+  font: 16px biaodian, 'Gowun Dodum', Helvetica, Chinese, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 #content {
@@ -566,7 +566,7 @@ body {
 #main-404 {
   font-size: 40px;
   font-weight: bold;
-  font-family: 'Gowun Dodum', Helvetica, Chinese, biaodian, sans-serif;
+  font-family: biaodian, 'Gowun Dodum', Helvetica, Chinese, sans-serif;
   text-align: center;
   margin: 100px 0;
 }
@@ -911,7 +911,7 @@ a.article-title:hover {
   text-align: center;
 }
 .article-entry blockquote {
-  font-family: 'Gowun Dodum', Helvetica, Chinese, biaodian, sans-serif;
+  font-family: biaodian, 'Gowun Dodum', Helvetica, Chinese, sans-serif;
   margin: 1.6em 0;
   padding: 0px 2em;
   padding: 0.25em 2em 0.25em calc(2em - 5px);
@@ -1792,7 +1792,7 @@ a.article-title:hover {
   text-align: center;
 }
 .article-entry blockquote {
-  font-family: 'Gowun Dodum', Helvetica, Chinese, biaodian, sans-serif;
+  font-family: biaodian, 'Gowun Dodum', Helvetica, Chinese, sans-serif;
   margin: 1.6em 0;
   padding: 0px 2em;
   padding: 0.25em 2em 0.25em calc(2em - 5px);

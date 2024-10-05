@@ -487,6 +487,10 @@ button::-moz-focus-inner {
   src: url("fonts/biaodian.ttf");
   unicode-range: U+FF0E, U+2014, U+2026, U+00B7, U+201C-201D, U+2018-2019, U+25CF, U+3002, U+FF0C, U+3001, U+FF1B, U+FF1A, U+FF1F, U+FF01, U+FF0D, U+FF0F, U+FF3C, U+300C-300F, U+300A-300B, U+3008-3009, U+FF08-FF09, U+3014-3015;
 }
+html,
+body {
+  background-color: #fff;
+}
 html {
   scroll-padding-top: 80px;
 }
@@ -498,6 +502,7 @@ body,
 body {
   font: 16px 'Gowun Dodum', biaodian, Helvetica, Chinese, sans-serif;
   -webkit-text-size-adjust: 100%;
+  background-color: #e1dfda;
 }
 #content {
   margin: 0 auto;
@@ -2206,4 +2211,11 @@ a.article-title:hover {
   .article-type-thoughts .thought .thought-timestamp {
     font-size: 12px;
   }
+}
+.article,
+#sidebar {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 5px;
 }

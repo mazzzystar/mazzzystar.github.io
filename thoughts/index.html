@@ -109,6 +109,16 @@
                         
                             <div class="thought">
                                 <div class="thought-content">
+                                    <p>跑强化学习模型的一点感受：如果我们能精确定义好每个step的正负反馈/奖励(reward)，模型几乎可以瞬间收敛到目标(goal)。</p><p>比如我们希望从10x10方格中的随机一个点，移动到指定的另一个点，每次可以往上下左右移动一格，想训练一个模型给出移动路径。如果把reward设计成：每次移动后如果不在终点，扣0.1分，如果抵达终点，得100分，这个模型将会很难学。</p><p>但是，如果我们稍作修改：每次移动后如果不在终点，扣0.1 * (当前点距离终点距离)，模型就能瞬间收敛。</p><p>不过，现实生活似乎总是混沌、含糊不清的，很难有如此锐利的反馈指标。</p>
+                                </div>
+                                <div class="thought-timestamp">
+                                    
+                                        2024-10-19 18:27
+                                </div>
+                            </div>
+                            
+                            <div class="thought">
+                                <div class="thought-content">
                                     <p>在嘈杂的星巴克听Bon Iver 的《For Emma, Forever Ago》有种奇妙的感觉。一样是在森林里创作，只是我的周遭换成了钢筋水泥。</p>
                                 </div>
                                 <div class="thought-timestamp">

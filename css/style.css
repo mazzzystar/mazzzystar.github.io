@@ -412,8 +412,26 @@ button::-moz-focus-inner {
 @font-face {
   font-family: 'Gowun Dodum';
   font-style: normal;
-  font-weight: bold;
+  font-weight: normal;
   src: url("fonts/GowunDodum-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/georgia.ttf");
+}
+@font-face {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: bold;
+  src: url("fonts/georgiab.ttf");
+}
+@font-face {
+  font-family: 'Georgia';
+  font-style: italic;
+  font-weight: normal;
+  src: url("fonts/georgiai.ttf");
 }
 @font-face {
   font-family: FontAwesome;
@@ -1335,7 +1353,7 @@ a.article-title:hover {
 }
 .archive-article-title {
   text-decoration: none;
-  font-weight: bold;
+  font-weight: normal;
   color: #555;
   line-height: 1.6em;
 }

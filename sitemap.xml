@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mazzzystar.github.io/about/index.html</loc>
+    
+    <lastmod>2024-11-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://mazzzystar.github.io/thoughts/index.html</loc>
     
-    <lastmod>2024-11-10</lastmod>
+    <lastmod>2024-11-12</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -41,15 +50,6 @@
     <loc>https://mazzzystar.github.io/2023/05/10/LLM-for-individual/</loc>
     
     <lastmod>2024-10-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mazzzystar.github.io/about/index.html</loc>
-    
-    <lastmod>2024-10-08</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -292,7 +292,7 @@
 
   <url>
     <loc>https://mazzzystar.github.io/</loc>
-    <lastmod>2024-11-10</lastmod>
+    <lastmod>2024-11-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -302,21 +302,21 @@
   
   <url>
     <loc>https://mazzzystar.github.io/categories/%E5%B0%8F%E8%AF%B4/</loc>
-    <lastmod>2024-11-10</lastmod>
+    <lastmod>2024-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://mazzzystar.github.io/categories/%E7%8E%A9/</loc>
-    <lastmod>2024-11-10</lastmod>
+    <lastmod>2024-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://mazzzystar.github.io/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6/</loc>
-    <lastmod>2024-11-10</lastmod>
+    <lastmod>2024-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

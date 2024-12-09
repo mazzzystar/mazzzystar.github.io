@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mazzzystar.com/thoughts/index.html</loc>
+    
+    <lastmod>2024-12-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://mazzzystar.com/2024/09/26/The-easiest-way-to-have-a-blog-zh/</loc>
     
     <lastmod>2024-12-09</lastmod>
@@ -68,15 +77,6 @@
     <loc>https://mazzzystar.com/2024/07/21/Two-Years-of-an-AI-Photo-Album-Search-App/</loc>
     
     <lastmod>2024-12-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mazzzystar.com/thoughts/index.html</loc>
-    
-    <lastmod>2024-12-08</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

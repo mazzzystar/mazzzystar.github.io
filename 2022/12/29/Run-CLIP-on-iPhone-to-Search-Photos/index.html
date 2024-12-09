@@ -127,7 +127,7 @@
 <p><a target="_blank" rel="noopener" href="https://queryable.app/"><img src="/images/2022-12-28/Queryable-logo.png" alt="Queryable website" title="Queryable"></a></p>
 <h2 id="clip">CLIP</h2>
 <p><a target="_blank" rel="noopener" href="https://openai.com/blog/clip/">CLIP</a>(Contrastive Language-Image Pre-Training) is a model proposed by OpenAI in 2021. CLIP can encode images and text into representations that can be compared in the same space. It serves as the foundation for many text-to-image models (e.g., Stable Diffusion) to calculate the distance between the generated image and the prompt during training.<br>
-<img src="https://imgs.zhubai.love/e2671f2f86e64c43ad42f18b824fa854.png" alt="Source from OpenAI"></p>
+<img src="https://raw.githubusercontent.com/mazzzystar/tinymind-blog/refs/heads/main/assets/images/2024-12-09/1733747481113.png" alt="Source from OpenAI"></p>
 <p>What I did was to make CLIP run on my own mobile device: an iPhone. To run on iOS devices in real time, I made a compromise between performance and model size, and finally chose the <a target="_blank" rel="noopener" href="https://github.com/openai/CLIP"><strong>ViT-B-32</strong></a> model, separating the <code>Text Encoder</code> and <code>Image Encoder</code>.</p>
 <p>In <strong>ViT-B-32</strong>:</p>
 <blockquote>

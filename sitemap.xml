@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mazzzystar.com/2022/11/19/three-months-away-from-work/</loc>
+    
+    <lastmod>2024-12-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://mazzzystar.com/thoughts/index.html</loc>
     
     <lastmod>2024-12-12</lastmod>
@@ -218,15 +227,6 @@
   </url>
   
   <url>
-    <loc>https://mazzzystar.com/2022/11/19/three-months-away-from-work/</loc>
-    
-    <lastmod>2024-07-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://mazzzystar.com/2022/04/05/generative-art-article-translation/</loc>
     
     <lastmod>2024-07-24</lastmod>
@@ -292,7 +292,7 @@
 
   <url>
     <loc>https://mazzzystar.com/</loc>
-    <lastmod>2024-12-12</lastmod>
+    <lastmod>2024-12-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -302,21 +302,21 @@
   
   <url>
     <loc>https://mazzzystar.com/categories/%E5%B0%8F%E8%AF%B4/</loc>
-    <lastmod>2024-12-12</lastmod>
+    <lastmod>2024-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://mazzzystar.com/categories/%E7%8E%A9/</loc>
-    <lastmod>2024-12-12</lastmod>
+    <lastmod>2024-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://mazzzystar.com/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6/</loc>
-    <lastmod>2024-12-12</lastmod>
+    <lastmod>2024-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>https://mazzzystar.com/about/index.html</loc>
+    
+    <lastmod>2024-12-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://mazzzystar.com/2022/11/19/three-months-away-from-work/</loc>
     
     <lastmod>2024-12-14</lastmod>
@@ -48,15 +57,6 @@
   
   <url>
     <loc>https://mazzzystar.com/2022/11/12/my-first-iOS-app/</loc>
-    
-    <lastmod>2024-12-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mazzzystar.com/about/index.html</loc>
     
     <lastmod>2024-12-09</lastmod>
     

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Preconnect to your domain to help speed up font requests -->
+  <link rel="preconnect" href="https://mazzzystar.com" crossorigin>
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/js/jquery.min.js" as="script">
+  <link rel="preload" href="/css/style.css" as="style">
+
+  <!-- Preload fonts -->
+  <link rel="preload" href="/fonts/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZKTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZHTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/HYFangSongJ.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="/css/fontawesome.css">
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html charset=utf-8">
+  <meta name="robots" content="index,follow">
+
+  <!-- RSS Feed -->
+  
+    <link rel="alternate" type="application/atom+xml" title="TLDR"
+      href="../../../../atom.xml">
+    
+
+          
+
+            <title>
+              消费折叠
+            </title>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+            <meta name="author" content="Ke Fang">
+            <meta name="description" content="每一个平替商品的搜索技巧背后，都隐藏着一种对生活的折叠。
+
+起因是我看到了一条帖子，讲如何通过替换搜索词，实现以更低的价格购买相同功能的商品，例如：
+瑜伽垫 -&ampgt 瑜伽垫男
+照片墙 -&ampgt 渔网
+野餐布 -&ampgt 防水桌布
+...
+
+我试了一下，有些技巧已经失效了，有些的确便宜许多。于">
+            
+
+                <link rel="canonical" href="https://mazzzystar.com/2023/12/27/folding-consumption-zh/">
+
+                <!-- Open Graph -->
+                <meta property="og:type" content="article">
+                <meta property="og:title" content="消费折叠">
+                <meta property="og:url" content="https://mazzzystar.com/2023/12/27/folding-consumption-zh/">
+                <meta property="og:image" content="https://mazzzystar.com/images/2023-12-27/test-example.png">
+                <meta property="og:description" content="每一个平替商品的搜索技巧背后，都隐藏着一种对生活的折叠。
+
+起因是我看到了一条帖子，讲如何通过替换搜索词，实现以更低的价格购买相同功能的商品，例如：
+瑜伽垫 -&ampgt 瑜伽垫男
+照片墙 -&ampgt 渔网
+野餐布 -&ampgt 防水桌布
+...
+
+我试了一下，有些技巧已经失效了，有些的确便宜许多。于">
+                <meta property="og:site_name" content="TLDR">
+                <meta property="og:locale" content="en">
+                <meta property="article:author" content="Ke Fang">
+                
+
+                    
+                      <meta property="article:published_time" content="2023-12-27T08:42:12.000Z">
+                      
+                        <meta property="article:modified_time" content="2025-02-09T02:30:57.000Z">
+                        
+                          
+
+                            <!-- Twitter Card -->
+                            <meta name="twitter:card" content="summary_large_image">
+                            <meta name="twitter:title" content="消费折叠">
+                            <meta name="twitter:description" content="每一个平替商品的搜索技巧背后，都隐藏着一种对生活的折叠。
+
+起因是我看到了一条帖子，讲如何通过替换搜索词，实现以更低的价格购买相同功能的商品，例如：
+瑜伽垫 -&ampgt 瑜伽垫男
+照片墙 -&ampgt 渔网
+野餐布 -&ampgt 防水桌布
+...
+
+我试了一下，有些技巧已经失效了，有些的确便宜许多。于">
+                            <meta name="twitter:image" content="https://mazzzystar.com/images/2023-12-27/test-example.png">
+
+                            <!-- Stylesheets -->
+                            <link rel="stylesheet" href="/css/style.css">
+                            <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
+
+                            <!-- Scripts -->
+                            <script src="/js/jquery.min.js"></script>
+                            <script src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+                            <script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+                            <script src="/js/script.js"></script>
+                            <script src="/js/clipboard.min.js"></script>
+
+                            
+                              <link rel="stylesheet"
+                                href="../../../../fancybox/jquery.fancybox-1.3.4.css">
+                              
+                                <link rel="preload" href="../../../../fonts/GowunDodum-Regular.woff2" as="font"
+                                  type="font/woff2" crossorigin>
+
+                                <!-- MathJax Configuration -->
+                                <script>
+                                  window.MathJax = {
+                                    tex: {
+                                      inlineMath: [['$', '$'], ['\\(', '\\)']],
+                                      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                                      processEscapes: true
+                                    },
+                                    options: {
+                                      enableMenu: false
+                                    },
+                                    startup: {
+                                      ready: () => {
+                                        MathJax.startup.defaultReady()
+                                      }
+                                    },
+                                    loader: {
+                                      load: ['[tex]/ams']
+                                    }
+                                  }
+                                </script>
+                                <script id="MathJax-script" defer src="/js/mathjax/tex-mml-chtml.js"></script>
+
+                                <!-- Structured Data -->
+                                
+                                  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mazzzystar.com/2023/12/27/folding-consumption-zh/"
+      },
+      "headline": "消费折叠",
+      "description": "每一个平替商品的搜索技巧背后，都隐藏着一种对生活的折叠。
+
+起因是我看到了一条帖子，讲如何通过替换搜索词，实现以更低的价格购买相同功能的商品，例如：
+瑜伽垫 -&ampgt 瑜伽垫男
+照片墙 -&ampgt 渔网
+野餐布 -&ampgt 防水桌布
+...
+
+我试了一下，有些技巧已经失效了，有些的确便宜许多。于",
+      "author": {
+        "@type": "Person",
+        "name": "Ke Fang"
+      },
+      "datePublished": "2023-12-27T08:42:12.000Z",
+      "dateModified": "2025-02-09T02:30:57.000Z",
+      "keywords": "",
+      "image": "https://mazzzystar.com/images/2023-12-27/test-example.png",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TLDR",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mazzzystar.com/favicon.jpg"
+        }
+      }
+    }
+    </script>
+                                  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div id="container">
+      <div id="wrap">
+        <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <!-- 只在移动端显示菜单按钮 -->
+    
+
+        
+          <a class="main-nav-link" href="../../../../index.html">
+            Home
+          </a>
+          
+          <a class="main-nav-link" href="../../../../about/">
+            About
+          </a>
+          
+          <a class="main-nav-link" href="../../../../thoughts">
+            Thoughts
+          </a>
+          
+          <a class="main-nav-link" href="../../../../sound">
+            Sound
+          </a>
+          
+
+            <div class="main-nav-space-between"></div>
+
+            <!-- Language switcher -->
+            
+              <a class="lang-switch" href="javascript:void(0)" onclick="switchLanguage()">
+                EN
+              </a>
+              
+
+                <!-- RSS icon -->
+                
+                  <a id="nav-rss-link" class="nav-icon" href="../../../../atom.xml"
+                    title="RSS Feed"></a>
+                  
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../index.html" id="logo">
+      TLDR
+    </a>
+  </h1>
+  
+</div>
+          <div id="content" class="outer">
+            <section id="main"><article id="post-folding-consumption-zh" class="h-entry article article-type-post"
+  data-lang="zh" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2023-12-27T08:42:12.000Z" itemprop="datePublished">2023-12-27</time>
+</a>
+      
+  </div>
+  <div class="article-inner">
+    
+      
+        <header class="article-header">
+          
+  
+      
+          <h2 class="p-name article-title" itemprop="headline name">
+            消费折叠
+          </h2>
+          
+            
+              
+        </header>
+        
+          
+            <div class="e-content article-entry" itemprop="articleBody">
+                
+                          <blockquote>
+<p>每一个平替商品的搜索技巧背后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>都隐藏着一种对生活的<em>折叠</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p>起因是我看到了一条帖子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>讲如何通过替换搜索词<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>实现以更低的价格购买相同功能的商品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<div class="highlight"><pre class="code"><code>瑜伽垫 -&gt 瑜伽垫男
+照片墙 -&gt 渔网
+野餐布 -&gt 防水桌布
+...
+</code></pre></div>
+<p>我试了一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有些技巧已经失效了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有些的确便宜许多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>于是我在小红书搜索<span class="bd-box"><h-char class="bd bd-end"><h-inner>「</h-inner></h-char></span>替换词<span class="bd-box"><h-char class="bd bd-beg"><h-inner>」</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>发现许多收藏过万的帖子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们通常是一组图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每张图都是新/旧商品名的对照列表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如下所示<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><img src="/images/2023-12-27/xiaohongshu-screenshots.jpg" alt="小红书上的替换词照片"></p>
+<p>这些对照表很好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但不好用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当我真的想搜某个商品时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我需要先<strong>对着密密麻麻的图表查找</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不仅如此<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当我<strong>想搜的商品不在列表里时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它就失效了</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我想<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能否用 AI 来实现这个任务呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span><em>训练一个模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用户输入想搜索的商品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型给出便宜的平替商品名<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+<p>我很快整理了一些数据并开始训练模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>OpenAI 已经<a target="_blank" rel="noopener" href="https://platform.openai.com/finetune">支持</a>finetune 模型了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你只需要把数据导出并上传就可以自动开始训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我选择的模型是<code>gpt-3.5-1106</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>训练花费了大概 10 分钟<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>最后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我搭建了一个网页用于模型调用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得益于开发工具的完善<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我只用了一下午就完成了这个 demo 产品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="消费折叠">消费折叠</h2>
+<p><em>网页开发最快乐的部分是注册域名</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>很快我就选好了网址: <a target="_blank" rel="noopener" href="https://www.pingti.xyz/">pingti.xyz</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>便宜<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>好记<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>并让所有朋友都试了试<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>很多人都觉得好玩<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>虽然有些结果比较离谱(<code>牙膏-&gt足浴店小样, iPhone-&gt二手 iPhone, 唇膏-&gt蜡烛</code>)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但有些还是蛮有用的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>至少模型可以记住截图里的平替词<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不必一个个找了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/images/2023-12-27/test-example.png" alt="朋友的一些测试结果"></p>
+<p>仍然有一些比较差的结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我开始思考怎么优化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这使我不得不仔细分析原始训练数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>看看模式上有什么规律<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>总结如下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li><em>性别套利</em>: 例如<code>瑜伽垫-&gt瑜伽垫男</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或<code>遮阳伞-&gt雨伞男</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这背后反应的其实是男人比女人更在乎实用性和性价比<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>更少为了颜值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>设计而买单<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而设计产生了成本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<ul>
+<li><em>场景套利</em>: 例如<code>马甲-&gt老头马甲</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为老年人更在乎价格, <code>女包-&gt包包尾货</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个不用解释, <code>地毯-&gt办公室地毯, 书桌-&gt培训桌, 椅子-&gt婚礼用椅</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是因为在办公室<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>培训<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>举办婚礼时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通常会使用更便宜的材质吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></li>
+<li><em>地域套利</em>: 例如<code>袜子-&gt诸暨袜子, 耳饰-&gt义乌耳饰</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为中国的袜子主要来自诸暨<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以通过指定原产地可以获得更低的价格<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><em>无法归类</em>: 这一类最有意思<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们的特点是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>两个商品几乎八竿子打不着</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是它们在<span class="bd-box"><h-char class="bd bd-end"><h-inner>「</h-inner></h-char></span>功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>」</h-inner></h-char></span>上可以实现接近平替的效果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如<code>照片墙-&gt渔网, 相框-&gt营业执照框, 面膜收纳-&gt食品保鲜盒, iPad支架-&gt菜谱架, 美甲灯-&gt验钞灯, 乐高防尘罩-&gt超市陈列盒</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这其中每个平替商品的搜索技巧背后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>都隐藏着一种对生活的折叠<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不信你可以仔细品味<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p>我意识到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>靠简单的 finetune 模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也许可以学会前两种套利模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>叠加规则(给商品分配相应产业的城市)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也许可以学会第三种模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但学会最后一类平替方式几乎不可能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即使是人类也需要大量的实践积累才能摸索出其中的奥妙<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>郝景芳在<a target="_blank" rel="noopener" href="https://book.douban.com/subject/35640709/">北京折叠</a>中讲述了不同社会阶层在空间和时间上的折叠<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我觉得<span class="bd-box"><h-char class="bd bd-end"><h-inner>「</h-inner></h-char></span>商品平替<span class="bd-box"><h-char class="bd bd-beg"><h-inner>」</h-inner></h-char></span>似乎是这种折叠所露出的缝隙<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我回想起自己第一次购买维生素 C 的场景<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>在知乎上搜汤臣倍健的维生素 C 和医院有什么差别<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>结论是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><em>前者比较甜</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>后来每次我都买东北制药维生素 C<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>二者价格差了 100 倍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>经济下行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每个人都在缩减开支<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>想象一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><em>未来的某一天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我坐在婚礼专用椅上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>墙上挂着一张渔网<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>上面是我的照片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我面前的培训桌上摆着菜谱架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>iPad 正在播放视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em> 这个场景还蛮好笑的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但人生还要继续<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>无论商品怎样平替<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>人生是无法平替的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>重要的不是渔网<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是渔网上的照片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+
+                            
+            </div>
+            <footer class="article-footer">
+              
+                  
+                      
+            </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../../2024/07/21/Two-Years-of-an-AI-Photo-Album-Search-App/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Two Years of an AI Photo Album Search App
+        
+      </div>
+    </a>
+  
+  
+    <a href="../folding-consumption/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Folding Consumption
+        
+      </div>
+    </a>
+  
+</nav>
+
+      
+</article>
+
+
+    </section>
+            
+          </div>
+          <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        &copy 2024 Ke Fang<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/bill-xia/hexo-theme-mashiro" target="_blank">Mashiro</a><br>
+      
+    </div>
+  </div>
+</footer>
+
+      </div>
+      <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">
+      Home
+    </a>
+    
+    <a href="../../../../about/" class="mobile-nav-link">
+      About
+    </a>
+    
+    <a href="../../../../thoughts" class="mobile-nav-link">
+      Thoughts
+    </a>
+    
+    <a href="../../../../sound" class="mobile-nav-link">
+      Sound
+    </a>
+    
+      
+        <a id="nav-rss-link" class="mobile-nav-link" href="../../../../atom.xml"
+          title="RSS Feed">RSS</a>
+        
+</nav>
+        <!-- jQuery -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+<!-- Other scripts -->
+<script src="../../../../js/clipboard.min.js"></script>
+<script src="../../../../js/jquery-1.4.3.min.js"></script>
+
+  <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+  
+
+    <script defer src="../../../../js/script.js"></script>
+    <script defer src="../../../../js/clipboard.min.js"></script>
+
+    <!-- MathJax -->
+    
+      <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            packages: { '[+]': ['ams'] },
+            tags: 'ams'
+          },
+          options: {
+            enableMenu: false
+          }
+        }
+      </script>
+      <script id="MathJax-script" async src="/js/mathjax/tex-mml-chtml.js"></script>
+      
+
+        
+
+
+          <!-- Language Switch -->
+          <script>
+            let currentLang = localStorage.getItem('blog_language') || 'zh'
+
+            document.addEventListener('DOMContentLoaded', function () {
+              if (document.querySelector('.archives')) {
+                updateLanguageDisplay()
+                updateSwitchButton()
+              }
+            })
+
+            function switchLanguage() {
+              currentLang = currentLang === 'zh' ? 'en' : 'zh'
+              localStorage.setItem('blog_language', currentLang)
+              updateLanguageDisplay()
+              updateSwitchButton()
+            }
+
+            function updateLanguageDisplay() {
+              document.querySelectorAll('.archive-article').forEach(article => {
+                const articleLang = article.getAttribute('data-lang')
+                if (articleLang === currentLang) {
+                  article.style.display = ''
+                } else {
+                  article.style.display = 'none'
+                }
+              })
+            }
+
+            function updateSwitchButton() {
+              const switchBtn = document.querySelector('.lang-switch')
+              if (switchBtn) {
+                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文'
+              }
+            }
+          </script>
+    </div>
+  </body>
+
+</html>

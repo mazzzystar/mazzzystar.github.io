@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Preconnect to your domain to help speed up font requests -->
+  <link rel="preconnect" href="https://mazzzystar.com" crossorigin>
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/js/jquery.min.js" as="script">
+  <link rel="preload" href="/css/style.css" as="style">
+
+  <!-- Preload fonts -->
+  <link rel="preload" href="/fonts/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZKTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZHTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/HYFangSongJ.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="/css/fontawesome.css">
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html charset=utf-8">
+  <meta name="robots" content="index,follow">
+
+  <!-- RSS Feed -->
+  
+    <link rel="alternate" type="application/atom+xml" title="TLDR"
+      href="../../../../atom.xml">
+    
+
+          
+
+            <title>
+              在2023年底做一个古典的信息共享工具
+            </title>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+            <meta name="author" content="Ke Fang">
+            <meta name="description" content="TLDR: 此文讲述了我所经历的信息获取危机，以及因此创造 Sublink 这一链接分享网站而引发的思考。
+
+上一份工作，公司内网有一个论坛：你可以创建一个圈子并在里面发帖，感兴趣的人可以加入圈子、投稿。我创建了一个名叫「知新」的圈子，简介这么写：
+这是一个旨在「共享大脑」的计划：把本周所知道的">
+            
+
+                <link rel="canonical" href="https://mazzzystar.com/2023/12/07/sublink-zh/">
+
+                <!-- Open Graph -->
+                <meta property="og:type" content="article">
+                <meta property="og:title" content="在2023年底做一个古典的信息共享工具">
+                <meta property="og:url" content="https://mazzzystar.com/2023/12/07/sublink-zh/">
+                <meta property="og:image" content="https://mazzzystar.com/images/2023-12-07/sublink-screenshot.jpg">
+                <meta property="og:description" content="TLDR: 此文讲述了我所经历的信息获取危机，以及因此创造 Sublink 这一链接分享网站而引发的思考。
+
+上一份工作，公司内网有一个论坛：你可以创建一个圈子并在里面发帖，感兴趣的人可以加入圈子、投稿。我创建了一个名叫「知新」的圈子，简介这么写：
+这是一个旨在「共享大脑」的计划：把本周所知道的">
+                <meta property="og:site_name" content="TLDR">
+                <meta property="og:locale" content="en">
+                <meta property="article:author" content="Ke Fang">
+                
+
+                    
+                      <meta property="article:published_time" content="2023-12-07T10:03:21.000Z">
+                      
+                        <meta property="article:modified_time" content="2025-02-09T02:01:24.000Z">
+                        
+                          
+
+                            <!-- Twitter Card -->
+                            <meta name="twitter:card" content="summary_large_image">
+                            <meta name="twitter:title" content="在2023年底做一个古典的信息共享工具">
+                            <meta name="twitter:description" content="TLDR: 此文讲述了我所经历的信息获取危机，以及因此创造 Sublink 这一链接分享网站而引发的思考。
+
+上一份工作，公司内网有一个论坛：你可以创建一个圈子并在里面发帖，感兴趣的人可以加入圈子、投稿。我创建了一个名叫「知新」的圈子，简介这么写：
+这是一个旨在「共享大脑」的计划：把本周所知道的">
+                            <meta name="twitter:image" content="https://mazzzystar.com/images/2023-12-07/sublink-screenshot.jpg">
+
+                            <!-- Stylesheets -->
+                            <link rel="stylesheet" href="/css/style.css">
+                            <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
+
+                            <!-- Scripts -->
+                            <script src="/js/jquery.min.js"></script>
+                            <script src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+                            <script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+                            <script src="/js/script.js"></script>
+                            <script src="/js/clipboard.min.js"></script>
+
+                            
+                              <link rel="stylesheet"
+                                href="../../../../fancybox/jquery.fancybox-1.3.4.css">
+                              
+                                <link rel="preload" href="../../../../fonts/GowunDodum-Regular.woff2" as="font"
+                                  type="font/woff2" crossorigin>
+
+                                <!-- MathJax Configuration -->
+                                <script>
+                                  window.MathJax = {
+                                    tex: {
+                                      inlineMath: [['$', '$'], ['\\(', '\\)']],
+                                      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                                      processEscapes: true
+                                    },
+                                    options: {
+                                      enableMenu: false
+                                    },
+                                    startup: {
+                                      ready: () => {
+                                        MathJax.startup.defaultReady()
+                                      }
+                                    },
+                                    loader: {
+                                      load: ['[tex]/ams']
+                                    }
+                                  }
+                                </script>
+                                <script id="MathJax-script" defer src="/js/mathjax/tex-mml-chtml.js"></script>
+
+                                <!-- Structured Data -->
+                                
+                                  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mazzzystar.com/2023/12/07/sublink-zh/"
+      },
+      "headline": "在2023年底做一个古典的信息共享工具",
+      "description": "TLDR: 此文讲述了我所经历的信息获取危机，以及因此创造 Sublink 这一链接分享网站而引发的思考。
+
+上一份工作，公司内网有一个论坛：你可以创建一个圈子并在里面发帖，感兴趣的人可以加入圈子、投稿。我创建了一个名叫「知新」的圈子，简介这么写：
+这是一个旨在「共享大脑」的计划：把本周所知道的",
+      "author": {
+        "@type": "Person",
+        "name": "Ke Fang"
+      },
+      "datePublished": "2023-12-07T10:03:21.000Z",
+      "dateModified": "2025-02-09T02:01:24.000Z",
+      "keywords": "",
+      "image": "https://mazzzystar.com/images/2023-12-07/sublink-screenshot.jpg",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TLDR",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mazzzystar.com/favicon.jpg"
+        }
+      }
+    }
+    </script>
+                                  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div id="container">
+      <div id="wrap">
+        <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <!-- 只在移动端显示菜单按钮 -->
+    
+
+        
+          <a class="main-nav-link" href="../../../../index.html">
+            Home
+          </a>
+          
+          <a class="main-nav-link" href="../../../../about/">
+            About
+          </a>
+          
+          <a class="main-nav-link" href="../../../../thoughts">
+            Thoughts
+          </a>
+          
+          <a class="main-nav-link" href="../../../../sound">
+            Sound
+          </a>
+          
+
+            <div class="main-nav-space-between"></div>
+
+            <!-- Language switcher -->
+            
+              <a class="lang-switch" href="javascript:void(0)" onclick="switchLanguage()">
+                EN
+              </a>
+              
+
+                <!-- RSS icon -->
+                
+                  <a id="nav-rss-link" class="nav-icon" href="../../../../atom.xml"
+                    title="RSS Feed"></a>
+                  
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../index.html" id="logo">
+      TLDR
+    </a>
+  </h1>
+  
+</div>
+          <div id="content" class="outer">
+            <section id="main"><article id="post-sublink-zh" class="h-entry article article-type-post"
+  data-lang="zh" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2023-12-07T10:03:21.000Z" itemprop="datePublished">2023-12-07</time>
+</a>
+      
+  </div>
+  <div class="article-inner">
+    
+      
+        <header class="article-header">
+          
+  
+      
+          <h2 class="p-name article-title" itemprop="headline name">
+            在2023年底做一个古典的信息共享工具
+          </h2>
+          
+            
+              
+        </header>
+        
+          
+            <div class="e-content article-entry" itemprop="articleBody">
+                
+                          <blockquote>
+<p>TLDR: 此文讲述了我所经历的信息获取危机<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以及因此创造 Sublink 这一链接分享网站而引发的思考<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p>上一份工作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>公司内网有一个论坛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>你可以创建一个圈子并在里面发帖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>感兴趣的人可以加入圈子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>投稿<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我创建了一个名叫<span class="bd-box"><h-char class="bd bd-end"><h-inner>「</h-inner></h-char></span>知新<span class="bd-box"><h-char class="bd bd-beg"><h-inner>」</h-inner></h-char></span>的圈子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>简介这么写<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><em>这是一个旨在<span class="bd-box"><h-char class="bd bd-end"><h-inner>「</h-inner></h-char></span>共享大脑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>」</h-inner></h-char></span>的计划<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>把本周所知道的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>你感兴趣的领域的新事件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>新进展告诉大家<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这样我们就能和其他人共享彼此的大脑了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>你不需要对你分享的东西有<span class="bd-box"><h-char class="bd bd-end"><h-inner>「</h-inner></h-char></span>任何一丁点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>」</h-inner></h-char></span>的专业背景知识<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让大家知道有这个东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就已经就足够的意义<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+<p><img src="/images/2023-12-07/imessage1.png" alt="这个Logo很合适对吧？"></p>
+<p>每周<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我会在圈子里分享这周我看到的新事物<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我分享了 DALLE-2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Azuki<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>疫苗有效率数据等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当我投稿 2 期后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我创建的圈子热度已经进入了论坛的前三名<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有很多人订阅和点赞<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>但并没有人分享<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他们只是消费者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>坚持到第三期还是第四期后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我放弃了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char><h-char class="bd bd-end"><h-inner>「</h-inner></h-char></span>创建一个频道并得到许多人为我欢呼<span class="bd-box"><h-char class="bd bd-beg"><h-inner>」</h-inner></h-char></span>并不是我的初衷<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我无法共享其他人的大脑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我开始思考<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是否存在某种形式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能让人和人之间的信息分享更轻松<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>更没有压力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在今年 9 月份<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我想到了<span class="bd-box"><h-char class="bd bd-end"><h-inner>「</h-inner></h-char></span>链接合集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>」</h-inner></h-char><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<blockquote>
+<p>你可以为你喜欢的任何事物<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>创建一个合集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并分享给朋友<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当你有了新发现时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将链接加入这个合集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你的朋友就能看见<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p>在 8 月底<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我将这个想法分别告诉了两个前端朋友<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>一个来自法国<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们通过<a target="_blank" rel="noopener" href="https://github.com/mazzzystar/Queryable">Queryable</a>这个产品认识<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>另一个在字节跳动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>他们都对此表现出很大的兴趣<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但他们实在太忙了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到 11 月初<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个产品的进展一直几乎停滞<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>迫于无奈<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我只好自己从 0 学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>现在是 2023 年<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Next.js + Typescript + Prisma + Supabase 在我看来是对从 0 开始学习全栈最好的一条路线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>整个 11 月份我都在 YouTube 的帮助下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>学习 React State, Next.js App Router<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>终于在 11 月下旬<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我几乎入门了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>之后就是两周的开发<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在昨天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我终于上线了这个网站<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>简单来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可以用它来整理日常看到好玩的电影<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>文章<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后分享给你的朋友<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>哦对<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它还支持 RSS<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>当你添加新链接时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用任何 RSS 客户端订阅你的 Collection 的人会收到通知<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/images/2023-12-07/sublink-screenshot.jpg" alt="Sublink(之前的)首页"></p>
+<p>但问题仍然存在<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>它有什么用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+<h2 id="小网站发现危机">小网站发现危机</h2>
+<p>我很喜欢<a target="_blank" rel="noopener" href="http://radio.garden/">Radio Garden</a>, 在那里我甚至可以听到来自<a target="_blank" rel="noopener" href="http://radio.garden/visit/pyongyang/2uWowTBd">平壤</a>的实时广播电台<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我也喜欢 Neal 的密码游戏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个互联网有太多闪光的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>有趣的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>独特的网站<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但并没有一个真正的地方可以储藏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>展示它们<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>每当我阅读一篇不错的 Blog<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我就会给多个好朋友分享链接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>讨论他们<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后遗忘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>上周我看到了一篇 Hacker News 热帖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://www.marginalia.nu/log/19-website-discoverability-crisis/">The Small Website Discoverability Crisis</a> 创造了这个名词<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>基于 Page Rank 算法的搜索引擎<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>催生了内容农场和链接农场<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>所谓内容农场<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就是有些网站为了提升自己在 Google 搜索中的关键词权重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用 AI 或者脚本生成了大量和产品无关的内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而提升自己的关键词排名<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>链接农场则是同一个网站主之间互相的 backlink<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或者通过购买其他人的 backlink<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>来提升网站 pr 排名<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这些都会导致真正有价值的网站在搜索引擎中成为死区<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="信息茧房">信息茧房</h2>
+<p>推荐算法已经包围了我们<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们当然可以向 GPT 提问获取新知<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但<span class="bd-box"><h-char class="bd bd-end"><h-inner>「</h-inner></h-char></span>你无法提出一个不存在的问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>」</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以即使拥有世界上最博学的老师<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果我们无法产生新的突破自己认知的提问<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就很难获得打开视野的解答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如, 你知道<strong>阿伦森效应</strong>吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+<p>这是为什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在 LLM 时代更需要来自人工的订阅内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让不经过神经网络分发的信息以陌生的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>粗糙的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>不舒服的方式进入我的脑袋<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这当然不是绝大多数人需要的东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但我猜不止我一个人需要它<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="加入-llm?">加入 LLM?</h2>
+<p>这个产品如果放在 15 年前做<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并没有任何不同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>那么在 2023 年底<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能否在网站里加入当下最火的 LLM 呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>我想到了 2 点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<h4 id="1自动摘要">1.自动摘要</h4>
+<p>最早<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我想用 LLM 提取网页 description<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>作为每条 Link 的简介<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但最终放弃<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>LLM 按使用量付费<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这意味着我无法控制每个月的使用成本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当用户大量添加 Link 时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>文章总结的开支可能会变得高昂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这一点对于显然无法盈利的网站是非常可怕的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>想要网站获得更久一点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就让不可控的开支尽量降低<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="2-语言分发网络(language delivery network, ldn)">2. 语言分发网络(Language Delivery Network, LDN)</h4>
+<p>我曾经设想过一个东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>叫它语言 CDN 好了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>当我写 Blog 的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我希望让全世界不同国家<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>不同语言的人看到他们当地语言的版本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一个简单的方法是让用户使用浏览器内置的翻译/安装翻译插件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这可能会造成大量的文章被翻译很多遍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不仅浪费显卡推理成本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也使得作者无法控制翻译质量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>由此我产生了 LDN 的想法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>某个作者写了一篇 blog<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或者他制作了一个网站<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他可以使用一个 LDN 平台托管自己的多语言版本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>每当有一个新的语言使用者访问了网络<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但 LDN 并没有缓存该语言时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>翻译一次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>之后其他同一语言使用者可以使用之前翻译的缓存<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>并且作者可以本地管理多国语言的翻译原始数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而控制和调整翻译的措辞<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我曾经在 bearblog 这个开源 Blog 系统上提过<a target="_blank" rel="noopener" href="https://bear.nolt.io/148">Feedback</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但没有得到正向回应<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也许之后我会试试在 Sublink 上加入这个特征<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但前提是有人愿意在 Sublink 原创文章<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/images/2023-12-07/bearblog-suggestion.png" alt="Bearblog Feedback #148"></p>
+<h2 id="定价模型">定价模型</h2>
+<p>我对这个网站能赚钱毫不抱希望<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但我希望它能活的足够久<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以尽可能多地沉淀 Link<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Collection<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
+所以我需要从它上面获得收益<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我其实有些困惑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>Sublink 的核心到底是<span class="bd-box"><h-char class="bd bd-end"><h-inner>「</h-inner></h-char></span>订阅优质合集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>」</h-inner></h-char></span>还是<span class="bd-box"><h-char class="bd bd-end"><h-inner>「</h-inner></h-char></span>个人链接合集整理工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>」</h-inner></h-char><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>这个分歧会产生两种不同的逻辑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>前者的首页是其他人的 Collection<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>后者的首页是输入框<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>前者依赖高质量内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>早期很难<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这种分歧导致付费模式的差异<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>付费订阅合集不是不可以<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但几乎很难收费<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果按工具逻辑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就是 Notion 的思路<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>付费可能性更高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但这个网站<span class="bd-box"><h-char class="bd bd-end"><h-inner>「</h-inner></h-char></span>让优秀链接被更多人看到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>」</h-inner></h-char></span>的价值就不复存在了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我现在卡在这里了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以我现在压根没做付费<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也许之后能从用户使用和反馈中获取更多判断依据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/images/2023-12-07/two-approaches.jpg" alt="两种产品设计哲学"></p>
+<p>以上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就是我做 Sublink 的全部思考<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我自己也是 Sublink 的使用者(这是我创造它的原因)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我会把自己日常看过觉得不错的<a target="_blank" rel="noopener" href="https://www.sublink.app/collections/381d6912-f5fa-48a6-96ec-7a664596577c">文章列表</a>放在这里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可以登录并订阅<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>或用任意 rss 客户端订阅这个列表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当我添加新链接时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可以看到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 你也可以把自己喜欢的视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>电影<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>书籍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>网页或一切带链接的东西变成合集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>分享给朋友<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>也许<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这是我对于即将被 GPT 生成内容吞噬的世界<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所做出的一点微不足道的反抗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+
+                            
+            </div>
+            <footer class="article-footer">
+              
+                  
+                      
+            </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../27/folding-consumption/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Folding Consumption
+        
+      </div>
+    </a>
+  
+  
+    <a href="../sublink/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Retro Link-Sharing in 2023
+        
+      </div>
+    </a>
+  
+</nav>
+
+      
+</article>
+
+
+    </section>
+            
+          </div>
+          <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        &copy 2024 Ke Fang<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/bill-xia/hexo-theme-mashiro" target="_blank">Mashiro</a><br>
+      
+    </div>
+  </div>
+</footer>
+
+      </div>
+      <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">
+      Home
+    </a>
+    
+    <a href="../../../../about/" class="mobile-nav-link">
+      About
+    </a>
+    
+    <a href="../../../../thoughts" class="mobile-nav-link">
+      Thoughts
+    </a>
+    
+    <a href="../../../../sound" class="mobile-nav-link">
+      Sound
+    </a>
+    
+      
+        <a id="nav-rss-link" class="mobile-nav-link" href="../../../../atom.xml"
+          title="RSS Feed">RSS</a>
+        
+</nav>
+        <!-- jQuery -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+<!-- Other scripts -->
+<script src="../../../../js/clipboard.min.js"></script>
+<script src="../../../../js/jquery-1.4.3.min.js"></script>
+
+  <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+  
+
+    <script defer src="../../../../js/script.js"></script>
+    <script defer src="../../../../js/clipboard.min.js"></script>
+
+    <!-- MathJax -->
+    
+      <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            packages: { '[+]': ['ams'] },
+            tags: 'ams'
+          },
+          options: {
+            enableMenu: false
+          }
+        }
+      </script>
+      <script id="MathJax-script" async src="/js/mathjax/tex-mml-chtml.js"></script>
+      
+
+        
+
+
+          <!-- Language Switch -->
+          <script>
+            let currentLang = localStorage.getItem('blog_language') || 'zh'
+
+            document.addEventListener('DOMContentLoaded', function () {
+              if (document.querySelector('.archives')) {
+                updateLanguageDisplay()
+                updateSwitchButton()
+              }
+            })
+
+            function switchLanguage() {
+              currentLang = currentLang === 'zh' ? 'en' : 'zh'
+              localStorage.setItem('blog_language', currentLang)
+              updateLanguageDisplay()
+              updateSwitchButton()
+            }
+
+            function updateLanguageDisplay() {
+              document.querySelectorAll('.archive-article').forEach(article => {
+                const articleLang = article.getAttribute('data-lang')
+                if (articleLang === currentLang) {
+                  article.style.display = ''
+                } else {
+                  article.style.display = 'none'
+                }
+              })
+            }
+
+            function updateSwitchButton() {
+              const switchBtn = document.querySelector('.lang-switch')
+              if (switchBtn) {
+                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文'
+              }
+            }
+          </script>
+    </div>
+  </body>
+
+</html>

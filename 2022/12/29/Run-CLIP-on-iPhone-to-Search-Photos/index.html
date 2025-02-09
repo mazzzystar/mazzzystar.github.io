@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Preconnect to your domain to help speed up font requests -->
+  <link rel="preconnect" href="https://mazzzystar.com" crossorigin>
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/js/jquery.min.js" as="script">
+  <link rel="preload" href="/css/style.css" as="style">
+
+  <!-- Preload fonts -->
+  <link rel="preload" href="/fonts/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZKTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZHTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/HYFangSongJ.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="/css/fontawesome.css">
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html charset=utf-8">
+  <meta name="robots" content="index,follow">
+
+  <!-- RSS Feed -->
+  
+    <link rel="alternate" type="application/atom+xml" title="TLDR"
+      href="../../../../atom.xml">
+    
+
+          
+
+            <title>
+              Run CLIP on iPhone to Search Photos
+            </title>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+            <meta name="author" content="Ke Fang">
+            <meta name="description" content="Update: I have made Queryable open-source. This might help you learn how to export Core ML models, as well as how to calculate, store, search, and ac">
+            
+
+                <link rel="canonical" href="https://mazzzystar.com/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/">
+
+                <!-- Open Graph -->
+                <meta property="og:type" content="article">
+                <meta property="og:title" content="Run CLIP on iPhone to Search Photos">
+                <meta property="og:url" content="https://mazzzystar.com/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/">
+                <meta property="og:image" content="https://mazzzystar.com/images/2022-12-28/Queryable-flow-chart.jpg">
+                <meta property="og:description" content="Update: I have made Queryable open-source. This might help you learn how to export Core ML models, as well as how to calculate, store, search, and ac">
+                <meta property="og:site_name" content="TLDR">
+                <meta property="og:locale" content="en">
+                <meta property="article:author" content="Ke Fang">
+                
+
+                    
+                      <meta property="article:published_time" content="2022-12-29T03:51:57.000Z">
+                      
+                        <meta property="article:modified_time" content="2025-02-09T04:13:48.000Z">
+                        
+                          
+
+                            <!-- Twitter Card -->
+                            <meta name="twitter:card" content="summary_large_image">
+                            <meta name="twitter:title" content="Run CLIP on iPhone to Search Photos">
+                            <meta name="twitter:description" content="Update: I have made Queryable open-source. This might help you learn how to export Core ML models, as well as how to calculate, store, search, and ac">
+                            <meta name="twitter:image" content="https://mazzzystar.com/images/2022-12-28/Queryable-flow-chart.jpg">
+
+                            <!-- Stylesheets -->
+                            <link rel="stylesheet" href="/css/style.css">
+                            <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
+
+                            <!-- Scripts -->
+                            <script src="/js/jquery.min.js"></script>
+                            <script src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+                            <script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+                            <script src="/js/script.js"></script>
+                            <script src="/js/clipboard.min.js"></script>
+
+                            
+                              <link rel="stylesheet"
+                                href="../../../../fancybox/jquery.fancybox-1.3.4.css">
+                              
+                                <link rel="preload" href="../../../../fonts/GowunDodum-Regular.woff2" as="font"
+                                  type="font/woff2" crossorigin>
+
+                                <!-- MathJax Configuration -->
+                                <script>
+                                  window.MathJax = {
+                                    tex: {
+                                      inlineMath: [['$', '$'], ['\\(', '\\)']],
+                                      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                                      processEscapes: true
+                                    },
+                                    options: {
+                                      enableMenu: false
+                                    },
+                                    startup: {
+                                      ready: () => {
+                                        MathJax.startup.defaultReady()
+                                      }
+                                    },
+                                    loader: {
+                                      load: ['[tex]/ams']
+                                    }
+                                  }
+                                </script>
+                                <script id="MathJax-script" defer src="/js/mathjax/tex-mml-chtml.js"></script>
+
+                                <!-- Structured Data -->
+                                
+                                  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mazzzystar.com/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/"
+      },
+      "headline": "Run CLIP on iPhone to Search Photos",
+      "description": "Update: I have made Queryable open-source. This might help you learn how to export Core ML models, as well as how to calculate, store, search, and ac",
+      "author": {
+        "@type": "Person",
+        "name": "Ke Fang"
+      },
+      "datePublished": "2022-12-29T03:51:57.000Z",
+      "dateModified": "2025-02-09T04:13:48.000Z",
+      "keywords": "",
+      "image": "https://mazzzystar.com/images/2022-12-28/Queryable-flow-chart.jpg",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TLDR",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mazzzystar.com/favicon.jpg"
+        }
+      }
+    }
+    </script>
+                                  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div id="container">
+      <div id="wrap">
+        <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <!-- 只在移动端显示菜单按钮 -->
+    
+
+        
+          <a class="main-nav-link" href="../../../../index.html">
+            Home
+          </a>
+          
+          <a class="main-nav-link" href="../../../../about/">
+            About
+          </a>
+          
+          <a class="main-nav-link" href="../../../../thoughts">
+            Thoughts
+          </a>
+          
+          <a class="main-nav-link" href="../../../../sound">
+            Sound
+          </a>
+          
+
+            <div class="main-nav-space-between"></div>
+
+            <!-- Language switcher -->
+            
+              <a class="lang-switch" href="javascript:void(0)" onclick="switchLanguage()">
+                EN
+              </a>
+              
+
+                <!-- RSS icon -->
+                
+                  <a id="nav-rss-link" class="nav-icon" href="../../../../atom.xml"
+                    title="RSS Feed"></a>
+                  
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../index.html" id="logo">
+      TLDR
+    </a>
+  </h1>
+  
+</div>
+          <div id="content" class="outer">
+            <section id="main"><article id="post-Run-CLIP-on-iPhone-to-Search-Photos" class="h-entry article article-type-post"
+  data-lang="en" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2022-12-29T03:51:57.000Z" itemprop="datePublished">2022-12-29</time>
+</a>
+      
+  </div>
+  <div class="article-inner">
+    
+      
+        <header class="article-header">
+          
+  
+      
+          <h2 class="p-name article-title" itemprop="headline name">
+            Run CLIP on iPhone to Search Photos
+          </h2>
+          
+            
+              
+        </header>
+        
+          
+            <div class="e-content article-entry" itemprop="articleBody">
+                
+                          <blockquote>
+<p>Update: I have made Queryable <a target="_blank" rel="noopener" href="https://github.com/mazzzystar/Queryable">open-source</a>. This might help you learn how to <a target="_blank" rel="noopener" href="https://github.com/mazzzystar/Queryable#core-ml-export">export Core ML</a> models, as well as how to calculate, store, search, and accelerate queries.</p>
+</blockquote>
+<p>I built an app called Queryable, which integrates the CLIP model on iOS to search the Photos album OFFLINE. It’s now <a target="_blank" rel="noopener" href="https://apps.apple.com/us/app/queryable/id1661598353?platform=iphone">available on App Store</a>, and I thought it might be helpful for others who are as frustrated with the search function of Photos as I was. So, I wrote this article to introduce it.</p>
+<p><a target="_blank" rel="noopener" href="https://queryable.app/"><img src="/images/2022-12-28/Queryable-logo.png" alt="Queryable website" title="Queryable"></a></p>
+<h2 id="clip">CLIP</h2>
+<p><a target="_blank" rel="noopener" href="https://openai.com/blog/clip/">CLIP</a>(Contrastive Language-Image Pre-Training) is a model proposed by OpenAI in 2021. CLIP can encode images and text into representations that can be compared in the same space. It serves as the foundation for many text-to-image models (e.g., Stable Diffusion) to calculate the distance between the generated image and the prompt during training.<br>
+<img src="https://raw.githubusercontent.com/mazzzystar/tinymind-blog/refs/heads/main/assets/images/2024-12-09/1733747481113.png" alt="Source from OpenAI"></p>
+<p>What I did was to make CLIP run on my own mobile device: an iPhone. To run on iOS devices in real time, I made a compromise between performance and model size, and finally chose the <a target="_blank" rel="noopener" href="https://github.com/openai/CLIP"><strong>ViT-B-32</strong></a> model, separating the <code>Text Encoder</code> and <code>Image Encoder</code>.</p>
+<p>In <strong>ViT-B-32</strong>:</p>
+<blockquote>
+<ul>
+<li>The <code>Text Encoder</code> encodes any text into a <strong>1x512</strong> dimensional vector.</li>
+<li>The <code>Image Encoder</code> encodes any image into a <strong>1x512</strong> dimensional vector.</li>
+</ul>
+</blockquote>
+<p>We can calculate the proximity of a text sentence and an image by finding the cosine similarity between their text vector and image vector. Here’s some pseudo-code to illustrate:</p>
+<div class="highlight"><pre class="code"><code><span class="hljs-built_in">import</span> clip
+
+<span class="hljs-comment"># Load ViT-B-32 CLIP model</span>
+model, <span class="hljs-attr">preprocess</span> = clip.load(<span class="hljs-string">&quotViT-B/32&quot</span>, <span class="hljs-attr">device=device)</span>
+
+<span class="hljs-comment"># Calculate image vector &amp text vector</span>
+<span class="hljs-attr">image_feature</span> = model.encode_image(<span class="hljs-string">&quotphoto-of-a-dog.png&quot</span>)
+<span class="hljs-attr">text_feature</span> = model.encode_text(<span class="hljs-string">&quotrainy night&quot</span>)
+
+<span class="hljs-comment"># cosine similarity</span>
+<span class="hljs-attr">sim</span> = cosin_similarity(image_feature, text_feature)
+</code></pre></div>
+<h2 id="integrate-clip into ios">Integrate CLIP into iOS</h2>
+<p>I exported the Text Encoder and Image Encoder to CoreML models using the <a target="_blank" rel="noopener" href="https://coremltools.readme.io/docs/pytorch-conversion">coremltools</a> library. The final models have a total file size of 300MB. Then, I started writing in Swift.</p>
+<p>Here’s how to perform inference with the Text Encoder in Swift:</p>
+<div class="highlight"><pre class="code"><code><span class="hljs-comment">// Load the Text Encoder model.</span>
+<span class="hljs-keyword">let</span> text_encoder = <span class="hljs-keyword">try</span> <span class="hljs-constructor">MLModel(<span class="hljs-params">contentsOf</span>: TextEncoderURL, <span class="hljs-params">configuration</span>: <span class="hljs-params">config</span>)</span>
+<span class="hljs-comment">// Given a prompt, calculate the CLIP text vector for it.</span>
+<span class="hljs-keyword">let</span> text_feature = text_encoder.encode(<span class="hljs-string">&quota dog&quot</span>)
+</code></pre></div>
+<p>I split the Text Encoder and Image Encoder into two models because, when using this Photos search app, <strong>your input text will always change, but the content of the Photos library remains fixed.</strong> This means that all the image vectors can be computed once and saved in advance. Then, the text vector is computed only once for each of your searches.</p>
+<p>This approach makes real-time text searching across tens of thousands of photos in your library possible. Below is a flowchart of how Queryable works:</p>
+<p><img src="/images/2022-12-28/Queryable-flow-chart.jpg" alt="How does Queryable works"></p>
+<h2 id="performance">Performance</h2>
+<p>Compared to the search function of the iPhone Photos app, how much does the CLIP-based album search capability improve? The answer is: it’s overwhelmingly better. With CLIP, you can search for a scene in your mind, a tone, an object, or even an emotion conveyed by the image.</p>
+<p><img src="/images/2022-12-28/Queryable-search-result.jpg" alt="Search for a scene, an object, a tone or the meaning related to the photo with Queryable"></p>
+<p>To use Queryable, you first need to build the index, which involves traversing your album, calculating all the image vectors, and storing them. This happens only ONCE, and the total time required depends on the number of photos you have. The speed is about 2000 photos per minute on an iPhone 12 mini. When you have new photos, you can manually update the index, which is very fast.</p>
+<p>The time cost for a search also depends on your number of photos. For fewer than 10,000 photos, it takes less than 1 second. For me, an iPhone 12 mini user with 35,000 photos, each search takes about 2.8 seconds.</p>
+<p>I made a video to demonstrate the search capabilities of Queryable:</p>
+
+<video src='/videos/QueryableFinal.mp4' type='video/mp4' controls='controls'  width='40%' height='40%'>
+</video>
+
+<br/>
+<br/>
+<h2 id="qa">QA</h2>
+<h4 id="1on-privacy and security issues.">1.On Privacy and security issues.</h4>
+<p>Queryable is designed as an OFFLINE app that does <strong>not require a network connection</strong> and will <strong>NEVER</strong> request network access, thereby avoiding privacy issues.</p>
+<h4 id="2what-if my photos are stored in icloud?">2.What if my photos are stored in iCloud?</h4>
+<p>Due to the inability to connect to a network, Queryable can only use the cache of the low-definition version of your local Photos album. However, the CLIP model itself resizes the input image to a very small size (e.g., ViT-B-32 uses 224x224), so if your image is stored in iCloud, it actually <strong>does not affect search accuracy</strong>. The only limitation is that <strong>you cannot view its original photos</strong> in search results.</p>
+<p>- <strong>Update</strong>: In the latest version, you have the option to grant the app network access to download photos stored in iCloud. This will <strong>only</strong> occur when the photo is included in your search results, the original version is stored in iCloud, and you have navigated to the details page and clicked the download icon. Once you grant the permissions, you can close the app, reopen it, and the photos will be automatically downloaded from iCloud.</p>
+<h4 id="3-any requirements for the device?">3. Any requirements for the device?</h4>
+<ul>
+<li>iOS 16.0 or above</li>
+<li><s>iPhone 11 (<strong>A13 chip</strong>) or later models</s></li>
+</ul>
+<h4 id="4have-some suggestions or product experience issues?">4.Have some suggestions or product experience issues?</h4>
+<p>Feel free to contact me by email: myfancoo@gmail dot com.</p>
+
+                            
+            </div>
+            <footer class="article-footer">
+              
+                  
+                      
+            </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../../2023/03/03/teach-show-consult-gpt/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Teach, Show, then Consult: Make GPT a Music Composition Guide
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../11/19/three-months-away-from-work/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          系统外的三个月
+        
+      </div>
+    </a>
+  
+</nav>
+
+      
+</article>
+
+
+    </section>
+            
+          </div>
+          <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        &copy 2024 Ke Fang<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/bill-xia/hexo-theme-mashiro" target="_blank">Mashiro</a><br>
+      
+    </div>
+  </div>
+</footer>
+
+      </div>
+      <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">
+      Home
+    </a>
+    
+    <a href="../../../../about/" class="mobile-nav-link">
+      About
+    </a>
+    
+    <a href="../../../../thoughts" class="mobile-nav-link">
+      Thoughts
+    </a>
+    
+    <a href="../../../../sound" class="mobile-nav-link">
+      Sound
+    </a>
+    
+      
+        <a id="nav-rss-link" class="mobile-nav-link" href="../../../../atom.xml"
+          title="RSS Feed">RSS</a>
+        
+</nav>
+        <!-- jQuery -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+<!-- Other scripts -->
+<script src="../../../../js/clipboard.min.js"></script>
+<script src="../../../../js/jquery-1.4.3.min.js"></script>
+
+  <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+  
+
+    <script defer src="../../../../js/script.js"></script>
+    <script defer src="../../../../js/clipboard.min.js"></script>
+
+    <!-- MathJax -->
+    
+      <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            packages: { '[+]': ['ams'] },
+            tags: 'ams'
+          },
+          options: {
+            enableMenu: false
+          }
+        }
+      </script>
+      <script id="MathJax-script" async src="/js/mathjax/tex-mml-chtml.js"></script>
+      
+
+        
+
+
+          <!-- Language Switch -->
+          <script>
+            let currentLang = localStorage.getItem('blog_language') || 'zh'
+
+            document.addEventListener('DOMContentLoaded', function () {
+              if (document.querySelector('.archives')) {
+                updateLanguageDisplay()
+                updateSwitchButton()
+              }
+            })
+
+            function switchLanguage() {
+              currentLang = currentLang === 'zh' ? 'en' : 'zh'
+              localStorage.setItem('blog_language', currentLang)
+              updateLanguageDisplay()
+              updateSwitchButton()
+            }
+
+            function updateLanguageDisplay() {
+              document.querySelectorAll('.archive-article').forEach(article => {
+                const articleLang = article.getAttribute('data-lang')
+                if (articleLang === currentLang) {
+                  article.style.display = ''
+                } else {
+                  article.style.display = 'none'
+                }
+              })
+            }
+
+            function updateSwitchButton() {
+              const switchBtn = document.querySelector('.lang-switch')
+              if (switchBtn) {
+                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文'
+              }
+            }
+          </script>
+    </div>
+  </body>
+
+</html>

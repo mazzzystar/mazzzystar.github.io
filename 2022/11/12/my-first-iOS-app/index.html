@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Preconnect to your domain to help speed up font requests -->
+  <link rel="preconnect" href="https://mazzzystar.com" crossorigin>
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/js/jquery.min.js" as="script">
+  <link rel="preload" href="/css/style.css" as="style">
+
+  <!-- Preload fonts -->
+  <link rel="preload" href="/fonts/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZKTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZHTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/HYFangSongJ.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="/css/fontawesome.css">
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html charset=utf-8">
+  <meta name="robots" content="index,follow">
+
+  <!-- RSS Feed -->
+  
+    <link rel="alternate" type="application/atom+xml" title="TLDR"
+      href="../../../../atom.xml">
+    
+
+          
+
+            <title>
+              新手上架人生第一个iOS App
+            </title>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+            <meta name="author" content="Ke Fang">
+            <meta name="description" content="二次确认你的蓝牙是否连接成功，让你在图书馆也能安心刷视频。">
+            
+
+                <link rel="canonical" href="https://mazzzystar.com/2022/11/12/my-first-iOS-app/">
+
+                <!-- Open Graph -->
+                <meta property="og:type" content="article">
+                <meta property="og:title" content="新手上架人生第一个iOS App">
+                <meta property="og:url" content="https://mazzzystar.com/2022/11/12/my-first-iOS-app/">
+                <meta property="og:image" content="https://mazzzystar.com/favicon.jpg">
+                <meta property="og:description" content="二次确认你的蓝牙是否连接成功，让你在图书馆也能安心刷视频。">
+                <meta property="og:site_name" content="TLDR">
+                <meta property="og:locale" content="en">
+                <meta property="article:author" content="Ke Fang">
+                
+
+                    
+                      <meta property="article:published_time" content="2022-11-12T11:54:39.000Z">
+                      
+                        <meta property="article:modified_time" content="2025-02-09T02:01:13.000Z">
+                        
+                          
+
+                            <!-- Twitter Card -->
+                            <meta name="twitter:card" content="summary_large_image">
+                            <meta name="twitter:title" content="新手上架人生第一个iOS App">
+                            <meta name="twitter:description" content="二次确认你的蓝牙是否连接成功，让你在图书馆也能安心刷视频。">
+                            <meta name="twitter:image" content="https://mazzzystar.com/favicon.jpg">
+
+                            <!-- Stylesheets -->
+                            <link rel="stylesheet" href="/css/style.css">
+                            <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
+
+                            <!-- Scripts -->
+                            <script src="/js/jquery.min.js"></script>
+                            <script src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+                            <script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+                            <script src="/js/script.js"></script>
+                            <script src="/js/clipboard.min.js"></script>
+
+                            
+                              <link rel="stylesheet"
+                                href="../../../../fancybox/jquery.fancybox-1.3.4.css">
+                              
+                                <link rel="preload" href="../../../../fonts/GowunDodum-Regular.woff2" as="font"
+                                  type="font/woff2" crossorigin>
+
+                                <!-- MathJax Configuration -->
+                                <script>
+                                  window.MathJax = {
+                                    tex: {
+                                      inlineMath: [['$', '$'], ['\\(', '\\)']],
+                                      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                                      processEscapes: true
+                                    },
+                                    options: {
+                                      enableMenu: false
+                                    },
+                                    startup: {
+                                      ready: () => {
+                                        MathJax.startup.defaultReady()
+                                      }
+                                    },
+                                    loader: {
+                                      load: ['[tex]/ams']
+                                    }
+                                  }
+                                </script>
+                                <script id="MathJax-script" defer src="/js/mathjax/tex-mml-chtml.js"></script>
+
+                                <!-- Structured Data -->
+                                
+                                  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mazzzystar.com/2022/11/12/my-first-iOS-app/"
+      },
+      "headline": "新手上架人生第一个iOS App",
+      "description": "二次确认你的蓝牙是否连接成功，让你在图书馆也能安心刷视频。",
+      "author": {
+        "@type": "Person",
+        "name": "Ke Fang"
+      },
+      "datePublished": "2022-11-12T11:54:39.000Z",
+      "dateModified": "2025-02-09T02:01:13.000Z",
+      "keywords": "",
+      "image": "https://mazzzystar.com/favicon.jpg",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TLDR",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mazzzystar.com/favicon.jpg"
+        }
+      }
+    }
+    </script>
+                                  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div id="container">
+      <div id="wrap">
+        <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <!-- 只在移动端显示菜单按钮 -->
+    
+
+        
+          <a class="main-nav-link" href="../../../../index.html">
+            Home
+          </a>
+          
+          <a class="main-nav-link" href="../../../../about/">
+            About
+          </a>
+          
+          <a class="main-nav-link" href="../../../../thoughts">
+            Thoughts
+          </a>
+          
+          <a class="main-nav-link" href="../../../../sound">
+            Sound
+          </a>
+          
+
+            <div class="main-nav-space-between"></div>
+
+            <!-- Language switcher -->
+            
+              <a class="lang-switch" href="javascript:void(0)" onclick="switchLanguage()">
+                EN
+              </a>
+              
+
+                <!-- RSS icon -->
+                
+                  <a id="nav-rss-link" class="nav-icon" href="../../../../atom.xml"
+                    title="RSS Feed"></a>
+                  
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../index.html" id="logo">
+      TLDR
+    </a>
+  </h1>
+  
+</div>
+          <div id="content" class="outer">
+            <section id="main"><article id="post-my-first-iOS-app" class="h-entry article article-type-post"
+  data-lang="zh" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2022-11-12T11:54:39.000Z" itemprop="datePublished">2022-11-12</time>
+</a>
+      
+  </div>
+  <div class="article-inner">
+    
+      
+        <header class="article-header">
+          
+  
+      
+          <h2 class="p-name article-title" itemprop="headline name">
+            新手上架人生第一个iOS App
+          </h2>
+          
+            
+              
+        </header>
+        
+          
+            <div class="e-content article-entry" itemprop="articleBody">
+                
+                          <p>App 的名字叫<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://apps.apple.com/us/app/benect/id6444240484?platform=iphone">Benect</a></p>
+<p>寓意即 Be Connected, 因为它的功能是<em>二次确认你的蓝牙耳机已经连上手机</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="初衷">初衷</h2>
+<p>可能是我 AirPods Pro 有 bug<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>经常出现<em>在手机上显示已连接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但实际播放音乐还是外放</em>的情况<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在家还好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在安静的书店或者咖啡馆<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>点击播放那一刻就会很忐忑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我的做法是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>每次把音量调到最小凑近耳朵<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以分辨耳机还是外放<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>选一首音乐也很头疼<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我的歌单大都是摇滚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以即便很小声地测试<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也会很吵<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>最近正好在学 SwiftUI<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>想到也许可以自己写一个工具解决这个<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>11 月初开始动手了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="编写">编写</h2>
+<p>这个 app 的功能超级简单<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>打开 Benect 后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它会播放一段白噪声<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>如果你的手机是静音模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>外放情况下你将不会听到任何声音<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>即便不是静音模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>万一 AirPods 没连上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>图书馆/咖啡店里其他人听到的也只是一段海浪声<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>雨滴声<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这很大程度上避免了尴尬<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p>核心功能就是一个按钮<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>点击播放白噪声<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>产生这个念头不到半小时内我就写完了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="付费">付费</h2>
+<p>即使不付费<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你也可以正常使用 Benect<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这部分是从朋友那得到的启发<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><em>即便是最简单的产品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也应该设置一些付费的功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以维持它能活的更久<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>给更多人带来免费服务</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>用爱发电终有一天会枯竭的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以做完基本功能后我就在想<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有什么不伤害免费用户体验<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>但确实值得做成付费的功能呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>想到了两个<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li><em>提供更多白噪声</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>Pro 用户能切换自己喜欢的音频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>默认音频是海浪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>付费之后可以切换成雨滴<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>虫鸣<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>鸟叫<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们是无版权音频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此商用也没问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><em>支持用户录制</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我想到的场景是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>你可以录制自己的小猫打呼噜声<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或者如果你是妈妈<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以录制自己孩子的牙牙学语<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也许能让测试变得温情<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>且独一无二<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p><em>注意<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>Benect 无需网络连接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这意味着你的一切录音数据均存储在本地<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以无需担心隐私问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+<p>最终<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>开发这些 Pro 功能花费了我 90%的时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>设置的价格是￥ 6 永久购买<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="踩坑">踩坑</h2>
+<p>因为是第一次上架 App<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>遇到了很多坑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>被打回来了 3 次才上架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>经验大概是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>确定你的 App 是内购(in-app-purchase)还是订阅(subscribe)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我最初选择订阅<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但他们认为我的 App 不适合订阅<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>订阅的 App 需要源源不断地为用户提供新场景和服务<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>App 名/副标题里不要含有 Apple 的产品或者服务名<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我的初衷是连接 AirPods<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以在副标题里写的是确认你的 AirPods 连接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>被打回说我侵犯了 Apple 的版权<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<h2 id="彩蛋">彩蛋</h2>
+<p>App icon 是我用 Processing 的<a target="_blank" rel="noopener" href="https://processing.org/tutorials/gettingstarted">Tutorial</a>画的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我画了好几版<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终就是 icon 的样子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>形状有点像一个连接的符号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也算勉强符合寓意<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="https://raw.githubusercontent.com/mazzzystar/tinymind-blog/refs/heads/main/assets/images/2024-12-09/1733746698076.png" alt=""><br>
+<img src="https://raw.githubusercontent.com/mazzzystar/tinymind-blog/refs/heads/main/assets/images/2024-12-09/1733746730637.png" alt=""></p>
+
+                            
+            </div>
+            <footer class="article-footer">
+              
+                  
+                      
+            </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../19/three-months-away-from-work/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          系统外的三个月
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../09/07/stable-diffusion/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          为什么Stable Diffusion比Disco Diffusion快几个数量级？
+        
+      </div>
+    </a>
+  
+</nav>
+
+      
+</article>
+
+
+    </section>
+            
+          </div>
+          <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        &copy 2024 Ke Fang<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/bill-xia/hexo-theme-mashiro" target="_blank">Mashiro</a><br>
+      
+    </div>
+  </div>
+</footer>
+
+      </div>
+      <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">
+      Home
+    </a>
+    
+    <a href="../../../../about/" class="mobile-nav-link">
+      About
+    </a>
+    
+    <a href="../../../../thoughts" class="mobile-nav-link">
+      Thoughts
+    </a>
+    
+    <a href="../../../../sound" class="mobile-nav-link">
+      Sound
+    </a>
+    
+      
+        <a id="nav-rss-link" class="mobile-nav-link" href="../../../../atom.xml"
+          title="RSS Feed">RSS</a>
+        
+</nav>
+        <!-- jQuery -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+<!-- Other scripts -->
+<script src="../../../../js/clipboard.min.js"></script>
+<script src="../../../../js/jquery-1.4.3.min.js"></script>
+
+  <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+  
+
+    <script defer src="../../../../js/script.js"></script>
+    <script defer src="../../../../js/clipboard.min.js"></script>
+
+    <!-- MathJax -->
+    
+      <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            packages: { '[+]': ['ams'] },
+            tags: 'ams'
+          },
+          options: {
+            enableMenu: false
+          }
+        }
+      </script>
+      <script id="MathJax-script" async src="/js/mathjax/tex-mml-chtml.js"></script>
+      
+
+        
+
+
+          <!-- Language Switch -->
+          <script>
+            let currentLang = localStorage.getItem('blog_language') || 'zh'
+
+            document.addEventListener('DOMContentLoaded', function () {
+              if (document.querySelector('.archives')) {
+                updateLanguageDisplay()
+                updateSwitchButton()
+              }
+            })
+
+            function switchLanguage() {
+              currentLang = currentLang === 'zh' ? 'en' : 'zh'
+              localStorage.setItem('blog_language', currentLang)
+              updateLanguageDisplay()
+              updateSwitchButton()
+            }
+
+            function updateLanguageDisplay() {
+              document.querySelectorAll('.archive-article').forEach(article => {
+                const articleLang = article.getAttribute('data-lang')
+                if (articleLang === currentLang) {
+                  article.style.display = ''
+                } else {
+                  article.style.display = 'none'
+                }
+              })
+            }
+
+            function updateSwitchButton() {
+              const switchBtn = document.querySelector('.lang-switch')
+              if (switchBtn) {
+                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文'
+              }
+            }
+          </script>
+    </div>
+  </body>
+
+</html>

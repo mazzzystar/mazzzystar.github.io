@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Preconnect to your domain to help speed up font requests -->
+  <link rel="preconnect" href="https://mazzzystar.com" crossorigin>
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/js/jquery.min.js" as="script">
+  <link rel="preload" href="/css/style.css" as="style">
+
+  <!-- Preload fonts -->
+  <link rel="preload" href="/fonts/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZKTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZHTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/HYFangSongJ.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="/css/fontawesome.css">
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html charset=utf-8">
+  <meta name="robots" content="index,follow">
+
+  <!-- RSS Feed -->
+  
+    <link rel="alternate" type="application/atom+xml" title="TLDR"
+      href="../../../../atom.xml">
+    
+
+          
+
+            <title>
+              AI绘画很酷，可是..原理是什么？
+            </title>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+            <meta name="author" content="Ke Fang">
+            <meta name="description" content="普及知识同时平衡专业性是件困难的事，本文试图从普通人也能(勉强)看得懂的视角，讲讲AI绘画的原理。此文章写的比较早，因此文中的AI绘画特指Disco Diffusion。">
+            
+
+                <link rel="canonical" href="https://mazzzystar.com/2022/05/04/how-ai-art-works-1/">
+
+                <!-- Open Graph -->
+                <meta property="og:type" content="article">
+                <meta property="og:title" content="AI绘画很酷，可是..原理是什么？">
+                <meta property="og:url" content="https://mazzzystar.com/2022/05/04/how-ai-art-works-1/">
+                <meta property="og:image" content="https://mazzzystar.com/images/2022-09-07/img_1.jpg">
+                <meta property="og:description" content="普及知识同时平衡专业性是件困难的事，本文试图从普通人也能(勉强)看得懂的视角，讲讲AI绘画的原理。此文章写的比较早，因此文中的AI绘画特指Disco Diffusion。">
+                <meta property="og:site_name" content="TLDR">
+                <meta property="og:locale" content="en">
+                <meta property="article:author" content="Ke Fang">
+                
+
+                    
+                      <meta property="article:published_time" content="2022-05-04T07:05:30.000Z">
+                      
+                        <meta property="article:modified_time" content="2025-02-09T02:00:50.000Z">
+                        
+                          
+
+                            <!-- Twitter Card -->
+                            <meta name="twitter:card" content="summary_large_image">
+                            <meta name="twitter:title" content="AI绘画很酷，可是..原理是什么？">
+                            <meta name="twitter:description" content="普及知识同时平衡专业性是件困难的事，本文试图从普通人也能(勉强)看得懂的视角，讲讲AI绘画的原理。此文章写的比较早，因此文中的AI绘画特指Disco Diffusion。">
+                            <meta name="twitter:image" content="https://mazzzystar.com/images/2022-09-07/img_1.jpg">
+
+                            <!-- Stylesheets -->
+                            <link rel="stylesheet" href="/css/style.css">
+                            <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
+
+                            <!-- Scripts -->
+                            <script src="/js/jquery.min.js"></script>
+                            <script src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+                            <script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+                            <script src="/js/script.js"></script>
+                            <script src="/js/clipboard.min.js"></script>
+
+                            
+                              <link rel="stylesheet"
+                                href="../../../../fancybox/jquery.fancybox-1.3.4.css">
+                              
+                                <link rel="preload" href="../../../../fonts/GowunDodum-Regular.woff2" as="font"
+                                  type="font/woff2" crossorigin>
+
+                                <!-- MathJax Configuration -->
+                                <script>
+                                  window.MathJax = {
+                                    tex: {
+                                      inlineMath: [['$', '$'], ['\\(', '\\)']],
+                                      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                                      processEscapes: true
+                                    },
+                                    options: {
+                                      enableMenu: false
+                                    },
+                                    startup: {
+                                      ready: () => {
+                                        MathJax.startup.defaultReady()
+                                      }
+                                    },
+                                    loader: {
+                                      load: ['[tex]/ams']
+                                    }
+                                  }
+                                </script>
+                                <script id="MathJax-script" defer src="/js/mathjax/tex-mml-chtml.js"></script>
+
+                                <!-- Structured Data -->
+                                
+                                  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mazzzystar.com/2022/05/04/how-ai-art-works-1/"
+      },
+      "headline": "AI绘画很酷，可是..原理是什么？",
+      "description": "普及知识同时平衡专业性是件困难的事，本文试图从普通人也能(勉强)看得懂的视角，讲讲AI绘画的原理。此文章写的比较早，因此文中的AI绘画特指Disco Diffusion。",
+      "author": {
+        "@type": "Person",
+        "name": "Ke Fang"
+      },
+      "datePublished": "2022-05-04T07:05:30.000Z",
+      "dateModified": "2025-02-09T02:00:50.000Z",
+      "keywords": "",
+      "image": "https://mazzzystar.com/images/2022-09-07/img_1.jpg",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TLDR",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mazzzystar.com/favicon.jpg"
+        }
+      }
+    }
+    </script>
+                                  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div id="container">
+      <div id="wrap">
+        <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <!-- 只在移动端显示菜单按钮 -->
+    
+
+        
+          <a class="main-nav-link" href="../../../../index.html">
+            Home
+          </a>
+          
+          <a class="main-nav-link" href="../../../../about/">
+            About
+          </a>
+          
+          <a class="main-nav-link" href="../../../../thoughts">
+            Thoughts
+          </a>
+          
+          <a class="main-nav-link" href="../../../../sound">
+            Sound
+          </a>
+          
+
+            <div class="main-nav-space-between"></div>
+
+            <!-- Language switcher -->
+            
+              <a class="lang-switch" href="javascript:void(0)" onclick="switchLanguage()">
+                EN
+              </a>
+              
+
+                <!-- RSS icon -->
+                
+                  <a id="nav-rss-link" class="nav-icon" href="../../../../atom.xml"
+                    title="RSS Feed"></a>
+                  
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../index.html" id="logo">
+      TLDR
+    </a>
+  </h1>
+  
+</div>
+          <div id="content" class="outer">
+            <section id="main"><article id="post-how-ai-art-works-1" class="h-entry article article-type-post"
+  data-lang="zh" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2022-05-04T07:05:30.000Z" itemprop="datePublished">2022-05-04</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../categories/ç©/">玩</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+      
+        <header class="article-header">
+          
+  
+      
+          <h2 class="p-name article-title" itemprop="headline name">
+            AI绘画很酷，可是..原理是什么？
+          </h2>
+          
+            
+              
+        </header>
+        
+          
+            <div class="e-content article-entry" itemprop="articleBody">
+                
+                          <p>写此文的初衷是总结一下这几天玩的东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我比较熟悉对抗生成网络(Generative Adversial Networks<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>GANs)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但对扩散模型(Diffusion Model)则比较陌生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>读了其相关的一些论文后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>打算总结记录一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时也试图站在一个完全不懂 AI 的读者视角解答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span> AI 文字绘画到底怎么做到的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+<p>因为不是论文阅读笔记<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以会尽可能以<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>How it works?<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的逻辑出发<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>着重在原理和实际怎么做的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其中可能存在不严谨<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>不合理之处<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请谅解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>目录<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>图片是如何被 AI 生成的</li>
+<li>图片生成的几种方式</li>
+<li>AI 怎么用文字绘画<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></li>
+</ul>
+<h2 id="一图片是如何被-ai 生成的">一.图片是如何被 AI 生成的</h2>
+<p>假设我们有十万张图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>包含各种肤色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>姿态和表情的真实人脸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>如何用 AI 生成一张不存在的人脸呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+<p><img src="https://raw.githubusercontent.com/mazzzystar/tinymind-blog/refs/heads/main/assets/images/2024-12-09/1733746893636.png" alt="StyleGAN生成的&quot不存在&quot人脸"></p>
+<p>一个想法是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ol>
+<li>把一张 512x512 尺寸人脸图像 X 送入模型(Encoder)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得到一个 1x256 维的浮点数向量 z<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>另一个模型(Decoder)负责将该向量 z 再还原成 512x512 的人脸图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>记做 X’<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>模型训练的目的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是不断调整 Encoder 和 Decoder 各自参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以降低(X<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>X’)之间的偏差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ol>
+<p>找了张 VAE 结构图作为近似说明<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><img src="https://raw.githubusercontent.com/mazzzystar/tinymind-blog/refs/heads/main/assets/images/2024-12-09/1733746956705.png" alt="VAE网络结构"></p>
+<p>如果模型训练完毕<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>此时我们得到了所有输入图片 X={x1, x2, …, xn}通过 Encoder 的向量 z<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将其可视化一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>结果大概是下图这样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><img src="https://raw.githubusercontent.com/mazzzystar/tinymind-blog/refs/heads/main/assets/images/2024-12-09/1733746985580.png" alt="隐空间(latent space)可视化"></p>
+<p>图中的每个点都是一张真实人脸图片经过 Encoder 编码后的结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为肤色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>姿态或者性别被聚成不同颜色的簇<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果我们从上图的可视化空间中随机采样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或者在几个点之间插值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就得到了一个新的 z<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用这个 z 再经过 Decoder<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就可以生成一张现实中不存在的人脸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这种方法推广到非人脸生成也是类似的原理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如我们有一个包含车<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>森林<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>船等各式各样图片的大杂烩数据集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用此方法得到的 z 可视化结果大概长这样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><img src="https://raw.githubusercontent.com/mazzzystar/tinymind-blog/refs/heads/main/assets/images/2024-12-09/1733747028210.png" alt="隐空间随机采样"></p>
+<h2 id="二图片生成的几种方式">二.图片生成的几种方式</h2>
+<p>除了上文中提到的 VAE<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>图像生成还有其他几种方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这里只介绍 GAN 和 diffusion model<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="gan">GAN</h3>
+<p>生成对抗网络(Generative adversarial networks, GANs)是近几年来最热门<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>最有趣的一种生成模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它的思路朴素又巧妙<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在讲述之前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>容我先虚构一个故事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<blockquote>
+<p>假设你是永生者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即被砍头之后又可以带着之前的记忆复活<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>此刻你在 1980 年的中国<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>穷困潦倒<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>你动了心思<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>想凭借自己画画的手艺伪造假币财富自由<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>于是从村口买了几张白纸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>把 100 元面值的形状和图案牢记于心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>画完一百张<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你成了万元户<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>拿着它们去找村口商店老头<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>菜市场的小贩买东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他们都没法辨认真假<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>有一天小贩去银行存钱<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>被验钞机发现了破绽<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你被捕了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>game over<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>你重生了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>吸取了上次的教训<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从黑市买了台跟县银行一模一样的验钞机<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每天捣鼓它鉴伪的原理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>改进工艺<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>终于有一天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>假钞放进去不滴滴了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你大喜<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>假币再次在县城泛滥<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>你的产业越做越大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>终于引起了当地警方的注意<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>起因是有职员发现流通货币统计结果存在异常<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>有关部门意识到现有的验钞技术实在落伍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用你的假币作为测试样本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>很快更换了更先进的验钞机<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>全国推广<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你再次因伪造假钞被击毙<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>…</p>
+<p>无数的攻防战中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你经历数次生命轮回<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>造的假钞越来越难以用肉眼辨伪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>除了最新的第 99 代以外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其他旧版验钞机在这些假钞面前溃不成军<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们成了某种无限接近真实的虚假<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p>这便是 GAN 的核心思想<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果从理论的角度阐述<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大概是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ol>
+<li>给定一个真实世界的数据集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>图片尺寸均为 512x512<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以及一个生成器(Generator<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以下简称 G)和一个判别器(Discriminator<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以下简称 D)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>生成器 G 负责生成假的图片(伪造假钞)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>判别器 D 负责鉴别一张图片是否为真<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并输出 0/1 二分类结果(验钞机)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>随机初始化一个 1x128 维度的向量 z<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>G 以 z 作为输入生成一张 512x512 的图片 X’<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从真实数据集中随机一张图片 X<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将(X, X’)这两张图送进 D<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由它来判断哪张图是真的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>哪张是假的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>并把判断依据反馈给 G<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>G 的目的是不断生成更像真实数据集里的图片以企图骗过 D<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而 D 学习如何判断送过来的两张图片哪张是真的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>哪张是假的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ol>
+<p>在不断的攻防战中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Generator 生成的图像就会无限逼近真实数据集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="https://raw.githubusercontent.com/mazzzystar/tinymind-blog/refs/heads/main/assets/images/2024-12-09/1733747095014.png" alt="GAN原理图"></p>
+<p>这里其实有个很有趣的前提<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就是 D 在早期其实也不知道如何辨别真假<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它也在根据 G 的伪造结果一步步学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>正因为它有可能鉴别错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才给 G 提供了可以钻空子的余地<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>倘若一开始 D 就像第 99 代验钞机那么先进<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>G 可能永远摸不着门道如何造假<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直接放弃了(模型崩溃)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="diffusion-model">Diffusion Model</h3>
+<p>和 GAN 基于对抗的思路不同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Diffusion Model 想法是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span> <em>给一张真实的图像不断增加高斯噪声<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到它最终的分布就是高斯分布<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后逆序从高斯分布重建这张图<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+<p>假设 x0 是一张真实图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么不断叠加高斯噪声 T 次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得到的图像序列(x1, x2, …, xt-1, xt)会越来越模糊<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到 xT 完全符合高斯分布<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型学习如何从 xt-&gtxt-1 的<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>降噪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如下图所示<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><img src="https://raw.githubusercontent.com/mazzzystar/tinymind-blog/refs/heads/main/assets/images/2024-12-09/1733747135708.png" alt="Diffusion原理图"></p>
+<h2 id="三怎么用-ai 实现文字绘画">三.怎么用 AI 实现文字绘画</h2>
+<p>截止到目前位置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>无论是 GAN 或是 Diffusion Model<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>都只是一个单纯的图像生成工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>和文字没有任何关系<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>想打造一个根据某段描述文字绘画的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还缺了点东西将二者联接起来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>在当前节点它是 CLIP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="clip">CLIP</h3>
+<p><a target="_blank" rel="noopener" href="https://openai.com/blog/clip/">CLIP</a>(Contrastive Language–Image Pre-training) 是 OpenAI 在 2021 年提出的一个模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它给自己的定位是连接文本与图片(Connecting Text and Images)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通俗一点的解释是把图片和与其内容相符的文字描述关联起来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>一张图片和一句文本描述越贴切<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其 CLIP 下的相似度越高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="https://raw.githubusercontent.com/mazzzystar/tinymind-blog/refs/heads/main/assets/images/2024-12-09/1733747176921.png" alt="CLIP模型结构"></p>
+<p>CLIP 模型使用分类器来提取图像的标签<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如上图中图片里包含了狗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果文字里出现了&quotdog&quot<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>二者的 embedding 在某个维度相似度就很高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>尽管其他维度可能差异较大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种训练方式减少了对大量{图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>文字描述}配对数据的依赖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="终于可以开始画了">终于可以开始画了</h3>
+<p>既然可以计算一张任意图片和一句任意文本间的 CLIP 表征相似度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就可以开始用 GAN/diffusion 模型来实现 AI 绘画<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以 Disco Diffusion 为例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>思路如下:</p>
+<ol>
+<li>给定一句文本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过 CLIP 模型得到其表征 embT<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>使用 GAN/diffusion 模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>随机生成一张图像(比如噪声)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并通过 CLIP 得到其表征 embI<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>计算(embT, embI)二者的相似度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并不断迭代修改这张图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使(embT, embI)更接近<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ol>
+<p>整个过程不需要训练任何模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>CLIP 和 GAN/diffusion 模型的参数均是固定的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>唯一要做的是不断进行类似下图的迭代过程以生成更符合文字描述的图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="https://raw.githubusercontent.com/mazzzystar/tinymind-blog/refs/heads/main/assets/images/2024-12-09/1733747222667.png" alt="我手绘的Disco Diffusion运行示意图"></p>
+<h2 id="结尾">结尾</h2>
+<p>附上一些<a target="_blank" rel="noopener" href="https://github.com/mazzzystar/disco-diffusion-wrapper">我改装</a>的<a target="_blank" rel="noopener" href="https://github.com/alembics/disco-diffusion">disco diffusion</a>(模型是 guided diffusion + CLIP)生成不错的效果图<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><em>躺在废墟中的玻璃鲸鱼</em></p>
+<p><img src="https://raw.githubusercontent.com/mazzzystar/tinymind-blog/refs/heads/main/assets/images/2024-12-09/1733747279689.png" alt=""></p>
+<p><em>山随平野尽<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>江入大荒流</em></p>
+<p><img src="https://raw.githubusercontent.com/mazzzystar/tinymind-blog/refs/heads/main/assets/images/2024-12-09/1733747327449.png" alt=""></p>
+<p><em>五颜六色的立方体冰块漂浮在火山的湖泊中</em></p>
+<p><img src="https://raw.githubusercontent.com/mazzzystar/tinymind-blog/refs/heads/main/assets/images/2024-12-09/1733747398281.png" alt=""></p>
+<p><em>奇异森林<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>铅笔画风格</em></p>
+<p><img src="https://raw.githubusercontent.com/mazzzystar/tinymind-blog/refs/heads/main/assets/images/2024-12-09/1733747422283.png" alt=""></p>
+
+                            
+            </div>
+            <footer class="article-footer">
+              
+                  
+                      
+            </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../09/clone-virtual-ai/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          克隆人、虚拟人和AI复活人
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../04/05/generative-art-article-translation/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          生成艺术：对话Manolo Gamboa Naon(译)
+        
+      </div>
+    </a>
+  
+</nav>
+
+      
+</article>
+
+
+    </section>
+            
+          </div>
+          <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        &copy 2024 Ke Fang<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/bill-xia/hexo-theme-mashiro" target="_blank">Mashiro</a><br>
+      
+    </div>
+  </div>
+</footer>
+
+      </div>
+      <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">
+      Home
+    </a>
+    
+    <a href="../../../../about/" class="mobile-nav-link">
+      About
+    </a>
+    
+    <a href="../../../../thoughts" class="mobile-nav-link">
+      Thoughts
+    </a>
+    
+    <a href="../../../../sound" class="mobile-nav-link">
+      Sound
+    </a>
+    
+      
+        <a id="nav-rss-link" class="mobile-nav-link" href="../../../../atom.xml"
+          title="RSS Feed">RSS</a>
+        
+</nav>
+        <!-- jQuery -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+<!-- Other scripts -->
+<script src="../../../../js/clipboard.min.js"></script>
+<script src="../../../../js/jquery-1.4.3.min.js"></script>
+
+  <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+  
+
+    <script defer src="../../../../js/script.js"></script>
+    <script defer src="../../../../js/clipboard.min.js"></script>
+
+    <!-- MathJax -->
+    
+      <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            packages: { '[+]': ['ams'] },
+            tags: 'ams'
+          },
+          options: {
+            enableMenu: false
+          }
+        }
+      </script>
+      <script id="MathJax-script" async src="/js/mathjax/tex-mml-chtml.js"></script>
+      
+
+        
+
+
+          <!-- Language Switch -->
+          <script>
+            let currentLang = localStorage.getItem('blog_language') || 'zh'
+
+            document.addEventListener('DOMContentLoaded', function () {
+              if (document.querySelector('.archives')) {
+                updateLanguageDisplay()
+                updateSwitchButton()
+              }
+            })
+
+            function switchLanguage() {
+              currentLang = currentLang === 'zh' ? 'en' : 'zh'
+              localStorage.setItem('blog_language', currentLang)
+              updateLanguageDisplay()
+              updateSwitchButton()
+            }
+
+            function updateLanguageDisplay() {
+              document.querySelectorAll('.archive-article').forEach(article => {
+                const articleLang = article.getAttribute('data-lang')
+                if (articleLang === currentLang) {
+                  article.style.display = ''
+                } else {
+                  article.style.display = 'none'
+                }
+              })
+            }
+
+            function updateSwitchButton() {
+              const switchBtn = document.querySelector('.lang-switch')
+              if (switchBtn) {
+                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文'
+              }
+            }
+          </script>
+    </div>
+  </body>
+
+</html>

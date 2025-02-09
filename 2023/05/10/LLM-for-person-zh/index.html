@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Preconnect to your domain to help speed up font requests -->
+  <link rel="preconnect" href="https://mazzzystar.com" crossorigin>
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/js/jquery.min.js" as="script">
+  <link rel="preload" href="/css/style.css" as="style">
+
+  <!-- Preload fonts -->
+  <link rel="preload" href="/fonts/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZKTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZHTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/HYFangSongJ.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="/css/fontawesome.css">
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html charset=utf-8">
+  <meta name="robots" content="index,follow">
+
+  <!-- RSS Feed -->
+  
+    <link rel="alternate" type="application/atom+xml" title="TLDR"
+      href="../../../../atom.xml">
+    
+
+          
+
+            <title>
+              大语言模型对个人的杠杆
+            </title>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+            <meta name="author" content="Ke Fang">
+            <meta name="description" content="声明：不贩卖焦虑，也非宣扬 GPT 多强，本文是我近半年高强度使用 ChatGPT/GPT-4 后产生的一点个人观察，并且一定不适用于绝大多数人。
+本文适用于，那些希望产生一点创造，并且对「可预见的回报」没有预期的个人。
+
+GPT-4, 而不是 ChatGPT
+首先，GPT-4 和 ChatGPT">
+            
+
+                <link rel="canonical" href="https://mazzzystar.com/2023/05/10/LLM-for-person-zh/">
+
+                <!-- Open Graph -->
+                <meta property="og:type" content="article">
+                <meta property="og:title" content="大语言模型对个人的杠杆">
+                <meta property="og:url" content="https://mazzzystar.com/2023/05/10/LLM-for-person-zh/">
+                <meta property="og:image" content="https://mazzzystar.com/images/2023-05-10/openai-gpt4.png">
+                <meta property="og:description" content="声明：不贩卖焦虑，也非宣扬 GPT 多强，本文是我近半年高强度使用 ChatGPT/GPT-4 后产生的一点个人观察，并且一定不适用于绝大多数人。
+本文适用于，那些希望产生一点创造，并且对「可预见的回报」没有预期的个人。
+
+GPT-4, 而不是 ChatGPT
+首先，GPT-4 和 ChatGPT">
+                <meta property="og:site_name" content="TLDR">
+                <meta property="og:locale" content="en">
+                <meta property="article:author" content="Ke Fang">
+                
+
+                    
+                      <meta property="article:published_time" content="2023-05-10T08:50:15.000Z">
+                      
+                        <meta property="article:modified_time" content="2025-02-09T02:00:57.000Z">
+                        
+                          
+
+                            <!-- Twitter Card -->
+                            <meta name="twitter:card" content="summary_large_image">
+                            <meta name="twitter:title" content="大语言模型对个人的杠杆">
+                            <meta name="twitter:description" content="声明：不贩卖焦虑，也非宣扬 GPT 多强，本文是我近半年高强度使用 ChatGPT/GPT-4 后产生的一点个人观察，并且一定不适用于绝大多数人。
+本文适用于，那些希望产生一点创造，并且对「可预见的回报」没有预期的个人。
+
+GPT-4, 而不是 ChatGPT
+首先，GPT-4 和 ChatGPT">
+                            <meta name="twitter:image" content="https://mazzzystar.com/images/2023-05-10/openai-gpt4.png">
+
+                            <!-- Stylesheets -->
+                            <link rel="stylesheet" href="/css/style.css">
+                            <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
+
+                            <!-- Scripts -->
+                            <script src="/js/jquery.min.js"></script>
+                            <script src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+                            <script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+                            <script src="/js/script.js"></script>
+                            <script src="/js/clipboard.min.js"></script>
+
+                            
+                              <link rel="stylesheet"
+                                href="../../../../fancybox/jquery.fancybox-1.3.4.css">
+                              
+                                <link rel="preload" href="../../../../fonts/GowunDodum-Regular.woff2" as="font"
+                                  type="font/woff2" crossorigin>
+
+                                <!-- MathJax Configuration -->
+                                <script>
+                                  window.MathJax = {
+                                    tex: {
+                                      inlineMath: [['$', '$'], ['\\(', '\\)']],
+                                      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                                      processEscapes: true
+                                    },
+                                    options: {
+                                      enableMenu: false
+                                    },
+                                    startup: {
+                                      ready: () => {
+                                        MathJax.startup.defaultReady()
+                                      }
+                                    },
+                                    loader: {
+                                      load: ['[tex]/ams']
+                                    }
+                                  }
+                                </script>
+                                <script id="MathJax-script" defer src="/js/mathjax/tex-mml-chtml.js"></script>
+
+                                <!-- Structured Data -->
+                                
+                                  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mazzzystar.com/2023/05/10/LLM-for-person-zh/"
+      },
+      "headline": "大语言模型对个人的杠杆",
+      "description": "声明：不贩卖焦虑，也非宣扬 GPT 多强，本文是我近半年高强度使用 ChatGPT/GPT-4 后产生的一点个人观察，并且一定不适用于绝大多数人。
+本文适用于，那些希望产生一点创造，并且对「可预见的回报」没有预期的个人。
+
+GPT-4, 而不是 ChatGPT
+首先，GPT-4 和 ChatGPT",
+      "author": {
+        "@type": "Person",
+        "name": "Ke Fang"
+      },
+      "datePublished": "2023-05-10T08:50:15.000Z",
+      "dateModified": "2025-02-09T02:00:57.000Z",
+      "keywords": "",
+      "image": "https://mazzzystar.com/images/2023-05-10/openai-gpt4.png",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TLDR",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mazzzystar.com/favicon.jpg"
+        }
+      }
+    }
+    </script>
+                                  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div id="container">
+      <div id="wrap">
+        <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <!-- 只在移动端显示菜单按钮 -->
+    
+
+        
+          <a class="main-nav-link" href="../../../../index.html">
+            Home
+          </a>
+          
+          <a class="main-nav-link" href="../../../../about/">
+            About
+          </a>
+          
+          <a class="main-nav-link" href="../../../../thoughts">
+            Thoughts
+          </a>
+          
+          <a class="main-nav-link" href="../../../../sound">
+            Sound
+          </a>
+          
+
+            <div class="main-nav-space-between"></div>
+
+            <!-- Language switcher -->
+            
+              <a class="lang-switch" href="javascript:void(0)" onclick="switchLanguage()">
+                EN
+              </a>
+              
+
+                <!-- RSS icon -->
+                
+                  <a id="nav-rss-link" class="nav-icon" href="../../../../atom.xml"
+                    title="RSS Feed"></a>
+                  
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../index.html" id="logo">
+      TLDR
+    </a>
+  </h1>
+  
+</div>
+          <div id="content" class="outer">
+            <section id="main"><article id="post-LLM-for-person-zh" class="h-entry article article-type-post"
+  data-lang="zh" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2023-05-10T08:50:15.000Z" itemprop="datePublished">2023-05-10</time>
+</a>
+      
+  </div>
+  <div class="article-inner">
+    
+      
+        <header class="article-header">
+          
+  
+      
+          <h2 class="p-name article-title" itemprop="headline name">
+            大语言模型对个人的杠杆
+          </h2>
+          
+            
+              
+        </header>
+        
+          
+            <div class="e-content article-entry" itemprop="articleBody">
+                
+                          <blockquote>
+<p><strong>声明</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>不贩卖焦虑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也非宣扬 GPT 多强<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>本文是我近半年高强度使用 ChatGPT/GPT-4 后产生的一点个人观察<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且<strong>一定不适用</strong>于绝大多数人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
+本文适用于<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那些希望产生一点创造<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且对<span class="bd-box"><h-char class="bd bd-end"><h-inner>「</h-inner></h-char></span>可预见的回报<span class="bd-box"><h-char class="bd bd-beg"><h-inner>」</h-inner></h-char></span>没有预期的<strong>个人</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<h2 id="gpt-4,-而不是 chatgpt">GPT-4, 而不是 ChatGPT</h2>
+<p>首先<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>GPT-4 和 ChatGPT 是两种存在<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>如果现在(2023.05.10)这个时间点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还有公众号在吹嘘/贬低 GPT 时拿 ChatGPT 而不是 GPT-4 举例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那篇文章便不值一读<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>OpenAI 官网给出的指标是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><img src="/images/2023-05-10/openai-gpt4.png" alt="图源: https://openai.com/research/gpt-4"></p>
+<p>最近出炉的<a target="_blank" rel="noopener" href="https://github.com/CLUEbenchmark/SuperCLUE">SuperCLUE</a>中文大模型指标显示<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>在专业能力上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>GPT-4 和其他模型是断层般的存在</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这还只是中文<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/images/2023-05-10/SuperCLUE.png" alt="https://github.com/CLUEbenchmark/SuperCLUE"></p>
+<h2 id="无边界的创造">无边界的创造</h2>
+<p>我从未写过前端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但在与 GPT-4 交谈 48 小时后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>做了一个<a target="_blank" rel="noopener" href="https://www.podfind.xyz/">播客搜索网站</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我把网站开源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>给它加了 GPT-4.0 Licence —— 以表达对它的感谢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/images/2023-05-10/podfind.png" alt="PodFind - 用播客获取新知"></p>
+<p>几天后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我想在网页看视频自动跳过某些时间戳<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>没有 Chrome 扩展开发经验的我<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>按照 GPT-4 的指令<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>创建文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>粘贴<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>拖拽<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不到 15 分钟就实现了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我没上架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它成了只服务于我一个人的工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/images/2023-05-10/timestampX.png" alt="用TimestampX跳过恐怖片高能时间戳"></p>
+<p>每当我有新 idea<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就会让 GPT-4 写个最初级的版本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我反馈<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它道歉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一点点优化到我心中的 1.0 版本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我会每天多次用完 GPT-4 的配额(25 条/3 小时)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有了 GPT-4 的加持<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我无所不能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>像张无忌突然学了绝世神功<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char><h-char class="bd bd-end"><h-inner>「</h-inner></h-char></span>一夜之间暴涨的生产力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>」</h-inner></h-char></span>让人痴醉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不是为了赚钱或者创业什么的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就是纯粹地不断把脑海中的想法创造出来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这种感觉就很幸福<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我有种朦胧的感觉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>不能给自己设限<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也许很快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我会用上由设计师<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>律师或者电工开发的产品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>更重要的是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它让我敢于做梦<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>去<strong>尝试超出自己能力范围的东西</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我甚至打算做 3D 游戏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>最近<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我用 GPT 做的最频繁的两件事是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li><strong>把文档和 API 复制粘贴给 GPT-4<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让它参考来写接口</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>目前的文档都是为人类阅读而编写的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>文字和代码块混合格式让复制体验很差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>也许很快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>文档和 API 会变成 GPT 友好优先<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p><img src="/images/2023-05-10/document.png" alt="让GPT根据GPT官方文档写接口"></p>
+<ul>
+<li><strong>翻译<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>产品本地化</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我发现中国开发者中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只有非常少一部分人意识到海外市场的存在(最明显的标志是他们的 App Store 产品通常只支持中文和英文)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一部分原因是语言不通<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即使在 deepL 时代<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>稍长一些的句子也可以肉眼看出机翻痕迹<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但就我的体验而言<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>GPT(无论是 3.5 还是 4)的翻译能力碾压 deepL<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我可以一次性将自己的产品本地化成数十种其他语言<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p><img src="/images/2023-05-10/translate.jpg" alt="一次性做十国语言的本地化"></p>
+<p><img src="/images/2023-05-10/screenshot.jpg" alt="用GPT做其他语言的产品预览页"></p>
+<p>半年内, 我上架了<a target="_blank" rel="noopener" href="https://apps.apple.com/us/developer/yeonni-lee/id1710530643">5 个 iOS apps</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="个人,-而不是公司">个人, 而不是公司</h2>
+<p>大语言模型对每个使用者都是一个能放大能力的杠杆<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>如果你是个人开发者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它对你的放大杠杆可能是 10 倍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但当你为公司工作时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个数字可能是 2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即使明知这样的就业和经济环境<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对于<span class="bd-box"><h-char class="bd bd-end"><h-inner>「</h-inner></h-char></span><strong>想做点什么</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>」</h-inner></h-char></span>的人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我还是想说出这个暴论<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<blockquote>
+<p>此刻你待在任何公司都是负向收益<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为你在浪费个人杠杆<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p>除非你为 OpenAI 工作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>否则你的<span class="bd-box"><h-char class="bd bd-end"><h-inner>「</h-inner></h-char></span>GPT 杠杆<span class="bd-box"><h-char class="bd bd-beg"><h-inner>」</h-inner></h-char></span>便很可能浪费在那些无足轻重的业务代码上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且更有可能由于屎山过于庞大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让只有 4/8k 上下文窗口的 GPT 无法优化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>进一步削弱了杠杆<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我看到许多有才华的年轻人被大厂困住<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>把精力消耗在无止境的文档和会议里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>维持收入当然是主要原因<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但也很可能他并不知道自己独自一人驾驶着 GPT 这艘船<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能发挥出多大的潜力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>极端一点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我甚至觉得加入任何团队都是某种减速<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只有独自驾驶小船才可以一直保持轻快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="独自出发">独自出发</h2>
+<p>如何开卡<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>如何维持生计<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并不是本文讨论的范畴<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我仍然认为<strong>绝大部分人</strong>不适合这条路<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我所做的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只是朝着熙熙攘攘的西二旗地铁站<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>和无数个灯火通明的高楼玻璃窗边喊一声<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那里可能有很多人没有机会使用 GPT-4<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也没想过借助它的杠杆实现无限可能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>但愿对 0.01%的读者有用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+
+                            
+            </div>
+            <footer class="article-footer">
+              
+                  
+                      
+            </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../LLM-for-individual/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          The Leverage of LLMs for Individuals
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../03/03/teach-show-consult-gpt/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Teach, Show, then Consult: Make GPT a Music Composition Guide
+        
+      </div>
+    </a>
+  
+</nav>
+
+      
+</article>
+
+
+    </section>
+            
+          </div>
+          <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        &copy 2024 Ke Fang<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/bill-xia/hexo-theme-mashiro" target="_blank">Mashiro</a><br>
+      
+    </div>
+  </div>
+</footer>
+
+      </div>
+      <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">
+      Home
+    </a>
+    
+    <a href="../../../../about/" class="mobile-nav-link">
+      About
+    </a>
+    
+    <a href="../../../../thoughts" class="mobile-nav-link">
+      Thoughts
+    </a>
+    
+    <a href="../../../../sound" class="mobile-nav-link">
+      Sound
+    </a>
+    
+      
+        <a id="nav-rss-link" class="mobile-nav-link" href="../../../../atom.xml"
+          title="RSS Feed">RSS</a>
+        
+</nav>
+        <!-- jQuery -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+<!-- Other scripts -->
+<script src="../../../../js/clipboard.min.js"></script>
+<script src="../../../../js/jquery-1.4.3.min.js"></script>
+
+  <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+  
+
+    <script defer src="../../../../js/script.js"></script>
+    <script defer src="../../../../js/clipboard.min.js"></script>
+
+    <!-- MathJax -->
+    
+      <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            packages: { '[+]': ['ams'] },
+            tags: 'ams'
+          },
+          options: {
+            enableMenu: false
+          }
+        }
+      </script>
+      <script id="MathJax-script" async src="/js/mathjax/tex-mml-chtml.js"></script>
+      
+
+        
+
+
+          <!-- Language Switch -->
+          <script>
+            let currentLang = localStorage.getItem('blog_language') || 'zh'
+
+            document.addEventListener('DOMContentLoaded', function () {
+              if (document.querySelector('.archives')) {
+                updateLanguageDisplay()
+                updateSwitchButton()
+              }
+            })
+
+            function switchLanguage() {
+              currentLang = currentLang === 'zh' ? 'en' : 'zh'
+              localStorage.setItem('blog_language', currentLang)
+              updateLanguageDisplay()
+              updateSwitchButton()
+            }
+
+            function updateLanguageDisplay() {
+              document.querySelectorAll('.archive-article').forEach(article => {
+                const articleLang = article.getAttribute('data-lang')
+                if (articleLang === currentLang) {
+                  article.style.display = ''
+                } else {
+                  article.style.display = 'none'
+                }
+              })
+            }
+
+            function updateSwitchButton() {
+              const switchBtn = document.querySelector('.lang-switch')
+              if (switchBtn) {
+                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文'
+              }
+            }
+          </script>
+    </div>
+  </body>
+
+</html>

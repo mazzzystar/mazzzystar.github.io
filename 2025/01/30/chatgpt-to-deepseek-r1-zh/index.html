@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Preconnect to your domain to help speed up font requests -->
+  <link rel="preconnect" href="https://mazzzystar.com" crossorigin>
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/js/jquery.min.js" as="script">
+  <link rel="preload" href="/css/style.css" as="style">
+
+  <!-- Preload fonts -->
+  <link rel="preload" href="/fonts/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZKTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZHTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/HYFangSongJ.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="/css/fontawesome.css">
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html charset=utf-8">
+  <meta name="robots" content="index,follow">
+
+  <!-- RSS Feed -->
+  
+    <link rel="alternate" type="application/atom+xml" title="TLDR"
+      href="../../../../atom.xml">
+    
+
+          
+
+            <title>
+              Deepseek R1可能找到了超越人类的办法
+            </title>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+            <meta name="author" content="Ke Fang">
+            <meta name="description" content="我本想写一篇关于 DeepSeek R1 的科普文，但发现很多人仅仅把它理解为 OpenAI 的复制品，而忽略了它在论文中揭示的&ampquot惊人一跃&ampquot，所以，我决定重新写一篇，讲讲从 AlphaGo 到 ChatGPT，再到最近的 DeepSeek R1 底层原理的突破，以及为什么它对所">
+            
+              <meta name="keywords" content="DeepSeek R1, R1-Zero, ChatGPT, RL, 强化学习, 超越人类, AI, 人工智能, 机器学习, 深度学习, AGI">
+              
+
+                <link rel="canonical" href="https://mazzzystar.com/2025/01/30/chatgpt-to-deepseek-r1-zh/">
+
+                <!-- Open Graph -->
+                <meta property="og:type" content="article">
+                <meta property="og:title" content="Deepseek R1可能找到了超越人类的办法">
+                <meta property="og:url" content="https://mazzzystar.com/2025/01/30/chatgpt-to-deepseek-r1-zh/">
+                <meta property="og:image" content="https://mazzzystar.com/images/2025-01-30/deepseek.jpeg">
+                <meta property="og:description" content="我本想写一篇关于 DeepSeek R1 的科普文，但发现很多人仅仅把它理解为 OpenAI 的复制品，而忽略了它在论文中揭示的&ampquot惊人一跃&ampquot，所以，我决定重新写一篇，讲讲从 AlphaGo 到 ChatGPT，再到最近的 DeepSeek R1 底层原理的突破，以及为什么它对所">
+                <meta property="og:site_name" content="TLDR">
+                <meta property="og:locale" content="en">
+                <meta property="article:author" content="Ke Fang">
+                
+                  <meta property="article:tag" content="DeepSeek R1, R1-Zero, ChatGPT, RL, 强化学习, 超越人类, AI, 人工智能, 机器学习, 深度学习, AGI">
+                  
+
+                    
+                      <meta property="article:published_time" content="2025-01-30T02:40:19.000Z">
+                      
+                        <meta property="article:modified_time" content="2025-02-09T04:51:26.000Z">
+                        
+                          
+
+                            <!-- Twitter Card -->
+                            <meta name="twitter:card" content="summary_large_image">
+                            <meta name="twitter:title" content="Deepseek R1可能找到了超越人类的办法">
+                            <meta name="twitter:description" content="我本想写一篇关于 DeepSeek R1 的科普文，但发现很多人仅仅把它理解为 OpenAI 的复制品，而忽略了它在论文中揭示的&ampquot惊人一跃&ampquot，所以，我决定重新写一篇，讲讲从 AlphaGo 到 ChatGPT，再到最近的 DeepSeek R1 底层原理的突破，以及为什么它对所">
+                            <meta name="twitter:image" content="https://mazzzystar.com/images/2025-01-30/deepseek.jpeg">
+
+                            <!-- Stylesheets -->
+                            <link rel="stylesheet" href="/css/style.css">
+                            <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
+
+                            <!-- Scripts -->
+                            <script src="/js/jquery.min.js"></script>
+                            <script src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+                            <script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+                            <script src="/js/script.js"></script>
+                            <script src="/js/clipboard.min.js"></script>
+
+                            
+                              <link rel="stylesheet"
+                                href="../../../../fancybox/jquery.fancybox-1.3.4.css">
+                              
+                                <link rel="preload" href="../../../../fonts/GowunDodum-Regular.woff2" as="font"
+                                  type="font/woff2" crossorigin>
+
+                                <!-- MathJax Configuration -->
+                                <script>
+                                  window.MathJax = {
+                                    tex: {
+                                      inlineMath: [['$', '$'], ['\\(', '\\)']],
+                                      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                                      processEscapes: true
+                                    },
+                                    options: {
+                                      enableMenu: false
+                                    },
+                                    startup: {
+                                      ready: () => {
+                                        MathJax.startup.defaultReady()
+                                      }
+                                    },
+                                    loader: {
+                                      load: ['[tex]/ams']
+                                    }
+                                  }
+                                </script>
+                                <script id="MathJax-script" defer src="/js/mathjax/tex-mml-chtml.js"></script>
+
+                                <!-- Structured Data -->
+                                
+                                  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mazzzystar.com/2025/01/30/chatgpt-to-deepseek-r1-zh/"
+      },
+      "headline": "Deepseek R1可能找到了超越人类的办法",
+      "description": "我本想写一篇关于 DeepSeek R1 的科普文，但发现很多人仅仅把它理解为 OpenAI 的复制品，而忽略了它在论文中揭示的&ampquot惊人一跃&ampquot，所以，我决定重新写一篇，讲讲从 AlphaGo 到 ChatGPT，再到最近的 DeepSeek R1 底层原理的突破，以及为什么它对所",
+      "author": {
+        "@type": "Person",
+        "name": "Ke Fang"
+      },
+      "datePublished": "2025-01-30T02:40:19.000Z",
+      "dateModified": "2025-02-09T04:51:26.000Z",
+      "keywords": "DeepSeek R1, R1-Zero, ChatGPT, RL, 强化学习, 超越人类, AI, 人工智能, 机器学习, 深度学习, AGI",
+      "image": "https://mazzzystar.com/images/2025-01-30/deepseek.jpeg",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TLDR",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mazzzystar.com/favicon.jpg"
+        }
+      }
+    }
+    </script>
+                                  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div id="container">
+      <div id="wrap">
+        <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <!-- 只在移动端显示菜单按钮 -->
+    
+
+        
+          <a class="main-nav-link" href="../../../../index.html">
+            Home
+          </a>
+          
+          <a class="main-nav-link" href="../../../../about/">
+            About
+          </a>
+          
+          <a class="main-nav-link" href="../../../../thoughts">
+            Thoughts
+          </a>
+          
+          <a class="main-nav-link" href="../../../../sound">
+            Sound
+          </a>
+          
+
+            <div class="main-nav-space-between"></div>
+
+            <!-- Language switcher -->
+            
+              <a class="lang-switch" href="javascript:void(0)" onclick="switchLanguage()">
+                EN
+              </a>
+              
+
+                <!-- RSS icon -->
+                
+                  <a id="nav-rss-link" class="nav-icon" href="../../../../atom.xml"
+                    title="RSS Feed"></a>
+                  
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../index.html" id="logo">
+      TLDR
+    </a>
+  </h1>
+  
+</div>
+          <div id="content" class="outer">
+            <section id="main"><article id="post-chatgpt-to-deepseek-r1-zh" class="h-entry article article-type-post"
+  data-lang="zh" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2025-01-30T02:40:19.000Z" itemprop="datePublished">2025-01-30</time>
+</a>
+      
+  </div>
+  <div class="article-inner">
+    
+      
+        <header class="article-header">
+          
+  
+      
+          <h2 class="p-name article-title" itemprop="headline name">
+            Deepseek R1可能找到了超越人类的办法
+          </h2>
+          
+            
+              
+        </header>
+        
+          
+            <div class="e-content article-entry" itemprop="articleBody">
+                
+                          <blockquote>
+<p>我本想写一篇关于 DeepSeek R1 的科普文<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但发现很多人仅仅把它理解为 OpenAI 的复制品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而忽略了它在论文中揭示的&quot惊人一跃&quot<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我决定重新写一篇<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>讲讲从 AlphaGo 到 ChatGPT<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再到最近的 DeepSeek R1 底层原理的突破<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以及为什么它对所谓的 AGI/ASI 很重要<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>作为一名普通的 AI 算法工程师<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我可能无法做到非常深入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如有错误欢迎指出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<h2 id="alphago-突破人类上限">AlphaGo 突破人类上限</h2>
+<p>1997 年<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>IBM 公司开发的国际象棋 AI 深蓝<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>击败了世界冠军卡斯帕罗夫而引发轰动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>接近二十年后的 2016 年<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由 DeepMind 开发的围棋 AI AlphaGo 击败了围棋世界冠军李世石<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再次引发轰动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>表面上看这两个 AI 都是在棋盘上击败了最强的人类棋手<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但它们对人类的意义完全不同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>国际象棋的棋盘只有 64 个格子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而围棋的棋盘有 19x19 个格子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>假如我们用<strong>一盘棋能有多少种下法</strong>(<em>状态空间</em>)来衡量复杂度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么二者对比如下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ol>
+<li><strong>理论上的状态空间</strong>
+<ul>
+<li>国际象棋<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>每局约 <strong>80 步</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每步有 <strong>35 种</strong>走法 → 理论状态空间为 <span class="markdown-them-math-inline">$35^{80} \approx 10^{123}$</span></li>
+<li>围棋<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>每局约 <strong>150 步</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每步有 <strong>250 种</strong>走法 → 理论状态空间为 <span class="markdown-them-math-inline">$250^{150} \approx 10^{360}$</span></li>
+</ul>
+</li>
+<li><strong>规则约束后的实际状态空间</strong>
+<ul>
+<li>国际象棋<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>棋子移动受限<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如兵不能倒退<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>王车易位规则<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span> → 实际值 <span class="markdown-them-math-inline">$10^{47}$</span></li>
+<li>围棋<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>棋子不可移动且依赖&quot气&quot的判定 → 实际值 <span class="markdown-them-math-inline">$10^{170}$</span></li>
+</ul>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th><strong>维度</strong></th>
+<th><strong>国际象棋<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>深蓝<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong></th>
+<th><strong>围棋<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>AlphaGo<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>棋盘大小</strong></td>
+<td>8×8<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>64 格<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></td>
+<td>19×19<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>361 点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></td>
+</tr>
+<tr>
+<td><strong>平均每步合法走法</strong></td>
+<td>35 种</td>
+<td>250 种</td>
+</tr>
+<tr>
+<td><strong>平均对局步数</strong></td>
+<td>80 步/局</td>
+<td>150 步/局</td>
+</tr>
+<tr>
+<td><strong>状态空间复杂度</strong></td>
+<td><span class="markdown-them-math-inline">$10^{47}$</span> 种可能局面</td>
+<td><span class="markdown-them-math-inline">$10^{170}$</span> 种可能局面</td>
+</tr>
+</tbody>
+</table>
+<div style="color: #666 font-size: 0.9em text-align: center">▲ 国际象棋和围棋的复杂度对比</div>
+<p>尽管规则大幅压缩了复杂度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>围棋的实际状态空间仍是国际象棋的 <span class="markdown-them-math-inline">$10^{123}$</span> 倍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这是一个巨大的量级差异<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要知道<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>宇宙中的所有原子数量大约是 <span class="markdown-them-math-inline">$10^{78}$</span> 个</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在<span class="markdown-them-math-inline">$10^{47}$</span>范围内的计算<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>依赖 IBM 计算机可以暴力搜索计算出所有可能的走法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以严格意义上来讲<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>深蓝的突破和神经网络<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>模型没有一点关系<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它只是基于规则的暴力搜索<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>相当于<strong>一个比人类快得多的计算器</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>但<span class="markdown-them-math-inline">$10^{170}$</span>的量级<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>已经远远超出了当前超级计算机的算力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这迫使 AlphaGo 放弃暴力搜索<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>转而依赖深度学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>DeepMind 团队用人类棋谱进行训练神经网络<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>根据当前棋盘状态预测下一步棋的最佳走法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>学习顶尖棋手走法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只能让模型的能力接近顶尖棋手<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而无法超越他们</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>AlphaGo 首先用人类棋谱训练模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后通过设计一套奖励函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让模型自我对弈进行强化学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>和李世石对弈的第二局<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>AlphaGo 的第 19 手棋<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>第 37 步<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>让李世石陷入长考<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这步棋也被很多棋手认为是&quot人类永远不会下的一步&quot<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果没有强化学习和自我对弈<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只是学习过人类棋谱<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>AlphaGo 永远无法下出这步棋<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>2017 年 5 月<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>AlphaGo 以 3:0 击败了柯洁<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>DeepMind 团队称<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有一个比它更强的模型还没出战<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> 他们发现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其实根本不需要给 AI 喂人类高手的对局棋谱<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>只要告诉它围棋的基本规则<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让模型自我对弈<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>赢了就奖励<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>输了就惩罚</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型就能很快从零开始学会围棋并超越人类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>研究人员把这个模型称为 AlphaZero<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为它不需要任何人类知识<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>让我再重复一遍这个不可思议的事实<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>无需任何人类棋局作为训练数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>仅靠自我对弈<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型就能学会围棋<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚至这样训练出的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比喂人类棋谱的 AlphaGo 更强大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>在此之后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>围棋变成了比谁更像 AI 的游戏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为 AI 的棋力已经超越了人类的认知范围<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>想要超越人类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>必须让模型摆脱人类经验<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>好恶判断(哪怕是来自最强人类的经验也不行)的限制</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只有这样才能让模型能够自我博弈<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>真正超越人类的束缚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>AlphaGo 击败李世石引发了狂热的 AI 浪潮<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从 2016 到 2020 年<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>巨额的 AI 经费投入最终收获的成果寥寥无几<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>数得过来的的可能只有人脸识别<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>语音识别和合成<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>自动驾驶<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>对抗生成网络等——但这些都算不上超越人类的智能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>为何如此强大的超越人类的能力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>却没有在其他领域大放异彩<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>人们发现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>围棋这种规则明确<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>目标单一的封闭空间游戏最适合强化学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>与之类似的还有 DotA<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>星际争霸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>王者荣耀<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>斗地主等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>对比之下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>现实世界则复杂得多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>开放空间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每一步都有无限种可能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>没有确定的目标(比如&quot赢&quot)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>没有明确的成败判定依据(比如占据棋盘更多区域)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>试错成本也很高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>自动驾驶一旦出错后果严重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>AI 领域冷寂了下来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到 ChatGPT 的出现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="chatgpt-改变世界">ChatGPT 改变世界</h2>
+<p>ChatGPT 被 The New Yorker 称为网络世界的模糊照片(<code>ChatGPT Is a Blurry JPEG of the Web</code><sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它所做的只是把整个互联网的文本数据送进一个模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后预测下一个字是什_</p>
+<p>这个字最有可能是&quot么&quot<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>一个参数量有限的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>被迫学习几乎无限的知识<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>过去几百年不同语言的书籍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>过去几十年互联网上产生的文字<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以它其实是在做信息压缩<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>将不同语言记载的相同的人类智慧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>历史事件和天文地理浓缩在一个模型里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>科学家惊讶地发现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>在压缩中产生了智能</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我们可以这么理解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>让模型读一本推理小说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>小说的结尾&quot凶手是_“<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果 AI 能准确预测凶手的姓名<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们有理由相信它读懂了整个故事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即它拥有&quot智能”<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不是单纯的文字拼贴或死记硬背<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>让模型学习并预测下一个字的过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>被称之为<strong>预训练</strong>(Pre-Training)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>此时的模型只能不断预测下一个字<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但不能回答你的问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要实现 ChatGPT 那样的问答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需要进行第二阶段的训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们称之为<strong>监督微调</strong>(Supervised Fine-Tuning, SFT)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>此时需要人为构建一批问答数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如:</p>
+<div class="highlight"><pre class="code"><code><span class="hljs-comment"># 例子一</span>
+
+人类:第二次世界大战发生在什么时候?
+AI:<span class="hljs-number">1939</span>年
+
+<span class="hljs-comment"># 例子二</span>
+人类:请总结下面这段话....&#123xxx&#125
+AI:好的,以下是总结:xxx
+</code></pre></div>
+<p>值得注意的是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以上这些例子是<strong>人工构造的</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>目的是让 AI 学习人类的问答模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这样当你说&quot请翻译这句:xxx&quot时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>送给 AI 的内容就是</p>
+<div class="highlight"><pre class="code"><code>人类:请翻译这句:xxx
+AI:
+</code></pre></div>
+<p>你看<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它其实仍然在预测下一个字<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在这个过程中模型并没有变得更聪明<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它只是学会了人类的问答模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>听懂了你在要求它做什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这还不够<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为模型输出的回答有时好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>有时差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有些回答还涉及种族歧视<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>或违反人类伦理(<em>“如何抢银行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>”</em>)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>此时我们需要找一批人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>针对模型输出的几千条数据进行标注<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>给好的回答打高分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>给违反伦理的回答打负分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终我们可以用这批标注数据训练一个<strong>奖励模型</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它能判断<strong>模型输出的回答是否符合人类偏好</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我们用这个<strong>奖励模型</strong>来继续训练大模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让模型输出的回答更符合人类偏好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个过程被称为通过人类反馈的强化学习<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>RLHF<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>总结一下</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>让模型在预测下一个字的过程中产生智能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后通过监督微调来让模型学会人类的问答模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后通过 RLHF 来让模型输出符合人类偏好的回答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这就是 ChatGPT 的大致思路<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="大模型撞墙">大模型撞墙</h2>
+<p>OpenAI 的科学家们是最早坚信<strong>压缩即智能</strong>的那批人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他们认为只要使用更海量优质的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>在更庞大的 GPU 集群上训练更大参数量的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就能产生更大的智能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>ChatGPT 就是在这样的信仰之下诞生的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>Google 虽然做出了 Transformer<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但他们无法进行创业公司那样的豪赌<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>DeepSeek V3 和 ChatGPT 做的事差不多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为美国 GPU 出口管制<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>聪明的研究者被迫使用了更高效的训练技巧(MoE/FP8)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他们也拥有顶尖的基础设施团队<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终只用了 550 万美元就训练了比肩 GPT-4o 的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>后者的训练成本超过 1 亿美元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>但本文重点是 R1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这里想说的是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>人类产生的数据在 2024 年底已经被消耗殆尽了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型的尺寸可以随着 GPU 集群的增加<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>轻易扩大 10 倍甚至 100 倍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但人类每一年产生的新数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>相比现有的几十年<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>过去几百年的数据来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>增量几乎可以忽略不计<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>而按照 Chinchilla 扩展定律<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Scaling Laws<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>每增加一倍模型大小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>训练数据的数量也应增加一倍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这就导致了<strong>预训练撞墙</strong>的事实<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>模型体积虽然增加了 10 倍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但我们已经无法获得比现在多 10 倍的高质量数据了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>GPT-5 迟迟不发布<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>国产大模型厂商不做预训练的传闻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>都和这个问题有关<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="rlhf-并不是 rl">RLHF 并不是 RL</h2>
+<p>另一方面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>基于人类偏好的强化学习(RLHF)最大的问题是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>普通人类的智商已经不足以评估模型结果了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在 ChatGPT 时代<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>AI 的智商低于普通人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以 OpenAI 可以请大量廉价劳动力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对 AI 的输出结果进行评测<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>好/中/差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但很快随着 GPT-4o/Claude 3.5 Sonnet 的诞生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大模型的智商已经超越了普通人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只有专家级别的标注人员<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才有可能帮助模型提升<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>且不说聘请专家的成本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那专家之后呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>终究有一天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最顶尖的专家也无法评估模型结果了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>AI 就超越人类了吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>并不是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>AlphaGo 对李世石下出第 19 手棋<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从人类偏好来看<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这步棋绝不可能赢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以如果让李世石来做人类反馈(Human Feedback, HF)评价 AI 的这步棋<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他很可能也会给出负分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>AI 就永远无法逃出人类思维的枷锁</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>你可以把 AI 想象成一个学生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>给他打分的人从高中老师变成了大学教授<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>学生的水平会变高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但几乎不可能超越教授<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>RLHF 本质上是一种讨好人类的训练方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它让模型输出符合人类偏好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但同时它扼杀了<strong>超越人类</strong>的可能性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>关于 RLHF 和 RL<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最近 Andrej Karpathy 也发表了类似的看法<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>:</p>
+<blockquote>
+<p>AI 和儿童一样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有两种学习模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>通过模仿专家玩家来学习<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>观察并重复<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即预训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>监督微调<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>通过不断试错和强化学习来赢得比赛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我最喜欢的简单例子是 AlphaGo<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>几乎每一个深度学习的惊人结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以及所有<em>魔法</em>的来源总是 2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>强化学习<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>RL<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>很强大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但强化学习与人类反馈<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>RLHF<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>并不相同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>RLHF 不是 RL<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p>附上我之前的一条想法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><img src="/images/2025-01-30/rlhf.jpg" alt=""></p>
+<h2 id="openai-的解法">OpenAI 的解法</h2>
+<p>丹尼尔·卡尼曼在<span class="bd-box"><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>思考快与慢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char></span>里提出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>人脑对待问题有两种思考模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>一类问题不经过脑子就能给出回答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是<strong>快思考</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一类问题需要类似围棋的长考才能给出答案<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是<strong>慢思考</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>既然训练已经到头了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那可否从推理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是给出回答的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过增加思考时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而让回答质量变好呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>这其实也有先例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>科学家很早就发现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>给模型提问时加一句<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>“让我们一步一步思考”(“Let’s think step by step”)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以让模型输出自己的思考过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终给出更好的结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这被称为<strong>思维链</strong>(Chain-of-Thought, CoT)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>2024 年底大模型预训练撞墙后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>使用强化学习<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>RL<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>来训练模型思维链</strong>成为了所有人的新共识<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种训练极大地提高了某些特定<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>客观可测量任务<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如数学<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>编码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的性能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它需要从普通的预训练模型开始<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在第二阶段使用强化学习训练推理思维链<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这类模型被称为 <strong>Reasoning 模型</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>OpenAI 在 2024 年 9 月发布的 o1 模型以及随后发布的 o3 模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>都是 Reasoning 模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>不同于 ChatGPT 和 GPT-4/4o<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在 o1/o3 这类 Reasoning 模型 的训练过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>人类反馈已经不再重要了</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为可以自动评估思考结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而给予奖励/惩罚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>Anthropic 的 CEO 在昨天的文章中<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>用<em>转折点</em>来形容这一技术路线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>存在一个强大的新范式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它处于 Scaling Law 的早期<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以快速取得重大进展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>虽然 OpenAI 并没有公布他们的强化学习算法细节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但最近 DeepSeek R1 的发布<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>向我们展示了一种可行的方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="deepseek-r1-zero">DeepSeek R1-Zero</h2>
+<p>我猜 DeepSeek 将自己的纯强化学习模型命名为 R1-Zero 也是在致敬 AlphaZero<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那个通过自我对弈<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>不需要学习任何棋谱就能超越最强棋手的算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>要训练慢思考模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>首先要构造质量足够好的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>包含思维过程的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且如果希望强化学习不依赖人类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就需要对模型的思考过程进行定量(好/坏)评估<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而给予奖励和惩罚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>正如上文所说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>数学和代码这两个数据集最符合要求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>数学公式的推导能通过正则表达式来验证是否正确<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而代码的输出结果以通过直接在编译器上运行来检验<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>举个例子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在数学课本中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们经常看到这样的推理过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<div class="highlight"><pre class="code"><code>&lt思考&gt
+  设方程根为x, 两边平方得: x² = a - √(a+x)
+  移项得: √(a+x) = a - x²
+  再次平方: (a+x) = (a - x²)²
+  展开: a + x = a² - 2a x² + x⁴
+  整理: x⁴ - 2a x² - x + (a² - a) = <span class="hljs-number">0</span>
+&lt/思考&gt
+&lt回答&gtx⁴ - 2a x² - x + (a² - a) = <span class="hljs-number">0</span>&lt/回答&gt
+</code></pre></div>
+<p>上面这段文本就包含了一个完整的思维链<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们可以通过正则表达式匹配出思考过程和最终回答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而对模型的推理过程和结果进行定量评估<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>在训练强化学习(RL)时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>R1 并没有显式地对思维链的每一步进行奖励和惩罚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是创造了一种名为 <strong>GRPO</strong> (Group Relative Policy Optimization) 的强化学习算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>给逻辑连贯<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>思维链格式的正确结果给予奖励<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而隐式鼓励模型 self-play 形成思维链<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><a target="_blank" rel="noopener" href="https://x.com/virattt/status/1885102056546910672">这个帖子</a>用一个很好的例子解释了 GRPO 的原理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我翻译一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>让模型同时生成多个回答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>计算每个回答的得分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>组内对比出有相对优势的回答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对模型进行 RL 训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使其倾向于得分更高的回答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<blockquote>
+<p>以问题<span class="markdown-them-math-inline">$2+3=?$</span>为例</p>
+</blockquote>
+<p><strong>第一步</strong>: 模型生成多个回答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>“5”</li>
+<li>“6”</li>
+<li>“&lt思考&gt2+3=5&lt/思考&gt&lt结果&gt5&lt/结果&gt”</li>
+</ul>
+<p><strong>第二步</strong>: 对每个回答进行打分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>“5” → 1 分 (<strong>正确, 没有思维链</strong>)</li>
+<li>“6” → 0 分 (<strong>错误</strong>)</li>
+<li>“&lt思考&gt2+3=5&lt/思考&gt&lt结果&gt5&lt/结果&gt” → 2 分 (<strong>正确, 有思维链</strong>)</li>
+</ul>
+<p><strong>第三步</strong>: 计算所有回答的平均得分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>平均得分 = (1 + 0 + 2) / 3 = 1</li>
+</ul>
+<p><strong>第四步</strong>: 将每个回答的得分与平均得分进行比较<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>“5” → 1 - 1 = 0 (<strong>与平均分相同</strong>)</li>
+<li>“6” → 0 - 1 = -1 (<strong>低于平均分</strong>)</li>
+<li>“&lt思考&gt2+3=5&lt/思考&gt&lt结果&gt5&lt/结果&gt” → 2 - 1 = 1 (<strong>高于平均分</strong>)</li>
+</ul>
+<p><strong>第五步</strong>: 强化学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使模型倾向于生成得分更高的回答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是包含思维链<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>且结果正确<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>以上就是 GRPO 的大致原理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>他们基于 V3 模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在数学和代码这两类数据上用 GRPO 进行 RL 训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终得到的 R1-Zero 模型在各项推理指标上相比 DeepSeek V3 显著提升<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>证明仅通过 RL 就能激发模型的推理能力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这是<strong>另一个 AlphaZero 时刻</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在 R1-Zero 的训练过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>完全不依赖人类的智商<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>经验和偏好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>仅靠 RL 去学习那些客观<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>可测量的人类真理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终让推理能力远强于所有非 Reasoning 模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>但 R1-Zero 模型只是单纯地进行强化学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并没有进行监督学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以它没有学会人类的问答模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>无法回答人类的问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>并且<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它在思考过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>存在语言混合问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一会儿说英语<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>一会儿说中文<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可读性差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以 DeepSeek 团队<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ol>
+<li>先收集了少量高质量的 Chain-of-Thought<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>CoT<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对 V3 模型进行初步的监督微调<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>解决了输出语言不一致问题</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得到冷启动模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>然后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他们在这个冷启动模型上进行类似 R1-Zero 的<strong>纯 RL 训练</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并加入语言一致性奖励<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>最后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为了适应更普遍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>广泛的<strong>非推理任务</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如写作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>事实问答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他们构造了一组数据对模型进行二次微调<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>结合推理和通用任务数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用混合奖励信号进行最终强化学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ol>
+<p>这个过程大概就是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<div class="highlight"><pre class="code"><code>监督学习<span class="hljs-comment">(SFT)</span> - 强化学习<span class="hljs-comment">(RL)</span> - 监督学习<span class="hljs-comment">(SFT)</span> - 强化学习<span class="hljs-comment">(RL)</span>
+</code></pre></div>
+<p>经过以上过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就得到了 DeepSeek R1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>DeepSeek R1 给世界的贡献是开源世界上第一个比肩闭源(o1)的 Reasoning 模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>现在全世界的用户都可以看到模型在回答问题前的推理过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是&quot内心独白&quot<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且完全免费<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>更重要的是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它向研究者们揭示了 OpenAI 一直在隐藏的秘密<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>强化学习可以不依赖人类反馈<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>纯 RL 也能训练出最强的 Reasoning 模型</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以在我心目中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>R1-Zero 比 R1 更有意义<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="对齐人类品味-vs 超越人类">对齐人类品味 VS 超越人类</h2>
+<p>几个月前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我读了 Suno 和 Recraft 创始人们的访谈<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup><sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Suno 试图让 AI 生成的音乐更悦耳动听<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Recraft 试图让 AI 生成的图像更美<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>更有艺术感<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>读完后我有一个朦胧的感觉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>将模型对齐到人类品味而非客观真理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>似乎就能避开真正残酷的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>性能可量化的大模型竞技场</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>每天跟所有对手在 AIME<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>SWE-bench 这些榜单上竞争多累啊<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而且不知道哪天一个新模型出来自己就落后了(<em>你还记得 Mistral 吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></em>)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但人类品味就像时尚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>不会提升<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>只会改变<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>Suno/Recraft 们显然是明智的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他们只要让行业内最有品味的音乐人和艺术家们满意(当然这也很难)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>榜单并不重要<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>对齐人类品味的坏处也很明显<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>你的努力和心血带来的效果提升也很难被量化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Suno V4 真的比 V3.5 更好吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>我的经验是 V4 只是音质提升了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>创造力并没有提升<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>并且<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>依赖人类品味的模型注定无法超越人类</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>如果 AI 推导出一个超越当代人类理解范围的数学定理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它会被奉为上帝<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但如果 Suno 创造出一首人类品味和理解范围外的音乐<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在普通人耳朵里听起来可能就只是单纯的噪音<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>对齐客观真理的竞争痛苦但让人神往<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为它有超越人类的可能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="对质疑的一些反驳">对质疑的一些反驳</h2>
+<blockquote>
+<p>DeepSeek 的 R1 模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是否真的超越了 OpenAI<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+</blockquote>
+<p>从指标上看<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>R1 的推理能力<strong>超越了所有的非 Reasoning 模型</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是 ChatGPT/GPT-4/4o 和 Claude 3.5 Sonnet<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>与同为 Reasoning 模型 的 o1<strong>接近</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>逊色于 o3</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但 o1/o3 都是闭源模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>很多人的实际体验可能不同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为 Claude 3.5 Sonnet 在对用户意图理解上更胜一筹<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<blockquote>
+<p>DeepSeek 会收集用户聊天内容用于训练</p>
+</blockquote>
+<p>很多人有个误区<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>认为类似 ChatGPT 这类聊天软件会通过收集用户聊天内容用于训练而变得更聪明<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其实不然<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果真是这样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么微信和 Messenger 就能做出世界上最强的大模型了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>相信你看完这篇文章之后就能意识到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>大部分普通用户的日常聊天数据已经不重要了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>RL 模型只需要在非常高质量的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>包含思维链的推理数据上进行训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如数学和代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这些数据可以通过模型自己生成<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>无需人类标注<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>因此 做模型数据标注的公司 Scale AI 的 CEO Alexandr Wang 现在很可能正如临大敌<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>未来的模型对人类标注需求会越来越少<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><em>更新<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>ARC-AGI 的<a target="_blank" rel="noopener" href="https://arcprize.org/blog/r1-zero-r1-results-analysis">这篇分析 r1-zero 的文章</a>暗示了一个新想法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>未来的 Reasoning 模型可以收集用户和模型聊天时 AI 生成的思维链来训练——和人们假想的 AI 偷偷用聊天记录训练不同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用户说了什么其实不重要<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在他们付费得到结果的同时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型 0 成本增加了一条推理思维链数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+<blockquote>
+<p>DeepSeek R1 厉害是因为偷偷蒸馏了 OpenAI 的模型</p>
+</blockquote>
+<p>R1 最主要的性能提升来自强化学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可以看到纯 RL<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>不需要监督数据的 R1-Zero 模型在推理能力上也很强<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>而 R1 在冷启动时使用了一些监督学习数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>主要是用于解决语言一致性问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这些数据并不会提升模型的推理能力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>另外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>很多人对<em>蒸馏</em>有误解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>蒸馏通常是指<em>用一个强大的模型作为老师(Teacher)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将它的输出结果用于指导一个参数更小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>性能更差的学生(Student)模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让学生模型直接背答案变得更强</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如 R1 模型可以用于蒸馏 LLama-70B<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>蒸馏的学生模型性能几乎一定比老师模型更差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但 R1 模型在某些指标性能比 o1 更强</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以说 R1 的性能源于蒸馏 o1 是非常愚蠢的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<blockquote>
+<p>我问 DeepSeek 它 说自己是 OpenAI 的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以它是套壳的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p>大模型在训练时并不知道<strong>当前的时间</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>自己究竟被谁训练</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><strong>训练自己的机器是 H100 还是 H800</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>X 上有位用户给出了精妙的比喻<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><em>这就像你问一个 Uber 乘客<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他坐的这辆车轮胎是什么品牌</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型没有理由知道这些信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="一些感受">一些感受</h2>
+<p>AI 终于除掉了人类反馈的枷锁<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>DeepSeek R1-Zero 展示了如何使用几乎不使用人类反馈来提升模型性能的方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这是它的 AlphaZero 时刻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>很多人曾说&quot人工智能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有多少人工就有多少智能&quot<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个观点可能不再正确了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果模型能根据直角三角形推导出勾股定理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们有理由相信它终有一天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能推导出现有数学家尚未发现的定理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>写代码是否仍然有意义<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>我不知道<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>今早看到 Github 上热门项目 llama.cpp<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个代码共享者提交了 PR<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>表示他通过对 SIMD 指令加速<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将 WASM 运行速度提升 2 倍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而其中 99%的代码由 DeepSeek R1 完成<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这肯定不是初级工程师级别的代码了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我无法再说 AI 只能取代初级程序员<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/images/2025-01-30/ggml-speedup.jpg" alt="ggml : x2 speed for WASM by optimizing SIMD"></p>
+<p>当然<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我仍然对此感到非常高兴<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>人类的能力边界再次被拓展了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>干得好 DeepSeek<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span>它是目前世界上最酷的公司<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="参考资料">参考资料</h2>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol">Wikipedia: AlphaGo versus Lee Sedol</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://discovery.ucl.ac.uk/id/eprint/10045895/1/agz_unformatted_nature.pdf">Nature: Mastering the game of Go without human knowledge</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://www.newyorker.com/tech/annals-of-technology/chatgpt-is-a-blurry-jpeg-of-the-web">The New Yorker: ChatGPT is a blurry JPEG of the web</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://x.com/karpathy/status/1883941452738355376">X: Andrej Karpathy</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://darioamodei.com/on-deepseek-and-export-controls">On DeepSeek and Export Controls</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/aCbPlmg8D4FZpJwq5TWyfA">Suno 创始人访谈<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>至少对音乐来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Scaling Law 不是万灵药</a> <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/ost8DMH3hJssLx5-ngRlXQ">Recraft 专访<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>20 人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>8 个月做出了最好的文生图大模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>目标是 AI 版的 Photoshop</a> <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://x.com/theo/status/1884616582393184322">X: DeepSeek forgot to censor their bot from revealing they use H100 not H800.</a> <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn9" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://github.com/ggerganov/llama.cpp/pull/11453">ggml : x2 speed for WASM by optimizing SIMD</a> <a href="#fnref9" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+                            
+            </div>
+            <footer class="article-footer">
+              
+                  
+                      
+            </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../02/09/deepseek-r1-en/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          DeepSeek R1 Reveals Path to Surpassing Human Intelligence
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../../2024/10/30/What-has-AI-really-brought-to-me-zh/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          现在的AI真正给我带来了什么
+        
+      </div>
+    </a>
+  
+</nav>
+
+      
+</article>
+
+
+    </section>
+            
+          </div>
+          <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        &copy 2024 Ke Fang<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/bill-xia/hexo-theme-mashiro" target="_blank">Mashiro</a><br>
+      
+    </div>
+  </div>
+</footer>
+
+      </div>
+      <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">
+      Home
+    </a>
+    
+    <a href="../../../../about/" class="mobile-nav-link">
+      About
+    </a>
+    
+    <a href="../../../../thoughts" class="mobile-nav-link">
+      Thoughts
+    </a>
+    
+    <a href="../../../../sound" class="mobile-nav-link">
+      Sound
+    </a>
+    
+      
+        <a id="nav-rss-link" class="mobile-nav-link" href="../../../../atom.xml"
+          title="RSS Feed">RSS</a>
+        
+</nav>
+        <!-- jQuery -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+<!-- Other scripts -->
+<script src="../../../../js/clipboard.min.js"></script>
+<script src="../../../../js/jquery-1.4.3.min.js"></script>
+
+  <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+  
+
+    <script defer src="../../../../js/script.js"></script>
+    <script defer src="../../../../js/clipboard.min.js"></script>
+
+    <!-- MathJax -->
+    
+      <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            packages: { '[+]': ['ams'] },
+            tags: 'ams'
+          },
+          options: {
+            enableMenu: false
+          }
+        }
+      </script>
+      <script id="MathJax-script" async src="/js/mathjax/tex-mml-chtml.js"></script>
+      
+
+        
+
+
+          <!-- Language Switch -->
+          <script>
+            let currentLang = localStorage.getItem('blog_language') || 'zh'
+
+            document.addEventListener('DOMContentLoaded', function () {
+              if (document.querySelector('.archives')) {
+                updateLanguageDisplay()
+                updateSwitchButton()
+              }
+            })
+
+            function switchLanguage() {
+              currentLang = currentLang === 'zh' ? 'en' : 'zh'
+              localStorage.setItem('blog_language', currentLang)
+              updateLanguageDisplay()
+              updateSwitchButton()
+            }
+
+            function updateLanguageDisplay() {
+              document.querySelectorAll('.archive-article').forEach(article => {
+                const articleLang = article.getAttribute('data-lang')
+                if (articleLang === currentLang) {
+                  article.style.display = ''
+                } else {
+                  article.style.display = 'none'
+                }
+              })
+            }
+
+            function updateSwitchButton() {
+              const switchBtn = document.querySelector('.lang-switch')
+              if (switchBtn) {
+                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文'
+              }
+            }
+          </script>
+    </div>
+  </body>
+
+</html>

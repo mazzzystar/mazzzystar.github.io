@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Preconnect to your domain to help speed up font requests -->
+  <link rel="preconnect" href="https://mazzzystar.com" crossorigin>
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/js/jquery.min.js" as="script">
+  <link rel="preload" href="/css/style.css" as="style">
+
+  <!-- Preload fonts -->
+  <link rel="preload" href="/fonts/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZKTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZHTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/HYFangSongJ.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="/css/fontawesome.css">
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html charset=utf-8">
+  <meta name="robots" content="index,follow">
+
+  <!-- RSS Feed -->
+  
+    <link rel="alternate" type="application/atom+xml" title="TLDR"
+      href="../../../../atom.xml">
+    
+
+          
+
+            <title>
+              Teach, Show, then Consult: Make GPT a Music Composition Guide
+            </title>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+            <meta name="author" content="Ke Fang">
+            <meta name="description" content="I tried an odd idea: have ChatGPT learn a music programming language (Alda), give it some great code examples, and then ask it for advice on how to cr">
+            
+
+                <link rel="canonical" href="https://mazzzystar.com/2023/03/03/teach-show-consult-gpt/">
+
+                <!-- Open Graph -->
+                <meta property="og:type" content="article">
+                <meta property="og:title" content="Teach, Show, then Consult: Make GPT a Music Composition Guide">
+                <meta property="og:url" content="https://mazzzystar.com/2023/03/03/teach-show-consult-gpt/">
+                <meta property="og:image" content="https://mazzzystar.com/favicon.jpg">
+                <meta property="og:description" content="I tried an odd idea: have ChatGPT learn a music programming language (Alda), give it some great code examples, and then ask it for advice on how to cr">
+                <meta property="og:site_name" content="TLDR">
+                <meta property="og:locale" content="en">
+                <meta property="article:author" content="Ke Fang">
+                
+
+                    
+                      <meta property="article:published_time" content="2023-03-03T11:26:02.000Z">
+                      
+                        <meta property="article:modified_time" content="2025-02-09T02:01:35.000Z">
+                        
+                          
+
+                            <!-- Twitter Card -->
+                            <meta name="twitter:card" content="summary_large_image">
+                            <meta name="twitter:title" content="Teach, Show, then Consult: Make GPT a Music Composition Guide">
+                            <meta name="twitter:description" content="I tried an odd idea: have ChatGPT learn a music programming language (Alda), give it some great code examples, and then ask it for advice on how to cr">
+                            <meta name="twitter:image" content="https://mazzzystar.com/favicon.jpg">
+
+                            <!-- Stylesheets -->
+                            <link rel="stylesheet" href="/css/style.css">
+                            <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
+
+                            <!-- Scripts -->
+                            <script src="/js/jquery.min.js"></script>
+                            <script src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+                            <script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+                            <script src="/js/script.js"></script>
+                            <script src="/js/clipboard.min.js"></script>
+
+                            
+                              <link rel="stylesheet"
+                                href="../../../../fancybox/jquery.fancybox-1.3.4.css">
+                              
+                                <link rel="preload" href="../../../../fonts/GowunDodum-Regular.woff2" as="font"
+                                  type="font/woff2" crossorigin>
+
+                                <!-- MathJax Configuration -->
+                                <script>
+                                  window.MathJax = {
+                                    tex: {
+                                      inlineMath: [['$', '$'], ['\\(', '\\)']],
+                                      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                                      processEscapes: true
+                                    },
+                                    options: {
+                                      enableMenu: false
+                                    },
+                                    startup: {
+                                      ready: () => {
+                                        MathJax.startup.defaultReady()
+                                      }
+                                    },
+                                    loader: {
+                                      load: ['[tex]/ams']
+                                    }
+                                  }
+                                </script>
+                                <script id="MathJax-script" defer src="/js/mathjax/tex-mml-chtml.js"></script>
+
+                                <!-- Structured Data -->
+                                
+                                  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mazzzystar.com/2023/03/03/teach-show-consult-gpt/"
+      },
+      "headline": "Teach, Show, then Consult: Make GPT a Music Composition Guide",
+      "description": "I tried an odd idea: have ChatGPT learn a music programming language (Alda), give it some great code examples, and then ask it for advice on how to cr",
+      "author": {
+        "@type": "Person",
+        "name": "Ke Fang"
+      },
+      "datePublished": "2023-03-03T11:26:02.000Z",
+      "dateModified": "2025-02-09T02:01:35.000Z",
+      "keywords": "",
+      "image": "https://mazzzystar.com/favicon.jpg",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TLDR",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mazzzystar.com/favicon.jpg"
+        }
+      }
+    }
+    </script>
+                                  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div id="container">
+      <div id="wrap">
+        <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <!-- 只在移动端显示菜单按钮 -->
+    
+
+        
+          <a class="main-nav-link" href="../../../../index.html">
+            Home
+          </a>
+          
+          <a class="main-nav-link" href="../../../../about/">
+            About
+          </a>
+          
+          <a class="main-nav-link" href="../../../../thoughts">
+            Thoughts
+          </a>
+          
+          <a class="main-nav-link" href="../../../../sound">
+            Sound
+          </a>
+          
+
+            <div class="main-nav-space-between"></div>
+
+            <!-- Language switcher -->
+            
+              <a class="lang-switch" href="javascript:void(0)" onclick="switchLanguage()">
+                EN
+              </a>
+              
+
+                <!-- RSS icon -->
+                
+                  <a id="nav-rss-link" class="nav-icon" href="../../../../atom.xml"
+                    title="RSS Feed"></a>
+                  
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../index.html" id="logo">
+      TLDR
+    </a>
+  </h1>
+  
+</div>
+          <div id="content" class="outer">
+            <section id="main"><article id="post-teach-show-consult-gpt" class="h-entry article article-type-post"
+  data-lang="en" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2023-03-03T11:26:02.000Z" itemprop="datePublished">2023-03-03</time>
+</a>
+      
+  </div>
+  <div class="article-inner">
+    
+      
+        <header class="article-header">
+          
+  
+      
+          <h2 class="p-name article-title" itemprop="headline name">
+            Teach, Show, then Consult: Make GPT a Music Composition Guide
+          </h2>
+          
+            
+              
+        </header>
+        
+          
+            <div class="e-content article-entry" itemprop="articleBody">
+                
+                          <p>I tried an odd idea: have ChatGPT learn a music programming language (Alda), give it some great code examples, and then ask it for advice on how to create music.</p>
+<p>Surprisingly, it somehow turned out to be work! Maybe it is a misrepresentation, but the attempt itself is quite interesting. Code: <a target="_blank" rel="noopener" href="https://github.com/mazzzystar/teach-show-consult">teach-show-consult</a>.</p>
+<h2 id="teach-🎓">Teach 🎓</h2>
+<p>We will <strong>teach ChatGPT to learn a language</strong> called <a target="_blank" rel="noopener" href="https://alda.io/">Alda</a>, It introduces itself as follows:</p>
+<blockquote>
+<p><code>Alda</code> is a text-based programming language for music composition. It allows you to write and play back music using only a text editor and the command line.</p>
+</blockquote>
+<p>An example:</p>
+<div class="highlight"><pre class="code"><code>piano:
+  o3
+  g8 a b &gt c d e f+ g | a b &gt c d e f+ g4
+  g8 f+ e d c &lt b a g | f+ e d c &lt b a g4
+  &lt&lt <span class="hljs-string">g1/&gtg/&gtg/b/&gtd/g
+</span></code></pre></div>
+<p>In this step, all I have to do is to use Prompt Engineering to give ChatGPT as many syntax rules as possible for the Alda language. You can find this part in <code>teach.py</code>:</p>
+<div class="highlight"><pre class="code"><code>ALDA_LANG_RULE = <span class="hljs-string">&quot&quot&quotYou are a musician as well as a technologist who is well versed in programming.
+Now you've been asked to learn a new language called Alda, which allows you to create music as if you were programming.
+I will now tell you its rules:
+1.The alda program usually starts with (tempo! number), which is stating the tempo of the music as this number.
+2.Next, the instrument is usually specified, e.g. &quotpiano:&quot, which means that the music will be played on a piano. Other instruments supported are: acoustic-guitar, cello, flute, violin, etc.
+3.Immediately after that, comes the part of the notes. Let me illustrate the main features of this program.
+a) The default is quarter notes, which means that you type &quotc d e f&quot, which represents a measure that has four quarter notes: C, D, E and F.
+b) The &quot&gt&quot symbol means...
+</span></code></pre></div>
+<p>Thanks to <a target="_blank" rel="noopener" href="https://github.com/hwchase17/langchain">LangChain</a>, I can easily test the results. Now try to see if it understands the rules:</p>
+<div class="highlight"><pre class="code"><code>&gt&gt&gt python teach.py
+Let<span class="hljs-string">'s test Alda language learning!
+Human:
+c d e+ f-
+AI:
+This is a measure of four quarter notes written in the key of C Major. The notes are C, D, E-sharp, and F-flat.
+
+Human:
+c d &gt e4 f8
+AI:
+This paragraph of code represents a measure of music that begins at the C major scale and moves up one octave to E.
+The first two notes are quarter notes (C and D), and the third note is an eighth note (E). The last note is a quarter note (F).
+</span></code></pre></div>
+<p>It looks like it basically understands the rules.</p>
+<h2 id="show-👉📺">Show 👉📺</h2>
+<p>Now the second step: <strong>show it some subtle code examples</strong> for ChatGPT to learn from.</p>
+<p>I found some examples from Alda <a target="_blank" rel="noopener" href="https://github.com/alda-lang/alda/tree/master/examples">repo</a>, downloaded and parsed then encode these <code>Alda</code> code files into a <code>vectorestore</code> using OpenAI <code>Embedding</code>.</p>
+<p>Here, a local database is actually established. Before you ask ChatGPT a question, it can obtain some relevant local information. The code is in <code>show.py</code>, and heavily based on <a target="_blank" rel="noopener" href="https://github.com/hwchase17/chat-your-data">chat-your-data</a>.</p>
+<h2 id="consult-🤔❓">Consult 🤔❓</h2>
+<p>Now, we have come to the final step: <strong>consulting ChatGPT to create music</strong>.</p>
+<blockquote>
+<p>Since ChatGPT has already learned the rules, if we provide it some musical inspiration, perhaps it can extend the music we create by following the works of giants and coming up with new melodies or phrases.</p>
+</blockquote>
+<p>Then I gave it a try:</p>
+<div class="highlight"><pre class="code"><code><span class="hljs-meta">&gt&gt&gt </span>python consult.py
+Let<span class="hljs-string">'s consult the music master!
+You:
+c d8 &gt g
+
+Music Master:
+(tempo! 120)
+piano:
+c4 d8 &gt g4 c4. &ltg4~4. &gtc4. d4~4. c4. &ltg4~4. &gtc4. d4~4. c8 r d e g b2~12 &gt d12 g | d8 r &lt b4~8~ &gt d8 &lt &#123b &gt d g&#1254 |
+g8 r f+4 f &#123e_ g b&#1254 | g8 r f+4 f &#123e_ g b&#1254 | (quant 40) &gt d4 (quant 90) e-4~8 e8 d- c | &lt b_ &gt d4~ f8 &lt b_4 &gt c |
+&lt b_8 &gt (ff) d4~ e8 (f) c2 | &lt a-2. &gt c4 &lt a2~ f b_2 &gt (mf) c8 c4~ d8 | &lt a-2 r8 &gt c4~ d8 | &lt a-2 r8 f4~ (p) g8 |
+(pp) a_16~ b~ a_~ b_ (p) &gt c~
+
+[INFO] Notes saved to: output.alda
+</span></code></pre></div>
+<p>I used an <a target="_blank" rel="noopener" href="https://severak.github.io/alda-js/">online converter</a> to turn <code>output.alda</code> into a <code>.midi</code> file. Then again using another online <code>midi2mp3</code> <a target="_blank" rel="noopener" href="https://cifkao.github.io/html-midi-player/">tool</a> to get the <code>.wav</code> file music starting with my input of <code>c d8 &gt g</code>.</p>
+<p>You can listen to it here:</p>
+
+<video src='/videos/alda.mp4' type='video/mp4' controls='controls'  width='40%' height='5%'>
+</video>
+
+<br/>
+<h2 id="have-fun! 🎉">Have Fun! 🎉</h2>
+<p>This project is probably just a joke. It uses too little samples and the rules I taught are only a subset of the entire grammar. However, it seems to have led to interesting results. Perhaps, in other matters, this approach can produce more interesting things.</p>
+<p>I made the code <a target="_blank" rel="noopener" href="https://github.com/mazzzystar/teach-show-consult">open sourc</a>: have fun!</p>
+
+                            
+            </div>
+            <footer class="article-footer">
+              
+                  
+                      
+            </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../05/10/LLM-for-person-zh/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          大语言模型对个人的杠杆
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../../2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Run CLIP on iPhone to Search Photos
+        
+      </div>
+    </a>
+  
+</nav>
+
+      
+</article>
+
+
+    </section>
+            
+          </div>
+          <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        &copy 2024 Ke Fang<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/bill-xia/hexo-theme-mashiro" target="_blank">Mashiro</a><br>
+      
+    </div>
+  </div>
+</footer>
+
+      </div>
+      <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">
+      Home
+    </a>
+    
+    <a href="../../../../about/" class="mobile-nav-link">
+      About
+    </a>
+    
+    <a href="../../../../thoughts" class="mobile-nav-link">
+      Thoughts
+    </a>
+    
+    <a href="../../../../sound" class="mobile-nav-link">
+      Sound
+    </a>
+    
+      
+        <a id="nav-rss-link" class="mobile-nav-link" href="../../../../atom.xml"
+          title="RSS Feed">RSS</a>
+        
+</nav>
+        <!-- jQuery -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+<!-- Other scripts -->
+<script src="../../../../js/clipboard.min.js"></script>
+<script src="../../../../js/jquery-1.4.3.min.js"></script>
+
+  <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+  
+
+    <script defer src="../../../../js/script.js"></script>
+    <script defer src="../../../../js/clipboard.min.js"></script>
+
+    <!-- MathJax -->
+    
+      <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            packages: { '[+]': ['ams'] },
+            tags: 'ams'
+          },
+          options: {
+            enableMenu: false
+          }
+        }
+      </script>
+      <script id="MathJax-script" async src="/js/mathjax/tex-mml-chtml.js"></script>
+      
+
+        
+
+
+          <!-- Language Switch -->
+          <script>
+            let currentLang = localStorage.getItem('blog_language') || 'zh'
+
+            document.addEventListener('DOMContentLoaded', function () {
+              if (document.querySelector('.archives')) {
+                updateLanguageDisplay()
+                updateSwitchButton()
+              }
+            })
+
+            function switchLanguage() {
+              currentLang = currentLang === 'zh' ? 'en' : 'zh'
+              localStorage.setItem('blog_language', currentLang)
+              updateLanguageDisplay()
+              updateSwitchButton()
+            }
+
+            function updateLanguageDisplay() {
+              document.querySelectorAll('.archive-article').forEach(article => {
+                const articleLang = article.getAttribute('data-lang')
+                if (articleLang === currentLang) {
+                  article.style.display = ''
+                } else {
+                  article.style.display = 'none'
+                }
+              })
+            }
+
+            function updateSwitchButton() {
+              const switchBtn = document.querySelector('.lang-switch')
+              if (switchBtn) {
+                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文'
+              }
+            }
+          </script>
+    </div>
+  </body>
+
+</html>

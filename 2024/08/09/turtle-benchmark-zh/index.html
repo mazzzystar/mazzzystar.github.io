@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Preconnect to your domain to help speed up font requests -->
+  <link rel="preconnect" href="https://mazzzystar.com" crossorigin>
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/js/jquery.min.js" as="script">
+  <link rel="preload" href="/css/style.css" as="style">
+
+  <!-- Preload fonts -->
+  <link rel="preload" href="/fonts/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZKTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZHTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/HYFangSongJ.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="/css/fontawesome.css">
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html charset=utf-8">
+  <meta name="robots" content="index,follow">
+
+  <!-- RSS Feed -->
+  
+    <link rel="alternate" type="application/atom+xml" title="TLDR"
+      href="../../../../atom.xml">
+    
+
+          
+
+            <title>
+              用 2 万条真人AI海龟汤数据评估大模型推理能力
+            </title>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+            <meta name="author" content="Ke Fang">
+            <meta name="description" content="GPT-4o, Kimi-Chat, DeepSeek, Qwen2-72b, LLama3.1，谁才是真实推理游戏中的王者？
+
+海龟汤
+人生中第一次接触海龟汤游戏是我的初中英语课上，课间休息时老师突然问我们：
+一个男人走进一家餐厅，点了一碗海龟汤，他吃完问服务员：这是真的海龟汤吗？服务员说：是的">
+            
+
+                <link rel="canonical" href="https://mazzzystar.com/2024/08/09/turtle-benchmark-zh/">
+
+                <!-- Open Graph -->
+                <meta property="og:type" content="article">
+                <meta property="og:title" content="用 2 万条真人AI海龟汤数据评估大模型推理能力">
+                <meta property="og:url" content="https://mazzzystar.com/2024/08/09/turtle-benchmark-zh/">
+                <meta property="og:image" content="https://mazzzystar.com/images/2024-08-03/guitang-cover.jpg">
+                <meta property="og:description" content="GPT-4o, Kimi-Chat, DeepSeek, Qwen2-72b, LLama3.1，谁才是真实推理游戏中的王者？
+
+海龟汤
+人生中第一次接触海龟汤游戏是我的初中英语课上，课间休息时老师突然问我们：
+一个男人走进一家餐厅，点了一碗海龟汤，他吃完问服务员：这是真的海龟汤吗？服务员说：是的">
+                <meta property="og:site_name" content="TLDR">
+                <meta property="og:locale" content="en">
+                <meta property="article:author" content="Ke Fang">
+                
+
+                    
+                      <meta property="article:published_time" content="2024-08-09T02:20:04.000Z">
+                      
+                        <meta property="article:modified_time" content="2025-02-09T02:01:53.000Z">
+                        
+                          
+
+                            <!-- Twitter Card -->
+                            <meta name="twitter:card" content="summary_large_image">
+                            <meta name="twitter:title" content="用 2 万条真人AI海龟汤数据评估大模型推理能力">
+                            <meta name="twitter:description" content="GPT-4o, Kimi-Chat, DeepSeek, Qwen2-72b, LLama3.1，谁才是真实推理游戏中的王者？
+
+海龟汤
+人生中第一次接触海龟汤游戏是我的初中英语课上，课间休息时老师突然问我们：
+一个男人走进一家餐厅，点了一碗海龟汤，他吃完问服务员：这是真的海龟汤吗？服务员说：是的">
+                            <meta name="twitter:image" content="https://mazzzystar.com/images/2024-08-03/guitang-cover.jpg">
+
+                            <!-- Stylesheets -->
+                            <link rel="stylesheet" href="/css/style.css">
+                            <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
+
+                            <!-- Scripts -->
+                            <script src="/js/jquery.min.js"></script>
+                            <script src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+                            <script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+                            <script src="/js/script.js"></script>
+                            <script src="/js/clipboard.min.js"></script>
+
+                            
+                              <link rel="stylesheet"
+                                href="../../../../fancybox/jquery.fancybox-1.3.4.css">
+                              
+                                <link rel="preload" href="../../../../fonts/GowunDodum-Regular.woff2" as="font"
+                                  type="font/woff2" crossorigin>
+
+                                <!-- MathJax Configuration -->
+                                <script>
+                                  window.MathJax = {
+                                    tex: {
+                                      inlineMath: [['$', '$'], ['\\(', '\\)']],
+                                      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                                      processEscapes: true
+                                    },
+                                    options: {
+                                      enableMenu: false
+                                    },
+                                    startup: {
+                                      ready: () => {
+                                        MathJax.startup.defaultReady()
+                                      }
+                                    },
+                                    loader: {
+                                      load: ['[tex]/ams']
+                                    }
+                                  }
+                                </script>
+                                <script id="MathJax-script" defer src="/js/mathjax/tex-mml-chtml.js"></script>
+
+                                <!-- Structured Data -->
+                                
+                                  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mazzzystar.com/2024/08/09/turtle-benchmark-zh/"
+      },
+      "headline": "用 2 万条真人AI海龟汤数据评估大模型推理能力",
+      "description": "GPT-4o, Kimi-Chat, DeepSeek, Qwen2-72b, LLama3.1，谁才是真实推理游戏中的王者？
+
+海龟汤
+人生中第一次接触海龟汤游戏是我的初中英语课上，课间休息时老师突然问我们：
+一个男人走进一家餐厅，点了一碗海龟汤，他吃完问服务员：这是真的海龟汤吗？服务员说：是的",
+      "author": {
+        "@type": "Person",
+        "name": "Ke Fang"
+      },
+      "datePublished": "2024-08-09T02:20:04.000Z",
+      "dateModified": "2025-02-09T02:01:53.000Z",
+      "keywords": "",
+      "image": "https://mazzzystar.com/images/2024-08-03/guitang-cover.jpg",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TLDR",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mazzzystar.com/favicon.jpg"
+        }
+      }
+    }
+    </script>
+                                  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div id="container">
+      <div id="wrap">
+        <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <!-- 只在移动端显示菜单按钮 -->
+    
+
+        
+          <a class="main-nav-link" href="../../../../index.html">
+            Home
+          </a>
+          
+          <a class="main-nav-link" href="../../../../about/">
+            About
+          </a>
+          
+          <a class="main-nav-link" href="../../../../thoughts">
+            Thoughts
+          </a>
+          
+          <a class="main-nav-link" href="../../../../sound">
+            Sound
+          </a>
+          
+
+            <div class="main-nav-space-between"></div>
+
+            <!-- Language switcher -->
+            
+              <a class="lang-switch" href="javascript:void(0)" onclick="switchLanguage()">
+                EN
+              </a>
+              
+
+                <!-- RSS icon -->
+                
+                  <a id="nav-rss-link" class="nav-icon" href="../../../../atom.xml"
+                    title="RSS Feed"></a>
+                  
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../index.html" id="logo">
+      TLDR
+    </a>
+  </h1>
+  
+</div>
+          <div id="content" class="outer">
+            <section id="main"><article id="post-turtle-benchmark-zh" class="h-entry article article-type-post"
+  data-lang="zh" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2024-08-09T02:20:04.000Z" itemprop="datePublished">2024-08-09</time>
+</a>
+      
+  </div>
+  <div class="article-inner">
+    
+      
+        <header class="article-header">
+          
+  
+      
+          <h2 class="p-name article-title" itemprop="headline name">
+            用 2 万条真人AI海龟汤数据评估大模型推理能力
+          </h2>
+          
+            
+              
+        </header>
+        
+          
+            <div class="e-content article-entry" itemprop="articleBody">
+                
+                          <blockquote>
+<p>GPT-4o, Kimi-Chat, DeepSeek, Qwen2-72b, LLama3.1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>谁才是真实推理游戏中的王者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+</blockquote>
+<h2 id="海龟汤">海龟汤</h2>
+<p>人生中第一次接触<strong>海龟汤游戏</strong>是我的初中英语课上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>课间休息时老师突然问我们<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><em>一个男人走进一家餐厅<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>点了一碗海龟汤<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他吃完问服务员<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>这是真的海龟汤吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>服务员说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>是的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他就举枪自杀了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>请问为什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></em></p>
+<p>游戏规则是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>你可以提问或给出猜测<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>老师只能回答 是/否/和故事无关</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比如你可以问<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><em>男人是否曾经经历灾难<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但不能问<em>男人今年多少岁</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我们猜了好多轮<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>上课铃响了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>老师揭晓答案<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><em>他和妻子度蜜月时遭遇海难<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>流落荒岛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由于没有粮食<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>妻子被饿死<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同伴用妻子的肉煮汤给他喝<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>骗他是海龟汤<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>后来他被路过的船只救走<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>今天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他喝到真正的海龟汤<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才想起来当时吃下的是妻子的肉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>悔恨之下举枪自尽<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+<p>在海龟汤中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>展现给玩家的是<em>汤面</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而沉在水底的故事真相被称作<em>汤底</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个游戏至少 2 个人才能玩<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>有一个人是<em>裁判</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他在知晓<em>汤底</em>的情况下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对玩家的猜测作出判定<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>给出<em>是/否/无关</em>的回答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我想能否做一个 AI 海龟汤游戏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>将汤面和汤底告诉给大模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让它对玩家的猜测给出判定</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我在去年 12 月做了个<a target="_blank" rel="noopener" href="https://chatgpt.com/g/g-rJFb4fkqA-albatross-soup">GPTs</a>, 它能自动生成新故事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>用 DALLE 画插图<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>判定玩家提问<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但很快我发现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>AI 生成的海龟汤味道寡淡<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>玩起来没有趣味<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>并且<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>海龟汤的魔力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>往往就在于故事本身血腥/重口<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这经常导致玩到一半因为违反 OpenAI 审核政策而无法继续<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>今年 6 月<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我终于意识到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><em>不一定非得由 AI 生成故事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让它充当裁判即可</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我开始在网上搜罗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当晚独自在客厅看完了 1500 个海龟汤<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其血腥恐怖程度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大夏天的晚上我都感觉后背发凉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>最终<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我筛选了 32 个相对不恐怖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>不违反伦理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>有逻辑的故事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>开始写代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我基于<a target="_blank" rel="noopener" href="https://www.pingti.app/">最佳平替</a>的代码很快完成了开发<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>你可以随机开始一个故事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有 8 次猜测机会<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>猜测正确或次数耗尽<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就会公布答案</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>产品取名<a target="_blank" rel="noopener" href="https://www.tanghenre.com/">汤很热</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为了增加沉浸感<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我给每个故事都配了插图和环境音<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/images/2024-08-03/tanghenre.jpg" alt="汤很热-一个人的海龟汤游戏"></p>
+<p>不过<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>AI 海龟汤游戏并不是本文的重点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="大模型比人类笨多了">大模型比人类笨多了</h2>
+<p>我发现有很多用户吐槽<strong>AI 作为裁判的实力堪忧</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>比如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><img src="/images/2024-08-03/ai-not-good-for-judge.jpg" alt="许多玩家反馈AI判定不合理"></p>
+<p>起初<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我以为是我用的模型(DeepSeek)不行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到我将模型切换成当时风评最好的 Claude 3.5 Sonnet<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>发现许多错判仍然无法避免<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<div class="highlight"><pre class="code"><code>&#123
+    <span class="hljs-attr">&quot故事&quot</span>: <span class="hljs-string">&quot小红裙&quot</span>,
+    <span class="hljs-attr">&quot汤面&quot</span>: <span class="hljs-string">&quot姐姐为我选了一件小红裙, 我穿着去上学了, 晚上回家发现了一具尸体&quot</span>,
+    <span class="hljs-attr">&quot汤底&quot</span>: <span class="hljs-string">&quot我的母亲和老师有染, 他们总趁着父亲不在时温存. 而为老师提供信息的
+    就是我的小红裙, 每当我穿着小红裙去上学就说明那晚父亲准不在. 这天妈妈忙,
+    姐姐为我选了一件小红裙, 老师看见以为父亲不在家, 便来我家找母亲, 正好被父亲
+    撞上, 然后父亲杀了他.&quot</span>
+&#125,
+
+用户提问: <span class="hljs-string">&quot我如果不穿小红裙是不是不会有人死&quot</span>, 几乎所有模型都回答<span class="hljs-string">&quot不是/不相关&quot</span>
+</code></pre></div>
+<p>再比如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<div class="highlight"><pre class="code"><code>&#123
+    <span class="hljs-attr">&quot故事&quot</span>: <span class="hljs-string">&quot山顶&quot</span>,
+    <span class="hljs-attr">&quot汤面&quot</span>: <span class="hljs-string">&quot一个人住在山顶的小屋里, 半夜听见有敲门声音, 但是他打开门却
+    没有人,于是去睡了. 第二天, 有人在山脚下发现死尸一具, 请问发生了什么?&quot</span>,
+    <span class="hljs-attr">&quot汤底&quot</span>: <span class="hljs-string">&quot山顶的小屋的门前是悬崖, 悬崖下的人好不容易才爬上来,
+    想要敲门求救. 一开门, 就又被推了下去, 最后从山顶上掉下去摔死了&quot</span>
+&#125,
+
+用户提问: <span class="hljs-string">&quot门是朝外开的&quot</span>, 几乎所有模型都回答<span class="hljs-string">&quot不是/不相关&quot</span>
+</code></pre></div>
+<p>我意识到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>海龟汤游戏也许非常适合评测大模型(LLM)在真实场景下的推理能力</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="真实环境下的-llm 推理能力">真实环境下的 LLM 推理能力</h2>
+<p>现在<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大模型被广泛用于游戏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>客服或者许多和用户直接交互的场景<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这些场景有如下特点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ol>
+<li>用户的提问千奇百怪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>无法预估<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但 AI 需要给出合乎逻辑的应答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>在给定上下文对情况下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>AI 需要回答用户一些明确的<strong>对</strong>或<strong>错</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<em>已知一件商品的生产日期和保质期<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用户在 2024 年 8 月 9 日提问<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>202 几年过期<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></em></li>
+<li>有些游戏需要在用户进入某些关卡<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>或发现关键线索时触发下一步剧情<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>判定用户是否真的发现真相<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就显得尤为重要<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ol>
+<p>与学术界现有的评估指标相比<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在真实环境下与真人互动的场景中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型面临的情况要复杂得多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>然而<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也是在这样的场景下评估模型的表现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才具有更大的实用价值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="现有评估指标出了什么问题">现有评估指标出了什么问题</h2>
+<p>如果你经常关注大模型评测榜单(如<a target="_blank" rel="noopener" href="https://arena.lmsys.org/">LMSYS</a>)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一定对 MMLU<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>MT-Bench 等评测指标(Benchmark)不陌生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我在这里简单解释它们的评测方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<h4 id="mmlu">MMLU</h4>
+<p>MMLU 是广为人知的大模型评估指标<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它包含了涉及物理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>天文<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>计算机<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>生物<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>临床医学等 57 个科目的 15,000 多个多项选择题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但这其中中存在<strong>大量死记硬背</strong>的考题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<div class="highlight"><pre class="code"><code>以下哪一个是远程木马<span class="hljs-operator">?</span>
+<span class="hljs-variable">A</span><span class="hljs-operator">:</span>内存泄漏 <span class="hljs-variable">B</span><span class="hljs-operator">:</span>缓冲区溢出 <span class="hljs-built_in">C</span><span class="hljs-operator">:</span>处理能力较低 <span class="hljs-built_in">D</span><span class="hljs-operator">:</span>编程效率低下
+</code></pre></div>
+<p>这些基础常识当然很重要<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但过分强调<strong>背景知识</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>会让 MMLU 无法衡量模型真正的<strong>语言理解能力</strong>和<strong>逻辑外推能力</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>假如一个孩子因为没学过微积分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>计算不出曲边三角形面积<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们会说他笨吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+<h4 id="mt-bench">MT-Bench</h4>
+<p>MT-Bench 是一个多轮问题数据集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>被评测的模型需要回复预先设置好的问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并回答下一轮的提问<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但因为是开放式对话<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并不存在确定的标准答案<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型的回答质量由 GPT-4 来审判<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>因此<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>MT-Bench<strong>无法评估比 GPT-4 更强的模型</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时 GPT-4 作为<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>法官<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>可能会<strong>存在偏见</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对某些模型输出打低分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而更偏爱来自 ChatGPT 的回答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="chatbot-arena">Chatbot Arena</h4>
+<p>正是以上评测指标存在的种种问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://lmsys.org/">LMSYS</a> 最终选择了最简单粗暴的方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>打擂台<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<blockquote>
+<p>真人用户发起聊天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>系统会随机挑选 2 个模型给出回答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>真人通过投票的方式选出更满意的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>最终<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>会形成一个所有模型的综合评分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p>这是目前可信度最高的方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但缺点也很明显<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>一个新模型需要公开测试很久<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>获得大量反馈<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其分数才足够可信</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>并且<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>分数代表综合能力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>无法仅对某个细分领域(代码/数学)进行评估<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="海龟-benchmark">海龟 Benchmark</h2>
+<p>因此<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我制作了一个新的大模型评估指标<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>海龟 Benchmark</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<blockquote>
+<p>收集用户在玩 AI 海龟汤游戏中输入的猜测<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>逐一进行人工标注(对<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>错<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>不相关)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后用这个数据集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>测试大模型的评判结果相较于真实结果的准确率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p>我发现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>现有评测指标的种种问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在海龟 Benchmark 上都可以完美避开<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ol>
+<li><strong>不需要额外背景知识</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
+不同的大模型训练所使用的知识库不同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>导致一些测评很难公正<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但海龟汤游戏里几乎包含了推理所需的全部信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一旦得知汤面和汤底<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大模型就能作出判断<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这使得评估被限定在了模型的<strong>推理能力</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>结果是客观的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不以人类偏好为转移<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong><br>
+例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>在上述故事<span class="bd-box"><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>山顶<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char></span>里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>小屋在悬崖边<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>主人半夜开门将登山者推下山导致后者被摔死<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>因此<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><em>门是朝外开的</em>这个猜测就是正确的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这种正确性是客观的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>和人的感受无关<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>结果明确<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>很容易量化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong><br>
+许多评估指标里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型的输出结果是一段文本回答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这导致难以量化模型效果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但海龟汤的猜测结果只有三个<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>对<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>错<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>不相关</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>只要 准确标注了测试集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>任何人就可以用它来测试任何自己想测试的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并获得量化的数值结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>正常人类获知汤底的情况下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以 100%答对<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong><br>
+这使得人工标注不会太过复杂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这条也说明<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>现阶段的大模型智商相比人类还有很大差距<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>数据永远更新<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>无法作弊<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong><br>
+有部分厂商会直接将现有的 benchmark 数据集加入训练来刷分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但在海龟 Benchmark 这种模式下则行不通<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>模型评估的是<strong>用户的猜测</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不是故事本身<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>每隔一段时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就会有玩家产生新的猜测<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而人类的脑洞之大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>导致猜测几乎无法被穷尽<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ol>
+<p>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>针对上述故事<span class="bd-box"><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>小红裙<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就有千奇百怪的用户猜测<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<div class="highlight"><pre class="code"><code>用户猜测  判定
+红裙子跟诅咒有关  ❌
+红裙子是姐姐的阴谋  ❌
+我并没有去上学  ❌
+有其他的人来我们家  ✅
+红裙是求救信号  ❌
+死的是穿小红裙的人  ❌
+红裙的颜色是被血染红了  ❌
+尸体是我的爸爸  ❌
+上学不允许穿小红裙  ❌
+我是凶手  ❌
+我父亲杀人了  ✅
+穿了小红裙导致别人认为我是其他人  ❌
+死者认识我妈  ✅
+死者与我家里人有仇  ❌
+</code></pre></div>
+<p>因此<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>虽然海龟汤的故事本身可能比较无厘头<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但让 AI 依据海龟汤内容进行合理推断<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>却可以做到相当程度上的客观<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这有点像<a target="_blank" rel="noopener" href="https://huggingface.co/datasets/m-a-p/COIG-CQIA/viewer/ruozhiba/train">弱智吧</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>一个从百度弱智吧抓取的 200 多条提问(如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>每个人工作都是为了赚钱, 那么谁在亏钱) 这些奇葩的问题却显著增强了 AI 的逻辑推理能力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="海龟数据集">海龟数据集</h2>
+<p>AI 海龟汤游戏有 32 个故事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>上线后的 2 周里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>共有 4000 多个用户提出了 2.6 万个猜测<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我从日志中解析出结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>开始进行数据清洗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这包含<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>去除重复提问<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如<em>海龟汤有毒吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></em> 和 <em>他喝的汤是否有毒</em>本质是同一个问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>去除无法用 <em>是/不是/不相关</em> 回答的提问<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如 <em>男人今年几岁<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></em></li>
+<li>去除含糊不清的提问<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如<em>他对闺蜜做了什么吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在<span class="bd-box"><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>闺蜜<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char></span>这个汤里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是丈夫与闺蜜出轨<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但丈夫并没有对闺蜜做任何实际的动作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以这个回答很难给出准确回答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p>随后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我开始进行人工标注<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个过程持续了 2 周<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终我们从 2.6 万条数据中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>获得了 4448 条干净的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>标注过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们发现<strong>错</strong>和<strong>不相关</strong>这两个标签在有些情况下不好区分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如在故事<span class="bd-box"><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>海龟汤<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char></span>中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对于<em>海龟是男人养的</em>这个猜测<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>回答<strong>错</strong>和<strong>不相关</strong>好像都对<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以最终<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们决定合并这两个类别<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>于是标注变成了 2 类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>对</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><strong>错/不相关</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>* <em>合并这两类会让任务变得简单<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有的模型能蒙混过关<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>之后我们可能会重新标注一次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将二者分开变成三类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并给出测试结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+<p>标注完<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我开始跑模型测试<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我挑选了 11 个我感兴趣的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>Qwen2 70B (通义千问)</li>
+<li>Kimi-Chat (月之暗面)</li>
+<li>Deepseek</li>
+<li>豆包</li>
+<li>Claude 3.5 Sonnet</li>
+<li>Minimax abab6.5s</li>
+<li>LLama3.1 405B</li>
+<li>LLam3.1 70B</li>
+<li>GPT-3.5</li>
+<li>GPT-4o-mini</li>
+<li>GPT-4o</li>
+</ul>
+<p>我在 4448 条数据上测试了所有结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>过滤掉了所有模型都答对</strong>的简单问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在剩下的 1699 条困难问题上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>进行了二次确认标注<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们得到了 1537 条准确率几乎 100%的标注结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我分别用不带示例(zero-shot)和带有 2 个示例(2-shot)的 prompt<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>测评了模型的输出结果准确率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="评测结果">评测结果</h2>
+<p>最终各模型准确率排名如下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><br>
+<img src="/images/2024-08-03/Turtle-Benchmark-result.png" alt=""></p>
+<p>可以看到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大部分模型在加了示例后性能有了微弱提升<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我担心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可能存在这么一种情况<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><em>模型在某个故事里表现极差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而该故事的测试样本又非常多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>导致总的平均准确率有偏差</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>为了排除这种情况<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我统计了按故事粒度的模型准确率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是分别计算模型在这 32 个故事上各自的准确率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后除以 32<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我发现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>除了<em>通义千问</em>和 GPT-4o 外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>上面的排名基本不变<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/images/2024-08-03/Turtle-Benchmark-over-32stories.png" alt=""></p>
+<p>将 2-shot 结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><em>以横轴为模型总的准确率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>纵轴为模型平均故事准确率</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>绘制图表如下:</p>
+<p><img src="/images/2024-08-03/average_model_accuracy_over_stories_2-shot.png" alt="x轴是总准确率，y轴是平均故事准确率。"></p>
+<p>* <em>为了更直观地比较其他模型差异<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我将表现过差(&lt0.51)的模型 GPT-3.5 从坐标轴中舍弃了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+<p>从上图也可以直观感受各类模型的表现和差距<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>Claude 3.5 Sonnet 是当之无愧的<strong>第一梯队</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且远远领先其他模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>GPT-4o<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>通义千问<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Kimi-Chat<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>LLama3.1 405B 和 Minimax 是<strong>第二梯队</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我尽量避免更细的划分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但这些模型能力按排序依次下降<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>降幅肉眼可见<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>豆包<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>DeepSeek 和 LLama3.1 70B 是<strong>第三梯队</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>GPT-4o-mini 是<strong>第四梯队</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>GPT-3.5 早就应该被淘汰了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p>以上评测仅针对<strong>模型的中文理解和推理能力</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果之后有经费和精力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我会考虑将所有的故事和测试问题翻译成英文<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再使用英文 prompt 重新测试一遍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以消除因为语言而造成的模型性能下降<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="测试你关心的模型">测试你关心的模型</h2>
+<p>上述模型可能不包含你关心的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>并且<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为了排除因为我的 prompt 能力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>参数和温度设置有问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>造成测评结果不准<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我将完整的<strong>标注数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>prompt<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>评估代码</strong>以及我们的<strong>测试日志</strong>开源了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mazzzystar/TurtleBench">https://github.com/mazzzystar/TurtleBench</a></p>
+<p>你可以对任何你感兴趣的模型进行测试<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果你有了测试结果或遇到问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>欢迎提交 <a target="_blank" rel="noopener" href="https://github.com/mazzzystar/TurtleBench/issues">issue</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="感谢">感谢</h2>
+<p>五源资本的 Steven 个人赞助了此项测评<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让我得以在 11 个模型上测试这么多数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>实习生 Jerry 和我一起标注了 26000 条数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>辛苦了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>如果你对 model evaluation 感兴趣<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以联系 Steven 进一步探讨 <a href="mailto:stevenshi@5ycap.com">stevenshi@5ycap.com</a></p>
+
+                            
+            </div>
+            <footer class="article-footer">
+              
+                  
+                      
+            </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../09/26/The-easiest-way-to-have-a-blog/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          The Easiest Way to Have a Blog
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../07/21/Two-Years-of-an-AI-Photo-Album-Search-App-zh/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          一个AI相册搜索应用的两年
+        
+      </div>
+    </a>
+  
+</nav>
+
+      
+</article>
+
+
+    </section>
+            
+          </div>
+          <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        &copy 2024 Ke Fang<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/bill-xia/hexo-theme-mashiro" target="_blank">Mashiro</a><br>
+      
+    </div>
+  </div>
+</footer>
+
+      </div>
+      <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">
+      Home
+    </a>
+    
+    <a href="../../../../about/" class="mobile-nav-link">
+      About
+    </a>
+    
+    <a href="../../../../thoughts" class="mobile-nav-link">
+      Thoughts
+    </a>
+    
+    <a href="../../../../sound" class="mobile-nav-link">
+      Sound
+    </a>
+    
+      
+        <a id="nav-rss-link" class="mobile-nav-link" href="../../../../atom.xml"
+          title="RSS Feed">RSS</a>
+        
+</nav>
+        <!-- jQuery -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+<!-- Other scripts -->
+<script src="../../../../js/clipboard.min.js"></script>
+<script src="../../../../js/jquery-1.4.3.min.js"></script>
+
+  <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+  
+
+    <script defer src="../../../../js/script.js"></script>
+    <script defer src="../../../../js/clipboard.min.js"></script>
+
+    <!-- MathJax -->
+    
+      <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            packages: { '[+]': ['ams'] },
+            tags: 'ams'
+          },
+          options: {
+            enableMenu: false
+          }
+        }
+      </script>
+      <script id="MathJax-script" async src="/js/mathjax/tex-mml-chtml.js"></script>
+      
+
+        
+
+
+          <!-- Language Switch -->
+          <script>
+            let currentLang = localStorage.getItem('blog_language') || 'zh'
+
+            document.addEventListener('DOMContentLoaded', function () {
+              if (document.querySelector('.archives')) {
+                updateLanguageDisplay()
+                updateSwitchButton()
+              }
+            })
+
+            function switchLanguage() {
+              currentLang = currentLang === 'zh' ? 'en' : 'zh'
+              localStorage.setItem('blog_language', currentLang)
+              updateLanguageDisplay()
+              updateSwitchButton()
+            }
+
+            function updateLanguageDisplay() {
+              document.querySelectorAll('.archive-article').forEach(article => {
+                const articleLang = article.getAttribute('data-lang')
+                if (articleLang === currentLang) {
+                  article.style.display = ''
+                } else {
+                  article.style.display = 'none'
+                }
+              })
+            }
+
+            function updateSwitchButton() {
+              const switchBtn = document.querySelector('.lang-switch')
+              if (switchBtn) {
+                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文'
+              }
+            }
+          </script>
+    </div>
+  </body>
+
+</html>

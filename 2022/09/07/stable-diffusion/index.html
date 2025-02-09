@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Preconnect to your domain to help speed up font requests -->
+  <link rel="preconnect" href="https://mazzzystar.com" crossorigin>
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/js/jquery.min.js" as="script">
+  <link rel="preload" href="/css/style.css" as="style">
+
+  <!-- Preload fonts -->
+  <link rel="preload" href="/fonts/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZKTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZHTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/HYFangSongJ.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="/css/fontawesome.css">
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html charset=utf-8">
+  <meta name="robots" content="index,follow">
+
+  <!-- RSS Feed -->
+  
+    <link rel="alternate" type="application/atom+xml" title="TLDR"
+      href="../../../../atom.xml">
+    
+
+          
+
+            <title>
+              为什么Stable Diffusion比Disco Diffusion快几个数量级？
+            </title>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+            <meta name="author" content="Ke Fang">
+            <meta name="description" content="Stable Diffusion的开源让普通人也能描绘梦境，很大因素来自于它几十倍于Disco Diffusion的推理速度，机器成本被极大降低。本文就在试图(浅显地)解释：为什么Stable Diffusion这么快？">
+            
+
+                <link rel="canonical" href="https://mazzzystar.com/2022/09/07/stable-diffusion/">
+
+                <!-- Open Graph -->
+                <meta property="og:type" content="article">
+                <meta property="og:title" content="为什么Stable Diffusion比Disco Diffusion快几个数量级？">
+                <meta property="og:url" content="https://mazzzystar.com/2022/09/07/stable-diffusion/">
+                <meta property="og:image" content="https://mazzzystar.com/images/2022-09-07/img_3.jpg">
+                <meta property="og:description" content="Stable Diffusion的开源让普通人也能描绘梦境，很大因素来自于它几十倍于Disco Diffusion的推理速度，机器成本被极大降低。本文就在试图(浅显地)解释：为什么Stable Diffusion这么快？">
+                <meta property="og:site_name" content="TLDR">
+                <meta property="og:locale" content="en">
+                <meta property="article:author" content="Ke Fang">
+                
+
+                    
+                      <meta property="article:published_time" content="2022-09-07T07:36:50.000Z">
+                      
+                        <meta property="article:modified_time" content="2025-02-09T02:01:21.000Z">
+                        
+                          
+
+                            <!-- Twitter Card -->
+                            <meta name="twitter:card" content="summary_large_image">
+                            <meta name="twitter:title" content="为什么Stable Diffusion比Disco Diffusion快几个数量级？">
+                            <meta name="twitter:description" content="Stable Diffusion的开源让普通人也能描绘梦境，很大因素来自于它几十倍于Disco Diffusion的推理速度，机器成本被极大降低。本文就在试图(浅显地)解释：为什么Stable Diffusion这么快？">
+                            <meta name="twitter:image" content="https://mazzzystar.com/images/2022-09-07/img_3.jpg">
+
+                            <!-- Stylesheets -->
+                            <link rel="stylesheet" href="/css/style.css">
+                            <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
+
+                            <!-- Scripts -->
+                            <script src="/js/jquery.min.js"></script>
+                            <script src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+                            <script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+                            <script src="/js/script.js"></script>
+                            <script src="/js/clipboard.min.js"></script>
+
+                            
+                              <link rel="stylesheet"
+                                href="../../../../fancybox/jquery.fancybox-1.3.4.css">
+                              
+                                <link rel="preload" href="../../../../fonts/GowunDodum-Regular.woff2" as="font"
+                                  type="font/woff2" crossorigin>
+
+                                <!-- MathJax Configuration -->
+                                <script>
+                                  window.MathJax = {
+                                    tex: {
+                                      inlineMath: [['$', '$'], ['\\(', '\\)']],
+                                      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                                      processEscapes: true
+                                    },
+                                    options: {
+                                      enableMenu: false
+                                    },
+                                    startup: {
+                                      ready: () => {
+                                        MathJax.startup.defaultReady()
+                                      }
+                                    },
+                                    loader: {
+                                      load: ['[tex]/ams']
+                                    }
+                                  }
+                                </script>
+                                <script id="MathJax-script" defer src="/js/mathjax/tex-mml-chtml.js"></script>
+
+                                <!-- Structured Data -->
+                                
+                                  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mazzzystar.com/2022/09/07/stable-diffusion/"
+      },
+      "headline": "为什么Stable Diffusion比Disco Diffusion快几个数量级？",
+      "description": "Stable Diffusion的开源让普通人也能描绘梦境，很大因素来自于它几十倍于Disco Diffusion的推理速度，机器成本被极大降低。本文就在试图(浅显地)解释：为什么Stable Diffusion这么快？",
+      "author": {
+        "@type": "Person",
+        "name": "Ke Fang"
+      },
+      "datePublished": "2022-09-07T07:36:50.000Z",
+      "dateModified": "2025-02-09T02:01:21.000Z",
+      "keywords": "",
+      "image": "https://mazzzystar.com/images/2022-09-07/img_3.jpg",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TLDR",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mazzzystar.com/favicon.jpg"
+        }
+      }
+    }
+    </script>
+                                  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div id="container">
+      <div id="wrap">
+        <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <!-- 只在移动端显示菜单按钮 -->
+    
+
+        
+          <a class="main-nav-link" href="../../../../index.html">
+            Home
+          </a>
+          
+          <a class="main-nav-link" href="../../../../about/">
+            About
+          </a>
+          
+          <a class="main-nav-link" href="../../../../thoughts">
+            Thoughts
+          </a>
+          
+          <a class="main-nav-link" href="../../../../sound">
+            Sound
+          </a>
+          
+
+            <div class="main-nav-space-between"></div>
+
+            <!-- Language switcher -->
+            
+              <a class="lang-switch" href="javascript:void(0)" onclick="switchLanguage()">
+                EN
+              </a>
+              
+
+                <!-- RSS icon -->
+                
+                  <a id="nav-rss-link" class="nav-icon" href="../../../../atom.xml"
+                    title="RSS Feed"></a>
+                  
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../index.html" id="logo">
+      TLDR
+    </a>
+  </h1>
+  
+</div>
+          <div id="content" class="outer">
+            <section id="main"><article id="post-stable-diffusion" class="h-entry article article-type-post"
+  data-lang="zh" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2022-09-07T07:36:50.000Z" itemprop="datePublished">2022-09-07</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../categories/ç©/">玩</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+      
+        <header class="article-header">
+          
+  
+      
+          <h2 class="p-name article-title" itemprop="headline name">
+            为什么Stable Diffusion比Disco Diffusion快几个数量级？
+          </h2>
+          
+            
+              
+        </header>
+        
+          
+            <div class="e-content article-entry" itemprop="articleBody">
+                
+                          <p>上一篇写<a href="https://mazzzystar.com/2022/05/04/how-ai-art-works-1/">AI 绘画 AI 绘画很酷<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可是…原理是什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></a>时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Stable Diffusion 尚未发布<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>文末的原理介绍其实是关于 Disco Diffusion<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>本文想从这两个模型背后的原理层面来比较二者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时回答(也是回答自己)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>为什么 Stable Diffusion 可以这么快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></strong></p>
+<p><em>Disco Diffusion 单张耗时在 5-10min<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Stable Diffusion 则只需要 5-10s<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+<h1 id="一原理复习">一.原理复习</h1>
+<p>Diffusion 模型的作用是将图像&quot降噪&quot<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是说它只是实现将一张带有噪点的图像变清晰这个功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>AI 能够绘画<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>依托于模型将用户的输入文本变成能与图像比较的向量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如 CLIP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
+<img src="/images/2022-09-07/img.jpg" alt="Stable Diffusion原理图"><br>
+<img src="/images/2022-09-07/img_1.jpg" alt="我画的AI绘画原理图"></p>
+<p>Disco Diffusion 就是通过不断将用户的文本(Text)输入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>与 Diffusion 生成的图像计算 CLIP 损失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一步步实现 AI 绘画的功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是这个迭代过程实在是太太太太慢了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>原因在于<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<blockquote>
+<p>对于用户指定尺寸的一张分辨率为 1920x1080 图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型每次都要迭代这张图上一共 3x1920x1080 个像素点的值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且将这个过程循环 240 次(steps)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p>有没有更好的办法呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>今年年初<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>几位科学家提出的<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2112.10752">Latent Diffusion</a>模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就试图尝试将 Diffusion 过程放在隐空间(latent)上做<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我<a href="https://mazzzystar.com/2022/05/04/how-ai-art-works-1/">上一篇文章</a>也有关于隐空间的介绍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h1 id="二在隐空间上做-diffusion">二.在隐空间上做 Diffusion</h1>
+<p>首先<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一张图片的隐空间(latent)怎么得到呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>最简单的方法就是训练一个 Encoder-Decoder 网络<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比如下面这个模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>它的输入是一张 512x512 的图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型的 Encoder 将这张图像变成一个 64x64 的 latent<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>经过 Decoder 将其还原成原始的 512x512 图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
+<img src="/images/2022-09-07/img_2.jpg" alt="提取隐变量(latent)"></p>
+<p>听起来这个模型很蠢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>好像什么事也没干<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但假如我们保存这个 latent(即 64x64 尺寸的向量)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么哪天原图丢失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型也可以用 latent+Decoder 还原这张 512x512 的图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>而这个 latent 所花费的存储开支是原图的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<blockquote>
+<p>64x64 / 512x512 = 1/64<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p>简化起见这里不考虑通道数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即认为图像的 RGB 通道等同于网络的 channel 数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>下同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>因此可以这么理解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><em>隐空间(latent)包含了一张图像最重要的信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>算是某种意义上的极限压缩<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+<p>Latent Diffusion 的思路是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>把降噪(diffusion)过程在 latent 层面上做</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>换句话说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>diffusion 模型的每次迭代并不是在原始图像上进行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是每次试图将模糊的 latent 变得更清晰<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>仿照介绍 disco diffusion 原理时的手稿<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这次用 PPT 做了个 latent diffusion 思路流程图<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如下所示<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>用户的输入(如&quot一只狗在微笑&quot)会经过文本编码(Text Embedding)模型变成向量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这里使用的是 CLIP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这个向量会与随机产生的噪声 noise 一起作为最初的隐变量 latent0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>diffusion 模型仍然做降噪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但这次只对 latent 做而不是真实图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>假设 latent 尺寸是 64x64<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>经过两次(steps=2)降噪(diffuse)后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得到最终的隐变量(latent2)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将其通过上文提到的 Decoder<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就得到了最终 512x512 的图像输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
+<img src="/images/2022-09-07/img_3.jpg" alt="Stable Diffusion在latent空间做diffuse"></li>
+</ul>
+<h1 id="三为何-stable diffusion 这么快">三.为何 Stable Diffusion 这么快</h1>
+<p>Stable Diffusion 是基于 latent diffusion 这篇论文<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在大规模数据上训练得到的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此可以假定它的模型速度与 latent diffusion 接近<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>至少在一个数量级<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>因为 diffusion 是在 latent 层面做<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型需要处理的数据与 disco diffusion 完全不在一个量级<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以一张 512x512 的图像为例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p>对于 Disco Diffusion 模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>图像上所有的像素点均由模型生成并迭代<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要处理的像素数量 512 x 512 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而对于 Stable Diffusion 而言<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它要处理的 latent 尺寸是 64x64<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>即便两个模型处理速度一样快</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们分别迭代完各自的结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>前者所花费的时间大约是后者的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<blockquote>
+<p>512x512 / 64x64 = 64 倍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p>这解释了为何 Disco Diffusion 普遍需要几分钟<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而 Stable Diffusion 仅需 10 秒<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><em>更新: 在 Stability 工作的朋友也提了一点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>正如上图所示<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Stable Diffusion 没有反向回传 loss 的过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这也是它更快的一个重要原因<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+<p>要说这么快有什么坏处<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那可能是 64x64 尺寸的 latent 所包含的信息量太过于有限<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此生成内容很难做到精细<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>常常只有轮廓而缺失细节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>许多使用者发现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Stable Diffusion 有点缺乏想象力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>生成的东西太过于正常<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不如 Disco Diffusion 天马行空<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>当然<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这也许不是一件坏事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://stability.ai/">stability.ai</a>选择将代码开源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且几乎不保留地放出模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>值得敬佩<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>也许这个行动能真正让 AI 绘画给普通人带来帮助<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><em>文中人脸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>狗均为我用 6pen.art 的 Stable Diffusion 模型生成<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+
+                            
+            </div>
+            <footer class="article-footer">
+              
+                  
+                      
+            </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../11/12/my-first-iOS-app/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          新手上架人生第一个iOS App
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../07/09/A-murder-en/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          A First Kill
+        
+      </div>
+    </a>
+  
+</nav>
+
+      
+</article>
+
+
+    </section>
+            
+          </div>
+          <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        &copy 2024 Ke Fang<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/bill-xia/hexo-theme-mashiro" target="_blank">Mashiro</a><br>
+      
+    </div>
+  </div>
+</footer>
+
+      </div>
+      <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">
+      Home
+    </a>
+    
+    <a href="../../../../about/" class="mobile-nav-link">
+      About
+    </a>
+    
+    <a href="../../../../thoughts" class="mobile-nav-link">
+      Thoughts
+    </a>
+    
+    <a href="../../../../sound" class="mobile-nav-link">
+      Sound
+    </a>
+    
+      
+        <a id="nav-rss-link" class="mobile-nav-link" href="../../../../atom.xml"
+          title="RSS Feed">RSS</a>
+        
+</nav>
+        <!-- jQuery -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+<!-- Other scripts -->
+<script src="../../../../js/clipboard.min.js"></script>
+<script src="../../../../js/jquery-1.4.3.min.js"></script>
+
+  <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+  
+
+    <script defer src="../../../../js/script.js"></script>
+    <script defer src="../../../../js/clipboard.min.js"></script>
+
+    <!-- MathJax -->
+    
+      <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            packages: { '[+]': ['ams'] },
+            tags: 'ams'
+          },
+          options: {
+            enableMenu: false
+          }
+        }
+      </script>
+      <script id="MathJax-script" async src="/js/mathjax/tex-mml-chtml.js"></script>
+      
+
+        
+
+
+          <!-- Language Switch -->
+          <script>
+            let currentLang = localStorage.getItem('blog_language') || 'zh'
+
+            document.addEventListener('DOMContentLoaded', function () {
+              if (document.querySelector('.archives')) {
+                updateLanguageDisplay()
+                updateSwitchButton()
+              }
+            })
+
+            function switchLanguage() {
+              currentLang = currentLang === 'zh' ? 'en' : 'zh'
+              localStorage.setItem('blog_language', currentLang)
+              updateLanguageDisplay()
+              updateSwitchButton()
+            }
+
+            function updateLanguageDisplay() {
+              document.querySelectorAll('.archive-article').forEach(article => {
+                const articleLang = article.getAttribute('data-lang')
+                if (articleLang === currentLang) {
+                  article.style.display = ''
+                } else {
+                  article.style.display = 'none'
+                }
+              })
+            }
+
+            function updateSwitchButton() {
+              const switchBtn = document.querySelector('.lang-switch')
+              if (switchBtn) {
+                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文'
+              }
+            }
+          </script>
+    </div>
+  </body>
+
+</html>

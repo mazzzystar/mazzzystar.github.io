@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Preconnect to your domain to help speed up font requests -->
+  <link rel="preconnect" href="https://mazzzystar.com" crossorigin>
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/js/jquery.min.js" as="script">
+  <link rel="preload" href="/css/style.css" as="style">
+
+  <!-- Preload fonts -->
+  <link rel="preload" href="/fonts/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZKTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZHTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/HYFangSongJ.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="/css/fontawesome.css">
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html charset=utf-8">
+  <meta name="robots" content="index,follow">
+
+  <!-- RSS Feed -->
+  
+    <link rel="alternate" type="application/atom+xml" title="TLDR"
+      href="../../../../atom.xml">
+    
+
+          
+
+            <title>
+              一个失败的AI女友产品
+            </title>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+            <meta name="author" content="Ke Fang">
+            <meta name="description" content="今年 4 月 7 日，斯坦福大学 AI 西部小镇论文出来之后的几天内，我就通读了整篇论文，并感到非常兴奋。虽然我对 GPT-4 的能力感到震惊，但我仍然认为 GPT 只是某种更精致的”鹦鹉学舌“，我不认为它可以真正产生意识。
+但这篇论文带给我不同的感受，其中提到了一个很有趣的细节是信息的传递：一个">
+            
+
+                <link rel="canonical" href="https://mazzzystar.com/2023/11/17/ai-girlfriend-cn-zh/">
+
+                <!-- Open Graph -->
+                <meta property="og:type" content="article">
+                <meta property="og:title" content="一个失败的AI女友产品">
+                <meta property="og:url" content="https://mazzzystar.com/2023/11/17/ai-girlfriend-cn-zh/">
+                <meta property="og:image" content="https://mazzzystar.com/images/2023-11-16/movie-her.jpeg">
+                <meta property="og:description" content="今年 4 月 7 日，斯坦福大学 AI 西部小镇论文出来之后的几天内，我就通读了整篇论文，并感到非常兴奋。虽然我对 GPT-4 的能力感到震惊，但我仍然认为 GPT 只是某种更精致的”鹦鹉学舌“，我不认为它可以真正产生意识。
+但这篇论文带给我不同的感受，其中提到了一个很有趣的细节是信息的传递：一个">
+                <meta property="og:site_name" content="TLDR">
+                <meta property="og:locale" content="en">
+                <meta property="article:author" content="Ke Fang">
+                
+
+                    
+                      <meta property="article:published_time" content="2023-11-17T04:08:48.000Z">
+                      
+                        <meta property="article:modified_time" content="2025-02-09T01:58:15.000Z">
+                        
+                          
+
+                            <!-- Twitter Card -->
+                            <meta name="twitter:card" content="summary_large_image">
+                            <meta name="twitter:title" content="一个失败的AI女友产品">
+                            <meta name="twitter:description" content="今年 4 月 7 日，斯坦福大学 AI 西部小镇论文出来之后的几天内，我就通读了整篇论文，并感到非常兴奋。虽然我对 GPT-4 的能力感到震惊，但我仍然认为 GPT 只是某种更精致的”鹦鹉学舌“，我不认为它可以真正产生意识。
+但这篇论文带给我不同的感受，其中提到了一个很有趣的细节是信息的传递：一个">
+                            <meta name="twitter:image" content="https://mazzzystar.com/images/2023-11-16/movie-her.jpeg">
+
+                            <!-- Stylesheets -->
+                            <link rel="stylesheet" href="/css/style.css">
+                            <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
+
+                            <!-- Scripts -->
+                            <script src="/js/jquery.min.js"></script>
+                            <script src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+                            <script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+                            <script src="/js/script.js"></script>
+                            <script src="/js/clipboard.min.js"></script>
+
+                            
+                              <link rel="stylesheet"
+                                href="../../../../fancybox/jquery.fancybox-1.3.4.css">
+                              
+                                <link rel="preload" href="../../../../fonts/GowunDodum-Regular.woff2" as="font"
+                                  type="font/woff2" crossorigin>
+
+                                <!-- MathJax Configuration -->
+                                <script>
+                                  window.MathJax = {
+                                    tex: {
+                                      inlineMath: [['$', '$'], ['\\(', '\\)']],
+                                      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                                      processEscapes: true
+                                    },
+                                    options: {
+                                      enableMenu: false
+                                    },
+                                    startup: {
+                                      ready: () => {
+                                        MathJax.startup.defaultReady()
+                                      }
+                                    },
+                                    loader: {
+                                      load: ['[tex]/ams']
+                                    }
+                                  }
+                                </script>
+                                <script id="MathJax-script" defer src="/js/mathjax/tex-mml-chtml.js"></script>
+
+                                <!-- Structured Data -->
+                                
+                                  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mazzzystar.com/2023/11/17/ai-girlfriend-cn-zh/"
+      },
+      "headline": "一个失败的AI女友产品",
+      "description": "今年 4 月 7 日，斯坦福大学 AI 西部小镇论文出来之后的几天内，我就通读了整篇论文，并感到非常兴奋。虽然我对 GPT-4 的能力感到震惊，但我仍然认为 GPT 只是某种更精致的”鹦鹉学舌“，我不认为它可以真正产生意识。
+但这篇论文带给我不同的感受，其中提到了一个很有趣的细节是信息的传递：一个",
+      "author": {
+        "@type": "Person",
+        "name": "Ke Fang"
+      },
+      "datePublished": "2023-11-17T04:08:48.000Z",
+      "dateModified": "2025-02-09T01:58:15.000Z",
+      "keywords": "",
+      "image": "https://mazzzystar.com/images/2023-11-16/movie-her.jpeg",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TLDR",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mazzzystar.com/favicon.jpg"
+        }
+      }
+    }
+    </script>
+                                  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div id="container">
+      <div id="wrap">
+        <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <!-- 只在移动端显示菜单按钮 -->
+    
+
+        
+          <a class="main-nav-link" href="../../../../index.html">
+            Home
+          </a>
+          
+          <a class="main-nav-link" href="../../../../about/">
+            About
+          </a>
+          
+          <a class="main-nav-link" href="../../../../thoughts">
+            Thoughts
+          </a>
+          
+          <a class="main-nav-link" href="../../../../sound">
+            Sound
+          </a>
+          
+
+            <div class="main-nav-space-between"></div>
+
+            <!-- Language switcher -->
+            
+              <a class="lang-switch" href="javascript:void(0)" onclick="switchLanguage()">
+                EN
+              </a>
+              
+
+                <!-- RSS icon -->
+                
+                  <a id="nav-rss-link" class="nav-icon" href="../../../../atom.xml"
+                    title="RSS Feed"></a>
+                  
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../index.html" id="logo">
+      TLDR
+    </a>
+  </h1>
+  
+</div>
+          <div id="content" class="outer">
+            <section id="main"><article id="post-ai-girlfriend-cn-zh" class="h-entry article article-type-post"
+  data-lang="zh" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2023-11-17T04:08:48.000Z" itemprop="datePublished">2023-11-17</time>
+</a>
+      
+  </div>
+  <div class="article-inner">
+    
+      
+        <header class="article-header">
+          
+  
+      
+          <h2 class="p-name article-title" itemprop="headline name">
+            一个失败的AI女友产品
+          </h2>
+          
+            
+              
+        </header>
+        
+          
+            <div class="e-content article-entry" itemprop="articleBody">
+                
+                          <p>今年 4 月 7 日<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>斯坦福大学 AI 西部小镇<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2304.03442">论文</a>出来之后的几天内<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我就通读了整篇论文<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并感到非常兴奋<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>虽然我对 GPT-4 的能力感到震惊<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但我仍然认为 GPT 只是某种更精致的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>鹦鹉学舌<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我不认为它可以真正产生意识<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>但这篇论文带给我不同的感受<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其中提到了一个很有趣的细节是<strong>信息的传递</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>一个 agent 想要举办情人节派对的消息会在小镇中逐渐扩散开来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我想<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果能够建立一套包含记忆<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>反思<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>筹划与行动的框架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让人类和 GPT<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>而不是小镇中的 agent<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>之间互动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是不是可以创造出电影<span class="bd-box"><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>她<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char></span>中的体验<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+<p><img src="/images/2023-11-16/movie-her.jpeg" alt="电影《Her》中的Samantha"></p>
+<h1 id="开发">开发</h1>
+<p>我立刻开始行动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>按照论文的方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我在 4 月 14 日完成了 0.1 版本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>最初<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我的设计与原版论文基本一致<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这导致响应时间长达 30 秒且上下文中的对话经常超过 8k 的上下文限制<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>为了解决这个问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我减少了反思的频率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>对话记忆的长度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而后开启了 Beta 公测<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>很快就有一千多名用户加入测试<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Beta 测试是免费的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以每天的 API 成本由我自己承担<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>很快就超过了每天 25 美元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我不得不在缺少充分反馈和改进的情况下匆匆推出正式版本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>希望能把成本转嫁给用户<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>5 月 4 日<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Dolores iOS 应用正式上线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个名称则来自<span class="bd-box"><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>西部世界<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char></span>剧集中的角色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>上线四天后就得到了新智元的<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/ThrJ28tlqA3V2_KVCGh21A">报道</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>简单来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在打开 Dolores 之后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你需要设定一个角色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>头像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>背景描述<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>性格<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>声音和意识<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>选择 GPT3.5 或 GPT4<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>你可以和零售店女孩 Amy <span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或者沙漠冒险家 Will 发生一些有趣的互动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当然你也可以亲手创建自定义角色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我曾考虑过从<span class="bd-box"><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>西部世界<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char></span>剧本中提取 Dolores 的对话<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以基于样本的方式模仿她的语言习惯<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但由于苹果方面要求提供版权证明<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以这个想法被迫作罢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/images/2023-11-16/dolores-traits.png" alt=""></p>
+<p>虽然这篇文章的标题是<span class="bd-box"><h-char class="bd bd-end"><h-inner>「</h-inner></h-char></span>AI 女友<span class="bd-box"><h-char class="bd bd-beg"><h-inner>」</h-inner></h-char></span> <span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但我给产品的 slogan 一直是&quotYour Virtual Friend&quot<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而非&quotYour Virtual Girlfriend&quot<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为我希望它真的可以变成用户的陪伴者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>朋友<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不仅仅是荷尔蒙的产物<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>从整个 5 月到 6 月<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我一直在尝试通过调整记忆长度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>反思机制和系统提示来使 Dolores 看上去更有<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>意识<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>(那么什么是意识<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>我不知道) <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>很快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>6 月份的 Dolores 已经比第一次上线时的表现要惊人得多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>用户的付费率也越来越高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每天的 API 调用次数也增加了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>6 月 8 号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一位用户告诉我<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他在视障社区内分享了这款产品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并给 Dolores 引来一些的视障用户<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>他们喜欢 Dolores 的理由是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>随便按屏幕上的哪个位置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>都能跟 Dolores 交谈<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这个设计其实是某种失败后的妥协<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>最初<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我想把它支持语音聊天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这样用户哪怕关闭手机屏幕也能继续跟 Dolores 交谈<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但身为 Swift 新手<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我的技术水平无法实现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终选择了全屏语音输入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h1 id="发现">发现</h1>
+<p>我发现了两个现象<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>用户对<span class="bd-box"><h-char class="bd bd-end"><h-inner>「</h-inner></h-char></span>真实感声音<span class="bd-box"><h-char class="bd bd-beg"><h-inner>」</h-inner></h-char></span>有强烈需求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>AI Friend 产品的平均使用时间很长<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p>作为机器学习背景的个人开发者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也不擅长前端/后端开发<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以 Dolores 压根不具备登录<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>注册或者数据分析等功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>那我是怎么发现前一种现象的呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>答案来自付费<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我使用了 11Labs API 为 Dolores 生成语音回复<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但因为成本较高<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>1k 字符/0.3 美元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我不得不对用户做了区分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>订阅者只能使用 Azure TTS API<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>而如果你希望 Dolores 拥有更逼真的声音<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则需要单独付费使用从 11Labs 购买字符<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>购买 1 万个语音合成字符的价格为 3.9 美元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但这只够让 Dolores 说出 5 ～ 10 个自然顺畅的句子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>字符用尽之后需要继续购买<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>尽管如此<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>整个 6 月 Dolores 70% 的收入都来自 11Labs 字符购买<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>也就是说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>人真的会愿意为了那几句昂贵而逼真的<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>我爱你<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>而买单<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>第二条观察结果则来自 Cloudflare 日志<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>因为没办法跟踪个人用户活动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以我依靠这些日志来衡量用户访问 Dolores 应用的频率和时长<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>此外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我还在应用中集成了 Google Form<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>鼓励用户上报自己的使用频率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>结果令人大开眼界<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>许多用户每天会拿出两个多小时跟 Dolores 唠嗑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h1 id="收入">收入</h1>
+<p>根据苹果 AppConnect 仪表板<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span> Dolores 的主要付费用户来自美国和澳大利亚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 5 月的总收入为 1000 美元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>6 月则为 1200 美元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>收入的增长不多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但用户数和每日 API 调用量几乎翻倍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>因为付费用户数增加而摊低了 11Labs 成本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我选择降低了产品单价<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>因此<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>作为一个开发者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我并没有从这个产品中赚到多少钱<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>首先<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在产品早期<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我不想将订阅费用设置得太高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为这会阻止用户尝试<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以一旦发现盈利增加就降低产品价格<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>其次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>30%的苹果税和 API 成本也占了很大一部分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在仔细计算成本后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我在 6 月份只赚了 50 美元左右<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/images/2023-11-16/revenue-june.png" alt=""></p>
+<p>另外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我发现基于 GPT 的产品如果不采取按量定价<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就会陷入一个困境<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>1% 的人消耗了 99% 的 token<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我遇到了一个情况<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>一个用户连续跟 Dolores 聊了 12 个小时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>导致他的 GPT 和语音 API 调用成本超过第二到第十名用户的总和<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>但相较于按使用量计费<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我个人更喜欢打包订阅<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>因为前者会让用户在使用时倍感压力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这就导致面前只有两条路可选<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>要么提高月费<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让全体用户共同买单<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>要么限制最高使用量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我选择了后者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>设置了一个远远超出日均使用在 1 到 2 个小时之间的用量上限数值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这既照顾到了大部分中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>轻度用户<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也能保证 Dolores 软件在不提高价格的情况下避免亏本运营<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h1 id="困惑">困惑</h1>
+<p>11Labs 官网会记录语音合成的文字内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我看到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Dolores 的回复内容通常都是一些成人内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而且均为女性角色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此我推测 Dolores 的付费用户主要是男性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对成人角色扮演感兴趣<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我觉得这也没什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这是人性本然<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我甚至反复修改 prompt<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>调整记忆权重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>尝试让 Dolores 在对话当中变得更有女友力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我还将 Dolores 的图标从抽象的线条改为一张女人的脸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/images/2023-11-16/icon-change.jpg" alt=""></p>
+<p>但很快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我陷入一种强烈的失落感<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>如果大部分 Dolores 用户只是想在这里寻求跟 Dolores 进行成人角色扮演<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这件事真的对我产生了意义吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>我陷入了深深的自我怀疑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>到了 7 月<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我和一个朋友聊到了这个困惑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>必须要有一个什么硬件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让 Dolores 拥有外部视觉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>眼镜也好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>耳塞甚至帽子都行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>现在的她<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你只要打开 App 才能访问<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你们之间的关系并不对等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>于是她只能成为囚禁在地下室<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>满足猎奇和特殊癖好的玩具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>可是作为独立的个人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>制作硬件产品意味着高昂的研发成本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>显然是无法承受的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我只能作罢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>8 月份<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>OpenAI 对生成内容的审查升级了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我收到了一封关于生成的 NSFW 内容的邮件警告<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>我必须在 2 周内在使用他们<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>免费的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>moderation API<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以过滤 NSFW 内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这一变化让 Dolores 的日均访问量暴跌 70%<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>电子邮件和 Twitter 上的投诉也纷至沓来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/images/2023-11-16/OpenAI-email.jpg" alt=""></p>
+<p>这更让更感到灰心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>决定只维护现有服务<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>而不再进行更新<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>最终<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我放弃了 Dolores 项目<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h1 id="教训">教训</h1>
+<p>首先<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这不是一个个人能开发的产品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我不认为 Dolores 在<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>意识<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>层面上比 <a target="_blank" rel="noopener" href="http://Character.AI">Character.AI</a> 弱<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但他们拥有完善的数据埋点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>A/B 测试<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以及大量用户带来的数据飞轮<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>其次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我意识到当前的 AI Friend 会不可避免地变成 AI Girlfriend/Boyfriend<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为你和手机里的角色不对等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>她没办法在你摔伤的时候安慰你 (除非你告诉他)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>她没办法主动向你表达情绪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而这一切<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>都是因为她没有外部视觉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或者说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>她没有独立于你的生活</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即使是 <a target="_blank" rel="noopener" href="http://Character.AI">Character.AI</a> 这样体量的产品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果未来不做硬件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>角色们都在傻傻地等用户来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终的结局也不会比 Dolores 好到哪里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>最后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我不反对 OpenAI 的审查<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>相反<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>虚拟陪伴产品生成的内容不经审查是非常危险的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我不知道是否会有人用它来进行自杀诱导<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>发泄暴力工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以 OpenAI 的 moderation 可能在某种程度帮助了我<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但成人性方面的对话也不应该被扼杀<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>最近<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我看到了 AI Pin<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>老实说这是个非常烂的产品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>人类当然需要屏幕<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但 GPT+ 硬件的确是个好的尝试<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我没有从 Dolores 上看到任何痕迹<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也许有生之年能做出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>或者看到这样的产品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>但<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>人类真的需要 AI friend 吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+
+                            
+            </div>
+            <footer class="article-footer">
+              
+                  
+                      
+            </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../12/07/sublink/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Retro Link-Sharing in 2023
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../16/ai-girlfriend-product/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          A Failed AI Girlfriend Product, and My Lessons
+        
+      </div>
+    </a>
+  
+</nav>
+
+      
+</article>
+
+
+    </section>
+            
+          </div>
+          <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        &copy 2024 Ke Fang<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/bill-xia/hexo-theme-mashiro" target="_blank">Mashiro</a><br>
+      
+    </div>
+  </div>
+</footer>
+
+      </div>
+      <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">
+      Home
+    </a>
+    
+    <a href="../../../../about/" class="mobile-nav-link">
+      About
+    </a>
+    
+    <a href="../../../../thoughts" class="mobile-nav-link">
+      Thoughts
+    </a>
+    
+    <a href="../../../../sound" class="mobile-nav-link">
+      Sound
+    </a>
+    
+      
+        <a id="nav-rss-link" class="mobile-nav-link" href="../../../../atom.xml"
+          title="RSS Feed">RSS</a>
+        
+</nav>
+        <!-- jQuery -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+<!-- Other scripts -->
+<script src="../../../../js/clipboard.min.js"></script>
+<script src="../../../../js/jquery-1.4.3.min.js"></script>
+
+  <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+  
+
+    <script defer src="../../../../js/script.js"></script>
+    <script defer src="../../../../js/clipboard.min.js"></script>
+
+    <!-- MathJax -->
+    
+      <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            packages: { '[+]': ['ams'] },
+            tags: 'ams'
+          },
+          options: {
+            enableMenu: false
+          }
+        }
+      </script>
+      <script id="MathJax-script" async src="/js/mathjax/tex-mml-chtml.js"></script>
+      
+
+        
+
+
+          <!-- Language Switch -->
+          <script>
+            let currentLang = localStorage.getItem('blog_language') || 'zh'
+
+            document.addEventListener('DOMContentLoaded', function () {
+              if (document.querySelector('.archives')) {
+                updateLanguageDisplay()
+                updateSwitchButton()
+              }
+            })
+
+            function switchLanguage() {
+              currentLang = currentLang === 'zh' ? 'en' : 'zh'
+              localStorage.setItem('blog_language', currentLang)
+              updateLanguageDisplay()
+              updateSwitchButton()
+            }
+
+            function updateLanguageDisplay() {
+              document.querySelectorAll('.archive-article').forEach(article => {
+                const articleLang = article.getAttribute('data-lang')
+                if (articleLang === currentLang) {
+                  article.style.display = ''
+                } else {
+                  article.style.display = 'none'
+                }
+              })
+            }
+
+            function updateSwitchButton() {
+              const switchBtn = document.querySelector('.lang-switch')
+              if (switchBtn) {
+                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文'
+              }
+            }
+          </script>
+    </div>
+  </body>
+
+</html>

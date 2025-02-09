@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'FontAwesome';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/fontawesome-webfont.woff2') format('woff2');
+  font-display: block;
+}
+
+#nav-rss-link {
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  display: inline-block !important;
+  visibility: visible !important;
+}
+
+#nav-rss-link:before {
+  font-family: 'FontAwesome';
+  content: "\f09e";
+  font-size: 16px;
+}
+
+#nav-rss-link:hover {
+  opacity: 1;
+} 

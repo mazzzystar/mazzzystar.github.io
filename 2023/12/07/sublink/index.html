@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Preconnect to your domain to help speed up font requests -->
+  <link rel="preconnect" href="https://mazzzystar.com" crossorigin>
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/js/jquery.min.js" as="script">
+  <link rel="preload" href="/css/style.css" as="style">
+
+  <!-- Preload fonts -->
+  <link rel="preload" href="/fonts/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZKTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/FZHTJW.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/HYFangSongJ.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="/css/fontawesome.css">
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html charset=utf-8">
+  <meta name="robots" content="index,follow">
+
+  <!-- RSS Feed -->
+  
+    <link rel="alternate" type="application/atom+xml" title="TLDR"
+      href="../../../../atom.xml">
+    
+
+          
+
+            <title>
+              Retro Link-Sharing in 2023
+            </title>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+            <meta name="author" content="Ke Fang">
+            <meta name="description" content="TLDR: This piece delves into my personal experience with an information access crisis and my reflections on developing Sublink, a platform dedicated">
+            
+
+                <link rel="canonical" href="https://mazzzystar.com/2023/12/07/sublink/">
+
+                <!-- Open Graph -->
+                <meta property="og:type" content="article">
+                <meta property="og:title" content="Retro Link-Sharing in 2023">
+                <meta property="og:url" content="https://mazzzystar.com/2023/12/07/sublink/">
+                <meta property="og:image" content="https://mazzzystar.com/images/2023-12-07/sublink-screenshot.jpg">
+                <meta property="og:description" content="TLDR: This piece delves into my personal experience with an information access crisis and my reflections on developing Sublink, a platform dedicated">
+                <meta property="og:site_name" content="TLDR">
+                <meta property="og:locale" content="en">
+                <meta property="article:author" content="Ke Fang">
+                
+
+                    
+                      <meta property="article:published_time" content="2023-12-07T07:49:25.000Z">
+                      
+                        <meta property="article:modified_time" content="2025-02-09T02:01:28.000Z">
+                        
+                          
+
+                            <!-- Twitter Card -->
+                            <meta name="twitter:card" content="summary_large_image">
+                            <meta name="twitter:title" content="Retro Link-Sharing in 2023">
+                            <meta name="twitter:description" content="TLDR: This piece delves into my personal experience with an information access crisis and my reflections on developing Sublink, a platform dedicated">
+                            <meta name="twitter:image" content="https://mazzzystar.com/images/2023-12-07/sublink-screenshot.jpg">
+
+                            <!-- Stylesheets -->
+                            <link rel="stylesheet" href="/css/style.css">
+                            <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
+
+                            <!-- Scripts -->
+                            <script src="/js/jquery.min.js"></script>
+                            <script src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+                            <script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+                            <script src="/js/script.js"></script>
+                            <script src="/js/clipboard.min.js"></script>
+
+                            
+                              <link rel="stylesheet"
+                                href="../../../../fancybox/jquery.fancybox-1.3.4.css">
+                              
+                                <link rel="preload" href="../../../../fonts/GowunDodum-Regular.woff2" as="font"
+                                  type="font/woff2" crossorigin>
+
+                                <!-- MathJax Configuration -->
+                                <script>
+                                  window.MathJax = {
+                                    tex: {
+                                      inlineMath: [['$', '$'], ['\\(', '\\)']],
+                                      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                                      processEscapes: true
+                                    },
+                                    options: {
+                                      enableMenu: false
+                                    },
+                                    startup: {
+                                      ready: () => {
+                                        MathJax.startup.defaultReady()
+                                      }
+                                    },
+                                    loader: {
+                                      load: ['[tex]/ams']
+                                    }
+                                  }
+                                </script>
+                                <script id="MathJax-script" defer src="/js/mathjax/tex-mml-chtml.js"></script>
+
+                                <!-- Structured Data -->
+                                
+                                  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mazzzystar.com/2023/12/07/sublink/"
+      },
+      "headline": "Retro Link-Sharing in 2023",
+      "description": "TLDR: This piece delves into my personal experience with an information access crisis and my reflections on developing Sublink, a platform dedicated",
+      "author": {
+        "@type": "Person",
+        "name": "Ke Fang"
+      },
+      "datePublished": "2023-12-07T07:49:25.000Z",
+      "dateModified": "2025-02-09T02:01:28.000Z",
+      "keywords": "",
+      "image": "https://mazzzystar.com/images/2023-12-07/sublink-screenshot.jpg",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TLDR",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mazzzystar.com/favicon.jpg"
+        }
+      }
+    }
+    </script>
+                                  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div id="container">
+      <div id="wrap">
+        <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <!-- 只在移动端显示菜单按钮 -->
+    
+
+        
+          <a class="main-nav-link" href="../../../../index.html">
+            Home
+          </a>
+          
+          <a class="main-nav-link" href="../../../../about/">
+            About
+          </a>
+          
+          <a class="main-nav-link" href="../../../../thoughts">
+            Thoughts
+          </a>
+          
+          <a class="main-nav-link" href="../../../../sound">
+            Sound
+          </a>
+          
+
+            <div class="main-nav-space-between"></div>
+
+            <!-- Language switcher -->
+            
+              <a class="lang-switch" href="javascript:void(0)" onclick="switchLanguage()">
+                EN
+              </a>
+              
+
+                <!-- RSS icon -->
+                
+                  <a id="nav-rss-link" class="nav-icon" href="../../../../atom.xml"
+                    title="RSS Feed"></a>
+                  
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../index.html" id="logo">
+      TLDR
+    </a>
+  </h1>
+  
+</div>
+          <div id="content" class="outer">
+            <section id="main"><article id="post-sublink" class="h-entry article article-type-post"
+  data-lang="en" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2023-12-07T07:49:25.000Z" itemprop="datePublished">2023-12-07</time>
+</a>
+      
+  </div>
+  <div class="article-inner">
+    
+      
+        <header class="article-header">
+          
+  
+      
+          <h2 class="p-name article-title" itemprop="headline name">
+            Retro Link-Sharing in 2023
+          </h2>
+          
+            
+              
+        </header>
+        
+          
+            <div class="e-content article-entry" itemprop="articleBody">
+                
+                          <blockquote>
+<p>TLDR: This piece delves into my personal experience with an information access crisis and my reflections on developing Sublink, a platform dedicated to link-sharing.</p>
+</blockquote>
+<p>At my previous job, we had a company forum where you could create discussion groups and post within them. Interested people could join these groups and contribute. I created a group called “Knew” with this introduction:</p>
+<p><em>This is a project aimed at ‘brain-sharing’: every week, you can share the latest events and developments in your areas of interest with everyone. This way, we can all share our brains with each other. You don’t need to have “even the slightest” professional background in what you’re sharing simply making others aware of its existence is already meaningful enough.</em></p>
+<p><img src="/images/2023-12-07/imessage1.png" alt="Quite appropriate, right?"></p>
+<p>Each week, I’d share new discoveries in the group. I shared about DALLE-2, Azuki, vaccine efficacy data, and more. After just two posts, my group’s popularity had already reached the forum’s top three, with many subscribers and likes.</p>
+<p>However, no one else was sharing they were merely consumers. After the third or fourth edition, I gave up. “Creating a channel and getting many people to cheer for me” wasn’t my original intention I couldn’t access other people’s brains.</p>
+<p>I began to ponder if there was a way to make information sharing between people easier and less pressured. In September this year, I came up with the idea of “link collections”:</p>
+<blockquote>
+<p>You could create a collection for anything you like and share it with friends. When you make a new discovery, you add the link to this collection, and your friends can see it.</p>
+</blockquote>
+<p>In late August, I shared this idea with two frontend developer friends: one from France, whom I met through the <a target="_blank" rel="noopener" href="https://github.com/mazzzystar/Queryable">Queryable</a> project, and another from ByteDance. They both showed great interest, but they were extremely busy. Until early November, progress on this product was almost at a standstill.</p>
+<p>Left with no choice, I had to learn from scratch: In 2023, Next.js + Typescript + Prisma + Supabase seemed to me the best path for learning full-stack development from zero. I spent the entire month of November learning React State and Next.js App Router with the help of YouTube, and by late November, I had nearly grasped the basics.</p>
+<p>Then came two weeks of development. Yesterday, I finally launched the website: In simple terms, you can use it to organize interesting movies, articles, and videos you come across daily, then share them with your friends. Oh, and it also supports RSS: when you add new links, people who subscribe to your Collection using any RSS client will receive notifications.</p>
+<p><img src="/images/2023-12-07/sublink-screenshot.jpg" alt="Sublink (Former) Homepage"></p>
+<p>But the question remains: What’s it good for?</p>
+<h2 id="the-small website discoverability crisis">The Small Website Discoverability Crisis</h2>
+<p>I’m a fan of <a target="_blank" rel="noopener" href="http://radio.garden/">Radio Garden</a>, where I can even listen to live radio from <a target="_blank" rel="noopener" href="http://radio.garden/visit/pyongyang/2uWowTBd">Pyongyang</a>. I also love Neal’s password games. The internet hosts a myriad of shiny, intriguing, and unique sites, yet there’s no dedicated place to store and showcase them. Whenever I read a good blog, I share the link with multiple friends, discuss it with them, and then forget about it. Last week, I saw a trending article on Hacker News: <a target="_blank" rel="noopener" href="https://www.marginalia.nu/log/19-website-discoverability-crisis/">The Small Website Discoverability Crisis</a> which coined this term.</p>
+<p>Search engines based on the Page Rank algorithm have led to the rise of content farms and link farms. Content farms are websites that generate large amounts of irrelevant content using AI or scripts to improve their keyword rankings in Google searches. Link farms involve mutual backlinking between website owners or purchasing backlinks to boost a site’s PR ranking.</p>
+<p>All of this results in truly valuable websites becoming dead zones in search engines.</p>
+<h2 id="information-cocoon rooms">Information Cocoon Rooms</h2>
+<p>We’re surrounded by recommendation algorithms. Sure, we can ask GPT for new knowledge, but “you can’t ask about something you don’t know exists.” So even with the world’s most knowledgeable teacher, if we can’t generate new questions that break through our own cognition, it’s hard to get answers that open our horizons. For instance, do you know about the <strong>Aronson Effect</strong>?</p>
+<p>That’s why, in the age of LLMs, there’s a greater need for human-curated subscription content, allowing information not filtered by neural networks to enter my brain in unfamiliar, raw, and uncomfortable ways. This certainly isn’t something most people need, but I guess I’m not the only one who does.</p>
+<h2 id="adding-llm?">Adding LLM?</h2>
+<p>If this product were made 15 years ago, it wouldn’t be any different. So, at the end of 2023, is it possible to incorporate the currently trending LLM into the website? I thought of two points:</p>
+<h4 id="1-automated summaries">1. Automated Summaries</h4>
+<p>Initially, I wanted to use LLM to extract webpage descriptions as brief introductions for each Link, but I eventually gave up: LLM charges based on usage, meaning I couldn’t control the monthly costs. When users add a large number of Links, the expense for article summarization could become exorbitant, which is terrifying for a website that clearly can’t turn a profit.</p>
+<p>To keep the website running longer, it’s best to minimize uncontrollable expenses as much as possible.</p>
+<h4 id="2-language delivery network (ldn)">2. Language Delivery Network (LDN)</h4>
+<p>I once envisioned something, let’s call it a Language CDN: When I write a blog, I want people from different countries and languages worldwide to see a version in their local language. A simple method is to let users use built-in browser translation or install translation plugins, but this might result in the same article being translated many times, not only wasting GPU inference costs but also making it impossible for authors to control translation quality.</p>
+<p>This led to the idea of LDN: An author writes a blog or creates a website and can use an LDN platform to host their multilingual versions. Whenever a new language user visits the network, but LDN doesn’t have a cache for that language, it translates once. After that, other users of the same language can use the previously translated cache. Moreover, authors can locally manage the original translation data for multiple languages, thus controlling and adjusting the wording of translations.</p>
+<p>I once submitted this as <a target="_blank" rel="noopener" href="https://bear.nolt.io/148">Feedback</a> for the open-source blog system bearblog, but didn’t receive a positive response. Maybe later I’ll try adding this feature to Sublink, but only if people are willing to create original articles on Sublink.</p>
+<p><img src="/images/2023-12-07/bearblog-suggestion.png" alt="Bearblog Feedback #148"></p>
+<h2 id="pricing-model">Pricing Model</h2>
+<p>I have no hope that this website will make money, but I want it to live long enough to accumulate as many Links and Collections as possible. So I need to generate some revenue from it.</p>
+<p>I’m actually a bit confused: Is the core of Sublink about “subscribing to quality collections” or “a personal link collection organization tool”? This divergence leads to two different logics. The former would have other people’s Collections on the homepage, while the latter would have an input box. The former relies on high-quality content, which is difficult in the early stages.</p>
+<p>This divergence leads to differences in the payment model: Charging for collection subscriptions isn’t impossible, but it’s almost impractical. If we follow the tool logic, it’s more like Notion’s approach, with a higher possibility of monetization, but then the value of “letting more people see excellent links” would no longer exist.</p>
+<p>I’m stuck here now, which is why I haven’t implemented any payment system at all. Perhaps later I can gain more insights from user behavior and feedback.</p>
+<p><img src="/images/2023-12-07/two-approaches.jpg" alt="Two Philosophies of Product Design"></p>
+<p>That’s all my thoughts on creating Sublink. I’m also a Sublink user myself (that’s why I created it). I’ll put a <a target="_blank" rel="noopener" href="https://www.sublink.app/collections/381d6912-f5fa-48a6-96ec-7a664596577c">list of articles</a> I’ve read and found good here. You can log in and subscribe, or use any RSS client to subscribe to this list. When I add new links, you’ll see them. You can also turn your favorite videos, movies, books, webpages, or anything with a link into collections and share them with friends.</p>
+<p>Perhaps this is my small, insignificant act of resistance against a world about to be engulfed by GPT-generated content.</p>
+
+                            
+            </div>
+            <footer class="article-footer">
+              
+                  
+                      
+            </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../sublink-zh/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          在2023年底做一个古典的信息共享工具
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../11/17/ai-girlfriend-cn-zh/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          一个失败的AI女友产品
+        
+      </div>
+    </a>
+  
+</nav>
+
+      
+</article>
+
+
+    </section>
+            
+          </div>
+          <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        &copy 2024 Ke Fang<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/bill-xia/hexo-theme-mashiro" target="_blank">Mashiro</a><br>
+      
+    </div>
+  </div>
+</footer>
+
+      </div>
+      <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">
+      Home
+    </a>
+    
+    <a href="../../../../about/" class="mobile-nav-link">
+      About
+    </a>
+    
+    <a href="../../../../thoughts" class="mobile-nav-link">
+      Thoughts
+    </a>
+    
+    <a href="../../../../sound" class="mobile-nav-link">
+      Sound
+    </a>
+    
+      
+        <a id="nav-rss-link" class="mobile-nav-link" href="../../../../atom.xml"
+          title="RSS Feed">RSS</a>
+        
+</nav>
+        <!-- jQuery -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+<!-- Other scripts -->
+<script src="../../../../js/clipboard.min.js"></script>
+<script src="../../../../js/jquery-1.4.3.min.js"></script>
+
+  <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+  
+
+    <script defer src="../../../../js/script.js"></script>
+    <script defer src="../../../../js/clipboard.min.js"></script>
+
+    <!-- MathJax -->
+    
+      <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            packages: { '[+]': ['ams'] },
+            tags: 'ams'
+          },
+          options: {
+            enableMenu: false
+          }
+        }
+      </script>
+      <script id="MathJax-script" async src="/js/mathjax/tex-mml-chtml.js"></script>
+      
+
+        
+
+
+          <!-- Language Switch -->
+          <script>
+            let currentLang = localStorage.getItem('blog_language') || 'zh'
+
+            document.addEventListener('DOMContentLoaded', function () {
+              if (document.querySelector('.archives')) {
+                updateLanguageDisplay()
+                updateSwitchButton()
+              }
+            })
+
+            function switchLanguage() {
+              currentLang = currentLang === 'zh' ? 'en' : 'zh'
+              localStorage.setItem('blog_language', currentLang)
+              updateLanguageDisplay()
+              updateSwitchButton()
+            }
+
+            function updateLanguageDisplay() {
+              document.querySelectorAll('.archive-article').forEach(article => {
+                const articleLang = article.getAttribute('data-lang')
+                if (articleLang === currentLang) {
+                  article.style.display = ''
+                } else {
+                  article.style.display = 'none'
+                }
+              })
+            }
+
+            function updateSwitchButton() {
+              const switchBtn = document.querySelector('.lang-switch')
+              if (switchBtn) {
+                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文'
+              }
+            }
+          </script>
+    </div>
+  </body>
+
+</html>

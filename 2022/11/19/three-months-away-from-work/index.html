@@ -382,22 +382,29 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
             let currentLang = localStorage.getItem('blog_language') || 'zh'
 
             document.addEventListener('DOMContentLoaded', function () {
-              if (document.querySelector('.archives')) {
-                updateLanguageDisplay()
-                updateSwitchButton()
+              // 检查是否在首页
+              const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html'
+              const switchBtn = document.querySelector('.lang-switch')
+
+              if (switchBtn) {
+                // 只在首页显示语言切换按钮
+                if (isHomePage) {
+                  switchBtn.style.display = ''
+                  updateLanguageDisplay()
+                  updateSwitchButton()
+                } else {
+                  switchBtn.style.display = 'none'
+                }
               }
             })
 
             function switchLanguage() {
-              // 先更新按钮文本
-              const switchBtn = document.querySelector('.lang-switch')
-              if (switchBtn) {
-                switchBtn.textContent = currentLang === 'zh' ? '中文' : 'EN'
-              }
-
-              // 再切换语言
+              // 先切换语言
               currentLang = currentLang === 'zh' ? 'en' : 'zh'
               localStorage.setItem('blog_language', currentLang)
+
+              // 更新按钮文本
+              updateSwitchButton()
 
               // 最后更新显示
               updateLanguageDisplay()

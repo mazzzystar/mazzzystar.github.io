@@ -311,10 +311,18 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
             })
 
             function switchLanguage() {
+              // 先更新按钮文本
+              const switchBtn = document.querySelector('.lang-switch')
+              if (switchBtn) {
+                switchBtn.textContent = currentLang === 'zh' ? '中文' : 'EN'
+              }
+
+              // 再切换语言
               currentLang = currentLang === 'zh' ? 'en' : 'zh'
               localStorage.setItem('blog_language', currentLang)
+
+              // 最后更新显示
               updateLanguageDisplay()
-              updateSwitchButton()
             }
 
             function updateLanguageDisplay() {

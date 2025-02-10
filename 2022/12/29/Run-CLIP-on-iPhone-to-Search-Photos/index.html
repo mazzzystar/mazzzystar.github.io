@@ -7,123 +7,138 @@
   <!-- 预连接 -->
   <link rel="preconnect" href="https://mazzzystar.com" crossorigin>
 
-  <!-- 预加载关键资源 -->
-  <link rel="preload" href="/css/style.css" as="style">
-  <link rel="preload" href="/js/jquery.min.js" as="script">
-
-  <!-- 预加载首屏字体，其他字体懒加载 -->
-  <link rel="preload" href="/fonts/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
-
-  <!-- 使用 font-display: swap 确保文字在字体加载时可见 -->
-  <style>
-    @font-face {
-      font-family: 'HYShuSongErS'
-      font-display: swap
-      src: local('HYShuSongErS'), url('/fonts/HYShuSongErS.woff2') format('woff2')
-    }
-  </style>
-
-  <!-- 条件加载 MathJax -->
+  <!-- Google Analytics -->
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CSJX0CVK20"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() { dataLayer.push(arguments) }
+      gtag('js', new Date())
+      gtag('config', 'G-CSJX0CVK20', {
+        'send_page_view': true,
+        'cookie_flags': 'securesamesite=none',
+        'transport_type': 'beacon'
+      })
+    </script>
+    
 
-      <!-- Preload fonts -->
-      <link rel="preload" href="/fonts/FZKTJW.woff2" as="font" type="font/woff2" crossorigin>
-      <link rel="preload" href="/fonts/FZHTJW.woff2" as="font" type="font/woff2" crossorigin>
-      <link rel="preload" href="/fonts/HYFangSongJ.woff2" as="font" type="font/woff2" crossorigin>
-      <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
-      <link rel="preload" href="/fonts/GowunDodum-Regular.woff2" as="font" type="font/woff2" crossorigin>
+      <!-- 预加载关键资源 -->
+      <link rel="preload" href="/css/style.css" as="style">
+      <link rel="preload" href="/js/jquery.min.js" as="script">
 
-      <!-- FontAwesome -->
-      <link rel="stylesheet" href="/css/fontawesome.css">
+      <!-- 预加载首屏字体，其他字体懒加载 -->
+      <link rel="preload" href="/fonts/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
 
-      <meta charset="utf-8">
-      <meta http-equiv="Content-Type" content="text/html charset=utf-8">
-      <meta name="robots" content="index,follow">
+      <!-- 使用 font-display: swap 确保文字在字体加载时可见 -->
+      <style>
+        @font-face {
+          font-family: 'HYShuSongErS'
+          font-display: swap
+          src: local('HYShuSongErS'), url('/fonts/HYShuSongErS.woff2') format('woff2')
+        }
+      </style>
 
-      <!-- RSS Feed -->
+      <!-- 条件加载 MathJax -->
       
-        <link rel="alternate" type="application/atom+xml" title="TLDR"
-          href="../../../../atom.xml">
-        
 
-              
+          <!-- Preload fonts -->
+          <link rel="preload" href="/fonts/FZKTJW.woff2" as="font" type="font/woff2" crossorigin>
+          <link rel="preload" href="/fonts/FZHTJW.woff2" as="font" type="font/woff2" crossorigin>
+          <link rel="preload" href="/fonts/HYFangSongJ.woff2" as="font" type="font/woff2" crossorigin>
+          <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
+          <link rel="preload" href="/fonts/GowunDodum-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
-                <title>
-                  Run CLIP on iPhone to Search Photos
-                </title>
-                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-                <meta name="author" content="Ke Fang">
-                <meta name="description" content="Update: I have made Queryable open-source. This might help you learn how to export Core ML models, as well as how to calculate, store, search, and ac">
-                
+          <!-- FontAwesome -->
+          <link rel="stylesheet" href="/css/fontawesome.css">
 
-                    <link rel="canonical" href="https://mazzzystar.com/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/">
+          <meta charset="utf-8">
+          <meta http-equiv="Content-Type" content="text/html charset=utf-8">
+          <meta name="robots" content="index,follow">
 
-                    <!-- Open Graph -->
-                    <meta property="og:type" content="article">
-                    <meta property="og:title" content="Run CLIP on iPhone to Search Photos">
-                    <meta property="og:url" content="https://mazzzystar.com/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/">
-                    <meta property="og:image" content="https://mazzzystar.com/images/2022-12-28/Queryable-flow-chart.jpg">
-                    <meta property="og:description" content="Update: I have made Queryable open-source. This might help you learn how to export Core ML models, as well as how to calculate, store, search, and ac">
-                    <meta property="og:site_name" content="TLDR">
-                    <meta property="og:locale" content="en">
-                    <meta property="article:author" content="Ke Fang">
+          <!-- RSS Feed -->
+          
+            <link rel="alternate" type="application/atom+xml" title="TLDR"
+              href="../../../../atom.xml">
+            
+
+                  
+
+                    <title>
+                      Run CLIP on iPhone to Search Photos
+                    </title>
+                    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+                    <meta name="author" content="Ke Fang">
+                    <meta name="description" content="Update: I have made Queryable open-source. This might help you learn how to export Core ML models, as well as how to calculate, store, search, and ac">
                     
 
+                        <link rel="canonical" href="https://mazzzystar.com/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/">
+
+                        <!-- Open Graph -->
+                        <meta property="og:type" content="article">
+                        <meta property="og:title" content="Run CLIP on iPhone to Search Photos">
+                        <meta property="og:url" content="https://mazzzystar.com/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/">
+                        <meta property="og:image" content="https://mazzzystar.com/images/2022-12-28/Queryable-flow-chart.jpg">
+                        <meta property="og:description" content="Update: I have made Queryable open-source. This might help you learn how to export Core ML models, as well as how to calculate, store, search, and ac">
+                        <meta property="og:site_name" content="TLDR">
+                        <meta property="og:locale" content="en">
+                        <meta property="article:author" content="Ke Fang">
                         
-                          <meta property="article:published_time" content="2022-12-29T03:51:57.000Z">
-                          
-                            <meta property="article:modified_time" content="2025-02-09T04:13:48.000Z">
+
                             
+                              <meta property="article:published_time" content="2022-12-29T03:51:57.000Z">
                               
-
-                                <!-- Twitter Card -->
-                                <meta name="twitter:card" content="summary_large_image">
-                                <meta name="twitter:title" content="Run CLIP on iPhone to Search Photos">
-                                <meta name="twitter:description" content="Update: I have made Queryable open-source. This might help you learn how to export Core ML models, as well as how to calculate, store, search, and ac">
-                                <meta name="twitter:image" content="https://mazzzystar.com/images/2022-12-28/Queryable-flow-chart.jpg">
-
-                                <!-- Stylesheets -->
-                                <link rel="stylesheet" href="/css/style.css">
-                                <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
-
-                                <!-- Scripts -->
-                                <script src="/js/jquery.min.js"></script>
-                                <script src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
-                                <script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-                                <script src="/js/script.js"></script>
-                                <script src="/js/clipboard.min.js"></script>
-
+                                <meta property="article:modified_time" content="2025-02-09T04:13:48.000Z">
                                 
-                                  <link rel="stylesheet"
-                                    href="../../../../fancybox/jquery.fancybox-1.3.4.css">
                                   
 
-                                    <!-- MathJax Configuration -->
-                                    <script>
-                                      window.MathJax = {
-                                        tex: {
-                                          inlineMath: [['$', '$'], ['\\(', '\\)']],
-                                          displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                                          processEscapes: true
-                                        },
-                                        options: {
-                                          enableMenu: false
-                                        },
-                                        startup: {
-                                          ready: () => {
-                                            MathJax.startup.defaultReady()
-                                          }
-                                        },
-                                        loader: {
-                                          load: ['[tex]/ams']
-                                        }
-                                      }
-                                    </script>
-                                    <script id="MathJax-script" defer src="/js/mathjax/tex-mml-chtml.js"></script>
+                                    <!-- Twitter Card -->
+                                    <meta name="twitter:card" content="summary_large_image">
+                                    <meta name="twitter:title" content="Run CLIP on iPhone to Search Photos">
+                                    <meta name="twitter:description" content="Update: I have made Queryable open-source. This might help you learn how to export Core ML models, as well as how to calculate, store, search, and ac">
+                                    <meta name="twitter:image" content="https://mazzzystar.com/images/2022-12-28/Queryable-flow-chart.jpg">
 
-                                    <!-- Structured Data -->
+                                    <!-- Stylesheets -->
+                                    <link rel="stylesheet" href="/css/style.css">
+                                    <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
+
+                                    <!-- Scripts -->
+                                    <script src="/js/jquery.min.js"></script>
+                                    <script src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+                                    <script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+                                    <script src="/js/script.js"></script>
+                                    <script src="/js/clipboard.min.js"></script>
+
                                     
-                                      <script type="application/ld+json">
+                                      <link rel="stylesheet"
+                                        href="../../../../fancybox/jquery.fancybox-1.3.4.css">
+                                      
+
+                                        <!-- MathJax Configuration -->
+                                        <script>
+                                          window.MathJax = {
+                                            tex: {
+                                              inlineMath: [['$', '$'], ['\\(', '\\)']],
+                                              displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                                              processEscapes: true
+                                            },
+                                            options: {
+                                              enableMenu: false
+                                            },
+                                            startup: {
+                                              ready: () => {
+                                                MathJax.startup.defaultReady()
+                                              }
+                                            },
+                                            loader: {
+                                              load: ['[tex]/ams']
+                                            }
+                                          }
+                                        </script>
+                                        <script id="MathJax-script" defer src="/js/mathjax/tex-mml-chtml.js"></script>
+
+                                        <!-- Structured Data -->
+                                        
+                                          <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
@@ -151,21 +166,21 @@
       }
     }
     </script>
-                                      
+                                          
 
-                                        <!-- 删除或注释掉这行 -->
-                                        <!-- <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet"> -->
+                                            <!-- 删除或注释掉这行 -->
+                                            <!-- <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet"> -->
 
-                                        <!-- 改用本地字体 -->
-                                        <style>
-                                          @font-face {
-                                            font-family: 'Gowun Dodum'
-                                            font-style: normal
-                                            font-weight: 400
-                                            font-display: swap
-                                            src: url('/fonts/GowunDodum-Regular.woff2') format('woff2')
-                                          }
-                                        </style>
+                                            <!-- 改用本地字体 -->
+                                            <style>
+                                              @font-face {
+                                                font-family: 'Gowun Dodum'
+                                                font-style: normal
+                                                font-weight: 400
+                                                font-display: swap
+                                                src: url('/fonts/GowunDodum-Regular.woff2') format('woff2')
+                                              }
+                                            </style>
 <meta name="generator" content="Hexo 6.2.0"></head>
 
   <body>

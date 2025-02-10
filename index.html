@@ -7,131 +7,146 @@
   <!-- 预连接 -->
   <link rel="preconnect" href="https://mazzzystar.com" crossorigin>
 
-  <!-- 预加载关键资源 -->
-  <link rel="preload" href="/css/style.css" as="style">
-  <link rel="preload" href="/js/jquery.min.js" as="script">
-
-  <!-- 预加载首屏字体，其他字体懒加载 -->
-  <link rel="preload" href="/fonts/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
-
-  <!-- 使用 font-display: swap 确保文字在字体加载时可见 -->
-  <style>
-    @font-face {
-      font-family: 'HYShuSongErS'
-      font-display: swap
-      src: local('HYShuSongErS'), url('/fonts/HYShuSongErS.woff2') format('woff2')
-    }
-  </style>
-
-  <!-- 条件加载 MathJax -->
+  <!-- Google Analytics -->
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CSJX0CVK20"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() { dataLayer.push(arguments) }
+      gtag('js', new Date())
+      gtag('config', 'G-CSJX0CVK20', {
+        'send_page_view': true,
+        'cookie_flags': 'securesamesite=none',
+        'transport_type': 'beacon'
+      })
+    </script>
+    
 
-      <!-- Preload fonts -->
-      <link rel="preload" href="/fonts/FZKTJW.woff2" as="font" type="font/woff2" crossorigin>
-      <link rel="preload" href="/fonts/FZHTJW.woff2" as="font" type="font/woff2" crossorigin>
-      <link rel="preload" href="/fonts/HYFangSongJ.woff2" as="font" type="font/woff2" crossorigin>
-      <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
-      <link rel="preload" href="/fonts/GowunDodum-Regular.woff2" as="font" type="font/woff2" crossorigin>
+      <!-- 预加载关键资源 -->
+      <link rel="preload" href="/css/style.css" as="style">
+      <link rel="preload" href="/js/jquery.min.js" as="script">
 
-      <!-- FontAwesome -->
-      <link rel="stylesheet" href="/css/fontawesome.css">
+      <!-- 预加载首屏字体，其他字体懒加载 -->
+      <link rel="preload" href="/fonts/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
 
-      <meta charset="utf-8">
-      <meta http-equiv="Content-Type" content="text/html charset=utf-8">
-      <meta name="robots" content="index,follow">
+      <!-- 使用 font-display: swap 确保文字在字体加载时可见 -->
+      <style>
+        @font-face {
+          font-family: 'HYShuSongErS'
+          font-display: swap
+          src: local('HYShuSongErS'), url('/fonts/HYShuSongErS.woff2') format('woff2')
+        }
+      </style>
 
-      <!-- RSS Feed -->
+      <!-- 条件加载 MathJax -->
       
-        <link rel="alternate" type="application/atom+xml" title="TLDR"
-          href="atom.xml">
-        
 
-              
+          <!-- Preload fonts -->
+          <link rel="preload" href="/fonts/FZKTJW.woff2" as="font" type="font/woff2" crossorigin>
+          <link rel="preload" href="/fonts/FZHTJW.woff2" as="font" type="font/woff2" crossorigin>
+          <link rel="preload" href="/fonts/HYFangSongJ.woff2" as="font" type="font/woff2" crossorigin>
+          <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
+          <link rel="preload" href="/fonts/GowunDodum-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
-                <title>
-                  TLDR
-                </title>
-                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-                <meta name="author" content="Ke Fang">
-                <meta name="description" content="">
-                
+          <!-- FontAwesome -->
+          <link rel="stylesheet" href="/css/fontawesome.css">
 
-                    <link rel="canonical" href="https://mazzzystar.com/index.html">
+          <meta charset="utf-8">
+          <meta http-equiv="Content-Type" content="text/html charset=utf-8">
+          <meta name="robots" content="index,follow">
 
-                    <!-- Open Graph -->
-                    <meta property="og:type" content="website">
-                    <meta property="og:title" content="TLDR">
-                    <meta property="og:url" content="https://mazzzystar.com/index.html">
-                    <meta property="og:image" content="https://mazzzystar.com/favicon.jpg">
-                    <meta property="og:description" content="">
-                    <meta property="og:site_name" content="TLDR">
-                    <meta property="og:locale" content="en">
-                    <meta property="article:author" content="Ke Fang">
+          <!-- RSS Feed -->
+          
+            <link rel="alternate" type="application/atom+xml" title="TLDR"
+              href="atom.xml">
+            
+
+                  
+
+                    <title>
+                      TLDR
+                    </title>
+                    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+                    <meta name="author" content="Ke Fang">
+                    <meta name="description" content="">
                     
 
+                        <link rel="canonical" href="https://mazzzystar.com/index.html">
+
+                        <!-- Open Graph -->
+                        <meta property="og:type" content="website">
+                        <meta property="og:title" content="TLDR">
+                        <meta property="og:url" content="https://mazzzystar.com/index.html">
+                        <meta property="og:image" content="https://mazzzystar.com/favicon.jpg">
+                        <meta property="og:description" content="">
+                        <meta property="og:site_name" content="TLDR">
+                        <meta property="og:locale" content="en">
+                        <meta property="article:author" content="Ke Fang">
                         
 
-                                <!-- Twitter Card -->
-                                <meta name="twitter:card" content="summary_large_image">
-                                <meta name="twitter:title" content="TLDR">
-                                <meta name="twitter:description" content="">
-                                <meta name="twitter:image" content="https://mazzzystar.com/favicon.jpg">
+                            
 
-                                <!-- Stylesheets -->
-                                <link rel="stylesheet" href="/css/style.css">
-                                <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
+                                    <!-- Twitter Card -->
+                                    <meta name="twitter:card" content="summary_large_image">
+                                    <meta name="twitter:title" content="TLDR">
+                                    <meta name="twitter:description" content="">
+                                    <meta name="twitter:image" content="https://mazzzystar.com/favicon.jpg">
 
-                                <!-- Scripts -->
-                                <script src="/js/jquery.min.js"></script>
-                                <script src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
-                                <script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-                                <script src="/js/script.js"></script>
-                                <script src="/js/clipboard.min.js"></script>
+                                    <!-- Stylesheets -->
+                                    <link rel="stylesheet" href="/css/style.css">
+                                    <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
 
-                                
-                                  <link rel="stylesheet"
-                                    href="fancybox/jquery.fancybox-1.3.4.css">
-                                  
+                                    <!-- Scripts -->
+                                    <script src="/js/jquery.min.js"></script>
+                                    <script src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+                                    <script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+                                    <script src="/js/script.js"></script>
+                                    <script src="/js/clipboard.min.js"></script>
 
-                                    <!-- MathJax Configuration -->
-                                    <script>
-                                      window.MathJax = {
-                                        tex: {
-                                          inlineMath: [['$', '$'], ['\\(', '\\)']],
-                                          displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                                          processEscapes: true
-                                        },
-                                        options: {
-                                          enableMenu: false
-                                        },
-                                        startup: {
-                                          ready: () => {
-                                            MathJax.startup.defaultReady()
-                                          }
-                                        },
-                                        loader: {
-                                          load: ['[tex]/ams']
-                                        }
-                                      }
-                                    </script>
-                                    <script id="MathJax-script" defer src="/js/mathjax/tex-mml-chtml.js"></script>
-
-                                    <!-- Structured Data -->
                                     
+                                      <link rel="stylesheet"
+                                        href="fancybox/jquery.fancybox-1.3.4.css">
+                                      
 
-                                        <!-- 删除或注释掉这行 -->
-                                        <!-- <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet"> -->
-
-                                        <!-- 改用本地字体 -->
-                                        <style>
-                                          @font-face {
-                                            font-family: 'Gowun Dodum'
-                                            font-style: normal
-                                            font-weight: 400
-                                            font-display: swap
-                                            src: url('/fonts/GowunDodum-Regular.woff2') format('woff2')
+                                        <!-- MathJax Configuration -->
+                                        <script>
+                                          window.MathJax = {
+                                            tex: {
+                                              inlineMath: [['$', '$'], ['\\(', '\\)']],
+                                              displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                                              processEscapes: true
+                                            },
+                                            options: {
+                                              enableMenu: false
+                                            },
+                                            startup: {
+                                              ready: () => {
+                                                MathJax.startup.defaultReady()
+                                              }
+                                            },
+                                            loader: {
+                                              load: ['[tex]/ams']
+                                            }
                                           }
-                                        </style>
+                                        </script>
+                                        <script id="MathJax-script" defer src="/js/mathjax/tex-mml-chtml.js"></script>
+
+                                        <!-- Structured Data -->
+                                        
+
+                                            <!-- 删除或注释掉这行 -->
+                                            <!-- <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet"> -->
+
+                                            <!-- 改用本地字体 -->
+                                            <style>
+                                              @font-face {
+                                                font-family: 'Gowun Dodum'
+                                                font-style: normal
+                                                font-weight: 400
+                                                font-display: swap
+                                                src: url('/fonts/GowunDodum-Regular.woff2') format('woff2')
+                                              }
+                                            </style>
 <meta name="generator" content="Hexo 6.2.0"></head>
 
   <body>
@@ -497,11 +512,11 @@
             
 
                                         <article class="archive-article archive-type-post"
-                                            data-lang="en">
+                                            data-lang="zh">
                                             <div class="archive-article-inner">
                                                 <header class="archive-article-header">
-                                                    <a href="2023/09/11/dream-en/" class="archive-article-title">
-                                                        Dream
+                                                    <a href="2023/09/11/dream/" class="archive-article-title">
+                                                        梦
                                                     </a>
                                                     <div class="archive-article-line"></div>
                                                     <span class="archive-article-date">
@@ -515,11 +530,11 @@
             
 
                                         <article class="archive-article archive-type-post"
-                                            data-lang="zh">
+                                            data-lang="en">
                                             <div class="archive-article-inner">
                                                 <header class="archive-article-header">
-                                                    <a href="2023/09/11/dream/" class="archive-article-title">
-                                                        梦
+                                                    <a href="2023/09/11/dream-en/" class="archive-article-title">
+                                                        Dream
                                                     </a>
                                                     <div class="archive-article-line"></div>
                                                     <span class="archive-article-date">

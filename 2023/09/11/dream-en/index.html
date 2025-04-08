@@ -26,17 +26,9 @@
       <link rel="preload" href="/css/style.css" as="style">
       <link rel="preload" href="/js/jquery.min.js" as="script">
 
-      <!-- 预加载首屏字体，其他字体懒加载 -->
-      <link rel="preload" href="/fonts/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
-
-      <!-- 使用 font-display: swap 确保文字在字体加载时可见 -->
-      <style>
-        @font-face {
-          font-family: 'HYShuSongErS'
-          font-display: swap
-          src: local('HYShuSongErS'), url('/fonts/HYShuSongErS.woff2') format('woff2')
-        }
-      </style>
+      <!-- 预加载首屏字体子集，其他字体懒加载 -->
+      <link rel="preload" href="/fonts/subsets/HYShuSongErS-tier1.woff2" as="font" type="font/woff2" crossorigin>
+      <link rel="stylesheet" href="/css/font-subset.css">
 
       <!-- 条件加载 MathJax -->
       
@@ -44,7 +36,6 @@
           <!-- Preload fonts -->
           <link rel="preload" href="/fonts/FZKTJW.woff2" as="font" type="font/woff2" crossorigin>
           <link rel="preload" href="/fonts/FZHTJW.woff2" as="font" type="font/woff2" crossorigin>
-          <link rel="preload" href="/fonts/HYFangSongJ.woff2" as="font" type="font/woff2" crossorigin>
           <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
           <link rel="preload" href="/fonts/GowunDodum-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
@@ -172,10 +163,10 @@
     </script>
                                           
 
-                                            <!-- 删除或注释掉这行 -->
-                                            <!-- <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet"> -->
+                                            <!-- Font Loader for Progressive Font Loading -->
+                                            <script defer src="/js/font-loader.js"></script>
 
-                                            <!-- 改用本地字体 -->
+                                            <!-- Local fonts -->
                                             <style>
                                               @font-face {
                                                 font-family: 'Gowun Dodum'
@@ -293,21 +284,21 @@
     
 <nav id="article-nav">
   
-    <a href="../../../11/16/ai-girlfriend-product/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../dream/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          A Failed AI Girlfriend Product, and My Lessons
+          梦
         
       </div>
     </a>
   
   
-    <a href="../dream/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../../07/23/Get-users-for-your-AI-tool-from-Google-search/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">
         
-          梦
+          Get users for your AI tool from Google search
         
       </div>
     </a>

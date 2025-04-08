@@ -26,17 +26,9 @@
       <link rel="preload" href="/css/style.css" as="style">
       <link rel="preload" href="/js/jquery.min.js" as="script">
 
-      <!-- 预加载首屏字体，其他字体懒加载 -->
-      <link rel="preload" href="/fonts/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
-
-      <!-- 使用 font-display: swap 确保文字在字体加载时可见 -->
-      <style>
-        @font-face {
-          font-family: 'HYShuSongErS'
-          font-display: swap
-          src: local('HYShuSongErS'), url('/fonts/HYShuSongErS.woff2') format('woff2')
-        }
-      </style>
+      <!-- 预加载首屏字体子集，其他字体懒加载 -->
+      <link rel="preload" href="/fonts/subsets/HYShuSongErS-tier1.woff2" as="font" type="font/woff2" crossorigin>
+      <link rel="stylesheet" href="/css/font-subset.css">
 
       <!-- 条件加载 MathJax -->
       
@@ -44,7 +36,6 @@
           <!-- Preload fonts -->
           <link rel="preload" href="/fonts/FZKTJW.woff2" as="font" type="font/woff2" crossorigin>
           <link rel="preload" href="/fonts/FZHTJW.woff2" as="font" type="font/woff2" crossorigin>
-          <link rel="preload" href="/fonts/HYFangSongJ.woff2" as="font" type="font/woff2" crossorigin>
           <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
           <link rel="preload" href="/fonts/GowunDodum-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
@@ -134,10 +125,10 @@
                                         <!-- Structured Data -->
                                         
 
-                                            <!-- 删除或注释掉这行 -->
-                                            <!-- <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet"> -->
+                                            <!-- Font Loader for Progressive Font Loading -->
+                                            <script defer src="/js/font-loader.js"></script>
 
-                                            <!-- 改用本地字体 -->
+                                            <!-- Local fonts -->
                                             <style>
                                               @font-face {
                                                 font-family: 'Gowun Dodum'
@@ -211,30 +202,6 @@
                           </div>
                           <div class="archives">
                             
-                              <article class="archive-article archive-type-post" data-lang="en">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-  
-      
-        <h3 itemprop="name">
-          <a class="archive-article-title" href="../../../2023/09/11/dream-en/">
-            Dream
-          </a>
-        </h3>
-        
-            
-              
-        <div class="archive-article-line"></div>
-        <a href="../../../2023/09/11/dream-en/" class="archive-article-date">
-  <time class="dt-published" datetime="2023-09-11T08:54:18.000Z" itemprop="datePublished">2023-09-11</time>
-</a>
-    </header>
-  </div>
-</article>
-                                
-              
-                
                               <article class="archive-article archive-type-post" data-lang="zh">
   <div class="archive-article-inner">
     <header class="archive-article-header">
@@ -251,6 +218,30 @@
               
         <div class="archive-article-line"></div>
         <a href="../../../2023/09/11/dream/" class="archive-article-date">
+  <time class="dt-published" datetime="2023-09-11T08:54:18.000Z" itemprop="datePublished">2023-09-11</time>
+</a>
+    </header>
+  </div>
+</article>
+                                
+              
+                
+                              <article class="archive-article archive-type-post" data-lang="en">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      
+  
+      
+        <h3 itemprop="name">
+          <a class="archive-article-title" href="../../../2023/09/11/dream-en/">
+            Dream
+          </a>
+        </h3>
+        
+            
+              
+        <div class="archive-article-line"></div>
+        <a href="../../../2023/09/11/dream-en/" class="archive-article-date">
   <time class="dt-published" datetime="2023-09-11T08:54:18.000Z" itemprop="datePublished">2023-09-11</time>
 </a>
     </header>

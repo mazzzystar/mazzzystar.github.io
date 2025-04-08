@@ -1,0 +1,78 @@
+/* Font subsetting for Chinese fonts 
+ * This implements a progressive loading strategy for large Chinese fonts
+ * We split each font into multiple tiers of most frequently used characters
+ */
+
+/* === HYShuSongErS (Regular Chinese font) === */
+/* Tier 1: Most common characters (loaded immediately) */
+@font-face {
+  font-family: 'Chinese';
+  font-style: normal;
+  font-weight: normal;
+  src: local('HYShuSongErS'), url("/fonts/subsets/HYShuSongErS-tier1.woff2") format('woff2');
+  font-display: swap;
+  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F; /* Basic CJK */
+}
+
+/* Tier 2: Medium frequency characters (loaded when idle) */
+@font-face {
+  font-family: 'Chinese';
+  font-style: normal;
+  font-weight: normal;
+  src: local('HYShuSongErS'), url("/fonts/subsets/HYShuSongErS-tier2.woff2") format('woff2');
+  font-display: optional;
+  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F; /* Basic CJK */
+}
+
+/* Tier 3: Least common characters (loaded on demand) */
+@font-face {
+  font-family: 'Chinese';
+  font-style: normal;
+  font-weight: normal;
+  src: local('HYShuSongErS'), url("/fonts/subsets/HYShuSongErS-tier3.woff2") format('woff2');
+  font-display: optional;
+  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F; /* Basic CJK */
+}
+
+/* === FZKTJW (Italic Chinese font) === */
+/* For now, load the full italic font (we'll create subsets in batch later) */
+@font-face {
+  font-family: 'Chinese';
+  font-style: italic;
+  font-weight: normal;
+  src: local('FZKTJW'), url("/fonts/FZKTJW.woff2") format('woff2');
+  font-display: swap;
+}
+
+/* === FZHTJW (Bold Chinese font) === */
+/* For now, load the full bold font (we'll create subsets in batch later) */
+@font-face {
+  font-family: 'Chinese';
+  font-style: normal;
+  font-weight: bold;
+  src: local('FZHTJW'), url("/fonts/FZHTJW.woff2") format('woff2');
+  font-display: swap;
+}
+
+/* === HYFangSongJ (Chinese Mono font) === */
+/* For now, load the full mono font (we'll create subsets in batch later) */
+@font-face {
+  font-family: 'ChineseMono';
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/HYFangSongJ.woff2") format('woff2');
+  font-display: swap;
+}
+
+/* Additional styles to ensure text is visible during font loading */
+.article, .article-entry {
+  font-family: 'Gowun Dodum', 'Chinese', biaodian, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+/* Fallback font for Chinese characters */
+@font-face {
+  font-family: 'ChineseFallback';
+  src: local('PingFang SC'), local('Microsoft YaHei'), local('SimSun');
+  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
+} 

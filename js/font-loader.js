@@ -17,31 +17,31 @@
       tier2: '/fonts/subsets/HYShuSongErS-tier2.woff2',
       tier3: '/fonts/subsets/HYShuSongErS-tier3.woff2'
     },
-    // We'll add these once we create the subsets for these fonts
-    // 'italic': {
-    //   family: 'Chinese',
-    //   style: 'italic', 
-    //   weight: 'normal',
-    //   tier1: '/fonts/subsets/FZKTJW-tier1.woff2',
-    //   tier2: '/fonts/subsets/FZKTJW-tier2.woff2',
-    //   tier3: '/fonts/subsets/FZKTJW-tier3.woff2'
-    // },
-    // 'bold': {
-    //   family: 'Chinese',
-    //   style: 'normal',
-    //   weight: 'bold',
-    //   tier1: '/fonts/subsets/FZHTJW-tier1.woff2',
-    //   tier2: '/fonts/subsets/FZHTJW-tier2.woff2',
-    //   tier3: '/fonts/subsets/FZHTJW-tier3.woff2'
-    // },
-    // 'mono': {
-    //   family: 'ChineseMono',
-    //   style: 'normal',
-    //   weight: 'normal',
-    //   tier1: '/fonts/subsets/HYFangSongJ-tier1.woff2',
-    //   tier2: '/fonts/subsets/HYFangSongJ-tier2.woff2',
-    //   tier3: '/fonts/subsets/HYFangSongJ-tier3.woff2'
-    // }
+    // All font subsets have been created
+    'italic': {
+      family: 'Chinese',
+      style: 'italic', 
+      weight: 'normal',
+      tier1: '/fonts/subsets/FZKTJW-tier1.woff2',
+      tier2: '/fonts/subsets/FZKTJW-tier2.woff2',
+      tier3: '/fonts/subsets/FZKTJW-tier3.woff2'
+    },
+    'bold': {
+      family: 'Chinese',
+      style: 'normal',
+      weight: 'bold',
+      tier1: '/fonts/subsets/FZHTJW-tier1.woff2',
+      tier2: '/fonts/subsets/FZHTJW-tier2.woff2',
+      tier3: '/fonts/subsets/FZHTJW-tier3.woff2'
+    },
+    'mono': {
+      family: 'ChineseMono',
+      style: 'normal',
+      weight: 'normal',
+      tier1: '/fonts/subsets/HYFangSongJ-tier1.woff2',
+      tier2: '/fonts/subsets/HYFangSongJ-tier2.woff2',
+      tier3: '/fonts/subsets/HYFangSongJ-tier3.woff2'
+    }
   };
 
   // Check if the browser supports Font Loading API

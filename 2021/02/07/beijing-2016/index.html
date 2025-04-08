@@ -170,14 +170,25 @@
                                             <!-- Font Loader for Progressive Font Loading -->
                                             <script defer src="/js/font-loader.js"></script>
 
-                                            <!-- Local fonts -->
+                                            <!-- Include dedicated font CSS -->
+                                            <link rel="stylesheet" href="/css/fonts/gowun-dodum.css">
+
+                                            <!-- Language switcher styling -->
                                             <style>
-                                              @font-face {
-                                                font-family: 'Gowun Dodum'
-                                                font-style: normal
-                                                font-weight: 400
-                                                font-display: swap
-                                                src: url('/fonts/GowunDodum-Regular.woff2') format('woff2')
+                                              .lang-switch {
+                                                display: inline-block
+                                                color: #555
+                                                text-decoration: none !important
+                                                font-weight: bold
+                                                padding: 3px 8px
+                                                border-radius: 4px
+                                                transition: background-color 0.2s ease
+                                              }
+
+                                              .lang-switch:hover {
+                                                background-color: #f0f0f0
+                                                color: #333
+                                                text-decoration: none !important
                                               }
                                             </style>
 <meta name="generator" content="Hexo 6.2.0"></head>

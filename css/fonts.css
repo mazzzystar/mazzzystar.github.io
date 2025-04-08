@@ -1,0 +1,55 @@
+/* Base Chinese Font (Subset Tier 1) */
+@font-face {
+  font-family: 'Chinese';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap; /* Show fallback font immediately, swap when Chinese font loads */
+  src: url('/fonts/subsets/HYShuSongErS-tier1.woff2') format('woff2');
+  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F; /* Chinese character ranges */
+}
+
+/* Chinese Italic Font (Subset Tier 1) */
+@font-face {
+  font-family: 'Chinese';
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url('/fonts/subsets/FZKTJW-tier1.woff2') format('woff2');
+  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
+}
+
+/* Chinese Bold Font (Subset Tier 1) */
+@font-face {
+  font-family: 'Chinese';
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url('/fonts/subsets/FZHTJW-tier1.woff2') format('woff2');
+  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
+}
+
+/* Chinese Monospace Font (Subset Tier 1) */
+@font-face {
+  font-family: 'ChineseMono';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('/fonts/subsets/HYFangSongJ-tier1.woff2') format('woff2');
+  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
+}
+
+/* Main content font styles for Chinese characters */
+:root {
+  --chinese-font: 'Chinese', serif;
+  --chinese-mono-font: 'ChineseMono', monospace;
+}
+
+/* Apply Chinese font to all text elements */
+body {
+  font-family: var(--chinese-font);
+}
+
+/* Apply Chinese monospace font to code elements */
+pre, code, kbd, samp {
+  font-family: var(--chinese-mono-font);
+} 

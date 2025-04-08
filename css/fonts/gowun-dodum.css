@@ -1,0 +1,13 @@
+/* Gowun Dodum font for Latin text */
+@font-face {
+  font-family: 'Gowun Dodum';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/GowunDodum-Regular.woff2') format('woff2');
+}
+
+/* Apply Gowun Dodum to non-Chinese text */
+body {
+  font-family: 'Gowun Dodum', 'Chinese', sans-serif;
+} 

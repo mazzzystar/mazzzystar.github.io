@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://mazzzystar.com/about/</loc>
+    <loc>https://mazzzystar.com/thoughts/</loc>
+    
+    <lastmod>2025-08-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazzzystar.com/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/</loc>
     
     <lastmod>2025-08-15</lastmod>
     
@@ -11,9 +20,9 @@
   </url>
   
   <url>
-    <loc>https://mazzzystar.com/thoughts/</loc>
+    <loc>https://mazzzystar.com/about/</loc>
     
-    <lastmod>2025-08-13</lastmod>
+    <lastmod>2025-08-15</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -84,15 +93,6 @@
   
   <url>
     <loc>https://mazzzystar.com/2025/02/09/deepseek-r1-en/</loc>
-    
-    <lastmod>2025-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mazzzystar.com/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/</loc>
     
     <lastmod>2025-02-09</lastmod>
     
@@ -337,7 +337,7 @@
 
   <url>
     <loc>https://mazzzystar.com/</loc>
-    <lastmod>2025-08-15</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -347,21 +347,21 @@
   
   <url>
     <loc>https://mazzzystar.com/categories/%E5%B0%8F%E8%AF%B4/</loc>
-    <lastmod>2025-08-15</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://mazzzystar.com/categories/%E7%8E%A9/</loc>
-    <lastmod>2025-08-15</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://mazzzystar.com/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6/</loc>
-    <lastmod>2025-08-15</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

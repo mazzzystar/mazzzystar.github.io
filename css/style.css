@@ -302,27 +302,6 @@ body:after {
     width: 16em;
   }
 }
-@font-face {
-  font-family: "Chinese";
-  font-style: normal;
-  font-weight: normal;
-  src: local("HYShuSongErS"), url("/fonts/HYShuSongErS.woff2") format("woff2");
-  font-display: swap;
-}
-@font-face {
-  font-family: "Chinese";
-  font-style: italic;
-  font-weight: normal;
-  src: local("FZKTJW"), url("/fonts/FZKTJW.woff2") format("woff2");
-  font-display: swap;
-}
-@font-face {
-  font-family: "Chinese";
-  font-style: normal;
-  font-weight: bold;
-  src: local("FZHTJW"), url("/fonts/FZHTJW.woff2") format("woff2");
-  font-display: swap;
-}
 html,
 body,
 div,
@@ -424,27 +403,65 @@ button::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
-.article {
-  font-family: "Gowun Dodum", "Chinese", biaodian, Helvetica, sans-serif;
+@font-face {
+  font-family: 'Gowun Dodum';
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/GowunDodum-Regular.woff2") format("woff2");
 }
-.article-entry {
-  font-family: "Gowun Dodum", "Chinese", biaodian, Helvetica, sans-serif;
-}
-.article-entry em {
-  font-style: italic;
-  font-family: "Chinese", serif;
-}
-.article-entry strong {
+@font-face {
+  font-family: 'Gowun Dodum';
+  font-style: normal;
   font-weight: bold;
-  font-family: "Chinese", serif;
+  src: url("/fonts/GowunDodum-Regular.woff2") format("woff2");
 }
-pre,
-code {
-  font-family: "Gowun Dodum", "Chinese", Helvetica, monospace;
+@font-face {
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/fontawesome-webfont.woff2") format("woff2");
+  font-display: block;
 }
-html,
-body {
-  background-color: #fff;
+@font-face {
+  font-family: LM-Mono-10;
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/lmmono10-regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: LM-Mono-10;
+  font-style: italic;
+  font-weight: normal;
+  src: url("fonts/lmmono10-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: LM-Roman-10;
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/lmroman10-regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: LM-Roman-10;
+  font-style: italic;
+  font-weight: normal;
+  src: url("fonts/lmroman10-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: LM-Roman-10;
+  font-style: normal;
+  font-weight: bold;
+  src: url("fonts/lmroman10-bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: LM-Roman-10;
+  font-style: italic;
+  font-weight: bold;
+  src: url("fonts/lmroman10-bolditalic.woff2") format("woff2");
+}
+@font-face {
+  font-family: biaodian;
+  src: url("fonts/biaodian.woff2") format("woff2");
+  unicode-range: U+FF0E, U+2014, U+2026, U+00B7, U+201C-201D, U+2018-2019, U+25CF, U+3002, U+FF0C, U+3001, U+FF1B, U+FF1A, U+FF1F, U+FF01, U+FF0D, U+FF0F, U+FF3C, U+300C-300F, U+300A-300B, U+3008-3009, U+FF08-FF09, U+3014-3015;
 }
 html {
   scroll-padding-top: 80px;
@@ -455,7 +472,7 @@ body,
   height: 100%;
 }
 body {
-  font: 16px "Gowun Dodum", "Chinese", biaodian, Helvetica, sans-serif;
+  font: 16px 'Gowun Dodum', 'Chinese', biaodian, Helvetica, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 #content {
@@ -525,7 +542,7 @@ body {
 #main-404 {
   font-size: 40px;
   font-weight: bold;
-  font-family: "Gowun Dodum", "Chinese", biaodian, Helvetica, sans-serif;
+  font-family: 'Gowun Dodum', 'Chinese', biaodian, Helvetica, sans-serif;
   text-align: center;
   margin: 100px 0;
 }
@@ -584,20 +601,13 @@ a {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.732);
+  background: rgba(255,255,255,0.732);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
   z-index: 2;
   border-bottom: 1px solid #ddd;
-}
-#nav-outer :first-child {
-  padding-left: 0;
-}
-#nav-outer :nth-child(2) {
-  padding-left: 0;
-}
-#nav-outer :last-child {
-  padding-right: 0;
+  top: 0;
+  left: 0;
 }
 #main-nav {
   display: -webkit-box;
@@ -611,10 +621,18 @@ a {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding: 0 15px;
+  max-width: 44em;
+  margin: 0 auto;
 }
-.nav-icon,
 .main-nav-link {
-  float: left;
+  font-size: 18px;
+  padding: 20px 15px;
   color: #000;
   opacity: 0.6;
   text-decoration: none;
@@ -622,30 +640,9 @@ a {
   -moz-transition: opacity 0.2s;
   -ms-transition: opacity 0.2s;
   transition: opacity 0.2s;
-  display: block;
-  padding: 20px 15px;
 }
-.nav-icon:hover,
 .main-nav-link:hover {
   opacity: 1;
-}
-.nav-icon {
-  font-family: FontAwesome;
-  text-align: center;
-  font-size: 16px;
-  width: 16px;
-  height: 16px;
-  padding: 20px 15px;
-  position: relative;
-  cursor: pointer;
-}
-.main-nav-link {
-  font-size: 18px;
-}
-@media screen and (max-width: 470px) {
-  .main-nav-link {
-    display: none;
-  }
 }
 .main-nav-space-between {
   height: 1px;
@@ -655,6 +652,7 @@ a {
   box-flex: 1;
   -webkit-flex-grow: 1;
   flex-grow: 1;
+  margin: 0 15px;
 }
 #main-nav-toggle {
   display: none;
@@ -671,8 +669,19 @@ a {
   float: right;
   margin-right: -15px;
 }
-#nav-rss-link:before {
-  content: "\f09e";
+#nav-rss-link {
+  font-size: 16px;
+  padding: 20px 15px;
+  color: #000 !important;
+  opacity: 0.6;
+  text-decoration: none !important;
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+#nav-rss-link:hover {
+  opacity: 1;
 }
 #nav-search-btn:before {
   content: "\f002";
@@ -707,8 +716,8 @@ a {
   background: #fff;
   padding: 5px 15px;
   border-radius: 15px;
-  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 .search-form-input {
   border: none;
@@ -736,6 +745,21 @@ a {
 .search-form-submit:hover,
 .search-form-submit:focus {
   color: #777;
+}
+.lang-switch {
+  color: #666;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 3px;
+  -webkit-transition: color 0.2s ease-in-out;
+  -moz-transition: color 0.2s ease-in-out;
+  -ms-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
+}
+.lang-switch:hover {
+  color: #333;
+  text-decoration: none;
 }
 .article {
   margin: 50px 0;
@@ -870,7 +894,7 @@ a.article-title:hover {
   text-align: center;
 }
 .article-entry blockquote {
-  font-family: "Gowun Dodum", "Chinese", biaodian, Helvetica, sans-serif;
+  font-family: 'Gowun Dodum', 'Chinese', biaodian, Helvetica, sans-serif;
   margin: 1.6em 0;
   padding: 0px 2em;
   padding: 0.25em 2em 0.25em calc(2em - 5px);
@@ -1108,8 +1132,8 @@ a.article-title:hover {
   position: absolute;
   display: none;
   background: #fff;
-  -webkit-box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.2);
-  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 1px 2px 10px rgba(0,0,0,0.2);
+  box-shadow: 1px 2px 10px rgba(0,0,0,0.2);
   border-radius: 3px;
   margin-left: -145px;
   overflow: hidden;
@@ -1391,7 +1415,7 @@ a.article-title:hover {
 }
 .article-entry pre,
 .article-entry code {
-  font-family: "Gowun Dodum", "Chinese", Helvetica, monospace;
+  font-family: 'Gowun Dodum', 'Chinese', Helvetica, monospace;
 }
 .article-entry code {
   background: #fff;
@@ -1426,7 +1450,7 @@ a.article-title:hover {
 }
 .article-entry .gist .gist-file {
   border: none;
-  font-family: "Gowun Dodum", "Chinese", Helvetica, monospace;
+  font-family: 'Gowun Dodum', 'Chinese', Helvetica, monospace;
   margin: 0;
 }
 .article-entry .gist .gist-file .gist-data {
@@ -1531,16 +1555,28 @@ pre .hljs-javascript .hljs-function {
 }
 @media screen and (max-width: 470px) {
   .mobile-nav-link {
-    display: block;
+    display: block !important;
     color: #999;
+    text-decoration: none;
+    padding: 15px 20px;
     font-weight: normal;
     font-size: 1.1em;
-    text-decoration: none;
-    margin: 30px 20px;
-    word-break: break-word;
   }
   .mobile-nav-link:hover {
-    text-decoration: underline;
+    color: #999;
+  }
+}
+@media screen and (max-width: 470px) {
+  #nav-rss-link {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 0.8;
+  }
+  #nav-rss-link:before {
+    font-family: 'FontAwesome';
+    content: "\f09e";
+    margin-right: 5px;
+    font-size: 16px;
   }
 }
 #about-inner {
@@ -1751,7 +1787,7 @@ a.article-title:hover {
   text-align: center;
 }
 .article-entry blockquote {
-  font-family: "Gowun Dodum", "Chinese", biaodian, Helvetica, sans-serif;
+  font-family: 'Gowun Dodum', 'Chinese', biaodian, Helvetica, sans-serif;
   margin: 1.6em 0;
   padding: 0px 2em;
   padding: 0.25em 2em 0.25em calc(2em - 5px);
@@ -1989,8 +2025,8 @@ a.article-title:hover {
   position: absolute;
   display: none;
   background: #fff;
-  -webkit-box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.2);
-  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 1px 2px 10px rgba(0,0,0,0.2);
+  box-shadow: 1px 2px 10px rgba(0,0,0,0.2);
   border-radius: 3px;
   margin-left: -145px;
   overflow: hidden;
@@ -2166,20 +2202,26 @@ a.article-title:hover {
     font-size: 12px;
   }
 }
-
-/* Language switch button styling */
-.lang-switch {
-  display: inline-block;
-  color: #555;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 3px 8px;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
+#main-nav-toggle {
+  display: none;
 }
-
+@media screen and (max-width: 768px) {
+  #main-nav-toggle {
+    display: block;
+  }
+}
+.lang-switch {
+  color: #666;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 3px;
+  -webkit-transition: color 0.2s ease-in-out;
+  -moz-transition: color 0.2s ease-in-out;
+  -ms-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
+}
 .lang-switch:hover {
-  background-color: #f0f0f0;
   color: #333;
   text-decoration: none;
 }

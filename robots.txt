@@ -1,18 +1,3 @@
 User-agent: *
 Allow: /
-
-# Sitemap location
 Sitemap: https://mazzzystar.com/sitemap.xml
-
-# Prefer HTTPS over HTTP
-Host: https://mazzzystar.com
-
-# Block specific bad bots
-User-agent: MJ12bot
-Disallow: /
-
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /

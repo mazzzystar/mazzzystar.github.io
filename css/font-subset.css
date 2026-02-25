@@ -1,56 +1,52 @@
-/* Font subsetting for Chinese fonts
- * Tier 1 (most common characters) loaded here via CSS with font-display: swap.
- * Tier 2 and Tier 3 are loaded progressively by font-loader.js
- * via the FontFace API (idle callback / user interaction).
+/* Chinese font subsets — contains only characters that appear in site content.
+ * Regenerate with: cd tools/font-subsetting && bash subset_all_fonts.sh
  */
 
-/* === HYShuSongErS (Regular Chinese font) === */
+/* HYShuSongErS (Regular) */
 @font-face {
   font-family: 'Chinese';
   font-style: normal;
   font-weight: normal;
-  src: local('HYShuSongErS'), url("/fonts/subsets/HYShuSongErS-tier1.woff2") format('woff2');
+  src: local('HYShuSongErS'), url("/fonts/subsets/HYShuSongErS.woff2") format('woff2');
   font-display: swap;
-  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
+  unicode-range: U+3000-303F, U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF;
 }
 
-/* === FZKTJW (Italic Chinese font) === */
+/* FZKTJW (Italic) */
 @font-face {
   font-family: 'Chinese';
   font-style: italic;
   font-weight: normal;
-  src: local('FZKTJW'), url("/fonts/subsets/FZKTJW-tier1.woff2") format('woff2');
+  src: local('FZKTJW'), url("/fonts/subsets/FZKTJW.woff2") format('woff2');
   font-display: swap;
-  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
+  unicode-range: U+3000-303F, U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF;
 }
 
-/* === FZHTJW (Bold Chinese font) === */
+/* FZHTJW (Bold) */
 @font-face {
   font-family: 'Chinese';
   font-style: normal;
   font-weight: bold;
-  src: local('FZHTJW'), url("/fonts/subsets/FZHTJW-tier1.woff2") format('woff2');
+  src: local('FZHTJW'), url("/fonts/subsets/FZHTJW.woff2") format('woff2');
   font-display: swap;
-  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
+  unicode-range: U+3000-303F, U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF;
 }
 
-/* === HYFangSongJ (Chinese Mono font) === */
+/* HYFangSongJ (Mono) */
 @font-face {
   font-family: 'ChineseMono';
   font-style: normal;
   font-weight: normal;
-  src: local('HYFangSongJ'), url("/fonts/subsets/HYFangSongJ-tier1.woff2") format('woff2');
+  src: local('HYFangSongJ'), url("/fonts/subsets/HYFangSongJ.woff2") format('woff2');
   font-display: swap;
-  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
+  unicode-range: U+3000-303F, U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF;
 }
 
-/* Additional styles to ensure text is visible during font loading */
 .article, .article-entry {
   font-family: 'Gowun Dodum', 'Chinese', biaodian, Helvetica, sans-serif;
   text-rendering: optimizeLegibility;
 }
 
-/* Fallback font for Chinese characters */
 @font-face {
   font-family: 'ChineseFallback';
   src: local('PingFang SC'), local('Microsoft YaHei'), local('SimSun');

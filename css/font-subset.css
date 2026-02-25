@@ -34,16 +34,6 @@
   unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F; /* Basic CJK */
 }
 
-/* Fallback for any missing characters - load the complete font as a last resort */
-@font-face {
-  font-family: 'Chinese';
-  font-style: normal;
-  font-weight: normal;
-  src: local('HYShuSongErS'), url("/fonts/HYShuSongErS.woff2") format('woff2');
-  font-display: swap;
-  /* No unicode-range to make it a universal fallback */
-}
-
 /* === FZKTJW (Italic Chinese font) === */
 /* Tier 1: Most common characters (loaded immediately) */
 @font-face {
@@ -73,16 +63,6 @@
   src: local('FZKTJW'), url("/fonts/subsets/FZKTJW-tier3.woff2") format('woff2');
   font-display: optional;
   unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
-}
-
-/* Fallback for any missing characters - load the complete font as a last resort */
-@font-face {
-  font-family: 'Chinese';
-  font-style: italic;
-  font-weight: normal;
-  src: local('FZKTJW'), url("/fonts/FZKTJW.woff2") format('woff2');
-  font-display: swap;
-  /* No unicode-range to make it a universal fallback */
 }
 
 /* === FZHTJW (Bold Chinese font) === */
@@ -116,16 +96,6 @@
   unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
 }
 
-/* Fallback for any missing characters - load the complete font as a last resort */
-@font-face {
-  font-family: 'Chinese';
-  font-style: normal;
-  font-weight: bold;
-  src: local('FZHTJW'), url("/fonts/FZHTJW.woff2") format('woff2');
-  font-display: swap;
-  /* No unicode-range to make it a universal fallback */
-}
-
 /* === HYFangSongJ (Chinese Mono font) === */
 /* Tier 1: Most common characters (loaded immediately) */
 @font-face {
@@ -155,16 +125,6 @@
   src: local('HYFangSongJ'), url("/fonts/subsets/HYFangSongJ-tier3.woff2") format('woff2');
   font-display: optional;
   unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
-}
-
-/* Fallback for any missing characters - load the complete font as a last resort */
-@font-face {
-  font-family: 'ChineseMono';
-  font-style: normal;
-  font-weight: normal;
-  src: local('HYFangSongJ'), url("/fonts/HYFangSongJ.woff2") format('woff2');
-  font-display: swap;
-  /* No unicode-range to make it a universal fallback */
 }
 
 /* Additional styles to ensure text is visible during font loading */

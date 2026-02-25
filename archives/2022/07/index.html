@@ -24,7 +24,6 @@
 
       <!-- 预加载关键资源 -->
       <link rel="preload" href="/css/style.css" as="style">
-      <link rel="preload" href="/js/jquery.min.js" as="script">
 
       <!-- 预加载首屏字体子集，其他字体懒加载 -->
       <link rel="preload" href="/fonts/subsets/HYShuSongErS-tier1.woff2" as="font" type="font/woff2" crossorigin>
@@ -34,8 +33,6 @@
       
 
           <!-- Preload fonts -->
-          <link rel="preload" href="/fonts/FZKTJW.woff2" as="font" type="font/woff2" crossorigin>
-          <link rel="preload" href="/fonts/FZHTJW.woff2" as="font" type="font/woff2" crossorigin>
           <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
           <link rel="preload" href="/fonts/GowunDodum-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
@@ -57,7 +54,7 @@
                     <title>
                       Archives: 2022/7
                     </title>
-                    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
                     <meta name="author" content="Ke Fang">
                     
                               
@@ -95,29 +92,7 @@
                                                   href="../../../fancybox/jquery.fancybox-1.3.4.css">
                                                 
 
-                                                  <!-- MathJax Configuration -->
-                                                  <script>
-                                                    window.MathJax = {
-                                                      tex: {
-                                                        inlineMath: [['$', '$'], ['\\(', '\\)']],
-                                                        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                                                        processEscapes: true
-                                                      },
-                                                      options: {
-                                                        enableMenu: false
-                                                      },
-                                                      startup: {
-                                                        ready: () => {
-                                                          MathJax.startup.defaultReady()
-                                                        }
-                                                      },
-                                                      loader: {
-                                                        load: ['[tex]/ams']
-                                                      }
-                                                    }
-                                                  </script>
-                                                  <script id="MathJax-script" defer
-                                                    src="/js/mathjax/tex-mml-chtml.js"></script>
+                                                  
 
                                                   <!-- Structured Data -->
                                                   
@@ -184,7 +159,7 @@
             <div class="main-nav-space-between"></div>
 
             <!-- Dark mode toggle -->
-            <a class="dark-mode-toggle" href="javascript:void(0)" onclick="toggleDarkMode()" title="Toggle dark mode"></a>
+            <button class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle dark mode" type="button"></button>
 
             <!-- Language switcher -->
             
@@ -321,23 +296,6 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
 
     <script defer src="../../../js/script.js"></script>
     <script defer src="../../../js/clipboard.min.js"></script>
-
-    <!-- MathJax -->
-    
-      <script>
-        window.MathJax = {
-          tex: {
-            inlineMath: [['$', '$'], ['\\(', '\\)']],
-            packages: { '[+]': ['ams'] },
-            tags: 'ams'
-          },
-          options: {
-            enableMenu: false
-          }
-        }
-      </script>
-      <script id="MathJax-script" async src="/js/mathjax/tex-mml-chtml.js"></script>
-      
 
         
 

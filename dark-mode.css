@@ -4,6 +4,14 @@
   width: auto;
   position: static;
 }
+/* Reset button styles for dark mode toggle and language switch */
+button.dark-mode-toggle,
+button.lang-switch {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
 .dark-mode-toggle,
 .lang-switch {
   padding: 20px 10px !important;
@@ -145,7 +153,7 @@ html.dark-mode .archive-article-title {
   color: #faf9f6;
 }
 html.dark-mode .archive-article-date {
-  color: #807b74;
+  color: #a09a93;
 }
 
 /* --- Code blocks --- */

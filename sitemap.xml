@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://mazzzystar.com/about/</loc>
+    <loc>https://mazzzystar.com/2024/08/09/turtle-benchmark-zh/</loc>
     
     <lastmod>2026-02-25</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://mazzzystar.com/2022/05/09/clone-virtual-ai/</loc>
+    <loc>https://mazzzystar.com/about/</loc>
     
     <lastmod>2026-02-25</lastmod>
     
@@ -164,52 +164,16 @@
   </url>
   
   <url>
-    <loc>https://mazzzystar.com/2024/08/09/turtle-benchmark-zh/</loc>
-    
-    <lastmod>2026-02-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mazzzystar.com/2023/07/23/Get-users-for-your-AI-tool-from-Google-search/</loc>
-    
-    <lastmod>2026-02-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mazzzystar.com/2023/05/10/LLM-for-individual/</loc>
-    
-    <lastmod>2026-02-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mazzzystar.com/2023/05/10/LLM-for-person-zh/</loc>
-    
-    <lastmod>2026-02-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mazzzystar.com/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/</loc>
-    
-    <lastmod>2026-02-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://mazzzystar.com/2024/09/26/The-easiest-way-to-have-a-blog-zh/</loc>
+    
+    <lastmod>2026-02-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazzzystar.com/2024/09/26/The-easiest-way-to-have-a-blog/</loc>
     
     <lastmod>2026-02-25</lastmod>
     
@@ -228,15 +192,6 @@
   
   <url>
     <loc>https://mazzzystar.com/2024/07/21/Two-Years-of-an-AI-Photo-Album-Search-App/</loc>
-    
-    <lastmod>2026-02-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mazzzystar.com/2024/09/26/The-easiest-way-to-have-a-blog/</loc>
     
     <lastmod>2026-02-25</lastmod>
     
@@ -308,6 +263,15 @@
   </url>
   
   <url>
+    <loc>https://mazzzystar.com/2022/05/09/clone-virtual-ai/</loc>
+    
+    <lastmod>2026-02-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://mazzzystar.com/2022/07/09/A-Murder/</loc>
     
     <lastmod>2026-02-25</lastmod>
@@ -336,6 +300,42 @@
   
   <url>
     <loc>https://mazzzystar.com/2023/07/23/Get-users-for-your-AI-tool-from-Google-search-zh/</loc>
+    
+    <lastmod>2026-02-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazzzystar.com/2023/07/23/Get-users-for-your-AI-tool-from-Google-search/</loc>
+    
+    <lastmod>2026-02-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazzzystar.com/2023/05/10/LLM-for-individual/</loc>
+    
+    <lastmod>2026-02-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazzzystar.com/2023/05/10/LLM-for-person-zh/</loc>
+    
+    <lastmod>2026-02-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazzzystar.com/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/</loc>
     
     <lastmod>2026-02-25</lastmod>
     

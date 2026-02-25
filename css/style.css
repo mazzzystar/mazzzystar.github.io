@@ -423,42 +423,6 @@ button::-moz-focus-inner {
   font-display: block;
 }
 @font-face {
-  font-family: LM-Mono-10;
-  font-style: normal;
-  font-weight: normal;
-  src: url("fonts/lmmono10-regular.woff2") format("woff2");
-}
-@font-face {
-  font-family: LM-Mono-10;
-  font-style: italic;
-  font-weight: normal;
-  src: url("fonts/lmmono10-italic.woff2") format("woff2");
-}
-@font-face {
-  font-family: LM-Roman-10;
-  font-style: normal;
-  font-weight: normal;
-  src: url("fonts/lmroman10-regular.woff2") format("woff2");
-}
-@font-face {
-  font-family: LM-Roman-10;
-  font-style: italic;
-  font-weight: normal;
-  src: url("fonts/lmroman10-italic.woff2") format("woff2");
-}
-@font-face {
-  font-family: LM-Roman-10;
-  font-style: normal;
-  font-weight: bold;
-  src: url("fonts/lmroman10-bold.woff2") format("woff2");
-}
-@font-face {
-  font-family: LM-Roman-10;
-  font-style: italic;
-  font-weight: bold;
-  src: url("fonts/lmroman10-bolditalic.woff2") format("woff2");
-}
-@font-face {
   font-family: biaodian;
   src: url("fonts/biaodian.woff2") format("woff2");
   unicode-range: U+FF0E, U+2014, U+2026, U+00B7, U+201C-201D, U+2018-2019, U+25CF, U+3002, U+FF0C, U+3001, U+FF1B, U+FF1A, U+FF1F, U+FF01, U+FF0D, U+FF0F, U+FF3C, U+300C-300F, U+300A-300B, U+3008-3009, U+FF08-FF09, U+3014-3015;

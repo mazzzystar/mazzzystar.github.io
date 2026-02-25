@@ -19,22 +19,6 @@ $(document).ready(function() {
     });
   }
 
-  // Language switcher
-  const switchBtn = document.querySelector('.lang-switch');
-  if (switchBtn) {
-    switchBtn.addEventListener('click', function() {
-      const currentLang = localStorage.getItem('blog_language') || 'zh';
-      const newLang = currentLang === 'zh' ? 'en' : 'zh';
-      localStorage.setItem('blog_language', newLang);
-      updateLanguageDisplay();
-      updateSwitchButton();
-    });
-
-    // Initial language setup
-    updateLanguageDisplay();
-    updateSwitchButton();
-  }
-
   // Mobile nav
   var $container = $('#container'),
     isMobileNavAnim = false,
@@ -88,17 +72,3 @@ $(document).ready(function() {
   }
 });
 
-function updateLanguageDisplay() {
-  const currentLang = localStorage.getItem('blog_language') || 'zh';
-  document.querySelectorAll('.archive-article').forEach(article => {
-    const articleLang = article.getAttribute('data-lang');
-    article.style.display = articleLang === currentLang ? '' : 'none';
-  });
-}
-
-function updateSwitchButton() {
-  const switchBtn = document.querySelector('.lang-switch');
-  if (switchBtn) {
-    switchBtn.textContent = (localStorage.getItem('blog_language') || 'zh') === 'zh' ? 'EN' : '中文';
-  }
-}

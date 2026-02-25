@@ -7,10 +7,14 @@
 /* Reset button styles for dark mode toggle and language switch */
 button.dark-mode-toggle,
 button.lang-switch {
+  appearance: none;
+  -webkit-appearance: none;
   background: none;
   border: none;
+  outline: none;
   font: inherit;
   cursor: pointer;
+  color: inherit;
 }
 .dark-mode-toggle,
 .lang-switch {

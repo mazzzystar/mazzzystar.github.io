@@ -1,41 +1,20 @@
-/* Font subsetting for Chinese fonts 
- * This implements a progressive loading strategy for large Chinese fonts
- * We split each font into multiple tiers of most frequently used characters
+/* Font subsetting for Chinese fonts
+ * Tier 1 (most common characters) loaded here via CSS with font-display: swap.
+ * Tier 2 and Tier 3 are loaded progressively by font-loader.js
+ * via the FontFace API (idle callback / user interaction).
  */
 
 /* === HYShuSongErS (Regular Chinese font) === */
-/* Tier 1: Most common characters (loaded immediately) */
 @font-face {
   font-family: 'Chinese';
   font-style: normal;
   font-weight: normal;
   src: local('HYShuSongErS'), url("/fonts/subsets/HYShuSongErS-tier1.woff2") format('woff2');
   font-display: swap;
-  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F; /* Basic CJK */
-}
-
-/* Tier 2: Medium frequency characters (loaded when idle) */
-@font-face {
-  font-family: 'Chinese';
-  font-style: normal;
-  font-weight: normal;
-  src: local('HYShuSongErS'), url("/fonts/subsets/HYShuSongErS-tier2.woff2") format('woff2');
-  font-display: optional;
-  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F; /* Basic CJK */
-}
-
-/* Tier 3: Least common characters (loaded on demand) */
-@font-face {
-  font-family: 'Chinese';
-  font-style: normal;
-  font-weight: normal;
-  src: local('HYShuSongErS'), url("/fonts/subsets/HYShuSongErS-tier3.woff2") format('woff2');
-  font-display: optional;
-  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F; /* Basic CJK */
+  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
 }
 
 /* === FZKTJW (Italic Chinese font) === */
-/* Tier 1: Most common characters (loaded immediately) */
 @font-face {
   font-family: 'Chinese';
   font-style: italic;
@@ -45,28 +24,7 @@
   unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
 }
 
-/* Tier 2: Medium frequency characters (loaded when idle) */
-@font-face {
-  font-family: 'Chinese';
-  font-style: italic;
-  font-weight: normal;
-  src: local('FZKTJW'), url("/fonts/subsets/FZKTJW-tier2.woff2") format('woff2');
-  font-display: optional;
-  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
-}
-
-/* Tier 3: Least common characters (loaded on demand) */
-@font-face {
-  font-family: 'Chinese';
-  font-style: italic;
-  font-weight: normal;
-  src: local('FZKTJW'), url("/fonts/subsets/FZKTJW-tier3.woff2") format('woff2');
-  font-display: optional;
-  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
-}
-
 /* === FZHTJW (Bold Chinese font) === */
-/* Tier 1: Most common characters (loaded immediately) */
 @font-face {
   font-family: 'Chinese';
   font-style: normal;
@@ -76,54 +34,13 @@
   unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
 }
 
-/* Tier 2: Medium frequency characters (loaded when idle) */
-@font-face {
-  font-family: 'Chinese';
-  font-style: normal;
-  font-weight: bold;
-  src: local('FZHTJW'), url("/fonts/subsets/FZHTJW-tier2.woff2") format('woff2');
-  font-display: optional;
-  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
-}
-
-/* Tier 3: Least common characters (loaded on demand) */
-@font-face {
-  font-family: 'Chinese';
-  font-style: normal;
-  font-weight: bold;
-  src: local('FZHTJW'), url("/fonts/subsets/FZHTJW-tier3.woff2") format('woff2');
-  font-display: optional;
-  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
-}
-
 /* === HYFangSongJ (Chinese Mono font) === */
-/* Tier 1: Most common characters (loaded immediately) */
 @font-face {
   font-family: 'ChineseMono';
   font-style: normal;
   font-weight: normal;
   src: local('HYFangSongJ'), url("/fonts/subsets/HYFangSongJ-tier1.woff2") format('woff2');
   font-display: swap;
-  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
-}
-
-/* Tier 2: Medium frequency characters (loaded when idle) */
-@font-face {
-  font-family: 'ChineseMono';
-  font-style: normal;
-  font-weight: normal;
-  src: local('HYFangSongJ'), url("/fonts/subsets/HYFangSongJ-tier2.woff2") format('woff2');
-  font-display: optional;
-  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
-}
-
-/* Tier 3: Least common characters (loaded on demand) */
-@font-face {
-  font-family: 'ChineseMono';
-  font-style: normal;
-  font-weight: normal;
-  src: local('HYFangSongJ'), url("/fonts/subsets/HYFangSongJ-tier3.woff2") format('woff2');
-  font-display: optional;
   unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
 }
 
@@ -138,4 +55,4 @@
   font-family: 'ChineseFallback';
   src: local('PingFang SC'), local('Microsoft YaHei'), local('SimSun');
   unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
-} 
+}

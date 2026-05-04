@@ -156,6 +156,12 @@ html.dark-mode .article-nav {
 html.dark-mode .archive-article-title {
   color: #faf9f6;
 }
+html.dark-mode .archive-article-title:hover {
+  color: #a39e93;
+}
+html.dark-mode a.article-title:hover {
+  color: #a39e93;
+}
 html.dark-mode .archive-article-date {
   color: #a09a93;
 }

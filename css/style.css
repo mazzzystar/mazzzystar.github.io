@@ -814,7 +814,7 @@ a.article-title:hover {
   margin: 1.65em 0 1.1em;
 }
 .article-entry a {
-  color: #4a6e8a;
+  color: #999;
   text-decoration: none;
 }
 .article-entry a:hover {
@@ -1352,7 +1352,7 @@ a.article-title:hover {
   color: #555;
 }
 #footer a {
-  color: #4a6e8a;
+  color: #999;
   text-decoration: none;
 }
 #footer a:hover {
@@ -1445,7 +1445,7 @@ a.article-title:hover {
   margin-left: 15px;
 }
 .article-entry .gist .gist-file .gist-meta a {
-  color: #4a6e8a;
+  color: #999;
   font-weight: normal;
 }
 .article-entry .gist .gist-file .gist-meta a:hover {
@@ -1528,7 +1528,7 @@ pre .hljs-javascript .hljs-function {
     font-size: 1.1em;
   }
   .mobile-nav-link:hover {
-    color: #4a6e8a;
+    color: #999;
   }
 }
 @media screen and (max-width: 470px) {
@@ -1707,7 +1707,7 @@ a.article-title:hover {
   margin: 1.65em 0 1.1em;
 }
 .article-entry a {
-  color: #4a6e8a;
+  color: #999;
   text-decoration: none;
 }
 .article-entry a:hover {
@@ -2135,7 +2135,7 @@ a.article-title:hover {
 }
 .article-type-thoughts .thought {
   font-weight: normal;
-  background-color: #f5f5f5;
+  background-color: #efeeec;
   border-radius: 12px;
   padding: 15px;
   margin-bottom: 18px;

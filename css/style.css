@@ -595,6 +595,11 @@ a {
   max-width: 44em;
   margin: 0 auto;
 }
+@media screen and (max-width: 470px) {
+  #main-nav {
+    padding: 0 8px;
+  }
+}
 .main-nav-link {
   font-size: 18px;
   padding: 20px 15px;
@@ -609,6 +614,11 @@ a {
 .main-nav-link:hover {
   opacity: 1;
 }
+@media screen and (max-width: 470px) {
+  .main-nav-link {
+    padding: 15px 8px;
+  }
+}
 .main-nav-space-between {
   height: 1px;
   -webkit-box-flex: 1;
@@ -618,6 +628,17 @@ a {
   -webkit-flex-grow: 1;
   flex-grow: 1;
   margin: 0 15px;
+}
+@media screen and (max-width: 470px) {
+  .main-nav-space-between {
+    margin: 0;
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    -ms-box-flex: 0;
+    box-flex: 0;
+    -webkit-flex-grow: 0;
+    flex-grow: 0;
+  }
 }
 #main-nav-toggle {
   display: none;

@@ -21,6 +21,18 @@ button.lang-switch {
   padding: 20px 10px !important;
   line-height: 1;
 }
+@media screen and (max-width: 470px) {
+  .dark-mode-toggle,
+  .lang-switch {
+    padding: 15px 5px !important;
+  }
+  .lang-switch {
+    white-space: nowrap;
+  }
+  #nav-rss-link {
+    display: none !important;
+  }
+}
 
 /* --- Dark mode toggle button --- */
 .dark-mode-toggle {

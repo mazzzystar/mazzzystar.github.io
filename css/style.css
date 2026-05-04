@@ -772,7 +772,7 @@ a {
   transition: color 0.2s;
 }
 a.article-title:hover {
-  color: #595753;
+  color: #999;
 }
 .article-entry {
   color: #100f0f;
@@ -1284,7 +1284,7 @@ a.article-title:hover {
   line-height: 1.8em;
 }
 .archive-article-title:hover {
-  color: #595753;
+  color: #999;
 }
 .archive-article-footer {
   margin-top: 1em;
@@ -1665,7 +1665,7 @@ html {
   transition: color 0.2s;
 }
 a.article-title:hover {
-  color: #595753;
+  color: #999;
 }
 .article-entry {
   color: #100f0f;

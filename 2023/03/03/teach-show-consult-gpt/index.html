@@ -11,14 +11,14 @@
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CSJX0CVK20"></script>
     <script>
-      window.dataLayer = window.dataLayer || []
-      function gtag() { dataLayer.push(arguments) }
-      gtag('js', new Date())
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
       gtag('config', 'G-CSJX0CVK20', {
         'send_page_view': true,
-        'cookie_flags': 'securesamesite=none',
+        'cookie_flags': 'secure;samesite=none',
         'transport_type': 'beacon'
-      })
+      });
     </script>
     
 
@@ -40,12 +40,12 @@
           <link rel="stylesheet" href="/css/fontawesome.css">
 
           <meta charset="utf-8">
-          <meta http-equiv="Content-Type" content="text/html charset=utf-8">
+          <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
           <meta name="robots" content="index,follow">
 
           <!-- RSS Feed -->
           
-            <link rel="alternate" type="application/atom+xml" title="TLDR"
+            <link rel="alternate" type="application/atom+xml" title="TL;DR"
               href="../../../../atom.xml">
             
 
@@ -72,7 +72,7 @@
                                   <meta property="og:url" content="https://mazzzystar.com/2023/03/03/teach-show-consult-gpt/">
                                   <meta property="og:image" content="https://mazzzystar.com/favicon.jpg">
                                   <meta property="og:description" content="I tried an odd idea: have ChatGPT learn a music programming language (Alda), give it some great code examples, and then ask it for advice on how to cr">
-                                  <meta property="og:site_name" content="TLDR">
+                                  <meta property="og:site_name" content="TL;DR">
                                   <meta property="og:locale"
                                     content="zh_CN">
                                   <meta property="article:author" content="Ke Fang">
@@ -83,7 +83,7 @@
                                           content="2023-03-03T19:26:02.000Z">
                                         
                                           <meta property="article:modified_time"
-                                            content="2026-05-18T05:39:18.894Z">
+                                            content="2026-05-19T23:18:40.797Z">
                                           
                                             
 
@@ -121,12 +121,12 @@
         "name": "Ke Fang"
       },
       "datePublished": "2023-03-03T19:26:02.000Z",
-      "dateModified": "2026-05-18T05:39:18.894Z",
+      "dateModified": "2026-05-19T23:18:40.797Z",
       "keywords": "",
       "image": "https://mazzzystar.com/favicon.jpg",
       "publisher": {
         "@type": "Organization",
-        "name": "TLDR",
+        "name": "TL;DR",
         "logo": {
           "@type": "ImageObject",
           "url": "https://mazzzystar.com/favicon.jpg"
@@ -142,26 +142,26 @@
                                                       <script>
                                                         if (localStorage.getItem('dark_mode') === 'true' ||
                                                             (localStorage.getItem('dark_mode') === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                                                          document.documentElement.classList.add('dark-mode')
+                                                          document.documentElement.classList.add('dark-mode');
                                                         }
                                                       </script>
 
                                                       <!-- Language switcher styling -->
                                                       <style>
                                                         .lang-switch {
-                                                          display: inline-block
-                                                          color: #555
-                                                          text-decoration: none !important
-                                                          font-weight: bold
-                                                          padding: 3px 8px
-                                                          border-radius: 4px
-                                                          transition: background-color 0.2s ease
+                                                          display: inline-block;
+                                                          color: #555;
+                                                          text-decoration: none !important;
+                                                          font-weight: bold;
+                                                          padding: 3px 8px;
+                                                          border-radius: 4px;
+                                                          transition: background-color 0.2s ease;
                                                         }
 
                                                         .lang-switch:hover {
-                                                          background-color: #f0f0f0
-                                                          color: #333
-                                                          text-decoration: none !important
+                                                          background-color: #f0f0f0;
+                                                          color: #333;
+                                                          text-decoration: none !important;
                                                         }
                                                       </style>
 <meta name="generator" content="Hexo 6.3.0"></head>
@@ -214,7 +214,7 @@
 <div id="header-title">
   <h1 id="logo-wrap">
     <a href="../../../../index.html" id="logo">
-      TLDR
+      TL;DR
     </a>
   </h1>
   
@@ -254,24 +254,24 @@
 <p><code>Alda</code> is a text-based programming language for music composition. It allows you to write and play back music using only a text editor and the command line.</p>
 </blockquote>
 <p>An example:</p>
-<div class="highlight"><pre class="code"><code>piano:
+<div class="highlight code-block language-bash" data-code-fold="open" data-code-lang="bash"><div class="code-block-toolbar"><span class="code-block-lang">bash</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs language-bash">piano:
   o3
-  g8 a b &gt c d e f+ g | a b &gt c d e f+ g4
-  g8 f+ e d c &lt b a g | f+ e d c &lt b a g4
-  &lt&lt <span class="hljs-string">g1/&gtg/&gtg/b/&gtd/g
+  g8 a b &gt; c d e f+ g | a b &gt; c d e f+ g4
+  g8 f+ e d c &lt; b a g | f+ e d c &lt; b a g4
+  &lt;&lt; <span class="hljs-string">g1/&gt;g/&gt;g/b/&gt;d/g
 </span></code></pre></div>
 <p>In this step, all I have to do is to use Prompt Engineering to give ChatGPT as many syntax rules as possible for the Alda language. You can find this part in <code>teach.py</code>:</p>
-<div class="highlight"><pre class="code"><code>ALDA_LANG_RULE = <span class="hljs-string">&quot&quot&quotYou are a musician as well as a technologist who is well versed in programming.
+<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><div class="code-block-toolbar"><span class="code-block-lang">python</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs language-python">ALDA_LANG_RULE = <span class="hljs-string">&quot;&quot;&quot;You are a musician as well as a technologist who is well versed in programming.
 Now you've been asked to learn a new language called Alda, which allows you to create music as if you were programming.
 I will now tell you its rules:
 1.The alda program usually starts with (tempo! number), which is stating the tempo of the music as this number.
-2.Next, the instrument is usually specified, e.g. &quotpiano:&quot, which means that the music will be played on a piano. Other instruments supported are: acoustic-guitar, cello, flute, violin, etc.
+2.Next, the instrument is usually specified, e.g. &quot;piano:&quot;, which means that the music will be played on a piano. Other instruments supported are: acoustic-guitar, cello, flute, violin, etc.
 3.Immediately after that, comes the part of the notes. Let me illustrate the main features of this program.
-a) The default is quarter notes, which means that you type &quotc d e f&quot, which represents a measure that has four quarter notes: C, D, E and F.
-b) The &quot&gt&quot symbol means...
+a) The default is quarter notes, which means that you type &quot;c d e f&quot;, which represents a measure that has four quarter notes: C, D, E and F.
+b) The &quot;&gt;&quot; symbol means...
 </span></code></pre></div>
 <p>Thanks to <a target="_blank" rel="noopener" href="https://github.com/hwchase17/langchain">LangChain</a>, I can easily test the results. Now try to see if it understands the rules:</p>
-<div class="highlight"><pre class="code"><code>&gt&gt&gt python teach.py
+<div class="highlight code-block language-bash" data-code-fold="open" data-code-lang="bash"><div class="code-block-toolbar"><span class="code-block-lang">bash</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs language-bash">&gt;&gt;&gt; python teach.py
 Let<span class="hljs-string">'s test Alda language learning!
 Human:
 c d e+ f-
@@ -279,7 +279,7 @@ AI:
 This is a measure of four quarter notes written in the key of C Major. The notes are C, D, E-sharp, and F-flat.
 
 Human:
-c d &gt e4 f8
+c d &gt; e4 f8
 AI:
 This paragraph of code represents a measure of music that begins at the C major scale and moves up one octave to E.
 The first two notes are quarter notes (C and D), and the third note is an eighth note (E). The last note is a quarter note (F).
@@ -295,22 +295,22 @@ The first two notes are quarter notes (C and D), and the third note is an eighth
 <p>Since ChatGPT has already learned the rules, if we provide it some musical inspiration, perhaps it can extend the music we create by following the works of giants and coming up with new melodies or phrases.</p>
 </blockquote>
 <p>Then I gave it a try:</p>
-<div class="highlight"><pre class="code"><code><span class="hljs-meta">&gt&gt&gt </span>python consult.py
+<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><div class="code-block-toolbar"><span class="code-block-lang">python</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs language-python"><span class="hljs-meta">&gt;&gt;&gt; </span>python consult.py
 Let<span class="hljs-string">'s consult the music master!
 You:
-c d8 &gt g
+c d8 &gt; g
 
 Music Master:
 (tempo! 120)
 piano:
-c4 d8 &gt g4 c4. &ltg4~4. &gtc4. d4~4. c4. &ltg4~4. &gtc4. d4~4. c8 r d e g b2~12 &gt d12 g | d8 r &lt b4~8~ &gt d8 &lt &#123b &gt d g&#1254 |
-g8 r f+4 f &#123e_ g b&#1254 | g8 r f+4 f &#123e_ g b&#1254 | (quant 40) &gt d4 (quant 90) e-4~8 e8 d- c | &lt b_ &gt d4~ f8 &lt b_4 &gt c |
-&lt b_8 &gt (ff) d4~ e8 (f) c2 | &lt a-2. &gt c4 &lt a2~ f b_2 &gt (mf) c8 c4~ d8 | &lt a-2 r8 &gt c4~ d8 | &lt a-2 r8 f4~ (p) g8 |
-(pp) a_16~ b~ a_~ b_ (p) &gt c~
+c4 d8 &gt; g4 c4. &lt;g4~4. &gt;c4. d4~4. c4. &lt;g4~4. &gt;c4. d4~4. c8 r d e g b2~12 &gt; d12 g | d8 r &lt; b4~8~ &gt; d8 &lt; &#123;b &gt; d g&#125;4 |
+g8 r f+4 f &#123;e_ g b&#125;4 | g8 r f+4 f &#123;e_ g b&#125;4 | (quant 40) &gt; d4 (quant 90) e-4~8 e8 d- c | &lt; b_ &gt; d4~ f8 &lt; b_4 &gt; c |
+&lt; b_8 &gt; (ff) d4~ e8 (f) c2 | &lt; a-2. &gt; c4 &lt; a2~ f b_2 &gt; (mf) c8 c4~ d8 | &lt; a-2 r8 &gt; c4~ d8 | &lt; a-2 r8 f4~ (p) g8 |
+(pp) a_16~ b~ a_~ b_ (p) &gt; c~
 
 [INFO] Notes saved to: output.alda
 </span></code></pre></div>
-<p>I used an <a target="_blank" rel="noopener" href="https://severak.github.io/alda-js/">online converter</a> to turn <code>output.alda</code> into a <code>.midi</code> file. Then again using another online <code>midi2mp3</code> <a target="_blank" rel="noopener" href="https://cifkao.github.io/html-midi-player/">tool</a> to get the <code>.wav</code> file music starting with my input of <code>c d8 &gt g</code>.</p>
+<p>I used an <a target="_blank" rel="noopener" href="https://severak.github.io/alda-js/">online converter</a> to turn <code>output.alda</code> into a <code>.midi</code> file. Then again using another online <code>midi2mp3</code> <a target="_blank" rel="noopener" href="https://cifkao.github.io/html-midi-player/">tool</a> to get the <code>.wav</code> file music starting with my input of <code>c d8 &gt; g</code>.</p>
 <p>You can listen to it here:</p>
 
 <video src='/videos/alda.mp4' type='video/mp4' controls='controls'  width='40%' height='5%'>
@@ -366,7 +366,7 @@ g8 r f+4 f &#123e_ g b&#1254 | g8 r f+4 f &#123e_ g b&#1254 | (quant 40) &gt d4 
   <div class="outer">
     <div id="footer-info" class="inner">
       
-        &copy 2026 Ke Fang<br>
+        &copy; 2026 Ke Fang<br>
 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/bill-xia/hexo-theme-mashiro" target="_blank">Mashiro</a><br>
       
     </div>
@@ -406,8 +406,8 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
   <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
   
 
-    <script defer src="../../../../js/script.js"></script>
     <script defer src="../../../../js/clipboard.min.js"></script>
+    <script defer src="../../../../js/script.js"></script>
 
         
 
@@ -415,73 +415,74 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
           <!-- Dark Mode Toggle -->
           <script>
             (function() {
-              var darkMode = localStorage.getItem('dark_mode')
+              var darkMode = localStorage.getItem('dark_mode');
               if (darkMode === null) {
-                darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+                darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
               } else {
-                darkMode = darkMode === 'true'
+                darkMode = darkMode === 'true';
               }
-              if (darkMode) document.documentElement.classList.add('dark-mode')
+              if (darkMode) document.documentElement.classList.add('dark-mode');
 
               window.toggleDarkMode = function() {
-                darkMode = !darkMode
-                document.documentElement.classList.toggle('dark-mode', darkMode)
-                localStorage.setItem('dark_mode', darkMode)
-              }
-            })()
+                darkMode = !darkMode;
+                document.documentElement.classList.toggle('dark-mode', darkMode);
+                localStorage.setItem('dark_mode', darkMode);
+              };
+            })();
           </script>
 
           <!-- Language Switch -->
           <script>
-            let currentLang = localStorage.getItem('blog_language') || ((navigator.language || '').startsWith('zh') ? 'zh' : 'en')
+            let currentLang = localStorage.getItem('blog_language') || ((navigator.language || '').startsWith('zh') ? 'zh' : 'en');
 
             document.addEventListener('DOMContentLoaded', function () {
               // 检查是否在首页
-              const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html'
-              const switchBtn = document.querySelector('.lang-switch')
+              const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+              const switchBtn = document.querySelector('.lang-switch');
 
               if (switchBtn) {
                 // 只在首页显示语言切换按钮
                 if (isHomePage) {
-                  switchBtn.style.display = ''
-                  updateLanguageDisplay()
-                  updateSwitchButton()
+                  switchBtn.style.display = '';
+                  updateLanguageDisplay();
+                  updateSwitchButton();
                 } else {
-                  switchBtn.style.display = 'none'
+                  switchBtn.style.display = 'none';
                 }
               }
-            })
+            });
 
             function switchLanguage() {
               // 先切换语言
-              currentLang = currentLang === 'zh' ? 'en' : 'zh'
-              localStorage.setItem('blog_language', currentLang)
+              currentLang = currentLang === 'zh' ? 'en' : 'zh';
+              localStorage.setItem('blog_language', currentLang);
 
               // 更新按钮文本
-              updateSwitchButton()
+              updateSwitchButton();
 
               // 最后更新显示
-              updateLanguageDisplay()
+              updateLanguageDisplay();
             }
 
             function updateLanguageDisplay() {
               document.querySelectorAll('.archive-article').forEach(article => {
-                const articleLang = article.getAttribute('data-lang')
+                const articleLang = article.getAttribute('data-lang');
                 if (articleLang === currentLang) {
-                  article.style.display = ''
+                  article.style.display = '';
                 } else {
-                  article.style.display = 'none'
+                  article.style.display = 'none';
                 }
-              })
+              });
             }
 
             function updateSwitchButton() {
-              const switchBtn = document.querySelector('.lang-switch')
+              const switchBtn = document.querySelector('.lang-switch');
               if (switchBtn) {
-                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文'
+                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文';
               }
             }
           </script>
+
     </div>
   </body>
 

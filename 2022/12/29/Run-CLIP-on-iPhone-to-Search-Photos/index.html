@@ -11,14 +11,14 @@
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CSJX0CVK20"></script>
     <script>
-      window.dataLayer = window.dataLayer || []
-      function gtag() { dataLayer.push(arguments) }
-      gtag('js', new Date())
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
       gtag('config', 'G-CSJX0CVK20', {
         'send_page_view': true,
-        'cookie_flags': 'securesamesite=none',
+        'cookie_flags': 'secure;samesite=none',
         'transport_type': 'beacon'
-      })
+      });
     </script>
     
 
@@ -40,12 +40,12 @@
           <link rel="stylesheet" href="/css/fontawesome.css">
 
           <meta charset="utf-8">
-          <meta http-equiv="Content-Type" content="text/html charset=utf-8">
+          <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
           <meta name="robots" content="index,follow">
 
           <!-- RSS Feed -->
           
-            <link rel="alternate" type="application/atom+xml" title="TLDR"
+            <link rel="alternate" type="application/atom+xml" title="TL;DR"
               href="../../../../atom.xml">
             
 
@@ -72,7 +72,7 @@
                                   <meta property="og:url" content="https://mazzzystar.com/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/">
                                   <meta property="og:image" content="https://mazzzystar.com/images/2022-12-28/Queryable-flow-chart.jpg">
                                   <meta property="og:description" content="Update: I have made Queryable open-source. This might help you learn how to export Core ML models, as well as how to calculate, store, search, and ac">
-                                  <meta property="og:site_name" content="TLDR">
+                                  <meta property="og:site_name" content="TL;DR">
                                   <meta property="og:locale"
                                     content="zh_CN">
                                   <meta property="article:author" content="Ke Fang">
@@ -83,7 +83,7 @@
                                           content="2022-12-29T11:51:57.000Z">
                                         
                                           <meta property="article:modified_time"
-                                            content="2026-05-18T05:39:18.893Z">
+                                            content="2026-05-19T23:18:40.796Z">
                                           
                                             
 
@@ -121,12 +121,12 @@
         "name": "Ke Fang"
       },
       "datePublished": "2022-12-29T11:51:57.000Z",
-      "dateModified": "2026-05-18T05:39:18.893Z",
+      "dateModified": "2026-05-19T23:18:40.796Z",
       "keywords": "",
       "image": "https://mazzzystar.com/images/2022-12-28/Queryable-flow-chart.jpg",
       "publisher": {
         "@type": "Organization",
-        "name": "TLDR",
+        "name": "TL;DR",
         "logo": {
           "@type": "ImageObject",
           "url": "https://mazzzystar.com/favicon.jpg"
@@ -142,26 +142,26 @@
                                                       <script>
                                                         if (localStorage.getItem('dark_mode') === 'true' ||
                                                             (localStorage.getItem('dark_mode') === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                                                          document.documentElement.classList.add('dark-mode')
+                                                          document.documentElement.classList.add('dark-mode');
                                                         }
                                                       </script>
 
                                                       <!-- Language switcher styling -->
                                                       <style>
                                                         .lang-switch {
-                                                          display: inline-block
-                                                          color: #555
-                                                          text-decoration: none !important
-                                                          font-weight: bold
-                                                          padding: 3px 8px
-                                                          border-radius: 4px
-                                                          transition: background-color 0.2s ease
+                                                          display: inline-block;
+                                                          color: #555;
+                                                          text-decoration: none !important;
+                                                          font-weight: bold;
+                                                          padding: 3px 8px;
+                                                          border-radius: 4px;
+                                                          transition: background-color 0.2s ease;
                                                         }
 
                                                         .lang-switch:hover {
-                                                          background-color: #f0f0f0
-                                                          color: #333
-                                                          text-decoration: none !important
+                                                          background-color: #f0f0f0;
+                                                          color: #333;
+                                                          text-decoration: none !important;
                                                         }
                                                       </style>
 <meta name="generator" content="Hexo 6.3.0"></head>
@@ -214,7 +214,7 @@
 <div id="header-title">
   <h1 id="logo-wrap">
     <a href="../../../../index.html" id="logo">
-      TLDR
+      TL;DR
     </a>
   </h1>
   
@@ -263,25 +263,25 @@
 </ul>
 </blockquote>
 <p>We can calculate the proximity of a text sentence and an image by finding the cosine similarity between their text vector and image vector. Here’s some pseudo-code to illustrate:</p>
-<div class="highlight"><pre class="code"><code><span class="hljs-built_in">import</span> clip
+<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><div class="code-block-toolbar"><span class="code-block-lang">python</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs language-python"><span class="hljs-keyword">import</span> clip
 
 <span class="hljs-comment"># Load ViT-B-32 CLIP model</span>
-model, <span class="hljs-attr">preprocess</span> = clip.load(<span class="hljs-string">&quotViT-B/32&quot</span>, <span class="hljs-attr">device=device)</span>
+model, preprocess = clip.load(<span class="hljs-string">&quot;ViT-B/32&quot;</span>, device=device)
 
-<span class="hljs-comment"># Calculate image vector &amp text vector</span>
-<span class="hljs-attr">image_feature</span> = model.encode_image(<span class="hljs-string">&quotphoto-of-a-dog.png&quot</span>)
-<span class="hljs-attr">text_feature</span> = model.encode_text(<span class="hljs-string">&quotrainy night&quot</span>)
+<span class="hljs-comment"># Calculate image vector &amp; text vector</span>
+image_feature = model.encode_image(<span class="hljs-string">&quot;photo-of-a-dog.png&quot;</span>)
+text_feature = model.encode_text(<span class="hljs-string">&quot;rainy night&quot;</span>)
 
 <span class="hljs-comment"># cosine similarity</span>
-<span class="hljs-attr">sim</span> = cosin_similarity(image_feature, text_feature)
+sim = cosin_similarity(image_feature, text_feature)
 </code></pre></div>
 <h2 id="integrate-clip into ios">Integrate CLIP into iOS</h2>
 <p>I exported the Text Encoder and Image Encoder to CoreML models using the <a target="_blank" rel="noopener" href="https://coremltools.readme.io/docs/pytorch-conversion">coremltools</a> library. The final models have a total file size of 300MB. Then, I started writing in Swift.</p>
 <p>Here’s how to perform inference with the Text Encoder in Swift:</p>
-<div class="highlight"><pre class="code"><code><span class="hljs-comment">// Load the Text Encoder model.</span>
-<span class="hljs-keyword">let</span> text_encoder = <span class="hljs-keyword">try</span> <span class="hljs-constructor">MLModel(<span class="hljs-params">contentsOf</span>: TextEncoderURL, <span class="hljs-params">configuration</span>: <span class="hljs-params">config</span>)</span>
+<div class="highlight code-block language-swift" data-code-fold="open" data-code-lang="swift"><div class="code-block-toolbar"><span class="code-block-lang">swift</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs language-swift"><span class="hljs-comment">// Load the Text Encoder model.</span>
+<span class="hljs-keyword">let</span> text_encoder <span class="hljs-operator">=</span> <span class="hljs-keyword">try</span> <span class="hljs-type">MLModel</span>(contentsOf: <span class="hljs-type">TextEncoderURL</span>, configuration: config)
 <span class="hljs-comment">// Given a prompt, calculate the CLIP text vector for it.</span>
-<span class="hljs-keyword">let</span> text_feature = text_encoder.encode(<span class="hljs-string">&quota dog&quot</span>)
+<span class="hljs-keyword">let</span> text_feature <span class="hljs-operator">=</span> text_encoder.encode(<span class="hljs-string">&quot;a dog&quot;</span>)
 </code></pre></div>
 <p>I split the Text Encoder and Image Encoder into two models because, when using this Photos search app, <strong>your input text will always change, but the content of the Photos library remains fixed.</strong> This means that all the image vectors can be computed once and saved in advance. Then, the text vector is computed only once for each of your searches.</p>
 <p>This approach makes real-time text searching across tens of thousands of photos in your library possible. Below is a flowchart of how Queryable works:</p>
@@ -357,7 +357,7 @@ model, <span class="hljs-attr">preprocess</span> = clip.load(<span class="hljs-s
   <div class="outer">
     <div id="footer-info" class="inner">
       
-        &copy 2026 Ke Fang<br>
+        &copy; 2026 Ke Fang<br>
 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/bill-xia/hexo-theme-mashiro" target="_blank">Mashiro</a><br>
       
     </div>
@@ -397,8 +397,8 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
   <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
   
 
-    <script defer src="../../../../js/script.js"></script>
     <script defer src="../../../../js/clipboard.min.js"></script>
+    <script defer src="../../../../js/script.js"></script>
 
         
 
@@ -406,73 +406,74 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
           <!-- Dark Mode Toggle -->
           <script>
             (function() {
-              var darkMode = localStorage.getItem('dark_mode')
+              var darkMode = localStorage.getItem('dark_mode');
               if (darkMode === null) {
-                darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+                darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
               } else {
-                darkMode = darkMode === 'true'
+                darkMode = darkMode === 'true';
               }
-              if (darkMode) document.documentElement.classList.add('dark-mode')
+              if (darkMode) document.documentElement.classList.add('dark-mode');
 
               window.toggleDarkMode = function() {
-                darkMode = !darkMode
-                document.documentElement.classList.toggle('dark-mode', darkMode)
-                localStorage.setItem('dark_mode', darkMode)
-              }
-            })()
+                darkMode = !darkMode;
+                document.documentElement.classList.toggle('dark-mode', darkMode);
+                localStorage.setItem('dark_mode', darkMode);
+              };
+            })();
           </script>
 
           <!-- Language Switch -->
           <script>
-            let currentLang = localStorage.getItem('blog_language') || ((navigator.language || '').startsWith('zh') ? 'zh' : 'en')
+            let currentLang = localStorage.getItem('blog_language') || ((navigator.language || '').startsWith('zh') ? 'zh' : 'en');
 
             document.addEventListener('DOMContentLoaded', function () {
               // 检查是否在首页
-              const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html'
-              const switchBtn = document.querySelector('.lang-switch')
+              const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+              const switchBtn = document.querySelector('.lang-switch');
 
               if (switchBtn) {
                 // 只在首页显示语言切换按钮
                 if (isHomePage) {
-                  switchBtn.style.display = ''
-                  updateLanguageDisplay()
-                  updateSwitchButton()
+                  switchBtn.style.display = '';
+                  updateLanguageDisplay();
+                  updateSwitchButton();
                 } else {
-                  switchBtn.style.display = 'none'
+                  switchBtn.style.display = 'none';
                 }
               }
-            })
+            });
 
             function switchLanguage() {
               // 先切换语言
-              currentLang = currentLang === 'zh' ? 'en' : 'zh'
-              localStorage.setItem('blog_language', currentLang)
+              currentLang = currentLang === 'zh' ? 'en' : 'zh';
+              localStorage.setItem('blog_language', currentLang);
 
               // 更新按钮文本
-              updateSwitchButton()
+              updateSwitchButton();
 
               // 最后更新显示
-              updateLanguageDisplay()
+              updateLanguageDisplay();
             }
 
             function updateLanguageDisplay() {
               document.querySelectorAll('.archive-article').forEach(article => {
-                const articleLang = article.getAttribute('data-lang')
+                const articleLang = article.getAttribute('data-lang');
                 if (articleLang === currentLang) {
-                  article.style.display = ''
+                  article.style.display = '';
                 } else {
-                  article.style.display = 'none'
+                  article.style.display = 'none';
                 }
-              })
+              });
             }
 
             function updateSwitchButton() {
-              const switchBtn = document.querySelector('.lang-switch')
+              const switchBtn = document.querySelector('.lang-switch');
               if (switchBtn) {
-                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文'
+                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文';
               }
             }
           </script>
+
     </div>
   </body>
 

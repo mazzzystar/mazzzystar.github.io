@@ -11,14 +11,14 @@
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CSJX0CVK20"></script>
     <script>
-      window.dataLayer = window.dataLayer || []
-      function gtag() { dataLayer.push(arguments) }
-      gtag('js', new Date())
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
       gtag('config', 'G-CSJX0CVK20', {
         'send_page_view': true,
-        'cookie_flags': 'securesamesite=none',
+        'cookie_flags': 'secure;samesite=none',
         'transport_type': 'beacon'
-      })
+      });
     </script>
     
 
@@ -40,12 +40,12 @@
           <link rel="stylesheet" href="/css/fontawesome.css">
 
           <meta charset="utf-8">
-          <meta http-equiv="Content-Type" content="text/html charset=utf-8">
+          <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
           <meta name="robots" content="index,follow">
 
           <!-- RSS Feed -->
           
-            <link rel="alternate" type="application/atom+xml" title="TLDR"
+            <link rel="alternate" type="application/atom+xml" title="TL;DR"
               href="../../../../atom.xml">
             
 
@@ -82,7 +82,7 @@
 一篇长长长长的流水账。
 起源
 故事起源于 2022 年 5 月的一个周末，我坐在北京昌平区的书店里，正在调试 Disco Diffusion 模型。此时 AI 绘画时代初露端倪、SD 尚未发布。画一张图，在一张性能良好的 V100 显卡上要 5 分">
-                                  <meta property="og:site_name" content="TLDR">
+                                  <meta property="og:site_name" content="TL;DR">
                                   <meta property="og:locale"
                                     content="zh_CN">
                                   <meta property="article:author" content="Ke Fang">
@@ -95,7 +95,7 @@
                                           content="2024-07-21T15:14:16.000Z">
                                         
                                           <meta property="article:modified_time"
-                                            content="2026-05-18T05:39:18.893Z">
+                                            content="2026-05-19T23:18:40.796Z">
                                           
                                             
 
@@ -141,12 +141,12 @@
         "name": "Ke Fang"
       },
       "datePublished": "2024-07-21T15:14:16.000Z",
-      "dateModified": "2026-05-18T05:39:18.893Z",
+      "dateModified": "2026-05-19T23:18:40.796Z",
       "keywords": "AI, 智能, 相册, 搜索, CLIP, 模型, 语义, 识别, 搜图, 寻隐, Queryable, 应用, 两年, 产品, 创业, 开源, 抄袭",
       "image": "https://mazzzystar.com/images/2022-12-28/Queryable-flow-chart.jpg",
       "publisher": {
         "@type": "Organization",
-        "name": "TLDR",
+        "name": "TL;DR",
         "logo": {
           "@type": "ImageObject",
           "url": "https://mazzzystar.com/favicon.jpg"
@@ -162,26 +162,26 @@
                                                       <script>
                                                         if (localStorage.getItem('dark_mode') === 'true' ||
                                                             (localStorage.getItem('dark_mode') === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                                                          document.documentElement.classList.add('dark-mode')
+                                                          document.documentElement.classList.add('dark-mode');
                                                         }
                                                       </script>
 
                                                       <!-- Language switcher styling -->
                                                       <style>
                                                         .lang-switch {
-                                                          display: inline-block
-                                                          color: #555
-                                                          text-decoration: none !important
-                                                          font-weight: bold
-                                                          padding: 3px 8px
-                                                          border-radius: 4px
-                                                          transition: background-color 0.2s ease
+                                                          display: inline-block;
+                                                          color: #555;
+                                                          text-decoration: none !important;
+                                                          font-weight: bold;
+                                                          padding: 3px 8px;
+                                                          border-radius: 4px;
+                                                          transition: background-color 0.2s ease;
                                                         }
 
                                                         .lang-switch:hover {
-                                                          background-color: #f0f0f0
-                                                          color: #333
-                                                          text-decoration: none !important
+                                                          background-color: #f0f0f0;
+                                                          color: #333;
+                                                          text-decoration: none !important;
                                                         }
                                                       </style>
 <meta name="generator" content="Hexo 6.3.0"></head>
@@ -234,7 +234,7 @@
 <div id="header-title">
   <h1 id="logo-wrap">
     <a href="../../../../index.html" id="logo">
-      TLDR
+      TL;DR
     </a>
   </h1>
   
@@ -278,7 +278,7 @@
 <p><a target="_blank" rel="noopener" href="https://openai.com/blog/clip">CLIP</a> 是 OpenAI 2021 年发布的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它能<strong>比较任意一张图片和一句文本之间的相似度</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在 Disco Diffusion 中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型用 CLIP 来计算生成图像与用户<code>prompt</code>之间的损失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不断优化损失从而实现绘画(<a href="https://mazzzystar.com/2022/05/04/how-ai-art-works-1/">详细原理</a>)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>使用越小的 CLIP 模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>绘图速度越快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但画面细节也会越差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我当时正在调试以平衡绘图速度和画面细节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>坐在书店里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>突然一个想法闯进了脑子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><em>既然可以比较图文相似度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么可以用它来搜照片吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></em> 搜索后发现已经<a target="_blank" rel="noopener" href="https://github.com/kingyiusuen/clip-image-search">有人</a>写了一个用 CLIP 搜图的工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>原理是将图片上传到服务器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>统一提取特征<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>输入英文并计算文本与每一张图的相似度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>排序就能实现搜图<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p><img src="/images/2024-07-21/clip-img-search.jpg" alt="https://github.com/kingyiusuen/clip-image-search"><br>
-我开始尝试将我的 iPhone 相册上传到服务器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>试了一番下来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我发现效果好得惊人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span>特别是搜一些虚无缥缈的东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比如我输入&quotlonely&quot(<em>孤独</em>)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它返回到前三张照片如下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+我开始尝试将我的 iPhone 相册上传到服务器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>试了一番下来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我发现效果好得惊人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span>特别是搜一些虚无缥缈的东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比如我输入&quot;lonely&quot;(<em>孤独</em>)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它返回到前三张照片如下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
 <p><img src="/images/2024-07-21/search-loney-in-CLIP.jpg" alt="输入'lonely'从照片库返回的结果"></p>
 <p>把照片放在服务器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这不是个好想法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我照片最多的地方就是 iPhone 本地相册<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><strong>能否做一个完全运行在本地的 CLIP 搜图 App 呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></strong> 我非常喜欢这个 idea<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>几次和朋友讨论起<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但每次都无疾而终<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>我心里太没底了:</p>
@@ -291,7 +291,7 @@
 <h2 id="回响">回响</h2>
 <p>转折点是 2022 年 12 月初<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为一些变故<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我突然到了一个语言完全不通的陌生国家(🇰🇷)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>与 6pen 的缘分也走到尽头<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>于是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在空旷的咖啡店<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一台笔记本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>一杯冰拿铁坐一整天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>背景音乐放着 Kpop<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>窗外是厚厚的积雪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>中午饿了吃店里的三明治<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我每天就这样度过<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>这里网速飞快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>没有核酸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>周围人的谈话因语言不通自动变成了白噪音<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我好像突然活在真空之中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种陌生的真空感让我兴奋<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>像流放的逃犯一样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我是谁<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>我的过去不再重要<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在这里我能从头学习并完成任何事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>是时候开始做点真正让我兴奋的产品了——这个 idea 再次抓住了我<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>但这次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我不再恐惧验证可行性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我学习用 Swift 编写<code>tokenizer</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>研究应该如何计算并本地存储特征<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>学习用多核加速索引<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对比不同相似度排序算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>期间在 StackOverflow 提了许多愚蠢的问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有很多次挫败时刻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但我脑海里一直浮现这个画面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>在手机输入&quot<code>coffee and laptop</code>&quot<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>点击搜索<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>旋转动画后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这张照片从 3 万张相册中跳出来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>出现在我眼前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>但这次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我不再恐惧验证可行性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我学习用 Swift 编写<code>tokenizer</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>研究应该如何计算并本地存储特征<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>学习用多核加速索引<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对比不同相似度排序算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>期间在 StackOverflow 提了许多愚蠢的问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有很多次挫败时刻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但我脑海里一直浮现这个画面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>在手机输入&quot;<code>coffee and laptop</code>&quot;<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>点击搜索<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>旋转动画后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这张照片从 3 万张相册中跳出来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>出现在我眼前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p><img src="/images/2024-07-21/IMG_5091.jpg" alt="工作日的咖啡店，几乎没有人。"></p>
 <p>这个幻想支撑我废寝忘食地干了 2 个星期 —— 字面意思<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>好几次忘记吃午饭<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一杯拿铁喝到傍晚饿到胃疼<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>全身乏力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>有个重要的时间节点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就是 ChatGPT 在那时刚刚发布<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但我在开发中陷入太深<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>根本忽视了它的存在<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那可能是我这辈子最后几次在 StackOverflow 提问<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>总之<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在 12 月 27 日<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我终于完整做出了产品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我把模型中的<em>文本模型</em>和<em>图像模型</em>分拆成两个独立模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>分开加载<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
@@ -311,7 +311,7 @@
 <p>我只好将它变成付费产品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>用户必须购买<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>之后从打开 App<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>构建索引到完成搜索的过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只弹出一次<code>相册权限请求</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我知道这么做很蠢——后续的教训也验证了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>付费下载会带来大量差评<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>因为模型太吃算力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>许多内存小的机型上构建索引会崩溃<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>卡顿<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在 iPhone X 系列算子支持异常导致搜索结果全黑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这些都会被骂 Ripoff(诈骗)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>并且<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用户根本不会在意<em>不弹出联网请求</em>这件事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一旦出现以上异常<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他们就会删 App<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>打差评<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>质问我把他的相册偷偷上传到哪去了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>总之<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终我将其定价为 3.99 美元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一次购买<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>终身使用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <h2 id="推向市场">推向市场</h2>
-<p>我给产品取了名字<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>Queryable</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>意为<em>可查询的</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并发了条很中二的动态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><em>我觉得这个 app 可能会改变世界</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我对此信心满满<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚至给 Tim Cook 写了一封邮件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>希望苹果能收购这个产品(笑)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>那时候我已经开始用 ChatGPT 了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可能因为太激动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我忘了替换掉自己的名字<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>点击发送之后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才看到邮件开头是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>＂Dear Mr. Cook, My name is [Your Name]&quot</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我给产品取了名字<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>Queryable</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>意为<em>可查询的</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并发了条很中二的动态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><em>我觉得这个 app 可能会改变世界</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我对此信心满满<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚至给 Tim Cook 写了一封邮件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>希望苹果能收购这个产品(笑)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>那时候我已经开始用 ChatGPT 了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可能因为太激动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我忘了替换掉自己的名字<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>点击发送之后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才看到邮件开头是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>＂Dear Mr. Cook, My name is [Your Name]&quot;</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>当然最终也没有收到回信<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>我又开始雄心勃勃地准备写篇产品介绍<a href="https://mazzzystar.com/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/">文章</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>反复斟词酌句<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>试图将它变成我心中 Hacker News 好文章的风格<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在 12 月 29 日<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>App Store 审核通过的当天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我立刻在 Hacker News 提交了我的文章链接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但系统提示<em>账号太新无法提交</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我给他们发邮件反馈了这个问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让朋友用他的账号帮我发帖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>帖子很快沉了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>邮件也没收到回信<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
@@ -325,7 +325,7 @@
 <blockquote>
 <p>This is our long-running experiment in story re-upping. Moderators and a small number of reviewer users comb the depths of /newest looking for stories that got overlooked but which the community might find interesting. Those go into a second-chance pool from which stories are randomly selected and lobbed onto the bottom part of the front page. This guarantees them a few minutes of attention. If they don’t interest the community they soon fall off, but if they do, they get upvoted and stay on the front page.</p>
 <p>这是我们长期进行的故事重演实验<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>版主和少数审阅者用户会深入寻找被忽视<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>但社区用户可能会感兴趣的故事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这些故事会进入第二次机会池<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>该池中的故事会被随机选择并放置到首页的底部<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这保证了它们获得了几分钟的注意力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果社区用户不感兴趣<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们很快就会下沉消失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但如果社区感兴趣<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们就会得到支持(upvote)并留在首页<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=11662380">https://news.ycombinator.com/item?id=11662380</a></p>
+<a class="link-preview-card link-preview-card-generic" href="https://news.ycombinator.com/item?id=11662380" target="_blank" rel="noopener noreferrer" aria-label="news.ycombinator.com - /item"><span class="link-preview-icon" aria-hidden="true" data-preview-text="N"></span><span class="link-preview-body"><span class="link-preview-domain" aria-hidden="true" data-preview-text="news.ycombinator.com"></span><span class="link-preview-title" aria-hidden="true" data-preview-text="news.ycombinator.com"></span><span class="link-preview-description" aria-hidden="true" data-preview-text="/item"></span></span><span class="link-preview-action" aria-hidden="true" data-preview-text="Open"></span></a>
 </blockquote>
 <p>当晚 7 点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我的<a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=34686947">帖子</a>冲到了 Hacker News 首页第二名<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
 <img src="/images/2024-07-21/queryable-on-hacker-news.jpg" alt="文章上了Hacker News首页#2"></p>
@@ -348,11 +348,11 @@
 </ol>
 <p>在他们看来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>第 2 点让第 1 点的情况变得更糟了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在 Hacker News 接二连三的余热结束以后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个产品在欧美销量迅速变得惨淡<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每天个位数的下载<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>几十块的收入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>在我的想象中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>改变世界的东西是一骑绝尘的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>怎么会突然停下了呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>我陷入了巨大的怀疑和悲观<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h2 id="免费-&amp 开源">免费 &amp 开源</h2>
+<h2 id="免费-&amp; 开源">免费 &amp; 开源</h2>
 <p>所幸国内的<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/SWFuMXzzsNXw5C8Isq60AA">差评</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/E7K5nkgr-3bjqwbRz36Opg">果壳</a>等公众号对寻隐的自来水曝光<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这让我从 1 月份开始<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每个月可以获得 1 万元左右的收入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且因为模型运行在手机端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就没有服务器成本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>从 4 月份起<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>没有任何流量曝光<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>不做任何更新的情形下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>平均每月大概可以获得 3000 元的收入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>但是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span>我仍然觉得这是一个很有用的产品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只是我没办法让很多人知道<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我进行过一次限时免费<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当天下载量超过过往日均的 100 倍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我想<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>与其维持这样每月 3000 块的收入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可能阻止了 99%的人发现这个产品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不如让所有人都可以使用它<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>于是我决定让它一直免费<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>既然免费了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>源代码好像就并不是什么机密了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我在思考要不要把源代码放出来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>最终<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在 2023 年 7 月 10 日<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我在 V2EX 发布的一条<a target="_blank" rel="noopener" href="https://v2ex.com/t/955496">帖子</a>决定免费&amp开源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>很多人一听到<em>开源</em>就觉得莫名高大上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但对我而言<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>开源动机很简单<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p>既然免费了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>源代码好像就并不是什么机密了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我在思考要不要把源代码放出来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>最终<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在 2023 年 7 月 10 日<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我在 V2EX 发布的一条<a target="_blank" rel="noopener" href="https://v2ex.com/t/955496">帖子</a>决定免费&amp;开源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>很多人一听到<em>开源</em>就觉得莫名高大上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但对我而言<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>开源动机很简单<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
 <ol>
 <li>我曾经收到过大量来自国内外开发者的邮件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>询问 Queryable/寻隐的技术细节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我懒得解释<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>开源能让他们直接从源码中了解模型导出加载<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>计算加速<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>存储排序等细节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
 <li>开源能打消很多人对于相册隐私的顾虑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
@@ -430,7 +430,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-        &copy 2026 Ke Fang<br>
+        &copy; 2026 Ke Fang<br>
 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/bill-xia/hexo-theme-mashiro" target="_blank">Mashiro</a><br>
       
     </div>
@@ -470,8 +470,8 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
   <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
   
 
-    <script defer src="../../../../js/script.js"></script>
     <script defer src="../../../../js/clipboard.min.js"></script>
+    <script defer src="../../../../js/script.js"></script>
 
         
 
@@ -479,73 +479,74 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
           <!-- Dark Mode Toggle -->
           <script>
             (function() {
-              var darkMode = localStorage.getItem('dark_mode')
+              var darkMode = localStorage.getItem('dark_mode');
               if (darkMode === null) {
-                darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+                darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
               } else {
-                darkMode = darkMode === 'true'
+                darkMode = darkMode === 'true';
               }
-              if (darkMode) document.documentElement.classList.add('dark-mode')
+              if (darkMode) document.documentElement.classList.add('dark-mode');
 
               window.toggleDarkMode = function() {
-                darkMode = !darkMode
-                document.documentElement.classList.toggle('dark-mode', darkMode)
-                localStorage.setItem('dark_mode', darkMode)
-              }
-            })()
+                darkMode = !darkMode;
+                document.documentElement.classList.toggle('dark-mode', darkMode);
+                localStorage.setItem('dark_mode', darkMode);
+              };
+            })();
           </script>
 
           <!-- Language Switch -->
           <script>
-            let currentLang = localStorage.getItem('blog_language') || ((navigator.language || '').startsWith('zh') ? 'zh' : 'en')
+            let currentLang = localStorage.getItem('blog_language') || ((navigator.language || '').startsWith('zh') ? 'zh' : 'en');
 
             document.addEventListener('DOMContentLoaded', function () {
               // 检查是否在首页
-              const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html'
-              const switchBtn = document.querySelector('.lang-switch')
+              const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+              const switchBtn = document.querySelector('.lang-switch');
 
               if (switchBtn) {
                 // 只在首页显示语言切换按钮
                 if (isHomePage) {
-                  switchBtn.style.display = ''
-                  updateLanguageDisplay()
-                  updateSwitchButton()
+                  switchBtn.style.display = '';
+                  updateLanguageDisplay();
+                  updateSwitchButton();
                 } else {
-                  switchBtn.style.display = 'none'
+                  switchBtn.style.display = 'none';
                 }
               }
-            })
+            });
 
             function switchLanguage() {
               // 先切换语言
-              currentLang = currentLang === 'zh' ? 'en' : 'zh'
-              localStorage.setItem('blog_language', currentLang)
+              currentLang = currentLang === 'zh' ? 'en' : 'zh';
+              localStorage.setItem('blog_language', currentLang);
 
               // 更新按钮文本
-              updateSwitchButton()
+              updateSwitchButton();
 
               // 最后更新显示
-              updateLanguageDisplay()
+              updateLanguageDisplay();
             }
 
             function updateLanguageDisplay() {
               document.querySelectorAll('.archive-article').forEach(article => {
-                const articleLang = article.getAttribute('data-lang')
+                const articleLang = article.getAttribute('data-lang');
                 if (articleLang === currentLang) {
-                  article.style.display = ''
+                  article.style.display = '';
                 } else {
-                  article.style.display = 'none'
+                  article.style.display = 'none';
                 }
-              })
+              });
             }
 
             function updateSwitchButton() {
-              const switchBtn = document.querySelector('.lang-switch')
+              const switchBtn = document.querySelector('.lang-switch');
               if (switchBtn) {
-                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文'
+                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文';
               }
             }
           </script>
+
     </div>
   </body>
 

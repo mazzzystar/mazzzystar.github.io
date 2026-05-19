@@ -11,14 +11,14 @@
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CSJX0CVK20"></script>
     <script>
-      window.dataLayer = window.dataLayer || []
-      function gtag() { dataLayer.push(arguments) }
-      gtag('js', new Date())
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
       gtag('config', 'G-CSJX0CVK20', {
         'send_page_view': true,
-        'cookie_flags': 'securesamesite=none',
+        'cookie_flags': 'secure;samesite=none',
         'transport_type': 'beacon'
-      })
+      });
     </script>
     
 
@@ -40,12 +40,12 @@
           <link rel="stylesheet" href="/css/fontawesome.css">
 
           <meta charset="utf-8">
-          <meta http-equiv="Content-Type" content="text/html charset=utf-8">
+          <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
           <meta name="robots" content="index,follow">
 
           <!-- RSS Feed -->
           
-            <link rel="alternate" type="application/atom+xml" title="TLDR"
+            <link rel="alternate" type="application/atom+xml" title="TL;DR"
               href="../../../../atom.xml">
             
 
@@ -80,7 +80,7 @@ The story begins ">
 This is a long, long chronicle.
 Origins
 The story begins">
-                                  <meta property="og:site_name" content="TLDR">
+                                  <meta property="og:site_name" content="TL;DR">
                                   <meta property="og:locale"
                                     content="zh_CN">
                                   <meta property="article:author" content="Ke Fang">
@@ -91,7 +91,7 @@ The story begins">
                                           content="2024-07-21T15:14:15.000Z">
                                         
                                           <meta property="article:modified_time"
-                                            content="2026-05-18T05:39:18.893Z">
+                                            content="2026-05-19T23:18:40.796Z">
                                           
                                             
 
@@ -137,12 +137,12 @@ The story begins",
         "name": "Ke Fang"
       },
       "datePublished": "2024-07-21T15:14:15.000Z",
-      "dateModified": "2026-05-18T05:39:18.893Z",
+      "dateModified": "2026-05-19T23:18:40.796Z",
       "keywords": "",
       "image": "https://mazzzystar.com/images/2022-12-28/Queryable-flow-chart.jpg",
       "publisher": {
         "@type": "Organization",
-        "name": "TLDR",
+        "name": "TL;DR",
         "logo": {
           "@type": "ImageObject",
           "url": "https://mazzzystar.com/favicon.jpg"
@@ -158,26 +158,26 @@ The story begins",
                                                       <script>
                                                         if (localStorage.getItem('dark_mode') === 'true' ||
                                                             (localStorage.getItem('dark_mode') === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                                                          document.documentElement.classList.add('dark-mode')
+                                                          document.documentElement.classList.add('dark-mode');
                                                         }
                                                       </script>
 
                                                       <!-- Language switcher styling -->
                                                       <style>
                                                         .lang-switch {
-                                                          display: inline-block
-                                                          color: #555
-                                                          text-decoration: none !important
-                                                          font-weight: bold
-                                                          padding: 3px 8px
-                                                          border-radius: 4px
-                                                          transition: background-color 0.2s ease
+                                                          display: inline-block;
+                                                          color: #555;
+                                                          text-decoration: none !important;
+                                                          font-weight: bold;
+                                                          padding: 3px 8px;
+                                                          border-radius: 4px;
+                                                          transition: background-color 0.2s ease;
                                                         }
 
                                                         .lang-switch:hover {
-                                                          background-color: #f0f0f0
-                                                          color: #333
-                                                          text-decoration: none !important
+                                                          background-color: #f0f0f0;
+                                                          color: #333;
+                                                          text-decoration: none !important;
                                                         }
                                                       </style>
 <meta name="generator" content="Hexo 6.3.0"></head>
@@ -230,7 +230,7 @@ The story begins",
 <div id="header-title">
   <h1 id="logo-wrap">
     <a href="../../../../index.html" id="logo">
-      TLDR
+      TL;DR
     </a>
   </h1>
   
@@ -303,7 +303,7 @@ The story begins",
 </blockquote>
 <p>The brilliance of this strategy is that only those who really use and like the product need to pay. Those who come to try it out, or find it different from their expectations after trying, don’t need to and won’t pay, thus avoiding users paying for nothing and angrily giving bad reviews.</p>
 <p>But soon, while debugging the code, I discovered a reasonable but funny fact: <em>In-app purchases require an internet connection.</em> This was like a bolt from the blue, because from the beginning, I was determined: “Never allow the App to pop up an internet request under any circumstances”. Why? Because this is a photo album search application, it will scan your entire photo album, and no one knows whether you will upload the user’s photos to some server on Earth after connecting to the internet. I know I could explain “why there’s a pop-up requesting internet permission” in the product, but I didn’t want to fall into the awkward situation of self-justification.</p>
-<p>So I turned it into a paid product: users must purchase it, and then from opening the App, building the index to completing the search, only one “photo album permission request” pops up. I knew this was stupid - subsequent lessons also proved that paid downloads would bring a lot of negative reviews: because the model is so computationally intensive, index building would crash or lag on many devices with small memory, and on the iPhone X series, operator support abnormalities caused all-black search results, all of which would be cursed as “Ripoff” moreover, users wouldn’t care about the fact that it “doesn’t pop up internet requests”, once the above abnormalities occur, they would delete the App, leave bad reviews, and question where I secretly uploaded their photo albums.</p>
+<p>So I turned it into a paid product: users must purchase it, and then from opening the App, building the index to completing the search, only one “photo album permission request” pops up. I knew this was stupid - subsequent lessons also proved that paid downloads would bring a lot of negative reviews: because the model is so computationally intensive, index building would crash or lag on many devices with small memory, and on the iPhone X series, operator support abnormalities caused all-black search results, all of which would be cursed as “Ripoff”; moreover, users wouldn’t care about the fact that it “doesn’t pop up internet requests”, once the above abnormalities occur, they would delete the App, leave bad reviews, and question where I secretly uploaded their photo albums.</p>
 <p>Anyway, I finally priced it at $3.99, one-time purchase, lifetime use.</p>
 <h2 id="pushing-to market">Pushing to Market</h2>
 <p>I named the product <strong>Queryable</strong>, and posted a rather dramatic status: “I think this app might change the world”. I was so confident about this that I even wrote an email to Tim Cook, hoping Apple would acquire this product (laughs). At that time, I had already started using ChatGPT, but maybe because I was too excited, I forgot to replace my own name. After clicking send, I saw that the email started with “Dear Mr. Cook, My name is [Your Name]”.</p>
@@ -313,12 +313,12 @@ The story begins",
 <p>I was disappointed, but due to receiving many user requests to support Chinese input, I didn’t have time to grieve and immediately threw myself into Chinese model training. Thanks to separating the text model and image model in CLIP, I only needed to find Chinese-English bilingual parallel corpus, train a Chinese text model, and align its output with the English model, which is essentially distillation.</p>
 <p>Soon, on January 18, 2023, I completed the Chinese version, named “Xunyin” (寻隐, 寻: Seek 隐: Hidden), derived from the ancient poem <em>寻隐者不遇</em> by Jia Dao, also implying the meaning of “discovering hidden meanings from the photo album”. After all, my initial shock was realizing that those few photos represented loneliness when I searched for “lonely”.</p>
 <p>After launching, I wrote an article in Chinese introducing this product on a Chinese community site called <a target="_blank" rel="noopener" href="https://sspai.com/">sspai</a>. It actually made it to the homepage of the day, which brought a large number of downloads and $1,500 in revenue.</p>
-<p>In early February, I received a reply from a Hacker News editor. He said my account had been mistakenly flagged as SPAM by the system, and encouraged me to repost, saying my article was definitely suitable HN material. He would put the link to my new post in the candidate pool: articles in the pool would randomly enter the bottom of the homepage, and if users upvoted it, the ranking would rise otherwise, it would sink again.</p>
+<p>In early February, I received a reply from a Hacker News editor. He said my account had been mistakenly flagged as SPAM by the system, and encouraged me to repost, saying my article was definitely suitable HN material. He would put the link to my new post in the candidate pool: articles in the pool would randomly enter the bottom of the homepage, and if users upvoted it, the ranking would rise; otherwise, it would sink again.</p>
 <p><img src="/images/2024-07-21/hn-email.jpg" alt="HN editor Daniel placed my link under /pool."></p>
 <p>I found the <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=11662380">pool</a> mechanism interesting. The community seemed to want to maintain a hacker spirit under a decentralized mechanism:</p>
 <blockquote>
 <p>This is our long-running experiment in story re-upping. Moderators and a small number of reviewer users comb the depths of /newest looking for stories that got overlooked but which the community might find interesting. Those go into a second-chance pool from which stories are randomly selected and lobbed onto the bottom part of the front page. This guarantees them a few minutes of attention. If they don’t interest the community they soon fall off, but if they do, they get upvoted and stay on the front page.</p>
-<p><a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=11662380">https://news.ycombinator.com/item?id=11662380</a></p>
+<a class="link-preview-card link-preview-card-generic" href="https://news.ycombinator.com/item?id=11662380" target="_blank" rel="noopener noreferrer" aria-label="news.ycombinator.com - /item"><span class="link-preview-icon" aria-hidden="true" data-preview-text="N"></span><span class="link-preview-body"><span class="link-preview-domain" aria-hidden="true" data-preview-text="news.ycombinator.com"></span><span class="link-preview-title" aria-hidden="true" data-preview-text="news.ycombinator.com"></span><span class="link-preview-description" aria-hidden="true" data-preview-text="/item"></span></span><span class="link-preview-action" aria-hidden="true" data-preview-text="Open"></span></a>
 </blockquote>
 <p>At 7 PM that evening, my <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=34686947">post</a> shot to #2 on the Hacker News front page.<br>
 <img src="/images/2024-07-21/queryable-on-hacker-news.jpg" alt="Article at #2 on Hacker News front page"></p>
@@ -331,7 +331,7 @@ The story begins",
 <p>That night, I fell asleep excited, thrilled that my product was liked by my peers. As it turned out, I had greatly underestimated the influence of Hacker News: In just two days, Queryable almost swept the #1 spot on the tools category in all European countries, and #2 in the US, with a total revenue of $2,800. For the next few days, the first thing I did when I woke up was to check Gmail. Germany, France, Spain, the USA, emails came from all directions like snowflakes: some reporting bugs, the magazine from German wanting to cover the story, french iOS communities would like to share the app, YouTuber wanting to review the app. My Twitter would also constantly receive notifications because people were retweeting the Hacker News hot list.</p>
 <p><img src="/images/2024-07-21/queryable-us-fr-de-es-ranking.jpg" alt="#2 paid tool in the US, #1 in France, Germany, Spain, and more."></p>
 <p>Even a friend working in the Apple Photos team told me that their team knew about Queryable.</p>
-<p>All of this forced me to realize a kind of “worldliness”: Hacker News doesn’t just belong to the United States or English-speaking countries it’s like a virtual bulletin board in the central area of the world. Each work briefly stays on it, but countless eyes from various countries are always watching. This product actually only supports English, but that didn’t prevent it from reaching #1 on the paid tools charts in almost all European countries. They seem to naturally accept products that can only be used in English. Products that work in the US often can be accepted by Europeans as well.</p>
+<p>All of this forced me to realize a kind of “worldliness”: Hacker News doesn’t just belong to the United States or English-speaking countries; it’s like a virtual bulletin board in the central area of the world. Each work briefly stays on it, but countless eyes from various countries are always watching. This product actually only supports English, but that didn’t prevent it from reaching #1 on the paid tools charts in almost all European countries. They seem to naturally accept products that can only be used in English. Products that work in the US often can be accepted by Europeans as well.</p>
 <p>The buzz quickly subsided, followed by many negative reviews.</p>
 <p>I didn’t see any comments on Hacker News that made me uncomfortable. However, after secondary dissemination through various websites, YouTube channels, and online communities, less friendly users surfaced. There were mainly two points of attack:</p>
 <ol>
@@ -340,7 +340,7 @@ The story begins",
 </ol>
 <p>The second point made the situation of the first point worse. After the successive waves of attention from Hacker News ended, the sales of this product in Western markets quickly became dismal, with single-digit downloads and tens of dollars in revenue every day.</p>
 <p>In my imagination, something that changes the world is unrivaled, how could it suddenly stop? I fell into great doubt and pessimism.</p>
-<h2 id="free-&amp open source">Free &amp Open Source</h2>
+<h2 id="free-&amp; open source">Free &amp; Open Source</h2>
 <p>Fortunately, exposure from Chinese domestic social media accounts like Chapingjun (差评) and Guokr (果壳) promoting Xunyin allowed me to earn about $1,500 per month starting from January. And because the model runs on the user’s own device, there were no server costs.</p>
 <p>From April onwards, without any traffic exposure and without any updates, I could earn an average of about $400 per month.</p>
 <p>But! I still thought this was a very useful product, I just couldn’t let many people know about it. I had a limited-time free promotion once, and the downloads that day exceeded the past daily average by 100 times. I thought, rather than maintaining this income of $400 per month, which might prevent 99% of people from discovering this product, why not let everyone use it, so I decided to make it free forever.</p>
@@ -421,7 +421,7 @@ The story begins",
   <div class="outer">
     <div id="footer-info" class="inner">
       
-        &copy 2026 Ke Fang<br>
+        &copy; 2026 Ke Fang<br>
 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/bill-xia/hexo-theme-mashiro" target="_blank">Mashiro</a><br>
       
     </div>
@@ -461,8 +461,8 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
   <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
   
 
-    <script defer src="../../../../js/script.js"></script>
     <script defer src="../../../../js/clipboard.min.js"></script>
+    <script defer src="../../../../js/script.js"></script>
 
         
 
@@ -470,73 +470,74 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
           <!-- Dark Mode Toggle -->
           <script>
             (function() {
-              var darkMode = localStorage.getItem('dark_mode')
+              var darkMode = localStorage.getItem('dark_mode');
               if (darkMode === null) {
-                darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+                darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
               } else {
-                darkMode = darkMode === 'true'
+                darkMode = darkMode === 'true';
               }
-              if (darkMode) document.documentElement.classList.add('dark-mode')
+              if (darkMode) document.documentElement.classList.add('dark-mode');
 
               window.toggleDarkMode = function() {
-                darkMode = !darkMode
-                document.documentElement.classList.toggle('dark-mode', darkMode)
-                localStorage.setItem('dark_mode', darkMode)
-              }
-            })()
+                darkMode = !darkMode;
+                document.documentElement.classList.toggle('dark-mode', darkMode);
+                localStorage.setItem('dark_mode', darkMode);
+              };
+            })();
           </script>
 
           <!-- Language Switch -->
           <script>
-            let currentLang = localStorage.getItem('blog_language') || ((navigator.language || '').startsWith('zh') ? 'zh' : 'en')
+            let currentLang = localStorage.getItem('blog_language') || ((navigator.language || '').startsWith('zh') ? 'zh' : 'en');
 
             document.addEventListener('DOMContentLoaded', function () {
               // 检查是否在首页
-              const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html'
-              const switchBtn = document.querySelector('.lang-switch')
+              const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+              const switchBtn = document.querySelector('.lang-switch');
 
               if (switchBtn) {
                 // 只在首页显示语言切换按钮
                 if (isHomePage) {
-                  switchBtn.style.display = ''
-                  updateLanguageDisplay()
-                  updateSwitchButton()
+                  switchBtn.style.display = '';
+                  updateLanguageDisplay();
+                  updateSwitchButton();
                 } else {
-                  switchBtn.style.display = 'none'
+                  switchBtn.style.display = 'none';
                 }
               }
-            })
+            });
 
             function switchLanguage() {
               // 先切换语言
-              currentLang = currentLang === 'zh' ? 'en' : 'zh'
-              localStorage.setItem('blog_language', currentLang)
+              currentLang = currentLang === 'zh' ? 'en' : 'zh';
+              localStorage.setItem('blog_language', currentLang);
 
               // 更新按钮文本
-              updateSwitchButton()
+              updateSwitchButton();
 
               // 最后更新显示
-              updateLanguageDisplay()
+              updateLanguageDisplay();
             }
 
             function updateLanguageDisplay() {
               document.querySelectorAll('.archive-article').forEach(article => {
-                const articleLang = article.getAttribute('data-lang')
+                const articleLang = article.getAttribute('data-lang');
                 if (articleLang === currentLang) {
-                  article.style.display = ''
+                  article.style.display = '';
                 } else {
-                  article.style.display = 'none'
+                  article.style.display = 'none';
                 }
-              })
+              });
             }
 
             function updateSwitchButton() {
-              const switchBtn = document.querySelector('.lang-switch')
+              const switchBtn = document.querySelector('.lang-switch');
               if (switchBtn) {
-                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文'
+                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文';
               }
             }
           </script>
+
     </div>
   </body>
 

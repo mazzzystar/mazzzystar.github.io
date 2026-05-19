@@ -11,14 +11,14 @@
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CSJX0CVK20"></script>
     <script>
-      window.dataLayer = window.dataLayer || []
-      function gtag() { dataLayer.push(arguments) }
-      gtag('js', new Date())
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
       gtag('config', 'G-CSJX0CVK20', {
         'send_page_view': true,
-        'cookie_flags': 'securesamesite=none',
+        'cookie_flags': 'secure;samesite=none',
         'transport_type': 'beacon'
-      })
+      });
     </script>
     
 
@@ -40,12 +40,12 @@
           <link rel="stylesheet" href="/css/fontawesome.css">
 
           <meta charset="utf-8">
-          <meta http-equiv="Content-Type" content="text/html charset=utf-8">
+          <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
           <meta name="robots" content="index,follow">
 
           <!-- RSS Feed -->
           
-            <link rel="alternate" type="application/atom+xml" title="TLDR"
+            <link rel="alternate" type="application/atom+xml" title="TL;DR"
               href="../../../../atom.xml">
             
 
@@ -72,7 +72,7 @@
                                   <meta property="og:url" content="https://mazzzystar.com/2025/02/09/deepseek-r1-en/">
                                   <meta property="og:image" content="https://mazzzystar.com/images/2025-01-30/deepseek.jpeg">
                                   <meta property="og:description" content="I was originally going to write an introductory article about DeepSeek R1, but I noticed that many people see it simply as an OpenAI clone, overlooki">
-                                  <meta property="og:site_name" content="TLDR">
+                                  <meta property="og:site_name" content="TL;DR">
                                   <meta property="og:locale"
                                     content="zh_CN">
                                   <meta property="article:author" content="Ke Fang">
@@ -83,7 +83,7 @@
                                           content="2025-02-09T10:02:32.000Z">
                                         
                                           <meta property="article:modified_time"
-                                            content="2026-05-18T05:39:18.894Z">
+                                            content="2026-05-19T23:18:40.796Z">
                                           
                                             
 
@@ -121,12 +121,12 @@
         "name": "Ke Fang"
       },
       "datePublished": "2025-02-09T10:02:32.000Z",
-      "dateModified": "2026-05-18T05:39:18.894Z",
+      "dateModified": "2026-05-19T23:18:40.796Z",
       "keywords": "",
       "image": "https://mazzzystar.com/images/2025-01-30/deepseek.jpeg",
       "publisher": {
         "@type": "Organization",
-        "name": "TLDR",
+        "name": "TL;DR",
         "logo": {
           "@type": "ImageObject",
           "url": "https://mazzzystar.com/favicon.jpg"
@@ -142,26 +142,26 @@
                                                       <script>
                                                         if (localStorage.getItem('dark_mode') === 'true' ||
                                                             (localStorage.getItem('dark_mode') === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                                                          document.documentElement.classList.add('dark-mode')
+                                                          document.documentElement.classList.add('dark-mode');
                                                         }
                                                       </script>
 
                                                       <!-- Language switcher styling -->
                                                       <style>
                                                         .lang-switch {
-                                                          display: inline-block
-                                                          color: #555
-                                                          text-decoration: none !important
-                                                          font-weight: bold
-                                                          padding: 3px 8px
-                                                          border-radius: 4px
-                                                          transition: background-color 0.2s ease
+                                                          display: inline-block;
+                                                          color: #555;
+                                                          text-decoration: none !important;
+                                                          font-weight: bold;
+                                                          padding: 3px 8px;
+                                                          border-radius: 4px;
+                                                          transition: background-color 0.2s ease;
                                                         }
 
                                                         .lang-switch:hover {
-                                                          background-color: #f0f0f0
-                                                          color: #333
-                                                          text-decoration: none !important
+                                                          background-color: #f0f0f0;
+                                                          color: #333;
+                                                          text-decoration: none !important;
                                                         }
                                                       </style>
 <meta name="generator" content="Hexo 6.3.0"></head>
@@ -214,7 +214,7 @@
 <div id="header-title">
   <h1 id="logo-wrap">
     <a href="../../../../index.html" id="logo">
-      TLDR
+      TL;DR
     </a>
   </h1>
   
@@ -266,7 +266,7 @@
 </ul>
 </li>
 </ol>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th><strong>Dimension</strong></th>
@@ -297,7 +297,8 @@
 </tr>
 </tbody>
 </table>
-<div style="color: #666 font-size: 0.9em text-align: center">▲ Complexity comparison between chess and Go</div>
+</div>
+<div style="color: #666; font-size: 0.9em; text-align: center;">▲ Complexity comparison between chess and Go</div>
 <p>Despite rules that greatly reduce complexity, the actual state space of Go is still <span class="markdown-them-math-inline">$10^{123}$</span> times larger than that of chess. This is an enormous order of magnitude - consider that <strong>the total number of atoms in the universe is about <span class="markdown-them-math-inline">$10^{78}$</span></strong>. Within the <span class="markdown-them-math-inline">$10^{47}$</span> range, IBM computers could calculate all possible moves by brute force, so strictly speaking Deep Blue’s breakthrough had nothing to do with neural networks or models - it was just rule-based brute force searching, essentially <strong>a computer much faster than humans</strong>.</p>
 <p>But the <span class="markdown-them-math-inline">$10^{170}$</span> order of magnitude far exceeds current supercomputer capabilities, forcing AlphaGo to abandon brute force in favour of deep learning: The DeepMind team trained neural networks using human game records to predict the best next move based on the current state of the board. However, <strong>learning from top players’ moves can only bring the model up to their level, not beyond it</strong>.</p>
 <p>AlphaGo first trained on human game records, then used reinforcement learning through self-play with a designed reward function. In the second game against Lee Sedol, AlphaGo’s 19th move (move 37<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>) made Lee think long and hard. Many players thought it was “a move a human would never make”. Without reinforcement learning and self-play, which relies solely on human game records, AlphaGo could never have made this move.</p>
@@ -309,21 +310,21 @@
 <p>The AI field was quiet until the emergence of ChatGPT.</p>
 <h2 id="chatgpt-changes the world">ChatGPT changes the world</h2>
 <p>The New Yorker called ChatGPT a blurry JPEG of the web<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>. All it does is feed all the text data on the internet into a model and predict what the next character should be when I type “what”.</p>
-<p>The most likely next character would be &quot?</p>
+<p>The most likely next character would be &quot;?</p>
 <p>A model with limited parameters is forced to learn almost unlimited knowledge: books from hundreds of years ago in different languages, text generated on the internet over the last few decades. So it’s actually doing information compression: condensing human wisdom, historical events and astronomy/geography recorded in different languages into one model.</p>
 <p>Scientists were surprised to discover that <strong>intelligence is created through compression</strong>.</p>
 <p>We can understand it this way: Let the model read a detective story. At the end, “the murderer is”. If the AI can accurately predict the murderer’s name, we have reason to believe that it has understood the whole story - that is, it has “intelligence”, rather than just piecing together or memorising text.</p>
-<p>The process of having the model learn and predict the next character is called <strong>pre-training</strong>. At this stage, the model can only continue to predict the next character, but can’t answer your questions. To achieve ChatGPT-like Q&ampA capabilities, a second phase of training is required, called <strong>Supervised Fine-Tuning (SFT)</strong>. This involves, for example, manually constructing a batch of Q&ampA data:</p>
-<div class="highlight"><pre class="code"><code><span class="hljs-comment"># example 1</span>
+<p>The process of having the model learn and predict the next character is called <strong>pre-training</strong>. At this stage, the model can only continue to predict the next character, but can’t answer your questions. To achieve ChatGPT-like Q&amp;A capabilities, a second phase of training is required, called <strong>Supervised Fine-Tuning (SFT)</strong>. This involves, for example, manually constructing a batch of Q&amp;A data:</p>
+<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><div class="code-block-toolbar"><span class="code-block-lang">python</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs language-python"><span class="hljs-comment"># example 1</span>
 User: When did the World War II begin?
 AI: <span class="hljs-number">1939</span>
 
 <span class="hljs-comment"># example 2</span>
-User: Please summarise the following text: &#123xxx&#125
+User: Please summarise the following text: &#123;xxx&#125;
 AI: Here <span class="hljs-keyword">is</span> the summary: xxx
 </code></pre></div>
 <p>Note that these examples are <strong>manually constructed</strong> to teach the AI to learn human question-answer patterns. When you say “Please translate this sentence: xxx”, the content given to the AI is:</p>
-<div class="highlight"><pre class="code"><code>User: Please translate this phrase: xxx
+<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><div class="code-block-toolbar"><span class="code-block-lang">python</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs language-python">User: Please translate this phrase: xxx
 AI:
 </code></pre></div>
 <p>You see, it’s still just predicting the next character. In the process, the model doesn’t get any smarter - it simply learns human question-answering patterns and understands what you’re asking it to do.</p>
@@ -356,14 +357,14 @@ AI:
 <p>To train a slow thinking model, you first need to construct high quality data containing thought processes, and if you want reinforcement learning independent of humans, you need to quantitatively score (good/bad) the model’s thinking process to provide rewards and penalties.</p>
 <p>As mentioned above, mathematics and code datasets best meet these requirements. Mathematical derivations can be verified using regular expressions, while code output can be verified by running it directly in compilers.</p>
 <p>In mathematics textbooks, for example, we often see such reasoning processes:</p>
-<div class="highlight"><pre class="code"><code>&ltthinking&gt
+<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><div class="code-block-toolbar"><span class="code-block-lang">python</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs language-python">&lt;thinking&gt;
   Let x be the root of the equation, squaring both sides: x² = a - √(a+x)
   Rearranging: √(a+x) = a - x²
   Square again: (a+x) = (a - x²)²
   Expand: a + x = a² - 2a x² + x⁴
   Simplify: x⁴ - 2a x² - x + (a² - a) = <span class="hljs-number">0</span>
-&lt/thinking&gt
-&ltanswer&gtx⁴ - 2a x² - x + (a² - a) = <span class="hljs-number">0</span>&lt/answer&gt
+&lt;/thinking&gt;
+&lt;answer&gt;x⁴ - 2a x² - x + (a² - a) = <span class="hljs-number">0</span>&lt;/answer&gt;
 </code></pre></div>
 <p>The text above contains a complete chain of reasoning. We can use regular expressions to match the thought process to the final answer, allowing us to quantitatively evaluate the model’s reasoning process and results.</p>
 <p>In the reinforcement learning (RL) training, R1 didn’t explicitly reward or penalise each step of the reasoning chain. Instead, they created a reinforcement learning algorithm called <strong>GRPO</strong> (Group Relative Policy Optimization) that rewards logically coherent, correctly formatted thought chain outcomes, implicitly encouraging the model to form thought chains on its own.</p>
@@ -380,7 +381,7 @@ AI:
 <p><strong>Step 2</strong>: Score each answer:</p>
 <ul>
 <li>“5” → 1 point (<strong>correct, no chain of reasoning</strong>)</li>
-<li>6&quot → 0 points (<strong>wrong</strong>)</li>
+<li>6&quot; → 0 points (<strong>wrong</strong>)</li>
 <li>“<thinking>2+3=5</thinking><result>5</result>” → 2 points (<strong>correct, with chain of thoughts</strong>)</li>
 </ul>
 <p><strong>Step 3</strong>: Calculate the average score of all answers:</p>
@@ -390,7 +391,7 @@ AI:
 <p><strong>Step 4</strong>: Compare the score of each answer with the average:</p>
 <ul>
 <li>“5” → 1 - 1 = 0 (<strong>same as average</strong>)</li>
-<li>6&quot → 0 - 1 = -1 (<strong>below average</strong>)</li>
+<li>6&quot; → 0 - 1 = -1 (<strong>below average</strong>)</li>
 <li>“<thinking>2+3=5</thinking><result>5</result>” → 2 - 1 = 1 (<strong>above average</strong>)</li>
 </ul>
 <p><strong>Step 5</strong>: Reinforcement learning to bias the model towards generating higher scoring responses, i.e. those with chains of thoughts and correct results.</p>
@@ -401,11 +402,11 @@ AI:
 <ol>
 <li>First collected a small amount of high quality Chain-of-Thought (CoT) data to perform initial supervised fine-tuning on the V3 model, <strong>fixing the language inconsistency issue</strong> to get a cold-start model.</li>
 <li>They then performed pure RL training similar to R1-Zero on this cold-start model, adding language consistency rewards.</li>
-<li>Finally, to handle more general, broad <strong>non-reasoning tasks</strong> (such as writing, factual Q&ampA), they constructed a dataset for secondary fine-tuning.</li>
+<li>Finally, to handle more general, broad <strong>non-reasoning tasks</strong> (such as writing, factual Q&amp;A), they constructed a dataset for secondary fine-tuning.</li>
 <li>Combined reasoning and general task data, using mixed reward signals for final reinforcement learning.</li>
 </ol>
 <p>This process can be summarised as</p>
-<div class="highlight"><pre class="code"><code><span class="hljs-selector-tag">Supervised</span> <span class="hljs-selector-tag">Learning</span> (SFT) <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">Reinforcement</span> <span class="hljs-selector-tag">Learning</span> (RL) <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">Supervised</span> <span class="hljs-selector-tag">Learning</span> (SFT) <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">Reinforcement</span> <span class="hljs-selector-tag">Learning</span> (RL)
+<div class="highlight code-block" data-code-fold="open" data-code-lang="text"><div class="code-block-toolbar"><span class="code-block-lang">text</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs">Supervised Learning (SFT) - Reinforcement Learning (RL) - Supervised Learning (SFT) - Reinforcement Learning (RL)
 </code></pre></div>
 <p>This process resulted in DeepSeek R1.</p>
 <p>DeepSeek R1’s contribution to the world is to be the first open source reasoning model comparable to closed source (o1). Now users around the world can see the model’s reasoning process before answering questions - its ‘inner monologue’ - completely free of charge.</p>
@@ -426,7 +427,7 @@ AI:
 </blockquote>
 <p>Many people mistakenly believe that chat software like ChatGPT gets smarter by collecting user chat content for training. If this were true, WeChat and Messenger would have created the world’s most powerful large-scale models.</p>
 <p>After reading this article, you should realise that most ordinary users’ daily chat data is no longer important. RL models only need to be trained on very high quality reasoning data with chains of thoughts, such as mathematics and code. This data can be generated by the model itself and does not require human annotation. Therefore, Alexandr Wang, CEO of Scale AI, whose company annotates model data, may face a serious threat as future models will need less and less human annotation.</p>
-<p>Update: <a target="_blank" rel="noopener" href="https://arcprize.org/blog/r1-zero-r1-results-analysis">This article analysing r1-zero</a> by ARC-AGI suggests a new idea: future reasoning models could collect AI-generated thought chains from user-model conversations for training - unlike the common assumption of AI secretly training on chat records, what users say doesn’t matter while they pay for results, the model gets a thought chain data point at zero cost.</p>
+<p>Update: <a target="_blank" rel="noopener" href="https://arcprize.org/blog/r1-zero-r1-results-analysis">This article analysing r1-zero</a> by ARC-AGI suggests a new idea: future reasoning models could collect AI-generated thought chains from user-model conversations for training - unlike the common assumption of AI secretly training on chat records, what users say doesn’t matter; while they pay for results, the model gets a thought chain data point at zero cost.</p>
 <blockquote>
 <p>DeepSeek R1 is powerful because it has secretly distilled OpenAI’s models.</p>
 </blockquote>
@@ -511,7 +512,7 @@ AI:
   <div class="outer">
     <div id="footer-info" class="inner">
       
-        &copy 2026 Ke Fang<br>
+        &copy; 2026 Ke Fang<br>
 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/bill-xia/hexo-theme-mashiro" target="_blank">Mashiro</a><br>
       
     </div>
@@ -551,8 +552,8 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
   <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
   
 
-    <script defer src="../../../../js/script.js"></script>
     <script defer src="../../../../js/clipboard.min.js"></script>
+    <script defer src="../../../../js/script.js"></script>
 
         
 
@@ -560,73 +561,74 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
           <!-- Dark Mode Toggle -->
           <script>
             (function() {
-              var darkMode = localStorage.getItem('dark_mode')
+              var darkMode = localStorage.getItem('dark_mode');
               if (darkMode === null) {
-                darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+                darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
               } else {
-                darkMode = darkMode === 'true'
+                darkMode = darkMode === 'true';
               }
-              if (darkMode) document.documentElement.classList.add('dark-mode')
+              if (darkMode) document.documentElement.classList.add('dark-mode');
 
               window.toggleDarkMode = function() {
-                darkMode = !darkMode
-                document.documentElement.classList.toggle('dark-mode', darkMode)
-                localStorage.setItem('dark_mode', darkMode)
-              }
-            })()
+                darkMode = !darkMode;
+                document.documentElement.classList.toggle('dark-mode', darkMode);
+                localStorage.setItem('dark_mode', darkMode);
+              };
+            })();
           </script>
 
           <!-- Language Switch -->
           <script>
-            let currentLang = localStorage.getItem('blog_language') || ((navigator.language || '').startsWith('zh') ? 'zh' : 'en')
+            let currentLang = localStorage.getItem('blog_language') || ((navigator.language || '').startsWith('zh') ? 'zh' : 'en');
 
             document.addEventListener('DOMContentLoaded', function () {
               // 检查是否在首页
-              const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html'
-              const switchBtn = document.querySelector('.lang-switch')
+              const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+              const switchBtn = document.querySelector('.lang-switch');
 
               if (switchBtn) {
                 // 只在首页显示语言切换按钮
                 if (isHomePage) {
-                  switchBtn.style.display = ''
-                  updateLanguageDisplay()
-                  updateSwitchButton()
+                  switchBtn.style.display = '';
+                  updateLanguageDisplay();
+                  updateSwitchButton();
                 } else {
-                  switchBtn.style.display = 'none'
+                  switchBtn.style.display = 'none';
                 }
               }
-            })
+            });
 
             function switchLanguage() {
               // 先切换语言
-              currentLang = currentLang === 'zh' ? 'en' : 'zh'
-              localStorage.setItem('blog_language', currentLang)
+              currentLang = currentLang === 'zh' ? 'en' : 'zh';
+              localStorage.setItem('blog_language', currentLang);
 
               // 更新按钮文本
-              updateSwitchButton()
+              updateSwitchButton();
 
               // 最后更新显示
-              updateLanguageDisplay()
+              updateLanguageDisplay();
             }
 
             function updateLanguageDisplay() {
               document.querySelectorAll('.archive-article').forEach(article => {
-                const articleLang = article.getAttribute('data-lang')
+                const articleLang = article.getAttribute('data-lang');
                 if (articleLang === currentLang) {
-                  article.style.display = ''
+                  article.style.display = '';
                 } else {
-                  article.style.display = 'none'
+                  article.style.display = 'none';
                 }
-              })
+              });
             }
 
             function updateSwitchButton() {
-              const switchBtn = document.querySelector('.lang-switch')
+              const switchBtn = document.querySelector('.lang-switch');
               if (switchBtn) {
-                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文'
+                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文';
               }
             }
           </script>
+
     </div>
   </body>
 

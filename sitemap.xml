@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://mazzzystar.com/sound/</loc>
-    
-    <lastmod>2026-07-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://mazzzystar.com/thoughts/</loc>
     
     <lastmod>2026-07-06</lastmod>
@@ -20,34 +11,16 @@
   </url>
   
   <url>
+    <loc>https://mazzzystar.com/sound/</loc>
+    
+    <lastmod>2026-07-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://mazzzystar.com/about/</loc>
-    
-    <lastmod>2026-07-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mazzzystar.com/2024/08/09/turtle-benchmark-zh/</loc>
-    
-    <lastmod>2026-07-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mazzzystar.com/2026/07/06/fable-5/</loc>
-    
-    <lastmod>2026-07-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mazzzystar.com/2023/12/27/folding-consumption-zh/</loc>
     
     <lastmod>2026-07-06</lastmod>
     
@@ -155,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://mazzzystar.com/2022/07/09/A-Murder/</loc>
+    <loc>https://mazzzystar.com/2024/08/09/turtle-benchmark-zh/</loc>
     
     <lastmod>2026-07-06</lastmod>
     
@@ -165,15 +138,6 @@
   
   <url>
     <loc>https://mazzzystar.com/2022/07/09/A-murder-en/</loc>
-    
-    <lastmod>2026-07-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mazzzystar.com/2023/07/23/Get-users-for-your-AI-tool-from-Google-search-zh/</loc>
     
     <lastmod>2026-07-06</lastmod>
     
@@ -200,6 +164,15 @@
   </url>
   
   <url>
+    <loc>https://mazzzystar.com/2023/07/23/Get-users-for-your-AI-tool-from-Google-search-zh/</loc>
+    
+    <lastmod>2026-07-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://mazzzystar.com/2023/05/10/LLM-for-individual/</loc>
     
     <lastmod>2026-07-06</lastmod>
@@ -209,7 +182,7 @@
   </url>
   
   <url>
-    <loc>https://mazzzystar.com/2023/05/10/LLM-for-person-zh/</loc>
+    <loc>https://mazzzystar.com/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/</loc>
     
     <lastmod>2026-07-06</lastmod>
     
@@ -218,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://mazzzystar.com/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/</loc>
+    <loc>https://mazzzystar.com/2023/05/10/LLM-for-person-zh/</loc>
     
     <lastmod>2026-07-06</lastmod>
     
@@ -281,7 +254,7 @@
   </url>
   
   <url>
-    <loc>https://mazzzystar.com/2023/11/17/ai-girlfriend-cn-zh/</loc>
+    <loc>https://mazzzystar.com/2023/11/16/ai-girlfriend-product/</loc>
     
     <lastmod>2026-07-06</lastmod>
     
@@ -290,7 +263,7 @@
   </url>
   
   <url>
-    <loc>https://mazzzystar.com/2023/11/16/ai-girlfriend-product/</loc>
+    <loc>https://mazzzystar.com/2023/11/17/ai-girlfriend-cn-zh/</loc>
     
     <lastmod>2026-07-06</lastmod>
     
@@ -335,15 +308,6 @@
   </url>
   
   <url>
-    <loc>https://mazzzystar.com/2025/02/09/deepseek-r1-en/</loc>
-    
-    <lastmod>2026-07-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://mazzzystar.com/2023/09/11/dream-en/</loc>
     
     <lastmod>2026-07-06</lastmod>
@@ -353,7 +317,43 @@
   </url>
   
   <url>
+    <loc>https://mazzzystar.com/2025/02/09/deepseek-r1-en/</loc>
+    
+    <lastmod>2026-07-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://mazzzystar.com/2023/09/11/dream/</loc>
+    
+    <lastmod>2026-07-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazzzystar.com/2026/07/06/fable-5/</loc>
+    
+    <lastmod>2026-07-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazzzystar.com/2023/12/27/folding-consumption-zh/</loc>
+    
+    <lastmod>2026-07-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazzzystar.com/2022/07/09/A-Murder/</loc>
     
     <lastmod>2026-07-06</lastmod>
     

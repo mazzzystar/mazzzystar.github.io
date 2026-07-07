@@ -57,9 +57,8 @@
                     <meta name="viewport" content="width=device-width, initial-scale=1">
                     <meta name="author" content="Ke Fang">
                     
-                            <meta name="description"
-                              content="我本想写一篇关于 DeepSeek R1 的科普文，但发现很多人仅仅把它理解为 OpenAI 的复制品，而忽略了它在论文中揭示的&amp;quot;惊人一跃&amp;quot;，所以，我决定重新写一篇，讲讲从 AlphaGo 到 ChatGPT，再到最近的 DeepSeek R1 底层原理的突破，以及为什么它对所谓">
-                            
+                        <meta name="description" content="从 AlphaGo、AlphaZero 到 ChatGPT，再到 DeepSeek R1：为什么纯强化学习(GRPO)、不用蒙特卡洛树搜索、也不依赖人类反馈的 R1-Zero，可能是又一个让 AI 超越人类的 AlphaZero 时刻。">
+                        
                               
                                 <meta name="keywords" content="DeepSeek R1, R1-Zero, ChatGPT, RL, 强化学习, 超越人类, AI, 人工智能, 机器学习, 深度学习, AGI">
                                 
@@ -67,16 +66,22 @@
                                   <link rel="canonical"
                                     href="https://mazzzystar.com/2025/01/30/chatgpt-to-deepseek-r1-zh/">
 
+                                  
+                                    <link rel="alternate" hreflang="zh" href="https://mazzzystar.com/2025/01/30/chatgpt-to-deepseek-r1-zh/">
+                                    <link rel="alternate" hreflang="en" href="https://mazzzystar.com/2025/02/09/deepseek-r1-en/">
+                                    <link rel="alternate" hreflang="x-default"
+                                      href="https://mazzzystar.com/2025/02/09/deepseek-r1-en/">
+                                    
+
                                   <!-- Open Graph -->
 
                                   <meta property="og:type" content="article">
                                   <meta property="og:title" content="Deepseek R1可能找到了超越人类的办法">
                                   <meta property="og:url" content="https://mazzzystar.com/2025/01/30/chatgpt-to-deepseek-r1-zh/">
                                   <meta property="og:image" content="https://mazzzystar.com/images/2025-01-30/deepseek.jpeg">
-                                  <meta property="og:description" content="我本想写一篇关于 DeepSeek R1 的科普文，但发现很多人仅仅把它理解为 OpenAI 的复制品，而忽略了它在论文中揭示的&amp;quot;惊人一跃&amp;quot;，所以，我决定重新写一篇，讲讲从 AlphaGo 到 ChatGPT，再到最近的 DeepSeek R1 底层原理的突破，以及为什么它对所">
+                                  <meta property="og:description" content="从 AlphaGo、AlphaZero 到 ChatGPT，再到 DeepSeek R1：为什么纯强化学习(GRPO)、不用蒙特卡洛树搜索、也不依赖人类反馈的 R1-Zero，可能是又一个让 AI 超越人类的 AlphaZero 时刻。">
                                   <meta property="og:site_name" content="TL;DR">
-                                  <meta property="og:locale"
-                                    content="zh_CN">
+                                  <meta property="og:locale" content="zh_CN">
                                   <meta property="article:author" content="Ke Fang">
                                   
                                     <meta property="article:tag" content="DeepSeek R1, R1-Zero, ChatGPT, RL, 强化学习, 超越人类, AI, 人工智能, 机器学习, 深度学习, AGI">
@@ -87,15 +92,21 @@
                                           content="2025-01-30T10:40:19.000Z">
                                         
                                           <meta property="article:modified_time"
-                                            content="2026-07-06T12:24:25.639Z">
+                                            content="2025-01-30T10:40:19.000Z">
                                           
                                             
 
                                               <!-- Twitter Card -->
                                               <meta name="twitter:card" content="summary_large_image">
                                               <meta name="twitter:title" content="Deepseek R1可能找到了超越人类的办法">
-                                              <meta name="twitter:description" content="我本想写一篇关于 DeepSeek R1 的科普文，但发现很多人仅仅把它理解为 OpenAI 的复制品，而忽略了它在论文中揭示的&amp;quot;惊人一跃&amp;quot;，所以，我决定重新写一篇，讲讲从 AlphaGo 到 ChatGPT，再到最近的 DeepSeek R1 底层原理的突破，以及为什么它对所">
+                                              <meta name="twitter:description" content="从 AlphaGo、AlphaZero 到 ChatGPT，再到 DeepSeek R1：为什么纯强化学习(GRPO)、不用蒙特卡洛树搜索、也不依赖人类反馈的 R1-Zero，可能是又一个让 AI 超越人类的 AlphaZero 时刻。">
                                               <meta name="twitter:image" content="https://mazzzystar.com/images/2025-01-30/deepseek.jpeg">
+                                              
+                                                <meta name="twitter:site"
+                                                  content="@immazzystar">
+                                                <meta name="twitter:creator"
+                                                  content="@immazzystar">
+                                                
 
                                               <!-- Stylesheets -->
                                               <link rel="stylesheet" href="/css/style.css">
@@ -119,13 +130,14 @@
         "@id": "https://mazzzystar.com/2025/01/30/chatgpt-to-deepseek-r1-zh/"
       },
       "headline": "Deepseek R1可能找到了超越人类的办法",
-      "description": "我本想写一篇关于 DeepSeek R1 的科普文，但发现很多人仅仅把它理解为 OpenAI 的复制品，而忽略了它在论文中揭示的&amp;quot;惊人一跃&amp;quot;，所以，我决定重新写一篇，讲讲从 AlphaGo 到 ChatGPT，再到最近的 DeepSeek R1 底层原理的突破，以及为什么它对所",
+      "description": "从 AlphaGo、AlphaZero 到 ChatGPT，再到 DeepSeek R1：为什么纯强化学习(GRPO)、不用蒙特卡洛树搜索、也不依赖人类反馈的 R1-Zero，可能是又一个让 AI 超越人类的 AlphaZero 时刻。",
       "author": {
         "@type": "Person",
         "name": "Ke Fang"
       },
       "datePublished": "2025-01-30T10:40:19.000Z",
-      "dateModified": "2026-07-06T12:24:25.639Z",
+      "dateModified": "2025-01-30T10:40:19.000Z",
+      "inLanguage": "zh-CN",
       "keywords": "DeepSeek R1, R1-Zero, ChatGPT, RL, 强化学习, 超越人类, AI, 人工智能, 机器学习, 深度学习, AGI",
       "image": "https://mazzzystar.com/images/2025-01-30/deepseek.jpeg",
       "publisher": {

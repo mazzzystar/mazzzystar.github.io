@@ -1,0 +1,51 @@
+# TL;DR — blog of Ke Fang (mazzzystar)
+
+> Personal blog of Ke Fang (碎瓜 / mazzzystar), indie developer of Queryable (寻隐) and Whisper Notes.
+> Essays on AI, LLMs, indie apps and life, written in Chinese and English.
+> Full-text Atom feed: https://mazzzystar.com/atom.xml
+
+## Posts
+
+- [被Fable抛弃的人](https://mazzzystar.com/2026/07/06/fable-5/) (2026-07-06, zh): Claude Fable 5 回归，但它太强也太贵：封号、按量计费把大部分中国人挡在门外。我担心它正在制造一种 K 型分化——用得起的人被加速狂奔，其余的人被甩开。
+- [韩国爆火的SetLog：为何没有新的社交巨头](https://mazzzystar.com/2026/04/27/setlog/) (2026-04-27, zh): setlog 是韩国爆火的社交产品：和朋友组队，每个整点拍一段 2 秒横屏视频，自动合成每日 vlog。我拆解它为何几乎做对了所有事，又借 Friendster、MySpace 的兴衰，聊这个时代为何很难再出社交巨头。
+- [The Key to the Problem is to Find the Key Problem](https://mazzzystar.com/2025/11/03/the-key-to-the-problem-is-to-find-the-key-problem/) (2025-11-03, en): Why OpenAI and DeepMind pick timeless, fundamental problems and solve them with brute compute (AlphaFold, AlphaEvolve), and how to find the key problem.
+- [我想做个对跖点App，但最终农场悟道](https://mazzzystar.com/2025/08/11/antipode-app-story-zh/) (2025-08-11, zh): 我想做一个连接地球对跖点的 App，却发现 71% 是海洋、留存无解而放弃。但顺着这个概念，和 AI 聊出了可被精确计算的未知，一路想到星际穿越、三体与元悲剧。
+- [DeepSeek R1 Reveals Path to Surpassing Human Intelligence](https://mazzzystar.com/2025/02/09/deepseek-r1-en/) (2025-02-09, en): From AlphaGo and AlphaZero to ChatGPT to DeepSeek R1: how pure reinforcement learning and self-play, with no human feedback, may let AI surpass humans.
+- [Deepseek R1可能找到了超越人类的办法](https://mazzzystar.com/2025/01/30/chatgpt-to-deepseek-r1-zh/) (2025-01-30, zh): 从 AlphaGo、AlphaZero 到 ChatGPT，再到 DeepSeek R1：为什么纯强化学习(GRPO)、不用蒙特卡洛树搜索、也不依赖人类反馈的 R1-Zero，可能是又一个让 AI 超越人类的 AlphaZero 时刻。
+- [现在的AI真正给我带来了什么](https://mazzzystar.com/2024/10/30/What-has-AI-really-brought-to-me-zh/) (2024-10-30, zh)
+- [What AI Has Really Brought to My Life](https://mazzzystar.com/2024/10/30/What-AI-Has-Really-Brought-to-My-Life/) (2024-10-30, en)
+- [拥有个人博客最简单的方式](https://mazzzystar.com/2024/09/26/The-easiest-way-to-have-a-blog-zh/) (2024-09-26, zh)
+- [The Easiest Way to Have a Blog](https://mazzzystar.com/2024/09/26/The-easiest-way-to-have-a-blog/) (2024-09-26, en)
+- [用 2 万条真人AI海龟汤数据评估大模型推理能力](https://mazzzystar.com/2024/08/09/turtle-benchmark-zh/) (2024-08-09, zh): 我用真人玩 AI 海龟汤产生的 2.6 万条猜测，清洗标注成海龟汤数据集，评测 GPT-4o、Claude 3.5 Sonnet、DeepSeek、Kimi 等大模型在真实推理场景下的能力，Claude 3.5 Sonnet 排名第一。
+- [一个AI相册搜索应用的两年](https://mazzzystar.com/2024/07/21/Two-Years-of-an-AI-Photo-Album-Search-App-zh/) (2024-07-21, zh): 我的 AI 相册搜索 App「寻隐」(Queryable) 的两年：一个端侧离线运行 CLIP 的照片搜索工具，从想法到登上 Hacker News 第二、开源、被抄袭，再到重新收费的完整流水账。
+- [Two Years of an AI Photo Album Search App](https://mazzzystar.com/2024/07/21/Two-Years-of-an-AI-Photo-Album-Search-App/) (2024-07-21, en): The two-year story of Queryable, my offline CLIP photo search app: building it in a Korean cafe, hitting #2 on Hacker News, open-sourcing, and copycats.
+- [消费折叠](https://mazzzystar.com/2023/12/27/folding-consumption-zh/) (2023-12-27, zh)
+- [Folding Consumption](https://mazzzystar.com/2023/12/27/folding-consumption/) (2023-12-27, en)
+- [在2023年底做一个古典的信息共享工具](https://mazzzystar.com/2023/12/07/sublink-zh/) (2023-12-07, zh)
+- [Retro Link-Sharing in 2023](https://mazzzystar.com/2023/12/07/sublink/) (2023-12-07, en)
+- [一个失败的AI女友产品](https://mazzzystar.com/2023/11/17/ai-girlfriend-cn-zh/) (2023-11-17, zh): 我做的 AI 女友产品 Dolores 复盘：基于斯坦福 AI 小镇论文和 GPT，用户愿为逼真的语音付费，但 6 月只赚了 50 美元，OpenAI 的 NSFW 审查让访问量暴跌 70%，最终放弃。
+- [A Failed AI Girlfriend Product, and My Lessons](https://mazzzystar.com/2023/11/16/ai-girlfriend-product/) (2023-11-16, en): Lessons from Dolores, my failed AI girlfriend product: built on the Stanford AI Town paper with GPT and ElevenLabs voices, why it earned $50 and I gave up.
+- [Dream](https://mazzzystar.com/2023/09/11/dream-en/) (2023-09-11, en)
+- [梦](https://mazzzystar.com/2023/09/11/dream/) (2023-09-11, zh)
+- [Get users for your AI tool from Google search](https://mazzzystar.com/2023/07/23/Get-users-for-your-AI-tool-from-Google-search/) (2023-07-23, en): A practical SEO guide for AI tools: how PageRank and domain rating work, getting backlinks from AI listing sites, long-tail keywords, and page speed.
+- [让你的AI工具从Google搜索中获得用户](https://mazzzystar.com/2023/07/23/Get-users-for-your-AI-tool-from-Google-search-zh/) (2023-07-23, zh): 写给 AI 工具开发者的 SEO 实战：PageRank 与 Domain Rating 的原理、如何从 AI 列表网站获取高质量反向链接、挖掘长尾关键词，以及给网站加载提速的一些技巧。
+- [The Leverage of LLMs for Individuals](https://mazzzystar.com/2023/05/10/LLM-for-individual/) (2023-05-10, en)
+- [大语言模型对个人的杠杆](https://mazzzystar.com/2023/05/10/LLM-for-person-zh/) (2023-05-10, zh)
+- [Teach, Show, then Consult: Make GPT a Music Composition Guide](https://mazzzystar.com/2023/03/03/teach-show-consult-gpt/) (2023-03-03, en)
+- [Run CLIP on iPhone to Search Photos](https://mazzzystar.com/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/) (2022-12-29, en): How I run CLIP (ViT-B-32) on iPhone to search the Photos album offline with Queryable: exporting Core ML text and image encoders for CLIP photo search.
+- [系统外的三个月](https://mazzzystar.com/2022/11/19/three-months-away-from-work/) (2022-11-19, zh)
+- [新手上架人生第一个iOS App](https://mazzzystar.com/2022/11/12/my-first-iOS-app/) (2022-11-12, zh)
+- [为什么Stable Diffusion比Disco Diffusion快几个数量级？](https://mazzzystar.com/2022/09/07/stable-diffusion/) (2022-09-07, zh): 从原理层面解释 Disco Diffusion 和 Stable Diffusion 的区别：为什么 Stable Diffusion 在隐空间 (latent) 上做降噪，能比 Disco Diffusion 快几十倍，单张从 5 分钟降到 10 秒。
+- [A First Kill](https://mazzzystar.com/2022/07/09/A-murder-en/) (2022-07-09, en)
+- [一次杀人](https://mazzzystar.com/2022/07/09/A-Murder/) (2022-07-09, zh)
+- [Clones, Virtuals, and AI Reborn](https://mazzzystar.com/2022/05/09/Clones-Virtual-Beings-and-AI-Resurrected/) (2022-05-09, en)
+- [克隆人、虚拟人和AI复活人](https://mazzzystar.com/2022/05/09/clone-virtual-ai/) (2022-05-09, zh)
+- [AI绘画很酷，可是..原理是什么？](https://mazzzystar.com/2022/05/04/how-ai-art-works-1/) (2022-05-04, zh)
+- [生成艺术：对话Manolo Gamboa Naon(译)](https://mazzzystar.com/2022/04/05/generative-art-article-translation/) (2022-04-05, zh): 翻译自 Artnome 2018 年对生成艺术家 Manolo Gamboa Naon 的访谈：这位用 Processing 编程创作的高手，聊他如何把颜色和一个个美丽的错误，变成打动人的生成艺术 (generative art)。
+- [北京租房2016](https://mazzzystar.com/2021/02/07/beijing-2016/) (2021-02-07, zh)
+
+## Pages
+
+- [About](https://mazzzystar.com/about/): who Ke Fang is and what he builds
+- [Thoughts](https://mazzzystar.com/thoughts/): short-form notes (碎碎念), updated frequently
+- [Sound](https://mazzzystar.com/sound/): music and audio experiments

@@ -57,13 +57,14 @@
                     <meta name="viewport" content="width=device-width, initial-scale=1">
                     <meta name="author" content="Ke Fang">
                     
-                          <meta name="description"
-                            content="Stable Diffusion的开源让普通人也能描绘梦境，很大因素来自于它几十倍于Disco Diffusion的推理速度，机器成本被极大降低。本文就在试图(浅显地)解释：为什么Stable Diffusion这么快？">
-                          
+                        <meta name="description" content="从原理层面解释 Disco Diffusion 和 Stable Diffusion 的区别：为什么 Stable Diffusion 在隐空间 (latent) 上做降噪，能比 Disco Diffusion 快几十倍，单张从 5 分钟降到 10 秒。">
+                        
                               
 
                                   <link rel="canonical"
                                     href="https://mazzzystar.com/2022/09/07/stable-diffusion/">
+
+                                  
 
                                   <!-- Open Graph -->
 
@@ -71,10 +72,9 @@
                                   <meta property="og:title" content="为什么Stable Diffusion比Disco Diffusion快几个数量级？">
                                   <meta property="og:url" content="https://mazzzystar.com/2022/09/07/stable-diffusion/">
                                   <meta property="og:image" content="https://mazzzystar.com/images/2022-09-07/img_3.jpg">
-                                  <meta property="og:description" content="Stable Diffusion的开源让普通人也能描绘梦境，很大因素来自于它几十倍于Disco Diffusion的推理速度，机器成本被极大降低。本文就在试图(浅显地)解释：为什么Stable Diffusion这么快？">
+                                  <meta property="og:description" content="从原理层面解释 Disco Diffusion 和 Stable Diffusion 的区别：为什么 Stable Diffusion 在隐空间 (latent) 上做降噪，能比 Disco Diffusion 快几十倍，单张从 5 分钟降到 10 秒。">
                                   <meta property="og:site_name" content="TL;DR">
-                                  <meta property="og:locale"
-                                    content="zh_CN">
+                                  <meta property="og:locale" content="zh_CN">
                                   <meta property="article:author" content="Ke Fang">
                                   
 
@@ -83,15 +83,21 @@
                                           content="2022-09-07T15:36:50.000Z">
                                         
                                           <meta property="article:modified_time"
-                                            content="2026-07-06T12:24:25.640Z">
+                                            content="2022-09-07T15:36:50.000Z">
                                           
                                             
 
                                               <!-- Twitter Card -->
                                               <meta name="twitter:card" content="summary_large_image">
                                               <meta name="twitter:title" content="为什么Stable Diffusion比Disco Diffusion快几个数量级？">
-                                              <meta name="twitter:description" content="Stable Diffusion的开源让普通人也能描绘梦境，很大因素来自于它几十倍于Disco Diffusion的推理速度，机器成本被极大降低。本文就在试图(浅显地)解释：为什么Stable Diffusion这么快？">
+                                              <meta name="twitter:description" content="从原理层面解释 Disco Diffusion 和 Stable Diffusion 的区别：为什么 Stable Diffusion 在隐空间 (latent) 上做降噪，能比 Disco Diffusion 快几十倍，单张从 5 分钟降到 10 秒。">
                                               <meta name="twitter:image" content="https://mazzzystar.com/images/2022-09-07/img_3.jpg">
+                                              
+                                                <meta name="twitter:site"
+                                                  content="@immazzystar">
+                                                <meta name="twitter:creator"
+                                                  content="@immazzystar">
+                                                
 
                                               <!-- Stylesheets -->
                                               <link rel="stylesheet" href="/css/style.css">
@@ -115,13 +121,14 @@
         "@id": "https://mazzzystar.com/2022/09/07/stable-diffusion/"
       },
       "headline": "为什么Stable Diffusion比Disco Diffusion快几个数量级？",
-      "description": "Stable Diffusion的开源让普通人也能描绘梦境，很大因素来自于它几十倍于Disco Diffusion的推理速度，机器成本被极大降低。本文就在试图(浅显地)解释：为什么Stable Diffusion这么快？",
+      "description": "从原理层面解释 Disco Diffusion 和 Stable Diffusion 的区别：为什么 Stable Diffusion 在隐空间 (latent) 上做降噪，能比 Disco Diffusion 快几十倍，单张从 5 分钟降到 10 秒。",
       "author": {
         "@type": "Person",
         "name": "Ke Fang"
       },
       "datePublished": "2022-09-07T15:36:50.000Z",
-      "dateModified": "2026-07-06T12:24:25.640Z",
+      "dateModified": "2022-09-07T15:36:50.000Z",
+      "inLanguage": "zh-CN",
       "keywords": "",
       "image": "https://mazzzystar.com/images/2022-09-07/img_3.jpg",
       "publisher": {

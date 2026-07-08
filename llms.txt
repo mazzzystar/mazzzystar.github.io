@@ -6,6 +6,7 @@
 
 ## Posts
 
+- [The People Fable Left Behind](https://mazzzystar.com/2026/07/08/fable-5-en/) (2026-07-08, en): Fable 5 is the first model whose limits I can't feel. Some people have no access, most can't afford it — but the divide it creates runs deeper than price.
 - [被Fable抛弃的人](https://mazzzystar.com/2026/07/06/fable-5/) (2026-07-06, zh): Claude Fable 5 回归，但它太强也太贵：封号、按量计费把大部分中国人挡在门外。我担心它正在制造一种 K 型分化——用得起的人被加速狂奔，其余的人被甩开。
 - [韩国爆火的SetLog：为何没有新的社交巨头](https://mazzzystar.com/2026/04/27/setlog/) (2026-04-27, zh): setlog 是韩国爆火的社交产品：和朋友组队，每个整点拍一段 2 秒横屏视频，自动合成每日 vlog。我拆解它为何几乎做对了所有事，又借 Friendster、MySpace 的兴衰，聊这个时代为何很难再出社交巨头。
 - [The Key to the Problem is to Find the Key Problem](https://mazzzystar.com/2025/11/03/the-key-to-the-problem-is-to-find-the-key-problem/) (2025-11-03, en): Why OpenAI and DeepMind pick timeless, fundamental problems and solve them with brute compute (AlphaFold, AlphaEvolve), and how to find the key problem.

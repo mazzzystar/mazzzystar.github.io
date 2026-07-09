@@ -404,18 +404,6 @@ button::-moz-focus-inner {
   padding: 0;
 }
 @font-face {
-  font-family: 'Gowun Dodum';
-  font-style: normal;
-  font-weight: normal;
-  src: url("/fonts/GowunDodum-Regular.woff2") format("woff2");
-}
-@font-face {
-  font-family: 'Gowun Dodum';
-  font-style: normal;
-  font-weight: bold;
-  src: url("/fonts/GowunDodum-Regular.woff2") format("woff2");
-}
-@font-face {
   font-family: FontAwesome;
   font-style: normal;
   font-weight: normal;
@@ -436,7 +424,7 @@ body,
   height: 100%;
 }
 body {
-  font: 18px 'Gowun Dodum', 'Chinese', biaodian, Helvetica, sans-serif;
+  font: 18px 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Chinese', biaodian, serif;
   -webkit-text-size-adjust: 100%;
   background: #faf9f6;
 }
@@ -507,7 +495,7 @@ body {
 #main-404 {
   font-size: 40px;
   font-weight: bold;
-  font-family: 'Gowun Dodum', 'Chinese', biaodian, Helvetica, sans-serif;
+  font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Chinese', biaodian, serif;
   text-align: center;
   margin: 100px 0;
 }
@@ -1086,7 +1074,7 @@ a.article-title:hover {
   border-bottom: none;
 }
 .article-entry blockquote {
-  font-family: 'Gowun Dodum', 'Chinese', biaodian, Helvetica, sans-serif;
+  font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Chinese', biaodian, serif;
   margin: 1.8em 0;
   padding: 1.1em 1.45em;
   border: 1px solid rgba(183,181,172,0.72);
@@ -2323,7 +2311,7 @@ a.article-title:hover {
   border-bottom: none;
 }
 .article-entry blockquote {
-  font-family: 'Gowun Dodum', 'Chinese', biaodian, Helvetica, sans-serif;
+  font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Chinese', biaodian, serif;
   margin: 1.8em 0;
   padding: 1.1em 1.45em;
   border: 1px solid rgba(183,181,172,0.72);
@@ -2757,4 +2745,25 @@ a.article-title:hover {
 .lang-switch:hover {
   color: #333;
   text-decoration: none;
+}
+.article-entry a {
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+.article-entry hr {
+  border: 0;
+  border-top: 1px solid currentColor;
+  opacity: 0.22;
+  width: 38%;
+  margin: 2.6em auto;
+}
+html[lang="en"] .article-entry p {
+  -webkit-hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+::selection {
+  background: rgba(180,160,120,0.35);
 }

@@ -145,13 +145,15 @@ html.dark-mode .article-entry h6 {
   color: #a39e93;
 }
 html.dark-mode .article-entry hr {
-  border-color: #3d3d3a;
+  border-color: currentColor;
 }
 html.dark-mode .article-entry a {
-  color: #c4bfb5;
+  color: #faf9f6;
+  text-decoration-color: rgba(163, 158, 147, 0.55);
 }
 html.dark-mode .article-entry a:hover {
   color: #faf9f6;
+  text-decoration-color: #faf9f6;
 }
 html.dark-mode .article-entry img {
   opacity: 0.92;

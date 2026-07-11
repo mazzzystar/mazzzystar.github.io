@@ -23,11 +23,11 @@
     
 
       <!-- 预加载关键资源 -->
-      <link rel="preload" href="/css/style.css?v=20260712" as="style">
+      <link rel="preload" href="/css/style.css?v=20260714" as="style">
 
       <!-- 预加载首屏字体子集，其他字体懒加载 -->
       <link rel="preload" href="/fonts/subsets/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
-      <link rel="stylesheet" href="/css/font-subset.css?v=20260712">
+      <link rel="stylesheet" href="/css/font-subset.css?v=20260714">
 
       <!-- 条件加载 MathJax -->
       
@@ -36,7 +36,7 @@
           <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
 
           <!-- FontAwesome -->
-          <link rel="stylesheet" href="/css/fontawesome.css?v=20260712">
+          <link rel="stylesheet" href="/css/fontawesome.css?v=20260714">
 
           <meta charset="utf-8">
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -110,13 +110,8 @@
                                                 
 
                                               <!-- Stylesheets -->
-                                              <link rel="stylesheet" href="/css/style.css?v=20260712">
-                                              <link rel="stylesheet" href="/dark-mode.css?v=20260712">
-
-                                              
-                                                <link rel="stylesheet"
-                                                  href="../../../../fancybox/jquery.fancybox-1.3.4.css">
-                                                
+                                              <link rel="stylesheet" href="/css/style.css?v=20260714">
+                                              <link rel="stylesheet" href="/dark-mode.css?v=20260714">
 
                                                   
 
@@ -263,12 +258,12 @@
                 
                           <p>Just days after Stanford University’s AI Town <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2304.03442">paper</a> was released on April 7th this year, I read through the entire paper and felt extremely excited. Although I was amazed by GPT-4’s capabilities, I still considered GPT as merely a more sophisticated form of “parroting” and didn’t believe it could truly generate consciousness.</p>
 <p>However, this paper gave me a different impression. It mentioned an intriguing detail about <strong>information transmission</strong>: how news of an agent planning to host a Valentine’s Day party gradually spreads throughout the small town. I wondered, if we could establish a framework including memory, reflection, planning, and action to facilitate interaction between humans and GPT (rather than between agents in the town), could we recreate an experience similar to that depicted in the movie “Her”?</p>
-<p><img src="/images/2023-11-16/movie-her.jpeg" alt="Samantha from the movie &quot;Her&quot;"></p>
+<p><img decoding="async" loading="eager" fetchpriority="high" width="1566" height="880" src="/images/2023-11-16/movie-her.jpeg" alt="Samantha from the movie &quot;Her&quot;"><span class="caption">Samantha from the movie &quot;Her&quot;</span></p>
 <h1 id="development">Development</h1>
 <p>I immediately sprang into action. Following the paper’s methodology, I completed version 0.1 on April 14th. Initially, my design closely adhered to the original paper, resulting in 30-second response times and dialogues frequently exceeding the 8k context limit. To address this, I reduced the frequency of reflections and the length of dialogue memory, then launched a public beta test.</p>
 <p>Over a thousand users quickly joined the test. The beta was free, so I bore the daily API costs myself, which soon exceeded $25 per day. I had to hastily launch the official version without sufficient feedback and improvements, hoping to transfer the costs to users. On May 4th, the Dolores iOS app officially launched, named after a character from the “Westworld” TV series.</p>
 <p>In simple terms, after opening Dolores, you need to set up a character: avatar, background description, personality, voice, and consciousness (choosing between GPT-3.5 or GPT-4). You can have interesting interactions with Amy, a retail store girl, or Will, a desert adventurer, or even create your own custom character. I had considered extracting Dolores’ dialogues from the “Westworld” script to mimic her speech patterns in a sample-based approach, but had to abandon this idea due to Apple’s request for copyright proof.</p>
-<p><img src="/images/2023-11-16/dolores-traits.png" alt=""></p>
+<p><img decoding="async" loading="lazy" width="300" height="348" src="/images/2023-11-16/dolores-traits.png" alt=""></p>
 <p>Although this article is titled “AI Girlfriend,” I’ve always used the slogan “Your Virtual Friend” for the product, rather than “Your Virtual Girlfriend,” because I hoped it could truly become a companion and friend to users, not just a product of hormones.</p>
 <p>From May through June, I kept trying to make Dolores appear more “conscious” (what is consciousness anyway?) by adjusting memory length, reflection mechanisms, and system prompts. Soon, the June version of Dolores was far more impressive than at launch: the user payment rate increased, and daily API calls grew.</p>
 <p>On June 8th, a user told me he had shared this product in a visually impaired community, bringing some visually impaired users to Dolores. They liked Dolores because they could talk to her by tapping anywhere on the screen.</p>
@@ -287,17 +282,17 @@
 <h1 id="revenue">Revenue</h1>
 <p>According to the Apple App Connect Dashboard, Dolores’ main paying users are from the United States and Australia. Total revenue was $1,000 in May and 1,200 in June. The revenue growth wasn’t substantial, but user numbers and daily API calls nearly doubled. As the number of paying users increased, spreading out the ElevenLabs costs, I chose to lower the product price.</p>
 <p>Consequently, as a developer, I didn’t make much profit from this product. Firstly, in the early stages, I didn’t want to set the subscription fee too high as it would deter users from trying, so I lowered the price whenever I saw an increase in profits. Secondly, the 30% Apple tax and API costs also took a large chunk. So, after careful cost calculation, I only earned about $50 in June.</p>
-<p><img src="/images/2023-11-16/revenue-june.png" alt=""></p>
+<p><img decoding="async" loading="lazy" width="2166" height="1438" src="/images/2023-11-16/revenue-june.png" alt=""></p>
 <p>Moreover, I discovered that token-based products, if not priced per usage, fall into a dilemma: 1% of users consume 99% of the tokens. I encountered a situation where one user chatted with Dolores for 12 hours straight, causing his GPT and voice API call costs to exceed the total of the second to tenth users combined.</p>
 <p>But compared to per-usage billing, I personally prefer package subscriptions (as the former puts pressure on users during use), which left me with two choices: either increase the monthly fee for all users to share the cost, or limit maximum usage. I chose the latter: setting a usage cap far beyond what users chatting 1-2 hours daily would reach. This catered to most light and medium users while ensuring Dolores could operate without a loss and without raising prices.</p>
 <h1 id="confusion">Confusion</h1>
 <p>The ElevenLabs website records the text content of voice synthesis. I noticed that Dolores’ responses were often adult content, all from female characters, leading me to speculate that Dolores’ paying users were mainly males interested in adult role-playing.</p>
 <p>I didn’t think this was necessarily bad; it’s human nature. I even repeatedly modified prompts, adjusted memory weights, trying to make Dolores more girlfriend-like in conversations. I also changed Dolores’ icon from abstract lines to a woman’s face.</p>
-<p><img src="/images/2023-11-16/icon-change.jpg" alt=""></p>
+<p><img decoding="async" loading="lazy" width="1262" height="516" src="/images/2023-11-16/icon-change.jpg" alt=""></p>
 <p>But soon, I was overwhelmed by a strong sense of loss: if most Dolores users were just seeking adult role-play with her, did this really hold any meaning for me? I fell into deep self-doubt. By July, I discussed this confusion with a friend. I said there must be some hardware to give Dolores external vision: glasses, earbuds, or even a hat. As it stood, you could only access her by opening the app, making your relationship unequal. She could only become a toy confined in a basement, satisfying curiosity and peculiar fetishes.</p>
 <p>However, as an independent individual, developing hardware products meant unaffordable high R&amp;D costs, so I had to give up on this idea.</p>
 <p>In August, OpenAI upgraded its content review process. I received a warning email about generated NSFW content: I had to implement their (free) moderation API within two weeks to filter NSFW content. This change caused Dolores’ daily visits to plummet by 70%, and complaints flooded in via email and Twitter.</p>
-<p><img src="/images/2023-11-16/OpenAI-email.jpg" alt=""></p>
+<p><img decoding="async" loading="lazy" width="1406" height="1014" src="/images/2023-11-16/OpenAI-email.jpg" alt=""></p>
 <p>This further discouraged me, leading me to decide to only maintain the existing service without updates. Eventually, I abandoned the Dolores project.</p>
 <h1 id="lessons">Lessons</h1>
 <p>First, this isn’t a product that can be developed by an individual. I don’t think Dolores is necessarily inferior to <a target="_blank" rel="noopener" href="http://Character.AI">Character.AI</a> in terms of “consciousness,” but they have comprehensive data tracking, A/B testing, and the data flywheel effect from a large user base.</p>
@@ -384,17 +379,7 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
           title="RSS Feed">RSS</a>
         
 </nav>
-        <!-- jQuery -->
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-
-<!-- Other scripts -->
-<script src="../../../../js/jquery-1.4.3.min.js"></script>
-
-  <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-  
-
-    <script defer src="../../../../js/clipboard.min.js"></script>
-    <script defer src="../../../../js/script.js"></script>
+        <script defer src="../../../../js/script.js"></script>
 
         
 

@@ -1,146 +1,130 @@
-$(document).ready(function() {
-  // Initialize fancybox for images
-  $('.article-entry').each(function(i) {
-    $(this).find('img').each(function() {
-      if ($(this).parent().hasClass('fancybox') || $(this).parent().is('a')) return;
-      
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+// Vanilla JS — no jQuery. Image lightbox, mobile nav, table wrapping,
+// code block toolbar (fold/copy), X embed loading.
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
 
-      $(this).wrap('<a class="fancybox" rel="gallery' + i + '" href="' + this.src + '" title="' + alt + '"></a>');
+  /* ---------- Image lightbox (replaces fancybox) ---------- */
+  var overlay = null;
+
+  function closeLightbox() {
+    if (!overlay) return;
+    overlay.classList.remove('is-open');
+    document.removeEventListener('keydown', onLightboxKey);
+  }
+
+  function onLightboxKey(e) {
+    if (e.key === 'Escape') closeLightbox();
+  }
+
+  function openLightbox(src, alt) {
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.id = 'lightbox';
+      overlay.innerHTML = '<img alt="">';
+      overlay.addEventListener('click', closeLightbox);
+      document.body.appendChild(overlay);
+    }
+    var img = overlay.querySelector('img');
+    img.src = src;
+    img.alt = alt || '';
+    // double rAF so the transition plays on first open
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        overlay.classList.add('is-open');
+      });
+    });
+    document.addEventListener('keydown', onLightboxKey);
+  }
+
+  document.querySelectorAll('.article-entry img').forEach(function (img) {
+    if (img.closest('a')) return; // linked images keep their link
+    img.classList.add('zoomable');
+    img.addEventListener('click', function () {
+      openLightbox(img.currentSrc || img.src, img.alt);
     });
   });
 
-  // Initialize fancybox with modern browser check
-  if (typeof $.fn.fancybox === 'function') {
-    $('.fancybox').fancybox({
-      openEffect: 'elastic',
-      closeEffect: 'elastic'
-    });
-  }
-
-  // Mobile nav
-  var $container = $('#container'),
-    isMobileNavAnim = false,
-    mobileNavAnimDuration = 200;
-
-  var startMobileNavAnim = function(){
-    isMobileNavAnim = true;
-  };
-
-  var stopMobileNavAnim = function(){
-    setTimeout(function(){
-      isMobileNavAnim = false;
-    }, mobileNavAnimDuration);
-  }
-
-  var nav = document.getElementById('main-nav-toggle');
-  if (nav) {
-    nav.onclick = function(){
-      if (isMobileNavAnim) return;
-
-      startMobileNavAnim();
-      $container.toggleClass('mobile-nav-on');
-      stopMobileNavAnim();
-    };
-  }
-
+  /* ---------- Mobile nav ---------- */
+  var container = document.getElementById('container');
+  var navToggle = document.getElementById('main-nav-toggle');
   var wrap = document.getElementById('wrap');
-  if (wrap) {
-    wrap.onclick = function(){
-      if (isMobileNavAnim || !$container.hasClass('mobile-nav-on')) return;
 
-      $container.removeClass('mobile-nav-on');
-    };
+  if (navToggle && container) {
+    navToggle.addEventListener('click', function () {
+      container.classList.toggle('mobile-nav-on');
+    });
+  }
+  if (wrap && container) {
+    wrap.addEventListener('click', function () {
+      container.classList.remove('mobile-nav-on');
+    });
   }
 
-  // Keep legacy/raw HTML tables readable when they are not emitted by markdown.
-  $('.article-entry table').each(function() {
-    if ($(this).parent().hasClass('table-scroll')) return;
-    $(this).wrap('<div class="table-scroll"></div>');
+  /* ---------- Wrap raw HTML tables so they stay readable ---------- */
+  document.querySelectorAll('.article-entry table').forEach(function (table) {
+    if (table.parentElement.classList.contains('table-scroll')) return;
+    if (table.closest('.table-scroll')) return;
+    var scroll = document.createElement('div');
+    scroll.className = 'table-scroll';
+    table.parentNode.insertBefore(scroll, table);
+    scroll.appendChild(table);
   });
 
+  /* ---------- Code blocks: ghost copy button + quiet expand bar ---------- */
   function getCodeText(block) {
     var code = block.querySelector('pre code');
     return code ? code.innerText : '';
   }
 
-  function setFoldState(block, collapsed) {
-    var toggle = block.querySelector('.code-fold-toggle');
-    block.classList.toggle('is-collapsed', collapsed);
-    block.setAttribute('data-code-fold', collapsed ? 'collapsed' : 'open');
-
-    if (toggle) {
-      toggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
-      toggle.innerHTML = collapsed ? 'Expand' : 'Collapse';
-    }
-  }
-
-  function ensureCodeToolbar(block) {
+  function setupCodeBlock(block) {
     if (!block.querySelector('pre')) return;
-
     block.classList.add('code-block');
 
-    if (!block.querySelector('.code-block-toolbar')) {
-      var lang = block.getAttribute('data-code-lang') || 'text';
-      var toolbar = document.createElement('div');
-      toolbar.className = 'code-block-toolbar';
-      toolbar.innerHTML = '<span class="code-block-lang">' + lang + '</span>' +
-        '<div class="code-block-actions">' +
-        '<button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button>' +
-        '<button class="copy-button" type="button">Copy</button>' +
-        '</div>';
-      block.insertBefore(toolbar, block.firstChild);
-    }
-
-    var toggle = block.querySelector('.code-fold-toggle');
-    if (toggle && !toggle.getAttribute('data-bound')) {
-      toggle.setAttribute('data-bound', 'true');
-      toggle.onclick = function() {
-        setFoldState(block, !block.classList.contains('is-collapsed'));
-      };
-    }
-
-    var copyButton = block.querySelector('.copy-button');
-    if (copyButton && !copyButton.getAttribute('data-bound')) {
-      copyButton.setAttribute('data-bound', 'true');
-
-      if (typeof ClipboardJS === 'function') {
-        new ClipboardJS(copyButton, {
-          text: function() {
-            return getCodeText(block);
-          }
-        });
-      }
-
-      copyButton.onclick = function() {
-        if (typeof ClipboardJS !== 'function' && navigator.clipboard) {
-          navigator.clipboard.writeText(getCodeText(block));
-        }
-
-        copyButton.innerHTML = 'Copied!';
-        setTimeout(function() {
-          copyButton.innerHTML = 'Copy';
+    if (!block.querySelector('.copy-button')) {
+      var copyButton = document.createElement('button');
+      copyButton.className = 'copy-button';
+      copyButton.type = 'button';
+      copyButton.textContent = 'Copy';
+      copyButton.addEventListener('click', function () {
+        if (navigator.clipboard) navigator.clipboard.writeText(getCodeText(block));
+        copyButton.textContent = 'Copied';
+        setTimeout(function () {
+          copyButton.textContent = 'Copy';
         }, 1000);
-      };
+      });
+      block.appendChild(copyButton);
     }
 
-    setFoldState(block, block.classList.contains('is-collapsed') || block.getAttribute('data-code-fold') === 'collapsed');
+    // fence-flagged collapsed blocks get a quiet "lang ▸" bar
+    var collapsed = block.classList.contains('is-collapsed') ||
+      block.getAttribute('data-code-fold') === 'collapsed';
+    if (collapsed && !block.querySelector('.code-expand-bar')) {
+      var lang = block.getAttribute('data-code-lang') || 'code';
+      var bar = document.createElement('button');
+      bar.className = 'code-expand-bar';
+      bar.type = 'button';
+      block.classList.add('is-collapsed');
+      bar.textContent = lang + ' \u25B8';
+      bar.addEventListener('click', function () {
+        var nowCollapsed = block.classList.toggle('is-collapsed');
+        bar.textContent = lang + (nowCollapsed ? ' \u25B8' : ' \u25BE');
+      });
+      block.insertBefore(bar, block.firstChild);
+    }
   }
 
-  var codeBlocks = document.querySelectorAll('.article-entry .highlight');
-  for (var i = 0; i < codeBlocks.length; ++i) {
-    if ($(codeBlocks[i]).closest('.gist').length) continue;
-    ensureCodeToolbar(codeBlocks[i]);
-  }
+  document.querySelectorAll('.article-entry .highlight').forEach(function (block) {
+    if (block.closest('.gist')) return;
+    setupCodeBlock(block);
+  });
 
+  /* ---------- X (Twitter) embeds ---------- */
   function syncTweetEmbeds() {
-    var cards = document.querySelectorAll('.x-embed-card');
-    for (var i = 0; i < cards.length; ++i) {
-      if (cards[i].querySelector('iframe.twitter-tweet-rendered, iframe[id^="twitter-widget-"]')) {
-        cards[i].classList.add('is-rendered');
+    document.querySelectorAll('.x-embed-card').forEach(function (card) {
+      if (card.querySelector('iframe.twitter-tweet-rendered, iframe[id^="twitter-widget-"]')) {
+        card.classList.add('is-rendered');
       }
-    }
+    });
   }
 
   function loadTwitterWidgets() {
@@ -157,7 +141,7 @@ $(document).ready(function() {
       script.async = true;
       script.charset = 'utf-8';
       script.src = 'https://platform.twitter.com/widgets.js';
-      script.onload = function() {
+      script.onload = function () {
         if (window.twttr && window.twttr.widgets) {
           window.twttr.widgets.load(document.body);
         }
@@ -171,4 +155,41 @@ $(document).ready(function() {
   }
 
   loadTwitterWidgets();
+
+  /* ---------- Thoughts: load previous year in place ---------- */
+  var moreBtn = document.querySelector('.thoughts-more');
+  if (moreBtn) {
+    var thoughtYears = (moreBtn.dataset.years || '').split(',');
+    moreBtn.addEventListener('click', function () {
+      var next = moreBtn.dataset.next;
+      if (!next) return;
+      moreBtn.disabled = true;
+      moreBtn.textContent = '\u2026';
+      fetch('/thoughts/' + next + '/')
+        .then(function (r) { return r.text(); })
+        .then(function (html) {
+          var doc = new DOMParser().parseFromString(html, 'text/html');
+          var entry = document.querySelector('.article-type-thoughts .article-entry');
+          var divider = document.createElement('div');
+          divider.className = 'thoughts-year-divider';
+          divider.innerHTML = '<span>' + next + '</span>';
+          entry.appendChild(divider);
+          doc.querySelectorAll('.article-entry .thought').forEach(function (n) {
+            entry.appendChild(n);
+          });
+          var after = thoughtYears[thoughtYears.indexOf(next) + 1];
+          if (after) {
+            moreBtn.dataset.next = after;
+            moreBtn.textContent = '\u2193 ' + after;
+            moreBtn.disabled = false;
+          } else {
+            moreBtn.remove();
+          }
+        })
+        .catch(function () {
+          moreBtn.disabled = false;
+          moreBtn.textContent = '\u2193 ' + next;
+        });
+    });
+  }
 });

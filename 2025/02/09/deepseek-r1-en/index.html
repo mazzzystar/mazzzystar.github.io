@@ -23,11 +23,11 @@
     
 
       <!-- 预加载关键资源 -->
-      <link rel="preload" href="/css/style.css?v=20260712" as="style">
+      <link rel="preload" href="/css/style.css?v=20260714" as="style">
 
       <!-- 预加载首屏字体子集，其他字体懒加载 -->
       <link rel="preload" href="/fonts/subsets/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
-      <link rel="stylesheet" href="/css/font-subset.css?v=20260712">
+      <link rel="stylesheet" href="/css/font-subset.css?v=20260714">
 
       <!-- 条件加载 MathJax -->
       
@@ -38,7 +38,7 @@
           <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
 
           <!-- FontAwesome -->
-          <link rel="stylesheet" href="/css/fontawesome.css?v=20260712">
+          <link rel="stylesheet" href="/css/fontawesome.css?v=20260714">
 
           <meta charset="utf-8">
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -112,13 +112,8 @@
                                                 
 
                                               <!-- Stylesheets -->
-                                              <link rel="stylesheet" href="/css/style.css?v=20260712">
-                                              <link rel="stylesheet" href="/dark-mode.css?v=20260712">
-
-                                              
-                                                <link rel="stylesheet"
-                                                  href="../../../../fancybox/jquery.fancybox-1.3.4.css">
-                                                
+                                              <link rel="stylesheet" href="/css/style.css?v=20260714">
+                                              <link rel="stylesheet" href="/dark-mode.css?v=20260714">
 
                                                   
                                                   <!-- MathJax Configuration -->
@@ -356,7 +351,7 @@
 <p>Scientists were surprised to discover that <strong>intelligence is created through compression</strong>.</p>
 <p>We can understand it this way: Let the model read a detective story. At the end, “the murderer is”. If the AI can accurately predict the murderer’s name, we have reason to believe that it has understood the whole story - that is, it has “intelligence”, rather than just piecing together or memorising text.</p>
 <p>The process of having the model learn and predict the next character is called <strong>pre-training</strong>. At this stage, the model can only continue to predict the next character, but can’t answer your questions. To achieve ChatGPT-like Q&amp;A capabilities, a second phase of training is required, called <strong>Supervised Fine-Tuning (SFT)</strong>. This involves, for example, manually constructing a batch of Q&amp;A data:</p>
-<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><div class="code-block-toolbar"><span class="code-block-lang">python</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs language-python"><span class="hljs-comment"># example 1</span>
+<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><pre class="code"><code class="hljs language-python"><span class="hljs-comment"># example 1</span>
 User: When did the World War II begin?
 AI: <span class="hljs-number">1939</span>
 
@@ -365,7 +360,7 @@ User: Please summarise the following text: &#123;xxx&#125;
 AI: Here <span class="hljs-keyword">is</span> the summary: xxx
 </code></pre></div>
 <p>Note that these examples are <strong>manually constructed</strong> to teach the AI to learn human question-answer patterns. When you say “Please translate this sentence: xxx”, the content given to the AI is:</p>
-<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><div class="code-block-toolbar"><span class="code-block-lang">python</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs language-python">User: Please translate this phrase: xxx
+<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><pre class="code"><code class="hljs language-python">User: Please translate this phrase: xxx
 AI:
 </code></pre></div>
 <p>You see, it’s still just predicting the next character. In the process, the model doesn’t get any smarter - it simply learns human question-answering patterns and understands what you’re asking it to do.</p>
@@ -398,7 +393,7 @@ AI:
 <p>To train a slow thinking model, you first need to construct high quality data containing thought processes, and if you want reinforcement learning independent of humans, you need to quantitatively score (good/bad) the model’s thinking process to provide rewards and penalties.</p>
 <p>As mentioned above, mathematics and code datasets best meet these requirements. Mathematical derivations can be verified using regular expressions, while code output can be verified by running it directly in compilers.</p>
 <p>In mathematics textbooks, for example, we often see such reasoning processes:</p>
-<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><div class="code-block-toolbar"><span class="code-block-lang">python</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs language-python">&lt;thinking&gt;
+<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><pre class="code"><code class="hljs language-python">&lt;thinking&gt;
   Let x be the root of the equation, squaring both sides: x² = a - √(a+x)
   Rearranging: √(a+x) = a - x²
   Square again: (a+x) = (a - x²)²
@@ -447,7 +442,7 @@ AI:
 <li>Combined reasoning and general task data, using mixed reward signals for final reinforcement learning.</li>
 </ol>
 <p>This process can be summarised as</p>
-<div class="highlight code-block" data-code-fold="open" data-code-lang="text"><div class="code-block-toolbar"><span class="code-block-lang">text</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs">Supervised Learning (SFT) - Reinforcement Learning (RL) - Supervised Learning (SFT) - Reinforcement Learning (RL)
+<div class="highlight code-block" data-code-fold="open" data-code-lang="text"><pre class="code"><code class="hljs">Supervised Learning (SFT) - Reinforcement Learning (RL) - Supervised Learning (SFT) - Reinforcement Learning (RL)
 </code></pre></div>
 <p>This process resulted in DeepSeek R1.</p>
 <p>DeepSeek R1’s contribution to the world is to be the first open source reasoning model comparable to closed source (o1). Now users around the world can see the model’s reasoning process before answering questions - its ‘inner monologue’ - completely free of charge.</p>
@@ -481,7 +476,7 @@ AI:
 <h2 id="some-thoughts">Some thoughts</h2>
 <p>AI has finally broken free from the shackles of human feedback. DeepSeek R1-Zero demonstrates how to improve model performance with minimal human feedback - this is its AlphaZero moment. Many people used to say that “artificial intelligence has as much intelligence as artificiality”, but this may no longer be true. If a model can derive the Pythagorean theorem from a right triangle, we have reason to believe that one day it will derive theorems yet undiscovered by mathematicians.</p>
 <p>Is there still any point in writing code? I don’t know. This morning I saw a popular GitHub project, llama.cpp, where a contributor has posted a PR stating that he has achieved a 2x WASM speed improvement by optimising SIMD instructions, with 99% of the code completed by DeepSeek R1<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup>. This is definitely not junior engineer level code - I can no longer say that AI can only replace junior programmers.</p>
-<p><img src="/images/2025-01-30/ggml-speedup.jpg" alt="ggml : x2 speed for WASM by optimizing SIMD"></p>
+<p><img decoding="async" loading="eager" fetchpriority="high" width="1922" height="978" src="/images/2025-01-30/ggml-speedup.jpg" alt="ggml : x2 speed for WASM by optimizing SIMD"><span class="caption">ggml : x2 speed for WASM by optimizing SIMD</span></p>
 <p>Of course, I’m still very excited about it. The limits of human capabilities have been pushed further. Well done, DeepSeek! It’s the coolest company in the world right now.</p>
 <h2 id="references">References</h2>
 <hr class="footnotes-sep">
@@ -586,17 +581,7 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
           title="RSS Feed">RSS</a>
         
 </nav>
-        <!-- jQuery -->
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-
-<!-- Other scripts -->
-<script src="../../../../js/jquery-1.4.3.min.js"></script>
-
-  <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-  
-
-    <script defer src="../../../../js/clipboard.min.js"></script>
-    <script defer src="../../../../js/script.js"></script>
+        <script defer src="../../../../js/script.js"></script>
 
         
 

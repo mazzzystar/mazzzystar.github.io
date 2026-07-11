@@ -23,11 +23,11 @@
     
 
       <!-- 预加载关键资源 -->
-      <link rel="preload" href="/css/style.css?v=20260712" as="style">
+      <link rel="preload" href="/css/style.css?v=20260714" as="style">
 
       <!-- 预加载首屏字体子集，其他字体懒加载 -->
       <link rel="preload" href="/fonts/subsets/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
-      <link rel="stylesheet" href="/css/font-subset.css?v=20260712">
+      <link rel="stylesheet" href="/css/font-subset.css?v=20260714">
 
       <!-- 条件加载 MathJax -->
       
@@ -36,7 +36,7 @@
           <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
 
           <!-- FontAwesome -->
-          <link rel="stylesheet" href="/css/fontawesome.css?v=20260712">
+          <link rel="stylesheet" href="/css/fontawesome.css?v=20260714">
 
           <meta charset="utf-8">
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -105,13 +105,8 @@
                                                 
 
                                               <!-- Stylesheets -->
-                                              <link rel="stylesheet" href="/css/style.css?v=20260712">
-                                              <link rel="stylesheet" href="/dark-mode.css?v=20260712">
-
-                                              
-                                                <link rel="stylesheet"
-                                                  href="../../../../fancybox/jquery.fancybox-1.3.4.css">
-                                                
+                                              <link rel="stylesheet" href="/css/style.css?v=20260714">
+                                              <link rel="stylesheet" href="/dark-mode.css?v=20260714">
 
                                                   
 
@@ -264,8 +259,8 @@
 <p><em>Disco Diffusion 单张耗时在 5-10min<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Stable Diffusion 则只需要 5-10s<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
 <h1 id="一原理复习">一.原理复习</h1>
 <p>Diffusion 模型的作用是将图像&quot;降噪&quot;<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是说它只是实现将一张带有噪点的图像变清晰这个功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>AI 能够绘画<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>依托于模型将用户的输入文本变成能与图像比较的向量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如 CLIP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
-<img src="/images/2022-09-07/img.jpg" alt="Stable Diffusion原理图"><br>
-<img src="/images/2022-09-07/img_1.jpg" alt="我画的AI绘画原理图"></p>
+<img decoding="async" loading="eager" fetchpriority="high" width="860" height="202" src="/images/2022-09-07/img.jpg" alt="Stable Diffusion原理图"><span class="caption">Stable Diffusion原理图</span><br>
+<img decoding="async" loading="lazy" width="1646" height="1278" src="/images/2022-09-07/img_1.jpg" alt="我画的AI绘画原理图"><span class="caption">我画的AI绘画原理图</span></p>
 <p>Disco Diffusion 就是通过不断将用户的文本(Text)输入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>与 Diffusion 生成的图像计算 CLIP 损失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一步步实现 AI 绘画的功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是这个迭代过程实在是太太太太慢了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>原因在于<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
 <blockquote>
@@ -274,7 +269,7 @@
 <p>有没有更好的办法呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>今年年初<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>几位科学家提出的<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2112.10752">Latent Diffusion</a>模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就试图尝试将 Diffusion 过程放在隐空间(latent)上做<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我<a href="https://mazzzystar.com/2022/05/04/how-ai-art-works-1/">上一篇文章</a>也有关于隐空间的介绍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <h1 id="二在隐空间上做-diffusion">二.在隐空间上做 Diffusion</h1>
 <p>首先<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一张图片的隐空间(latent)怎么得到呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>最简单的方法就是训练一个 Encoder-Decoder 网络<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比如下面这个模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>它的输入是一张 512x512 的图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型的 Encoder 将这张图像变成一个 64x64 的 latent<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>经过 Decoder 将其还原成原始的 512x512 图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
-<img src="/images/2022-09-07/img_2.jpg" alt="提取隐变量(latent)"></p>
+<img decoding="async" loading="lazy" width="1630" height="412" src="/images/2022-09-07/img_2.jpg" alt="提取隐变量(latent)"><span class="caption">提取隐变量(latent)</span></p>
 <p>听起来这个模型很蠢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>好像什么事也没干<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但假如我们保存这个 latent(即 64x64 尺寸的向量)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么哪天原图丢失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型也可以用 latent+Decoder 还原这张 512x512 的图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>而这个 latent 所花费的存储开支是原图的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
 <blockquote>
 <p>64x64 / 512x512 = 1/64<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
@@ -287,7 +282,7 @@
 <ul>
 <li>用户的输入(如&quot;一只狗在微笑&quot;)会经过文本编码(Text Embedding)模型变成向量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这里使用的是 CLIP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这个向量会与随机产生的噪声 noise 一起作为最初的隐变量 latent0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
 <li>diffusion 模型仍然做降噪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但这次只对 latent 做而不是真实图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>假设 latent 尺寸是 64x64<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>经过两次(steps=2)降噪(diffuse)后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得到最终的隐变量(latent2)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将其通过上文提到的 Decoder<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就得到了最终 512x512 的图像输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
-<img src="/images/2022-09-07/img_3.jpg" alt="Stable Diffusion在latent空间做diffuse"></li>
+<img decoding="async" loading="lazy" width="1930" height="1032" src="/images/2022-09-07/img_3.jpg" alt="Stable Diffusion在latent空间做diffuse"><span class="caption">Stable Diffusion在latent空间做diffuse</span></li>
 </ul>
 <h1 id="三为何-stable diffusion 这么快">三.为何 Stable Diffusion 这么快</h1>
 <p>Stable Diffusion 是基于 latent diffusion 这篇论文<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在大规模数据上训练得到的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此可以假定它的模型速度与 latent diffusion 接近<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>至少在一个数量级<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
@@ -381,17 +376,7 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
           title="RSS 订阅">RSS</a>
         
 </nav>
-        <!-- jQuery -->
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-
-<!-- Other scripts -->
-<script src="../../../../js/jquery-1.4.3.min.js"></script>
-
-  <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-  
-
-    <script defer src="../../../../js/clipboard.min.js"></script>
-    <script defer src="../../../../js/script.js"></script>
+        <script defer src="../../../../js/script.js"></script>
 
         
 

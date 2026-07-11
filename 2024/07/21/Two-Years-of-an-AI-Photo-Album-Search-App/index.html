@@ -23,11 +23,11 @@
     
 
       <!-- 预加载关键资源 -->
-      <link rel="preload" href="/css/style.css?v=20260712" as="style">
+      <link rel="preload" href="/css/style.css?v=20260714" as="style">
 
       <!-- 预加载首屏字体子集，其他字体懒加载 -->
       <link rel="preload" href="/fonts/subsets/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
-      <link rel="stylesheet" href="/css/font-subset.css?v=20260712">
+      <link rel="stylesheet" href="/css/font-subset.css?v=20260714">
 
       <!-- 条件加载 MathJax -->
       
@@ -36,7 +36,7 @@
           <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
 
           <!-- FontAwesome -->
-          <link rel="stylesheet" href="/css/fontawesome.css?v=20260712">
+          <link rel="stylesheet" href="/css/fontawesome.css?v=20260714">
 
           <meta charset="utf-8">
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -110,13 +110,8 @@
                                                 
 
                                               <!-- Stylesheets -->
-                                              <link rel="stylesheet" href="/css/style.css?v=20260712">
-                                              <link rel="stylesheet" href="/dark-mode.css?v=20260712">
-
-                                              
-                                                <link rel="stylesheet"
-                                                  href="../../../../fancybox/jquery.fancybox-1.3.4.css">
-                                                
+                                              <link rel="stylesheet" href="/css/style.css?v=20260714">
+                                              <link rel="stylesheet" href="/dark-mode.css?v=20260714">
 
                                                   
 
@@ -271,9 +266,9 @@
 <p>A <a target="_blank" rel="noopener" href="https://greatdk.com/">friend</a> suggested, “Why not build a website for everyone to use?” So we created <a target="_blank" rel="noopener" href="https://6pen.art/">6pen.art</a>. We quickly gained 1 million users, but then gradually faded into obscurity. This “startup” wasn’t very successful, and I felt that not training a differentiated model was a major factor in our failure, but I won’t elaborate on that here. As mentioned earlier, AI art generation was extremely slow before Stable Diffusion was released, and most of my time was spent on model acceleration, with one of the optimization targets being the CLIP model.</p>
 <p>CLIP is a model released by OpenAI in 2021 that can compare the similarity between any image and a piece of text. In Disco Diffusion, the model uses CLIP to calculate the loss between the generated image and the user’s prompt, continuously optimizing the loss to achieve the desired image generation.</p>
 <p>Sitting in the bookstore, a thought suddenly entered my mind: Since it can compare image-text similarity, could it be used to search photos? After searching, I found that <a target="_blank" rel="noopener" href="https://github.com/kingyiusuen/clip-image-search">someone</a> had already done this. The principle is to upload photos to the server, extract features uniformly, input English text and calculate the similarity between the text and each image, then sort to achieve image search.</p>
-<p><img src="/images/2024-07-21/clip-img-search.jpg" alt="https://github.com/kingyiusuen/clip-image-search"></p>
+<p><img decoding="async" loading="eager" fetchpriority="high" width="1255" height="769" src="/images/2024-07-21/clip-img-search.jpg" alt="https://github.com/kingyiusuen/clip-image-search"><span class="caption">https://github.com/kingyiusuen/clip-image-search</span></p>
 <p>I started experimenting by uploading my iPhone photo album to the server, and after some testing, I found that the results were surprisingly good! It was especially effective when searching for abstract concepts. For example, when I input “lonely”, it returned these top three photos:</p>
-<p><img src="/images/2024-07-21/search-loney-in-CLIP.jpg" alt="The top 3 returned photos when input 'lonely'"></p>
+<p><img decoding="async" loading="lazy" width="2542" height="788" src="/images/2024-07-21/search-loney-in-CLIP.jpg" alt="The top 3 returned photos when input 'lonely'"><span class="caption">The top 3 returned photos when input 'lonely'</span></p>
 <p>Storing photos on a server isn’t a good idea. The place where I have the most photos is my local iPhone photo album. Would it be possible to create a CLIP image search app that runs entirely locally? I really liked this idea and discussed it with friends several times, but each time it came to nothing.</p>
 <p>I was too uncertain:</p>
 <ul>
@@ -286,14 +281,14 @@
 <p>The turning point came in early December 2022. Due to some changes, I suddenly found myself in a foreign country (South Korea) where I didn’t speak the language, and my journey with 6pen also came to an end. So, in an empty coffee shop, I sat all day with a laptop and an iced latte. K-pop played in the background, thick snow outside the window, and I ate the shop’s sandwiches when hungry at noon. This was how I spent each day.</p>
 <p>The internet speed was incredibly fast here, there was no COVID testing, and the conversations around me automatically became white noise due to the language barrier. I suddenly felt like I was living in a vacuum. This strange sense of isolation excited me: like an exiled fugitive, who I was and my past no longer mattered. Here, I felt like I could learn and accomplish anything from scratch. It was time to start making a product that truly excited me - this idea grabbed hold of me again.</p>
 <p>But this time, I was no longer afraid to verify its feasibility. I learned to write tokenizers in Swift, researched how to calculate and store features, and learned to use multi-core acceleration for indexing. I asked many naive questions on StackOverflow and had many moments of frustration. But I kept envisioning this scene: entering “coffee and laptop” on my phone, clicking search, and after a rotating animation, this photo jumping out from 30,000 photos in my album, appearing before my eyes.</p>
-<p><img src="/images/2024-07-21/IMG_5091.jpg" alt="On weekdays, the coffee shop is almost empty."></p>
+<p><img decoding="async" loading="lazy" width="2000" height="2667" src="/images/2024-07-21/IMG_5091.jpg" alt="On weekdays, the coffee shop is almost empty."><span class="caption">On weekdays, the coffee shop is almost empty.</span></p>
 <p>This fantasy drove me to work tirelessly for 2 weeks, I forgot to eat lunch several times, drinking a latte until evening when I was starving with stomach pain and feeling weak all over. There was a significant time marker: ChatGPT had just been released then. But I was so deeply involved in development that I completely ignored its existence, which might have been the last few times in my life that I asked questions on StackOverflow.</p>
 <p>Anyway, on December 27th, I finally completed the product. I split the text model and image model in CLIP into two separate models, loading them separately:</p>
 <blockquote>
 <p>When building index for the photo album, only load the image encoder, calculate the index and save it. When searching, only load the text encoder, and calculate the cosine distance with the saved index one by one, then return the top K photos with the highest similarity.</p>
 </blockquote>
 <p>Staggered model loading can effectively reduce the software’s memory usage and accelerate index building. At the same time, using multi-core parallel computation of the index can achieve an indexing speed of 2000 photos/minute on my iPhone 12 mini, and searching 10,000 photos takes less than 1s.</p>
-<p><img src="/images/2022-12-28/Queryable-flow-chart.jpg" alt="Queryable Implementation Principles."></p>
+<p><img decoding="async" loading="lazy" width="1904" height="940" src="/images/2022-12-28/Queryable-flow-chart.jpg" alt="Queryable Implementation Principles."><span class="caption">Queryable Implementation Principles.</span></p>
 <p>This proved the operators’ support and usable speed. My anxiety finally subsided.</p>
 <h2 id="pricing">Pricing</h2>
 <p>As a pricing genius, my idea was:</p>
@@ -313,22 +308,22 @@
 <p>Soon, on January 18, 2023, I completed the Chinese version, named “Xunyin” (寻隐, 寻: Seek 隐: Hidden), derived from the ancient poem <em>寻隐者不遇</em> by Jia Dao, also implying the meaning of “discovering hidden meanings from the photo album”. After all, my initial shock was realizing that those few photos represented loneliness when I searched for “lonely”.</p>
 <p>After launching, I wrote an article in Chinese introducing this product on a Chinese community site called <a target="_blank" rel="noopener" href="https://sspai.com/">sspai</a>. It actually made it to the homepage of the day, which brought a large number of downloads and $1,500 in revenue.</p>
 <p>In early February, I received a reply from a Hacker News editor. He said my account had been mistakenly flagged as SPAM by the system, and encouraged me to repost, saying my article was definitely suitable HN material. He would put the link to my new post in the candidate pool: articles in the pool would randomly enter the bottom of the homepage, and if users upvoted it, the ranking would rise; otherwise, it would sink again.</p>
-<p><img src="/images/2024-07-21/hn-email.jpg" alt="HN editor Daniel placed my link under /pool."></p>
+<p><img decoding="async" loading="lazy" width="1806" height="516" src="/images/2024-07-21/hn-email.jpg" alt="HN editor Daniel placed my link under /pool."><span class="caption">HN editor Daniel placed my link under /pool.</span></p>
 <p>I found the <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=11662380">pool</a> mechanism interesting. The community seemed to want to maintain a hacker spirit under a decentralized mechanism:</p>
 <blockquote>
 <p>This is our long-running experiment in story re-upping. Moderators and a small number of reviewer users comb the depths of /newest looking for stories that got overlooked but which the community might find interesting. Those go into a second-chance pool from which stories are randomly selected and lobbed onto the bottom part of the front page. This guarantees them a few minutes of attention. If they don’t interest the community they soon fall off, but if they do, they get upvoted and stay on the front page.</p>
 <a class="link-preview-card link-preview-card-generic" href="https://news.ycombinator.com/item?id=11662380" target="_blank" rel="noopener noreferrer" aria-label="news.ycombinator.com - /item"><span class="link-preview-icon" aria-hidden="true" data-preview-text="N"></span><span class="link-preview-body"><span class="link-preview-domain" aria-hidden="true" data-preview-text="news.ycombinator.com"></span><span class="link-preview-title" aria-hidden="true" data-preview-text="news.ycombinator.com"></span><span class="link-preview-description" aria-hidden="true" data-preview-text="/item"></span></span><span class="link-preview-action" aria-hidden="true" data-preview-text="Open"></span></a>
 </blockquote>
 <p>At 7 PM that evening, my <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=34686947">post</a> shot to #2 on the Hacker News front page.<br>
-<img src="/images/2024-07-21/queryable-on-hacker-news.jpg" alt="Article at #2 on Hacker News front page"></p>
+<img decoding="async" loading="lazy" width="1600" height="532" src="/images/2024-07-21/queryable-on-hacker-news.jpg" alt="Article at #2 on Hacker News front page"><span class="caption">Article at #2 on Hacker News front page</span></p>
 <p>That night, I kept refreshing my phone every 10 seconds, the excitement lasting from midnight when I lay down until 3 AM. I was constantly replying to discussions under the post and responding to bug report emails. Someone taught me how to use LSH to improve search speed, someone suggested how to map photo coordinates to cities without internet connection, and others discussed why it failed to run on iPhone X.</p>
 <p>This feeling seemed unrelated to how many downloads the product had or how much money it made: you created something, received praise from a large group of peers, excited discussions, and suggestions. It’s a rare experience in life, and once is quite satisfying.</p>
 <p>One comment in particular caught my attention:<br>
-<img src="/images/2024-07-21/same-idea-product.jpg" alt="Somewhere else on Earth, someone is doing exactly the same thing as me"></p>
+<img decoding="async" loading="lazy" width="1356" height="418" src="/images/2024-07-21/same-idea-product.jpg" alt="Somewhere else on Earth, someone is doing exactly the same thing as me"><span class="caption">Somewhere else on Earth, someone is doing exactly the same thing as me</span></p>
 <p>I read the author’s development log and discovered that we were like two minds on Earth randomly generating the same idea. I even tried his yet-to-be-launched product on TestFlight, feeling a strange sense of kinship.</p>
 <h2 id="hacker-news is the world's bulletin board">Hacker News is the World’s Bulletin Board</h2>
 <p>That night, I fell asleep excited, thrilled that my product was liked by my peers. As it turned out, I had greatly underestimated the influence of Hacker News: In just two days, Queryable almost swept the #1 spot on the tools category in all European countries, and #2 in the US, with a total revenue of $2,800. For the next few days, the first thing I did when I woke up was to check Gmail. Germany, France, Spain, the USA, emails came from all directions like snowflakes: some reporting bugs, the magazine from German wanting to cover the story, french iOS communities would like to share the app, YouTuber wanting to review the app. My Twitter would also constantly receive notifications because people were retweeting the Hacker News hot list.</p>
-<p><img src="/images/2024-07-21/queryable-us-fr-de-es-ranking.jpg" alt="#2 paid tool in the US, #1 in France, Germany, Spain, and more."></p>
+<p><img decoding="async" loading="lazy" width="2046" height="1088" src="/images/2024-07-21/queryable-us-fr-de-es-ranking.jpg" alt="#2 paid tool in the US, #1 in France, Germany, Spain, and more."><span class="caption">#2 paid tool in the US, #1 in France, Germany, Spain, and more.</span></p>
 <p>Even a friend working in the Apple Photos team told me that their team knew about Queryable.</p>
 <p>All of this forced me to realize a kind of “worldliness”: Hacker News doesn’t just belong to the United States or English-speaking countries; it’s like a virtual bulletin board in the central area of the world. Each work briefly stays on it, but countless eyes from various countries are always watching. This product actually only supports English, but that didn’t prevent it from reaching #1 on the paid tools charts in almost all European countries. They seem to naturally accept products that can only be used in English. Products that work in the US often can be accepted by Europeans as well.</p>
 <p>The buzz quickly subsided, followed by many negative reviews.</p>
@@ -453,17 +448,7 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
           title="RSS Feed">RSS</a>
         
 </nav>
-        <!-- jQuery -->
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-
-<!-- Other scripts -->
-<script src="../../../../js/jquery-1.4.3.min.js"></script>
-
-  <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-  
-
-    <script defer src="../../../../js/clipboard.min.js"></script>
-    <script defer src="../../../../js/script.js"></script>
+        <script defer src="../../../../js/script.js"></script>
 
         
 

@@ -23,11 +23,11 @@
     
 
       <!-- 预加载关键资源 -->
-      <link rel="preload" href="/css/style.css?v=20260712" as="style">
+      <link rel="preload" href="/css/style.css?v=20260714" as="style">
 
       <!-- 预加载首屏字体子集，其他字体懒加载 -->
       <link rel="preload" href="/fonts/subsets/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
-      <link rel="stylesheet" href="/css/font-subset.css?v=20260712">
+      <link rel="stylesheet" href="/css/font-subset.css?v=20260714">
 
       <!-- 条件加载 MathJax -->
       
@@ -36,7 +36,7 @@
           <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
 
           <!-- FontAwesome -->
-          <link rel="stylesheet" href="/css/fontawesome.css?v=20260712">
+          <link rel="stylesheet" href="/css/fontawesome.css?v=20260714">
 
           <meta charset="utf-8">
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -110,13 +110,8 @@
                                                 
 
                                               <!-- Stylesheets -->
-                                              <link rel="stylesheet" href="/css/style.css?v=20260712">
-                                              <link rel="stylesheet" href="/dark-mode.css?v=20260712">
-
-                                              
-                                                <link rel="stylesheet"
-                                                  href="../../../../fancybox/jquery.fancybox-1.3.4.css">
-                                                
+                                              <link rel="stylesheet" href="/css/style.css?v=20260714">
+                                              <link rel="stylesheet" href="/dark-mode.css?v=20260714">
 
                                                   
 
@@ -266,7 +261,7 @@
 </blockquote>
 <p>At my previous job, we had a company forum where you could create discussion groups and post within them. Interested people could join these groups and contribute. I created a group called “Knew” with this introduction:</p>
 <p><em>This is a project aimed at ‘brain-sharing’: every week, you can share the latest events and developments in your areas of interest with everyone. This way, we can all share our brains with each other. You don’t need to have “even the slightest” professional background in what you’re sharing; simply making others aware of its existence is already meaningful enough.</em></p>
-<p><img src="/images/2023-12-07/imessage1.png" alt="Quite appropriate, right?"></p>
+<p><img decoding="async" loading="eager" fetchpriority="high" width="160" height="160" src="/images/2023-12-07/imessage1.png" alt="Quite appropriate, right?"><span class="caption">Quite appropriate, right?</span></p>
 <p>Each week, I’d share new discoveries in the group. I shared about DALLE-2, Azuki, vaccine efficacy data, and more. After just two posts, my group’s popularity had already reached the forum’s top three, with many subscribers and likes.</p>
 <p>However, no one else was sharing; they were merely consumers. After the third or fourth edition, I gave up. “Creating a channel and getting many people to cheer for me” wasn’t my original intention; I couldn’t access other people’s brains.</p>
 <p>I began to ponder if there was a way to make information sharing between people easier and less pressured. In September this year, I came up with the idea of “link collections”:</p>
@@ -276,7 +271,7 @@
 <p>In late August, I shared this idea with two frontend developer friends: one from France, whom I met through the <a target="_blank" rel="noopener" href="https://github.com/mazzzystar/Queryable">Queryable</a> project, and another from ByteDance. They both showed great interest, but they were extremely busy. Until early November, progress on this product was almost at a standstill.</p>
 <p>Left with no choice, I had to learn from scratch: In 2023, Next.js + Typescript + Prisma + Supabase seemed to me the best path for learning full-stack development from zero. I spent the entire month of November learning React State and Next.js App Router with the help of YouTube, and by late November, I had nearly grasped the basics.</p>
 <p>Then came two weeks of development. Yesterday, I finally launched the website: In simple terms, you can use it to organize interesting movies, articles, and videos you come across daily, then share them with your friends. Oh, and it also supports RSS: when you add new links, people who subscribe to your Collection using any RSS client will receive notifications.</p>
-<p><img src="/images/2023-12-07/sublink-screenshot.jpg" alt="Sublink (Former) Homepage"></p>
+<p><img decoding="async" loading="lazy" width="2806" height="1502" src="/images/2023-12-07/sublink-screenshot.jpg" alt="Sublink (Former) Homepage"><span class="caption">Sublink (Former) Homepage</span></p>
 <p>But the question remains: What’s it good for?</p>
 <h2 id="the-small website discoverability crisis">The Small Website Discoverability Crisis</h2>
 <p>I’m a fan of <a target="_blank" rel="noopener" href="http://radio.garden/">Radio Garden</a>, where I can even listen to live radio from <a target="_blank" rel="noopener" href="http://radio.garden/visit/pyongyang/2uWowTBd">Pyongyang</a>. I also love Neal’s password games. The internet hosts a myriad of shiny, intriguing, and unique sites, yet there’s no dedicated place to store and showcase them. Whenever I read a good blog, I share the link with multiple friends, discuss it with them, and then forget about it. Last week, I saw a trending article on Hacker News: <a target="_blank" rel="noopener" href="https://www.marginalia.nu/log/19-website-discoverability-crisis/">The Small Website Discoverability Crisis</a> which coined this term.</p>
@@ -294,13 +289,13 @@
 <p>I once envisioned something, let’s call it a Language CDN: When I write a blog, I want people from different countries and languages worldwide to see a version in their local language. A simple method is to let users use built-in browser translation or install translation plugins, but this might result in the same article being translated many times, not only wasting GPU inference costs but also making it impossible for authors to control translation quality.</p>
 <p>This led to the idea of LDN: An author writes a blog or creates a website and can use an LDN platform to host their multilingual versions. Whenever a new language user visits the network, but LDN doesn’t have a cache for that language, it translates once. After that, other users of the same language can use the previously translated cache. Moreover, authors can locally manage the original translation data for multiple languages, thus controlling and adjusting the wording of translations.</p>
 <p>I once submitted this as <a target="_blank" rel="noopener" href="https://bear.nolt.io/148">Feedback</a> for the open-source blog system bearblog, but didn’t receive a positive response. Maybe later I’ll try adding this feature to Sublink, but only if people are willing to create original articles on Sublink.</p>
-<p><img src="/images/2023-12-07/bearblog-suggestion.png" alt="Bearblog Feedback #148"></p>
+<p><img decoding="async" loading="lazy" width="1000" height="869" src="/images/2023-12-07/bearblog-suggestion.png" alt="Bearblog Feedback #148"><span class="caption">Bearblog Feedback #148</span></p>
 <h2 id="pricing-model">Pricing Model</h2>
 <p>I have no hope that this website will make money, but I want it to live long enough to accumulate as many Links and Collections as possible. So I need to generate some revenue from it.</p>
 <p>I’m actually a bit confused: Is the core of Sublink about “subscribing to quality collections” or “a personal link collection organization tool”? This divergence leads to two different logics. The former would have other people’s Collections on the homepage, while the latter would have an input box. The former relies on high-quality content, which is difficult in the early stages.</p>
 <p>This divergence leads to differences in the payment model: Charging for collection subscriptions isn’t impossible, but it’s almost impractical. If we follow the tool logic, it’s more like Notion’s approach, with a higher possibility of monetization, but then the value of “letting more people see excellent links” would no longer exist.</p>
 <p>I’m stuck here now, which is why I haven’t implemented any payment system at all. Perhaps later I can gain more insights from user behavior and feedback.</p>
-<p><img src="/images/2023-12-07/two-approaches.jpg" alt="Two Philosophies of Product Design"></p>
+<p><img decoding="async" loading="lazy" width="1906" height="1174" src="/images/2023-12-07/two-approaches.jpg" alt="Two Philosophies of Product Design"><span class="caption">Two Philosophies of Product Design</span></p>
 <p>That’s all my thoughts on creating Sublink. I’m also a Sublink user myself (that’s why I created it). I’ll put a <a target="_blank" rel="noopener" href="https://www.sublink.app/collections/381d6912-f5fa-48a6-96ec-7a664596577c">list of articles</a> I’ve read and found good here. You can log in and subscribe, or use any RSS client to subscribe to this list. When I add new links, you’ll see them. You can also turn your favorite videos, movies, books, webpages, or anything with a link into collections and share them with friends.</p>
 <p>Perhaps this is my small, insignificant act of resistance against a world about to be engulfed by GPT-generated content.</p>
 
@@ -382,17 +377,7 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
           title="RSS Feed">RSS</a>
         
 </nav>
-        <!-- jQuery -->
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-
-<!-- Other scripts -->
-<script src="../../../../js/jquery-1.4.3.min.js"></script>
-
-  <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-  
-
-    <script defer src="../../../../js/clipboard.min.js"></script>
-    <script defer src="../../../../js/script.js"></script>
+        <script defer src="../../../../js/script.js"></script>
 
         
 

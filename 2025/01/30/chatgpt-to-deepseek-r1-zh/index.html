@@ -23,11 +23,11 @@
     
 
       <!-- 预加载关键资源 -->
-      <link rel="preload" href="/css/style.css?v=20260712" as="style">
+      <link rel="preload" href="/css/style.css?v=20260714" as="style">
 
       <!-- 预加载首屏字体子集，其他字体懒加载 -->
       <link rel="preload" href="/fonts/subsets/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
-      <link rel="stylesheet" href="/css/font-subset.css?v=20260712">
+      <link rel="stylesheet" href="/css/font-subset.css?v=20260714">
 
       <!-- 条件加载 MathJax -->
       
@@ -38,7 +38,7 @@
           <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
 
           <!-- FontAwesome -->
-          <link rel="stylesheet" href="/css/fontawesome.css?v=20260712">
+          <link rel="stylesheet" href="/css/fontawesome.css?v=20260714">
 
           <meta charset="utf-8">
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -116,13 +116,8 @@
                                                 
 
                                               <!-- Stylesheets -->
-                                              <link rel="stylesheet" href="/css/style.css?v=20260712">
-                                              <link rel="stylesheet" href="/dark-mode.css?v=20260712">
-
-                                              
-                                                <link rel="stylesheet"
-                                                  href="../../../../fancybox/jquery.fancybox-1.3.4.css">
-                                                
+                                              <link rel="stylesheet" href="/css/style.css?v=20260714">
+                                              <link rel="stylesheet" href="/dark-mode.css?v=20260714">
 
                                                   
                                                   <!-- MathJax Configuration -->
@@ -360,7 +355,7 @@
 <p>科学家惊讶地发现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>在压缩中产生了智能</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>我们可以这么理解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>让模型读一本推理小说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>小说的结尾&quot;凶手是_“<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果 AI 能准确预测凶手的姓名<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们有理由相信它读懂了整个故事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即它拥有&quot;智能”<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不是单纯的文字拼贴或死记硬背<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>让模型学习并预测下一个字的过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>被称之为<strong>预训练</strong>(Pre-Training)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>此时的模型只能不断预测下一个字<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但不能回答你的问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要实现 ChatGPT 那样的问答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需要进行第二阶段的训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们称之为<strong>监督微调</strong>(Supervised Fine-Tuning, SFT)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>此时需要人为构建一批问答数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如:</p>
-<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><div class="code-block-toolbar"><span class="code-block-lang">python</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs language-python"><span class="hljs-comment"># 例子一</span>
+<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><pre class="code"><code class="hljs language-python"><span class="hljs-comment"># 例子一</span>
 
 人类:第二次世界大战发生在什么时候?
 AI:<span class="hljs-number">1939</span>年
@@ -370,7 +365,7 @@ AI:<span class="hljs-number">1939</span>年
 AI:好的,以下是总结:xxx
 </code></pre></div>
 <p>值得注意的是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以上这些例子是<strong>人工构造的</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>目的是让 AI 学习人类的问答模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这样当你说&quot;请翻译这句:xxx&quot;时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>送给 AI 的内容就是</p>
-<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><div class="code-block-toolbar"><span class="code-block-lang">python</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs language-python">人类:请翻译这句:xxx
+<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><pre class="code"><code class="hljs language-python">人类:请翻译这句:xxx
 AI:
 </code></pre></div>
 <p>你看<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它其实仍然在预测下一个字<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在这个过程中模型并没有变得更聪明<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它只是学会了人类的问答模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>听懂了你在要求它做什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
@@ -394,7 +389,7 @@ AI:
 <p>几乎每一个深度学习的惊人结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以及所有<em>魔法</em>的来源总是 2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>强化学习<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>RL<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>很强大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但强化学习与人类反馈<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>RLHF<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>并不相同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>RLHF 不是 RL<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 </blockquote>
 <p>附上我之前的一条想法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<p><img src="/images/2025-01-30/rlhf.jpg" alt=""></p>
+<p><img decoding="async" loading="eager" fetchpriority="high" width="1362" height="280" src="/images/2025-01-30/rlhf.jpg" alt=""></p>
 <h2 id="openai-的解法">OpenAI 的解法</h2>
 <p>丹尼尔·卡尼曼在<span class="bd-box"><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>思考快与慢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char></span>里提出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>人脑对待问题有两种思考模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>一类问题不经过脑子就能给出回答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是<strong>快思考</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一类问题需要类似围棋的长考才能给出答案<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是<strong>慢思考</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>既然训练已经到头了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那可否从推理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是给出回答的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过增加思考时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而让回答质量变好呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>这其实也有先例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>科学家很早就发现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>给模型提问时加一句<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>“让我们一步一步思考”(“Let’s think step by step”)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以让模型输出自己的思考过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终给出更好的结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这被称为<strong>思维链</strong>(Chain-of-Thought, CoT)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
@@ -406,7 +401,7 @@ AI:
 <p>要训练慢思考模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>首先要构造质量足够好的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>包含思维过程的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且如果希望强化学习不依赖人类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就需要对模型的思考过程进行定量(好/坏)评估<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而给予奖励和惩罚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>正如上文所说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>数学和代码这两个数据集最符合要求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>数学公式的推导能通过正则表达式来验证是否正确<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而代码的输出结果以通过直接在编译器上运行来检验<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>举个例子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在数学课本中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们经常看到这样的推理过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><div class="code-block-toolbar"><span class="code-block-lang">python</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs language-python">&lt;思考&gt;
+<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><pre class="code"><code class="hljs language-python">&lt;思考&gt;
   设方程根为x, 两边平方得: x² = a - √(a+x)
   移项得: √(a+x) = a - x²
   再次平方: (a+x) = (a - x²)²
@@ -450,7 +445,7 @@ AI:
 <p>他们基于 V3 模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在数学和代码这两类数据上用 GRPO 进行 RL 训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终得到的 R1-Zero 模型在各项推理指标上相比 DeepSeek V3 显著提升<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>证明仅通过 RL 就能激发模型的推理能力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>这是<strong>另一个 AlphaZero 时刻</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在 R1-Zero 的训练过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>完全不依赖人类的智商<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>经验和偏好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>仅靠 RL 去学习那些客观<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>可测量的人类真理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终让推理能力远强于所有非 Reasoning 模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>在训练过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他们发现一个有趣的现象<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>虽然并没有对输出长度进行奖励<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但<strong>模型在训练过程中逐渐<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>自发<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>地输出更长的结果</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这也符合常理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>复杂的问题通常需要更长的思考过程才能解决<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><img src="/images/2025-01-30/r1-zero-think-length.jpg" alt="DeepSeek R1-Zero 的回答长度在训练过程中逐渐增加"></p>
+<p><img decoding="async" loading="lazy" width="1318" height="818" src="/images/2025-01-30/r1-zero-think-length.jpg" alt="DeepSeek R1-Zero 的回答长度在训练过程中逐渐增加"><span class="caption">DeepSeek R1-Zero 的回答长度在训练过程中逐渐增加</span></p>
 <p>但 R1-Zero 模型只是单纯地进行强化学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并没有进行监督学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以它没有学会人类的问答模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>无法回答人类的问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>并且<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它在思考过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>存在<strong>语言混合问题</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一会儿说英语<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>一会儿说中文<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可读性差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以 DeepSeek 团队<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
 <ol>
 <li>先收集了少量高质量的 Chain-of-Thought<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>CoT<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对 V3 模型进行初步的监督学习(SFT)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>解决了输出语言不一致问题</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得到冷启动模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
@@ -459,7 +454,7 @@ AI:
 <li>最后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时训练推理和通用任务数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>目的是移除<em>无用或者有害</em>的思考过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时保持推理能力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>对于推理任务<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他们遵循 R1-Zero 的 RL 训练方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对于写作任务<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他们从 DeepSeek V3<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>R1-Zero 生成的数据中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>挑选出人类偏好的结果作为奖励进行训练(类似 RLHF)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
 </ol>
 <p>这个过程大概就是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<div class="highlight code-block" data-code-fold="open" data-code-lang="text"><div class="code-block-toolbar"><span class="code-block-lang">text</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs">监督学习(SFT) - 强化学习(RL) - 监督学习(SFT) - 强化学习(RL)
+<div class="highlight code-block" data-code-fold="open" data-code-lang="text"><pre class="code"><code class="hljs">监督学习(SFT) - 强化学习(RL) - 监督学习(SFT) - 强化学习(RL)
 </code></pre></div>
 <p>经过以上过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就得到了 DeepSeek R1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>DeepSeek R1 给世界的贡献是开源世界上第一个比肩闭源(o1)的 Reasoning 模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>现在全世界的用户都可以看到模型在回答问题前的推理过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是&quot;内心独白&quot;<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且完全免费<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
@@ -493,7 +488,7 @@ AI:
 <h2 id="一些感受">一些感受</h2>
 <p>AI 终于除掉了人类反馈的枷锁<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>DeepSeek R1-Zero 展示了如何使用几乎不使用人类反馈来提升模型性能的方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这是它的 AlphaZero 时刻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>很多人曾说&quot;人工智能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有多少人工就有多少智能&quot;<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个观点可能不再正确了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果模型能根据直角三角形推导出勾股定理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们有理由相信它终有一天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能推导出现有数学家尚未发现的定理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>写代码是否仍然有意义<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>我不知道<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>今早看到 Github 上热门项目 llama.cpp<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个代码共享者提交了 PR<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>表示他通过对 SIMD 指令加速<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将 WASM 运行速度提升 2 倍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而其中 99%的代码由 DeepSeek R1 完成<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这肯定不是初级工程师级别的代码了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我无法再说 AI 只能取代初级程序员<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><img src="/images/2025-01-30/ggml-speedup.jpg" alt="ggml : x2 speed for WASM by optimizing SIMD"></p>
+<p><img decoding="async" loading="lazy" width="1922" height="978" src="/images/2025-01-30/ggml-speedup.jpg" alt="ggml : x2 speed for WASM by optimizing SIMD"><span class="caption">ggml : x2 speed for WASM by optimizing SIMD</span></p>
 <p>当然<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我仍然对此感到非常高兴<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>人类的能力边界再次被拓展了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>干得好 DeepSeek<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span>它是目前世界上最酷的公司<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <h2 id="参考资料">参考资料</h2>
 <hr class="footnotes-sep">
@@ -598,17 +593,7 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
           title="RSS 订阅">RSS</a>
         
 </nav>
-        <!-- jQuery -->
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-
-<!-- Other scripts -->
-<script src="../../../../js/jquery-1.4.3.min.js"></script>
-
-  <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-  
-
-    <script defer src="../../../../js/clipboard.min.js"></script>
-    <script defer src="../../../../js/script.js"></script>
+        <script defer src="../../../../js/script.js"></script>
 
         
 

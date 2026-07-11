@@ -23,11 +23,11 @@
     
 
       <!-- 预加载关键资源 -->
-      <link rel="preload" href="/css/style.css?v=20260712" as="style">
+      <link rel="preload" href="/css/style.css?v=20260714" as="style">
 
       <!-- 预加载首屏字体子集，其他字体懒加载 -->
       <link rel="preload" href="/fonts/subsets/HYShuSongErS.woff2" as="font" type="font/woff2" crossorigin>
-      <link rel="stylesheet" href="/css/font-subset.css?v=20260712">
+      <link rel="stylesheet" href="/css/font-subset.css?v=20260714">
 
       <!-- 条件加载 MathJax -->
       
@@ -36,7 +36,7 @@
           <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
 
           <!-- FontAwesome -->
-          <link rel="stylesheet" href="/css/fontawesome.css?v=20260712">
+          <link rel="stylesheet" href="/css/fontawesome.css?v=20260714">
 
           <meta charset="utf-8">
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -76,7 +76,7 @@
                                   <meta property="og:type" content="article">
                                   <meta property="og:title" content="Teach, Show, then Consult: Make GPT a Music Composition Guide">
                                   <meta property="og:url" content="https://mazzzystar.com/2023/03/03/teach-show-consult-gpt/">
-                                  <meta property="og:image" content="https://mazzzystar.com/favicon.jpg">
+                                  <meta property="og:image" content="https://mazzzystar.com/images/og-default.jpg">
                                   <meta property="og:description" content="I tried an odd idea: have ChatGPT learn a music programming language (Alda), give it some great code examples, and then ask it for advice on how to cr">
                                   <meta property="og:site_name" content="TL;DR">
                                   <meta property="og:locale" content="en_US">
@@ -96,7 +96,7 @@
                                               <meta name="twitter:card" content="summary_large_image">
                                               <meta name="twitter:title" content="Teach, Show, then Consult: Make GPT a Music Composition Guide">
                                               <meta name="twitter:description" content="I tried an odd idea: have ChatGPT learn a music programming language (Alda), give it some great code examples, and then ask it for advice on how to cr">
-                                              <meta name="twitter:image" content="https://mazzzystar.com/favicon.jpg">
+                                              <meta name="twitter:image" content="https://mazzzystar.com/images/og-default.jpg">
                                               
                                                 <meta name="twitter:site"
                                                   content="@immazzystar">
@@ -105,13 +105,8 @@
                                                 
 
                                               <!-- Stylesheets -->
-                                              <link rel="stylesheet" href="/css/style.css?v=20260712">
-                                              <link rel="stylesheet" href="/dark-mode.css?v=20260712">
-
-                                              
-                                                <link rel="stylesheet"
-                                                  href="../../../../fancybox/jquery.fancybox-1.3.4.css">
-                                                
+                                              <link rel="stylesheet" href="/css/style.css?v=20260714">
+                                              <link rel="stylesheet" href="/dark-mode.css?v=20260714">
 
                                                   
 
@@ -135,7 +130,7 @@
       "dateModified": "2023-03-03T19:26:02.000Z",
       "inLanguage": "en",
       "keywords": "",
-      "image": "https://mazzzystar.com/favicon.jpg",
+      "image": "https://mazzzystar.com/images/og-default.jpg",
       "publisher": {
         "@type": "Organization",
         "name": "TL;DR",
@@ -264,14 +259,14 @@
 <p><code>Alda</code> is a text-based programming language for music composition. It allows you to write and play back music using only a text editor and the command line.</p>
 </blockquote>
 <p>An example:</p>
-<div class="highlight code-block language-bash" data-code-fold="open" data-code-lang="bash"><div class="code-block-toolbar"><span class="code-block-lang">bash</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs language-bash">piano:
+<div class="highlight code-block language-bash" data-code-fold="open" data-code-lang="bash"><pre class="code"><code class="hljs language-bash">piano:
   o3
   g8 a b &gt; c d e f+ g | a b &gt; c d e f+ g4
   g8 f+ e d c &lt; b a g | f+ e d c &lt; b a g4
   &lt;&lt; <span class="hljs-string">g1/&gt;g/&gt;g/b/&gt;d/g
 </span></code></pre></div>
 <p>In this step, all I have to do is to use Prompt Engineering to give ChatGPT as many syntax rules as possible for the Alda language. You can find this part in <code>teach.py</code>:</p>
-<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><div class="code-block-toolbar"><span class="code-block-lang">python</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs language-python">ALDA_LANG_RULE = <span class="hljs-string">&quot;&quot;&quot;You are a musician as well as a technologist who is well versed in programming.
+<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><pre class="code"><code class="hljs language-python">ALDA_LANG_RULE = <span class="hljs-string">&quot;&quot;&quot;You are a musician as well as a technologist who is well versed in programming.
 Now you've been asked to learn a new language called Alda, which allows you to create music as if you were programming.
 I will now tell you its rules:
 1.The alda program usually starts with (tempo! number), which is stating the tempo of the music as this number.
@@ -281,7 +276,7 @@ a) The default is quarter notes, which means that you type &quot;c d e f&quot;, 
 b) The &quot;&gt;&quot; symbol means...
 </span></code></pre></div>
 <p>Thanks to <a target="_blank" rel="noopener" href="https://github.com/hwchase17/langchain">LangChain</a>, I can easily test the results. Now try to see if it understands the rules:</p>
-<div class="highlight code-block language-bash" data-code-fold="open" data-code-lang="bash"><div class="code-block-toolbar"><span class="code-block-lang">bash</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs language-bash">&gt;&gt;&gt; python teach.py
+<div class="highlight code-block language-bash" data-code-fold="open" data-code-lang="bash"><pre class="code"><code class="hljs language-bash">&gt;&gt;&gt; python teach.py
 Let<span class="hljs-string">'s test Alda language learning!
 Human:
 c d e+ f-
@@ -305,7 +300,7 @@ The first two notes are quarter notes (C and D), and the third note is an eighth
 <p>Since ChatGPT has already learned the rules, if we provide it some musical inspiration, perhaps it can extend the music we create by following the works of giants and coming up with new melodies or phrases.</p>
 </blockquote>
 <p>Then I gave it a try:</p>
-<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><div class="code-block-toolbar"><span class="code-block-lang">python</span><div class="code-block-actions"><button class="code-fold-toggle" type="button" aria-expanded="true">Collapse</button><button class="copy-button" type="button">Copy</button></div></div><pre class="code"><code class="hljs language-python"><span class="hljs-meta">&gt;&gt;&gt; </span>python consult.py
+<div class="highlight code-block language-python" data-code-fold="open" data-code-lang="python"><pre class="code"><code class="hljs language-python"><span class="hljs-meta">&gt;&gt;&gt; </span>python consult.py
 Let<span class="hljs-string">'s consult the music master!
 You:
 c d8 &gt; g
@@ -409,17 +404,7 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
           title="RSS Feed">RSS</a>
         
 </nav>
-        <!-- jQuery -->
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-
-<!-- Other scripts -->
-<script src="../../../../js/jquery-1.4.3.min.js"></script>
-
-  <script src="../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-  
-
-    <script defer src="../../../../js/clipboard.min.js"></script>
-    <script defer src="../../../../js/script.js"></script>
+        <script defer src="../../../../js/script.js"></script>
 
         
 

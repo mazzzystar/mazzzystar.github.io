@@ -1075,14 +1075,16 @@ a.article-title:hover {
 }
 .article-entry blockquote {
   font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Chinese', biaodian, serif;
+  font-style: italic;
   margin: 1.8em 0;
-  padding: 1.1em 1.45em;
-  border: 1px solid rgba(183,181,172,0.72);
-  border-radius: 12px;
-  background: rgba(239,238,236,0.52);
-  color: #100f0f;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.52);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.52);
+  padding: 0.9em 1.4em;
+  border: none;
+  border-left: 3px solid rgba(150,143,132,0.65);
+  border-radius: 0;
+  background: rgba(0,0,0,0.025);
+  color: #595753;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .article-entry blockquote p {
   margin: 0;
@@ -2312,14 +2314,16 @@ a.article-title:hover {
 }
 .article-entry blockquote {
   font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Chinese', biaodian, serif;
+  font-style: italic;
   margin: 1.8em 0;
-  padding: 1.1em 1.45em;
-  border: 1px solid rgba(183,181,172,0.72);
-  border-radius: 12px;
-  background: rgba(239,238,236,0.52);
-  color: #100f0f;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.52);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.52);
+  padding: 0.9em 1.4em;
+  border: none;
+  border-left: 3px solid rgba(150,143,132,0.65);
+  border-radius: 0;
+  background: rgba(0,0,0,0.025);
+  color: #595753;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .article-entry blockquote p {
   margin: 0;

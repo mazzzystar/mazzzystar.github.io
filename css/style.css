@@ -404,6 +404,13 @@ button::-moz-focus-inner {
   padding: 0;
 }
 @font-face {
+  font-family: 'LM Mono';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("/fonts/lmmono10-regular.woff2") format("woff2");
+}
+@font-face {
   font-family: FontAwesome;
   font-style: normal;
   font-weight: normal;
@@ -1573,15 +1580,15 @@ a.article-title:hover {
 }
 .article-entry pre,
 .article-entry code {
-  font-family: 'Fira Code', 'Chinese', monospace;
+  font-family: 'LM Mono', 'ChineseMono', 'Chinese', monospace;
 }
 .article-entry code {
-  background: rgba(242,242,240,0.9);
-  border: 1px solid rgba(183,181,172,0.36);
-  border-radius: 4px;
-  color: #3f3a33;
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: inherit;
   text-shadow: none;
-  padding: 0.05em 0.32em;
+  padding: 0 0.15em;
 }
 .article-entry pre {
   padding: 16px;
@@ -1689,7 +1696,7 @@ a.article-title:hover {
 }
 .article-entry .gist .gist-file {
   border: none;
-  font-family: 'Fira Code', 'Chinese', monospace;
+  font-family: 'LM Mono', 'ChineseMono', 'Chinese', monospace;
   margin: 0;
 }
 .article-entry .gist .gist-file .gist-data {

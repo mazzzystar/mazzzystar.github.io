@@ -26,8 +26,8 @@
 - [Retro Link-Sharing in 2023](https://mazzzystar.com/2023/12/07/sublink/) (2023-12-07, en)
 - [一个失败的AI女友产品](https://mazzzystar.com/2023/11/17/ai-girlfriend-cn-zh/) (2023-11-17, zh): 我做的 AI 女友产品 Dolores 复盘：基于斯坦福 AI 小镇论文和 GPT，用户愿为逼真的语音付费，但 6 月只赚了 50 美元，OpenAI 的 NSFW 审查让访问量暴跌 70%，最终放弃。
 - [A Failed AI Girlfriend Product, and My Lessons](https://mazzzystar.com/2023/11/16/ai-girlfriend-product/) (2023-11-16, en): Lessons from Dolores, my failed AI girlfriend product: built on the Stanford AI Town paper with GPT and ElevenLabs voices, why it earned $50 and I gave up.
-- [梦](https://mazzzystar.com/2023/09/11/dream/) (2023-09-11, zh)
 - [Dream](https://mazzzystar.com/2023/09/11/dream-en/) (2023-09-11, en)
+- [梦](https://mazzzystar.com/2023/09/11/dream/) (2023-09-11, zh)
 - [Get users for your AI tool from Google search](https://mazzzystar.com/2023/07/23/Get-users-for-your-AI-tool-from-Google-search/) (2023-07-23, en): A practical SEO guide for AI tools: how PageRank and domain rating work, getting backlinks from AI listing sites, long-tail keywords, and page speed.
 - [让你的AI工具从Google搜索中获得用户](https://mazzzystar.com/2023/07/23/Get-users-for-your-AI-tool-from-Google-search-zh/) (2023-07-23, zh): 写给 AI 工具开发者的 SEO 实战：PageRank 与 Domain Rating 的原理、如何从 AI 列表网站获取高质量反向链接、挖掘长尾关键词，以及给网站加载提速的一些技巧。
 - [The Leverage of LLMs for Individuals](https://mazzzystar.com/2023/05/10/LLM-for-individual/) (2023-05-10, en)

@@ -205,13 +205,14 @@ html.dark-mode .archive-article-date {
 }
 
 /* --- Code blocks --- */
-html.dark-mode pre,
-html.dark-mode code {
+html.dark-mode pre {
   background: #30302e;
   color: #faf9f6;
 }
 html.dark-mode .article-entry code {
-  border-color: #4a4944;
+  background: none;
+  border: none;
+  color: inherit;
 }
 html.dark-mode .article-entry .highlight {
   background: #1f1f1d;

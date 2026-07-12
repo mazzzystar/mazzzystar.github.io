@@ -7,7 +7,7 @@
   font-family: 'Chinese';
   font-style: normal;
   font-weight: normal;
-  src: local('HYShuSongErS'), url("/fonts/subsets/HYShuSongErS.woff2") format('woff2');
+  src: local('HYShuSongErS'), url("/fonts/subsets/HYShuSongErS.woff2?v=0a2ca887") format('woff2');
   font-display: swap;
   unicode-range: U+3000-303F, U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF;
 }
@@ -17,7 +17,7 @@
   font-family: 'Chinese';
   font-style: italic;
   font-weight: normal;
-  src: local('FZKTJW'), url("/fonts/subsets/FZKTJW.woff2") format('woff2');
+  src: local('FZKTJW'), url("/fonts/subsets/FZKTJW.woff2?v=7ec08a72") format('woff2');
   font-display: swap;
   unicode-range: U+3000-303F, U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF;
 }
@@ -27,7 +27,7 @@
   font-family: 'Chinese';
   font-style: normal;
   font-weight: bold;
-  src: local('FZHTJW'), url("/fonts/subsets/FZHTJW.woff2") format('woff2');
+  src: local('FZHTJW'), url("/fonts/subsets/FZHTJW.woff2?v=9392d04e") format('woff2');
   font-display: swap;
   unicode-range: U+3000-303F, U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF;
 }
@@ -37,7 +37,7 @@
   font-family: 'ChineseMono';
   font-style: normal;
   font-weight: normal;
-  src: local('HYFangSongJ'), url("/fonts/subsets/HYFangSongJ.woff2") format('woff2');
+  src: local('HYFangSongJ'), url("/fonts/subsets/HYFangSongJ.woff2?v=a0b6cb54") format('woff2');
   font-display: swap;
   unicode-range: U+3000-303F, U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF;
 }

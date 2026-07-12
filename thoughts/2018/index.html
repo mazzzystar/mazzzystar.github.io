@@ -26,8 +26,8 @@
       <link rel="preload" href="/css/style.css?v=20260714" as="style">
 
       <!-- 预加载首屏字体子集，其他字体懒加载 -->
-      <link rel="preload" href="/fonts/subsets/HYShuSongErS.woff2?v=0a2ca887" as="font" type="font/woff2" crossorigin>
-      <link rel="stylesheet" href="/css/font-subset.css?v=e1e4451c">
+      <link rel="preload" href="/fonts/subsets/FZSSJW.woff2?v=a1b71450" as="font" type="font/woff2" crossorigin>
+      <link rel="stylesheet" href="/css/font-subset.css?v=494f394b">
 
       <!-- 条件加载 MathJax -->
       
@@ -100,6 +100,14 @@
                                               <!-- Stylesheets -->
                                               <link rel="stylesheet" href="/css/style.css?v=20260714">
                                               <link rel="stylesheet" href="/dark-mode.css?v=20260714">
+
+                                              <!-- ZH-FONT-TEST START (temporary, remove after decision) -->
+                                              <link rel="stylesheet" href="/css/zh-font-test.css">
+                                              <script>
+                                                document.documentElement.dataset.zhFont =
+                                                  localStorage.getItem('zh_font_preview') || '';
+                                              </script>
+                                              <!-- ZH-FONT-TEST END -->
 
                                                   
 
@@ -402,6 +410,10 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="http
               }
             }
           </script>
+
+<!-- ZH-FONT-TEST START (temporary switcher, remove after decision) -->
+<script src="/js/zh-font-preview.js" defer></script>
+<!-- ZH-FONT-TEST END -->
 
     </div>
   </body>

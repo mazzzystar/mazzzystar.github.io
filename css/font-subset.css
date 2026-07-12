@@ -2,12 +2,12 @@
  * Regenerate with: cd tools/font-subsetting && bash subset_all_fonts.sh
  */
 
-/* HYShuSongErS (Regular) */
+/* FZSSJW 方正书宋 (Regular) */
 @font-face {
   font-family: 'Chinese';
   font-style: normal;
   font-weight: normal;
-  src: local('HYShuSongErS'), url("/fonts/subsets/HYShuSongErS.woff2?v=0a2ca887") format('woff2');
+  src: local('FZSSJW'), url("/fonts/subsets/FZSSJW.woff2?v=a1b71450") format('woff2');
   font-display: swap;
   unicode-range: U+3000-303F, U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF;
 }
@@ -43,12 +43,12 @@
 }
 
 .article, .article-entry {
-  font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Chinese', biaodian, serif;
+  font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Chinese', 'ChineseFallback', biaodian, serif;
   text-rendering: optimizeLegibility;
 }
 
 @font-face {
   font-family: 'ChineseFallback';
-  src: local('PingFang SC'), local('Microsoft YaHei'), local('SimSun');
+  src: local('Songti SC'), local('STSong'), local('SimSun'), local('PingFang SC'), local('Microsoft YaHei');
   unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F;
 }

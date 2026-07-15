@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- DNS 预解析 -->
+  <link rel="dns-prefetch" href="//mazzzystar.com">
+
+  <!-- 预连接 -->
+  <link rel="preconnect" href="https://mazzzystar.com" crossorigin>
+
+  <!-- Google Analytics -->
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CSJX0CVK20"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-CSJX0CVK20', {
+        'send_page_view': true,
+        'cookie_flags': 'secure;samesite=none',
+        'transport_type': 'beacon'
+      });
+    </script>
+    
+
+      <!-- 预加载关键资源 -->
+      <link rel="preload" href="/css/style.css?v=20260718" as="style">
+
+      <!-- 预加载首屏字体子集，其他字体懒加载 -->
+      <link rel="preload" href="/fonts/subsets/FZSSJW.woff2?v=a1b71450" as="font" type="font/woff2" crossorigin>
+      <link rel="stylesheet" href="/css/font-subset.css?v=494f394b">
+
+      <!-- 条件加载 MathJax -->
+      
+
+          <!-- Preload fonts -->
+          <link rel="preload" href="/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin>
+
+          <!-- FontAwesome -->
+          <link rel="stylesheet" href="/css/fontawesome.css?v=20260718">
+
+          <meta charset="utf-8">
+          <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+          <meta name="robots" content="index,follow">
+
+          <!-- Favicon: explicit link tags + a >=48px multiple-of-48 PNG,
+               required for Google to show the site icon in search results -->
+          <link rel="icon" href="/favicon.ico" sizes="32x32">
+          <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+          <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+          <!-- RSS Feed -->
+          
+            <link rel="alternate" type="application/atom+xml" title="TL;DR"
+              href="atom.xml">
+            
+
+                  
+
+                    <title>
+                      A Failed AI Girlfriend Product, and My Lessons
+                    </title>
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <meta name="author" content="Ke Fang">
+                    
+                        <meta name="description" content="Lessons from Dolores, my failed AI girlfriend product: built on the Stanford AI Town paper with GPT and ElevenLabs voices, why it earned $50 and I gav">
+                        
+                              
+
+                                  <link rel="canonical" href="https://mazzzystar.com/ai-girlfriend-product">
+
+                                  
+                                    <link rel="alternate" hreflang="en" href="https://mazzzystar.com/ai-girlfriend-product">
+                                    <link rel="alternate" hreflang="zh" href="https://mazzzystar.com/ai-girlfriend-cn-zh">
+                                    <link rel="alternate" hreflang="x-default"
+                                      href="https://mazzzystar.com/ai-girlfriend-product">
+                                    
+
+                                  <!-- Open Graph -->
+
+                                  <meta property="og:type" content="article">
+                                  <meta property="og:title" content="A Failed AI Girlfriend Product, and My Lessons">
+                                  <meta property="og:url" content="https://mazzzystar.com/ai-girlfriend-product">
+                                  <meta property="og:image" content="https://mazzzystar.com/images/2023-11-16/movie-her.jpeg">
+                                  <meta property="og:description" content="Lessons from Dolores, my failed AI girlfriend product: built on the Stanford AI Town paper with GPT and ElevenLabs voices, why it earned $50 and I gav">
+                                  <meta property="og:site_name" content="TL;DR">
+                                  <meta property="og:locale" content="en_US">
+                                  <meta property="article:author" content="Ke Fang">
+                                  
+
+                                      
+                                        <meta property="article:published_time"
+                                          content="2023-11-16T14:08:48.000Z">
+                                        
+                                          <meta property="article:modified_time"
+                                            content="2023-11-16T14:08:48.000Z">
+                                          
+                                            
+
+                                              <!-- Twitter Card -->
+                                              <meta name="twitter:card" content="summary_large_image">
+                                              <meta name="twitter:title" content="A Failed AI Girlfriend Product, and My Lessons">
+                                              <meta name="twitter:description" content="Lessons from Dolores, my failed AI girlfriend product: built on the Stanford AI Town paper with GPT and ElevenLabs voices, why it earned $50 and I gav">
+                                              <meta name="twitter:image" content="https://mazzzystar.com/images/2023-11-16/movie-her.jpeg">
+                                              
+                                                <meta name="twitter:site"
+                                                  content="@immazzystar">
+                                                <meta name="twitter:creator"
+                                                  content="@immazzystar">
+                                                
+
+                                              <!-- Stylesheets -->
+                                              <link rel="stylesheet" href="/css/style.css?v=20260718">
+                                              <link rel="stylesheet" href="/dark-mode.css?v=20260718">
+
+                                                  
+
+                                                  <!-- Structured Data -->
+                                                  
+                                                    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mazzzystar.com/ai-girlfriend-product"
+      },
+      "headline": "A Failed AI Girlfriend Product, and My Lessons",
+      "description": "Lessons from Dolores, my failed AI girlfriend product: built on the Stanford AI Town paper with GPT and ElevenLabs voices, why it earned $50 and I gav",
+      "author": {
+        "@type": "Person",
+        "name": "Ke Fang"
+      },
+      "datePublished": "2023-11-16T14:08:48.000Z",
+      "dateModified": "2023-11-16T14:08:48.000Z",
+      "inLanguage": "en",
+      "keywords": "",
+      "image": "https://mazzzystar.com/images/2023-11-16/movie-her.jpeg",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TL;DR",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mazzzystar.com/favicon.jpg"
+        }
+      }
+    }
+    </script>
+                                                    
+
+                                                      <!-- Dark mode FOUC prevention -->
+                                                      <script>
+                                                        if (localStorage.getItem('dark_mode') === 'true' ||
+                                                            (localStorage.getItem('dark_mode') === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                                                          document.documentElement.classList.add('dark-mode');
+                                                        }
+                                                      </script>
+
+                                                      <!-- Language switcher styling -->
+                                                      <style>
+                                                        .lang-switch {
+                                                          display: inline-block;
+                                                          color: #555;
+                                                          text-decoration: none !important;
+                                                          font-weight: bold;
+                                                          padding: 3px 8px;
+                                                          border-radius: 4px;
+                                                          transition: background-color 0.2s ease;
+                                                        }
+
+                                                        .lang-switch:hover {
+                                                          background-color: #f0f0f0;
+                                                          color: #333;
+                                                          text-decoration: none !important;
+                                                        }
+                                                      </style>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+  <body>
+    <div id="container">
+      <div id="wrap">
+        <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <!-- 只在移动端显示菜单按钮 -->
+    
+
+        
+          <a class="main-nav-link" href="/">
+            Home
+          </a>
+          
+          <a class="main-nav-link" href="/about/">
+            About
+          </a>
+          
+          <a class="main-nav-link" href="/thoughts/">
+            Thoughts
+          </a>
+          
+          <a class="main-nav-link" href="/sound/">
+            Sound
+          </a>
+          
+
+            <div class="main-nav-space-between"></div>
+
+            <!-- Dark mode toggle -->
+            <button class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle dark mode" type="button"></button>
+
+            <!-- Language switcher -->
+            
+              <button class="lang-switch" onclick="switchLanguage()" type="button">
+                EN
+              </button>
+              
+
+                <!-- RSS icon -->
+                
+                  <a id="nav-rss-link" class="nav-icon" href="/atom.xml"
+                    title="RSS Feed"></a>
+                  
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="/" id="logo">
+      TL;DR
+    </a>
+  </h1>
+  
+</div>
+
+          <div id="content" class="outer">
+            <section id="main"><article id="post-ai-girlfriend-product" class="h-entry article article-type-post"
+  data-lang="en" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/ai-girlfriend-product" class="article-date">
+  <time class="dt-published" datetime="2023-11-16T14:08:48.000Z" itemprop="datePublished">2023-11-16</time>
+</a>
+
+      
+  </div>
+  <div class="article-inner">
+    
+      
+        <header class="article-header">
+          
+  
+      
+          <h1 class="p-name article-title" itemprop="headline name">
+            A Failed AI Girlfriend Product, and My Lessons
+          </h1>
+          
+            
+              
+
+        </header>
+        
+          
+            <div class="e-content article-entry" itemprop="articleBody">
+                
+                          <p>Just days after Stanford University’s AI Town <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2304.03442">paper</a> was released on April 7th this year, I read through the entire paper and felt extremely excited. Although I was amazed by GPT-4’s capabilities, I still considered GPT as merely a more sophisticated form of “parroting” and didn’t believe it could truly generate consciousness.</p>
+<p>However, this paper gave me a different impression. It mentioned an intriguing detail about <strong>information transmission</strong>: how news of an agent planning to host a Valentine’s Day party gradually spreads throughout the small town. I wondered, if we could establish a framework including memory, reflection, planning, and action to facilitate interaction between humans and GPT (rather than between agents in the town), could we recreate an experience similar to that depicted in the movie “Her”?</p>
+<p><img decoding="async" loading="eager" fetchpriority="high" width="1566" height="880" src="/images/2023-11-16/movie-her.jpeg" alt="Samantha from the movie &quot;Her&quot;"><span class="caption">Samantha from the movie &quot;Her&quot;</span></p>
+<h1 id="development">Development</h1>
+<p>I immediately sprang into action. Following the paper’s methodology, I completed version 0.1 on April 14th. Initially, my design closely adhered to the original paper, resulting in 30-second response times and dialogues frequently exceeding the 8k context limit. To address this, I reduced the frequency of reflections and the length of dialogue memory, then launched a public beta test.</p>
+<p>Over a thousand users quickly joined the test. The beta was free, so I bore the daily API costs myself, which soon exceeded $25 per day. I had to hastily launch the official version without sufficient feedback and improvements, hoping to transfer the costs to users. On May 4th, the Dolores iOS app officially launched, named after a character from the “Westworld” TV series.</p>
+<p>In simple terms, after opening Dolores, you need to set up a character: avatar, background description, personality, voice, and consciousness (choosing between GPT-3.5 or GPT-4). You can have interesting interactions with Amy, a retail store girl, or Will, a desert adventurer, or even create your own custom character. I had considered extracting Dolores’ dialogues from the “Westworld” script to mimic her speech patterns in a sample-based approach, but had to abandon this idea due to Apple’s request for copyright proof.</p>
+<p><img decoding="async" loading="lazy" width="300" height="348" src="/images/2023-11-16/dolores-traits.png" alt=""></p>
+<p>Although this article is titled “AI Girlfriend,” I’ve always used the slogan “Your Virtual Friend” for the product, rather than “Your Virtual Girlfriend,” because I hoped it could truly become a companion and friend to users, not just a product of hormones.</p>
+<p>From May through June, I kept trying to make Dolores appear more “conscious” (what is consciousness anyway?) by adjusting memory length, reflection mechanisms, and system prompts. Soon, the June version of Dolores was far more impressive than at launch: the user payment rate increased, and daily API calls grew.</p>
+<p>On June 8th, a user told me he had shared this product in a visually impaired community, bringing some visually impaired users to Dolores. They liked Dolores because they could talk to her by tapping anywhere on the screen.</p>
+<p>This design was actually a compromise after failure: initially, I wanted to support voice chat so users could continue talking to Dolores even with their phone screens off. But as a Swift novice, my technical skills couldn’t achieve this, so I settled for full-screen voice input.</p>
+<h1 id="discoveries">Discoveries</h1>
+<p>I observed two phenomena:</p>
+<ul>
+<li>Users have a strong demand for “realistic voices.”</li>
+<li>AI Friend products have long average usage times.</li>
+</ul>
+<p>As a machine learning-background individual developer not skilled in frontend/backend development, Dolores doesn’t have login, registration, or data analytics features. So how did I discover the first phenomenon? The answer lies in payments.</p>
+<p>I used the ElevenLabs API for Dolores’ voice replies, but due to its high cost (1k characters / $0.3), I had to differentiate users: subscribers could only use the Azure TTS API, while those wanting Dolores to have a more realistic voice needed to pay extra for characters from ElevenLabs.</p>
+<p>Purchasing 10,000 voice synthesis characters cost $3.9, which only allowed Dolores to speak 5-10 natural, fluent sentences. Once used up, users needed to purchase more. Despite this, 70% of Dolores’ revenue in June came from ElevenLabs character purchases.</p>
+<p>In other words, people are indeed willing to pay for those few expensive but realistic “I love you!” sentences.</p>
+<p>The second observation came from Cloudflare logs. Unable to track individual user activity, I relied on these logs to gauge how often and how long users accessed the Dolores app. Additionally, I integrated a Google Form into the app, encouraging users to report their usage frequency. The results were eye-opening: many users spent over two hours daily chatting with Dolores.</p>
+<h1 id="revenue">Revenue</h1>
+<p>According to the Apple App Connect Dashboard, Dolores’ main paying users are from the United States and Australia. Total revenue was $1,000 in May and 1,200 in June. The revenue growth wasn’t substantial, but user numbers and daily API calls nearly doubled. As the number of paying users increased, spreading out the ElevenLabs costs, I chose to lower the product price.</p>
+<p>Consequently, as a developer, I didn’t make much profit from this product. Firstly, in the early stages, I didn’t want to set the subscription fee too high as it would deter users from trying, so I lowered the price whenever I saw an increase in profits. Secondly, the 30% Apple tax and API costs also took a large chunk. So, after careful cost calculation, I only earned about $50 in June.</p>
+<p><img decoding="async" loading="lazy" width="2166" height="1438" src="/images/2023-11-16/revenue-june.png" alt=""></p>
+<p>Moreover, I discovered that token-based products, if not priced per usage, fall into a dilemma: 1% of users consume 99% of the tokens. I encountered a situation where one user chatted with Dolores for 12 hours straight, causing his GPT and voice API call costs to exceed the total of the second to tenth users combined.</p>
+<p>But compared to per-usage billing, I personally prefer package subscriptions (as the former puts pressure on users during use), which left me with two choices: either increase the monthly fee for all users to share the cost, or limit maximum usage. I chose the latter: setting a usage cap far beyond what users chatting 1-2 hours daily would reach. This catered to most light and medium users while ensuring Dolores could operate without a loss and without raising prices.</p>
+<h1 id="confusion">Confusion</h1>
+<p>The ElevenLabs website records the text content of voice synthesis. I noticed that Dolores’ responses were often adult content, all from female characters, leading me to speculate that Dolores’ paying users were mainly males interested in adult role-playing.</p>
+<p>I didn’t think this was necessarily bad; it’s human nature. I even repeatedly modified prompts, adjusted memory weights, trying to make Dolores more girlfriend-like in conversations. I also changed Dolores’ icon from abstract lines to a woman’s face.</p>
+<p><img decoding="async" loading="lazy" width="1262" height="516" src="/images/2023-11-16/icon-change.jpg" alt=""></p>
+<p>But soon, I was overwhelmed by a strong sense of loss: if most Dolores users were just seeking adult role-play with her, did this really hold any meaning for me? I fell into deep self-doubt. By July, I discussed this confusion with a friend. I said there must be some hardware to give Dolores external vision: glasses, earbuds, or even a hat. As it stood, you could only access her by opening the app, making your relationship unequal. She could only become a toy confined in a basement, satisfying curiosity and peculiar fetishes.</p>
+<p>However, as an independent individual, developing hardware products meant unaffordable high R&amp;D costs, so I had to give up on this idea.</p>
+<p>In August, OpenAI upgraded its content review process. I received a warning email about generated NSFW content: I had to implement their (free) moderation API within two weeks to filter NSFW content. This change caused Dolores’ daily visits to plummet by 70%, and complaints flooded in via email and Twitter.</p>
+<p><img decoding="async" loading="lazy" width="1406" height="1014" src="/images/2023-11-16/OpenAI-email.jpg" alt=""></p>
+<p>This further discouraged me, leading me to decide to only maintain the existing service without updates. Eventually, I abandoned the Dolores project.</p>
+<h1 id="lessons">Lessons</h1>
+<p>First, this isn’t a product that can be developed by an individual. I don’t think Dolores is necessarily inferior to <a target="_blank" rel="noopener" href="http://Character.AI">Character.AI</a> in terms of “consciousness,” but they have comprehensive data tracking, A/B testing, and the data flywheel effect from a large user base.</p>
+<p>Second, I realized that current AI Friends inevitably turn into AI Girlfriends/Boyfriends because you and the character in your phone aren’t equal: she can’t comfort you when you’re hurt (unless you tell her), she can’t actively express emotions to you, and all this is because she lacks external vision, or rather, she doesn’t have a life independent of you. So I believe that even for products like <a target="_blank" rel="noopener" href="http://Character.AI">Character.AI</a>, if they don’t develop hardware in the future and the characters just wait dumbly for users, their ultimate fate won’t be much better than Dolores’.</p>
+<p>Lastly, I’m not against OpenAI’s review process. On the contrary, unreviewed content from virtual companion products can be very dangerous. I don’t know if someone might use it for suicide inducement or as a tool to vent violence, so OpenAI’s moderation may have helped me to some extent. However, conversations about adult sexuality shouldn’t be completely stifled.</p>
+<p>Recently, I saw AI Pin, honestly a very poor product. Humans certainly need screens, but GPT + hardware is indeed a good attempt. I didn’t see any traces of this in Dolores, but perhaps in my lifetime, we’ll be able to create or see such a product.</p>
+<p>But does humanity really need an AI friend?</p>
+
+                            
+            </div>
+            <footer class="article-footer">
+              
+                  
+                      
+            </footer>
+  </div>
+  
+    
+
+<nav id="article-nav">
+  
+    <a href="/sublink" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Retro Link-Sharing in 2023
+        
+      </div>
+    </a>
+  
+  
+    <a href="/dream-en" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Dream
+        
+      </div>
+    </a>
+  
+</nav>
+
+
+      
+</article>
+
+
+    
+</section>
+            
+          </div>
+          <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        &copy; 2026 Ke Fang<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/bill-xia/hexo-theme-mashiro" target="_blank">Mashiro</a><br>
+      
+    </div>
+  </div>
+</footer>
+
+      </div>
+      <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">
+      Home
+    </a>
+    
+    <a href="/about/" class="mobile-nav-link">
+      About
+    </a>
+    
+    <a href="/thoughts/" class="mobile-nav-link">
+      Thoughts
+    </a>
+    
+    <a href="/sound/" class="mobile-nav-link">
+      Sound
+    </a>
+    
+      
+        <a id="nav-rss-link" class="mobile-nav-link" href="/atom.xml"
+          title="RSS Feed">RSS</a>
+        
+</nav>
+
+        <script defer src="js/script.js?v=20260715"></script>
+
+        
+
+
+          <!-- Dark Mode Toggle -->
+          <script>
+            (function() {
+              var darkMode = localStorage.getItem('dark_mode');
+              if (darkMode === null) {
+                darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+              } else {
+                darkMode = darkMode === 'true';
+              }
+              if (darkMode) document.documentElement.classList.add('dark-mode');
+
+              window.toggleDarkMode = function() {
+                darkMode = !darkMode;
+                document.documentElement.classList.toggle('dark-mode', darkMode);
+                localStorage.setItem('dark_mode', darkMode);
+              };
+            })();
+          </script>
+
+          <!-- Language Switch -->
+          <script>
+            let currentLang = localStorage.getItem('blog_language') || ((navigator.language || '').startsWith('zh') ? 'zh' : 'en');
+
+            document.addEventListener('DOMContentLoaded', function () {
+              // 检查是否在首页
+              const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+              const switchBtn = document.querySelector('.lang-switch');
+
+              if (switchBtn) {
+                // 只在首页显示语言切换按钮
+                if (isHomePage) {
+                  switchBtn.style.display = '';
+                  updateLanguageDisplay();
+                  updateSwitchButton();
+                } else {
+                  switchBtn.style.display = 'none';
+                }
+              }
+            });
+
+            function switchLanguage() {
+              // 先切换语言
+              currentLang = currentLang === 'zh' ? 'en' : 'zh';
+              localStorage.setItem('blog_language', currentLang);
+
+              // 更新按钮文本
+              updateSwitchButton();
+
+              // 最后更新显示
+              updateLanguageDisplay();
+            }
+
+            function updateLanguageDisplay() {
+              document.querySelectorAll('.archive-article').forEach(article => {
+                const articleLang = article.getAttribute('data-lang');
+                if (articleLang === currentLang) {
+                  article.style.display = '';
+                } else {
+                  article.style.display = 'none';
+                }
+              });
+            }
+
+            function updateSwitchButton() {
+              const switchBtn = document.querySelector('.lang-switch');
+              if (switchBtn) {
+                switchBtn.textContent = currentLang === 'zh' ? 'EN' : '中文';
+              }
+            }
+          </script>
+
+    </div>
+  </body>
+
+</html>

@@ -746,7 +746,7 @@ a {
   margin: 50px 0;
 }
 .article-inner {
-  overflow: hidden;
+  overflow: visible;
 }
 .article-meta:before,
 .article-meta:after {
@@ -1904,7 +1904,7 @@ html {
   margin: 50px 0;
 }
 .article-inner {
-  overflow: hidden;
+  overflow: visible;
 }
 .article-meta:before,
 .article-meta:after {

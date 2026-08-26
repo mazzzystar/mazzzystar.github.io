@@ -23,11 +23,11 @@
     
 
       <!-- 预加载关键资源 -->
-      <link rel="preload" href="/css/style.css?v=02abbada338b" as="style">
+      <link rel="preload" href="/css/style.css?v=c8acb04fe68e" as="style">
 
       <!-- 预加载首屏字体子集，其他字体懒加载 -->
       <link rel="preload" href="/fonts/subsets/FZSSJW.woff2?v=683824bd" as="font" type="font/woff2" crossorigin>
-      <link rel="stylesheet" href="/css/font-subset.css?v=fe86ade5">
+      <link rel="stylesheet" href="/css/font-subset.css?v=826fbe45">
 
       <!-- 条件加载 MathJax -->
       
@@ -104,7 +104,7 @@
                                                 
 
                                               <!-- Stylesheets -->
-                                              <link rel="stylesheet" href="/css/style.css?v=02abbada338b">
+                                              <link rel="stylesheet" href="/css/style.css?v=c8acb04fe68e">
                                               <link rel="stylesheet" href="/dark-mode.css?v=20260718">
 
                                                   
@@ -313,7 +313,7 @@ A:内存泄漏 B:缓冲区溢出 C:处理能力较低 D:编程效率低下
 <p>这些基础常识当然很重要<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但过分强调<strong>背景知识</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>会让 MMLU 无法衡量模型真正的<strong>语言理解能力</strong>和<strong>逻辑外推能力</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>假如一个孩子因为没学过微积分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>计算不出曲边三角形面积<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们会说他笨吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
 <h4 id="mt-bench">MT-Bench</h4>
 <p>MT-Bench 是一个多轮问题数据集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>被评测的模型需要回复预先设置好的问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并回答下一轮的提问<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但因为是开放式对话<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并不存在确定的标准答案<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型的回答质量由 GPT-4 来审判<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>因此<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>MT-Bench<strong>无法评估比 GPT-4 更强的模型</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时 GPT-4 作为<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>法官<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>可能会<strong>存在偏见</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对某些模型输出打低分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而更偏爱来自 ChatGPT 的回答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>因此<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>MT-Bench<strong>无法评估比 GPT-4 更强的模型</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时 GPT-4 作为“法官”可能会<strong>存在偏见</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对某些模型输出打低分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而更偏爱来自 ChatGPT 的回答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <h4 id="chatbot-arena">Chatbot Arena</h4>
 <p>正是以上评测指标存在的种种问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://lmsys.org/">LMSYS</a> 最终选择了最简单粗暴的方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>打擂台<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <blockquote>

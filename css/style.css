@@ -1080,8 +1080,8 @@ a.article-title:hover {
   border-bottom: none;
 }
 .article-entry blockquote {
-  font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Chinese', biaodian, serif;
-  font-style: italic;
+  font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'ChineseKai', 'ChineseFallback', biaodian, serif;
+  font-style: normal;
   margin: 1.8em 0;
   padding: 0.9em 1.4em;
   border: none;
@@ -1091,6 +1091,11 @@ a.article-title:hover {
   color: #595753;
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+.article-entry blockquote em,
+.article-entry blockquote cite,
+.article-entry blockquote strong {
+  font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Chinese', biaodian, serif;
 }
 .article-entry blockquote p {
   margin: 0;
@@ -2238,8 +2243,8 @@ a.article-title:hover {
   border-bottom: none;
 }
 .article-entry blockquote {
-  font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Chinese', biaodian, serif;
-  font-style: italic;
+  font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'ChineseKai', 'ChineseFallback', biaodian, serif;
+  font-style: normal;
   margin: 1.8em 0;
   padding: 0.9em 1.4em;
   border: none;
@@ -2249,6 +2254,11 @@ a.article-title:hover {
   color: #595753;
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+.article-entry blockquote em,
+.article-entry blockquote cite,
+.article-entry blockquote strong {
+  font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Chinese', biaodian, serif;
 }
 .article-entry blockquote p {
   margin: 0;
@@ -2726,6 +2736,10 @@ html[lang="en"] .article-entry p {
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
+}
+html[lang="en"] .article-entry blockquote {
+  font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Chinese', biaodian, serif;
+  font-style: italic;
 }
 ::selection {
   background: rgba(180,160,120,0.35);

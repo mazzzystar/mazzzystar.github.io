@@ -23,11 +23,11 @@
     
 
       <!-- 预加载关键资源 -->
-      <link rel="preload" href="/css/style.css?v=02abbada338b" as="style">
+      <link rel="preload" href="/css/style.css?v=c8acb04fe68e" as="style">
 
       <!-- 预加载首屏字体子集，其他字体懒加载 -->
       <link rel="preload" href="/fonts/subsets/FZSSJW.woff2?v=683824bd" as="font" type="font/woff2" crossorigin>
-      <link rel="stylesheet" href="/css/font-subset.css?v=fe86ade5">
+      <link rel="stylesheet" href="/css/font-subset.css?v=826fbe45">
 
       <!-- 条件加载 MathJax -->
       
@@ -104,7 +104,7 @@
                                                 
 
                                               <!-- Stylesheets -->
-                                              <link rel="stylesheet" href="/css/style.css?v=02abbada338b">
+                                              <link rel="stylesheet" href="/css/style.css?v=c8acb04fe68e">
                                               <link rel="stylesheet" href="/dark-mode.css?v=20260718">
 
                                                   
@@ -259,7 +259,7 @@
             <div class="e-content article-entry" itemprop="articleBody">
                 
                           <p>写此文的初衷是总结一下这几天玩的东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我比较熟悉对抗生成网络(Generative Adversial Networks<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>GANs)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但对扩散模型(Diffusion Model)则比较陌生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>读了其相关的一些论文后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>打算总结记录一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时也试图站在一个完全不懂 AI 的读者视角解答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span> AI 文字绘画到底怎么做到的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
-<p>因为不是论文阅读笔记<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以会尽可能以<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>How it works?<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的逻辑出发<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>着重在原理和实际怎么做的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其中可能存在不严谨<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>不合理之处<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请谅解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>因为不是论文阅读笔记<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以会尽可能以“How it works?”的逻辑出发<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>着重在原理和实际怎么做的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其中可能存在不严谨<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>不合理之处<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请谅解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>目录<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
 <ul>
 <li>图片是如何被 AI 生成的</li>
@@ -307,7 +307,7 @@
 <p>这里其实有个很有趣的前提<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就是 D 在早期其实也不知道如何辨别真假<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它也在根据 G 的伪造结果一步步学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>正因为它有可能鉴别错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才给 G 提供了可以钻空子的余地<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>倘若一开始 D 就像第 99 代验钞机那么先进<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>G 可能永远摸不着门道如何造假<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直接放弃了(模型崩溃)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <h3 id="diffusion-model">Diffusion Model</h3>
 <p>和 GAN 基于对抗的思路不同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Diffusion Model 想法是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span> <em>给一张真实的图像不断增加高斯噪声<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到它最终的分布就是高斯分布<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后逆序从高斯分布重建这张图<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
-<p>假设 x0 是一张真实图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么不断叠加高斯噪声 T 次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得到的图像序列(x1, x2, …, xt-1, xt)会越来越模糊<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到 xT 完全符合高斯分布<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型学习如何从 xt-&gt;xt-1 的<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>降噪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如下图所示<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p>假设 x0 是一张真实图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么不断叠加高斯噪声 T 次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得到的图像序列(x1, x2, …, xt-1, xt)会越来越模糊<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到 xT 完全符合高斯分布<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型学习如何从 xt-&gt;xt-1 的“降噪”过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如下图所示<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
 <p><img src="https://raw.githubusercontent.com/mazzzystar/tinymind-blog/refs/heads/main/assets/images/2024-12-09/1733747135708.png" alt="Diffusion原理图"></p>
 <h2 id="三怎么用-ai 实现文字绘画">三.怎么用 AI 实现文字绘画</h2>
 <p>截止到目前位置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>无论是 GAN 或是 Diffusion Model<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>都只是一个单纯的图像生成工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>和文字没有任何关系<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>想打造一个根据某段描述文字绘画的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还缺了点东西将二者联接起来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
